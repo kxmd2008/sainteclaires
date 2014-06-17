@@ -10,25 +10,45 @@
         http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"
 	default-autowire="byName">
-	
+
 	<mvc:annotation-driven />
-	
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<!-- i18n -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	<bean id="defaultUrlMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="interceptors" ref="localeChangeInterceptor" />
+		<property name="order">
+			<value>1</value>
+		</property>
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver">
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/plain;charset=UTF-8</value>
 						</list>
 					</property>
 				</bean>
-				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
 			</list>
 		</property>
 	</bean>
-	
-	
+
+
 	<!-- 根据客户端的不同的请求决定不同的view进行响应, 如 /blog/1.json /blog/1.xml -->
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -41,12 +61,9 @@
 		<!-- 扩展名至mimeType的映射,即 /blog.json => application/json -->
 		<property name="mediaTypes">
 			<map>
-				<!--
-				<entry key="html" value="text/html" />
-				<entry key="pdf" value="application/pdf" />
-				<entry key="xsl" value="application/vnd.ms-excel" />
-				<entry key="xml" value="application/xml" />
-				-->
+				<!-- <entry key="html" value="text/html" /> <entry key="pdf" value="application/pdf" 
+					/> <entry key="xsl" value="application/vnd.ms-excel" /> <entry key="xml" 
+					value="application/xml" /> -->
 				<entry key="json" value="application/json" />
 			</map>
 		</property>
@@ -55,7 +72,6 @@
 		<property name="viewResolvers">
 			<list>
 				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
-				<!--
 				<bean
 					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 					<property name="viewClass"
@@ -63,14 +79,14 @@
 					<property name="prefix" value="/pages" />
 					<property name="suffix" value=".jsp"></property>
 				</bean>
-				-->
 			</list>
-			
+
 		</property>
 		<property name="defaultViews">
 			<list>
 				<!-- for application/json -->
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
 				<!-- for application/xml -->
 				<!-- <bean class="org.springframework.web.servlet.view.xml.MarshallingView"> 
 					<property name="marshaller"> <bean class="org.springframework.oxm.xstream.XStreamMarshaller"/> 
