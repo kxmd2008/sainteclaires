@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:ippui="http://infinity.com/bpm/ui/common/uiDefinition" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
         http://www.springframework.org/schema/context   
@@ -34,7 +34,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>com.sainteclaires.base.bean</value>	
+				<value>com.sainteclaires.base.bean</value>
 			</list>
 		</property>
 	</bean>
@@ -45,19 +45,20 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
-	<!-- 	JNDI数据源       -->
+
+	<!-- JNDI数据源 -->
 	<!--<jee:jndi-lookup id="dataSource_jndi" jndi-name="jdbcDataSource" resource-ref="true"/> -->
-	
-	<!-- 	druid数据源       -->
-	<bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+
+	<!-- druid数据源 -->
+	<bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
 		<property name="url" value="${ds.url}" />
 		<property name="username" value="${ds.username}" />
 		<property name="password" value="${ds.password}" />
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="${ds.pool.min}" />
-		<property name="minIdle" value="20" /> 
+		<property name="minIdle" value="20" />
 		<property name="maxActive" value="${ds.pool.max}" />
 		<!-- 配置获取连接等待超时的时间 -->
 		<property name="maxWait" value="60000" />
@@ -71,9 +72,20 @@
 		<property name="testOnReturn" value="false" />
 		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
 		<property name="poolPreparedStatements" value="true" />
-		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="20" />
 		<!-- 配置监控统计拦截的filters -->
 		<property name="filters" value="stat" />
 	</bean>
+
+	<bean id="sqlMapClientFactory" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="/WEB-INF/sqlmap-config.xml" />
+		<property name="dataSource" ref="dataSource_druid" />
+	</bean>
 	
+	<bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient">
+			<ref local="sqlMapClientFactory" />
+		</property>
+	</bean>
 </beans>
