@@ -4,5 +4,5 @@
 <sqlMapConfig>
 	<settings lazyLoadingEnabled="true" useStatementNamespaces="true" />
 	
-	<sqlMap resource="accumCust.sql.xml" />
+	<sqlMap resource="category.sql.xml" />
 </sqlMapConfig>
