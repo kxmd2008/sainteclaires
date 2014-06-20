@@ -20,10 +20,6 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- NGBF Listener for Session -->
-	<listener>
-		<listener-class>com.kingstar.ngbf.s.app.listener.NgbfSessionListener</listener-class>
-	</listener>
 	
 	<!-- Filter Start -->
  	<!-- SpringSecurity必须的filter -->  
