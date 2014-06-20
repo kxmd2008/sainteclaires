@@ -4,15 +4,12 @@
 <sqlMap>
 	<typeAlias alias="category"
 		type="com.sainteclaires.base.bean.Category" />
-	<resultMap class="category" id="categoryMap">
-		<result column="supplier_code" property="supplierCode" />
-	</resultMap>
 	<select id="categoryQuery" parameterClass="category"
-		resultMap="categoryMap" resultClass="category">
+		resultClass="category">
 		select * from category where parentId is not null
 	</select>
 	<select id="subcategoryQuery" parameterClass="category"
-		resultMap="categoryMap" resultClass="category">
+		resultClass="category">
 		select * from category where parentId = #parentId#
 	</select>
 </sqlMap>

@@ -79,7 +79,7 @@
 	</bean>
 
 	<bean id="sqlMapClientFactory" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="/WEB-INF/sqlmap-config.xml" />
+		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 		<property name="dataSource" ref="dataSource_druid" />
 	</bean>
 	
