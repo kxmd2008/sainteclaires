@@ -16,6 +16,7 @@
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
+		<property name="useCodeAsDefaultMessage" value="true" />
 	</bean>
 	<bean id="localeChangeInterceptor"
 		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
@@ -26,8 +27,11 @@
 			<value>1</value>
 		</property>
 	</bean>
+	<!-- <bean id="localeResolver" -->
+	<!-- class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"> -->
+	<!-- </bean> -->
 	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver">
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
 	</bean>
 
 	<bean
@@ -48,16 +52,13 @@
 		</property>
 	</bean>
 
-
 	<!-- 根据客户端的不同的请求决定不同的view进行响应, 如 /blog/1.json /blog/1.xml -->
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<!-- 设置为true以忽略对Accept Header的支持 -->
 		<property name="ignoreAcceptHeader" value="true" />
-
 		<!-- 在没有扩展名时即: "/blog/1" 时的默认展现形式 -->
 		<property name="defaultContentType" value="application/json" />
-
 		<!-- 扩展名至mimeType的映射,即 /blog.json => application/json -->
 		<property name="mediaTypes">
 			<map>
@@ -67,7 +68,6 @@
 				<entry key="json" value="application/json" />
 			</map>
 		</property>
-
 		<property name="favorParameter" value="false" />
 		<property name="viewResolvers">
 			<list>
@@ -76,7 +76,7 @@
 					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 					<property name="viewClass"
 						value="org.springframework.web.servlet.view.JstlView" />
-					<property name="prefix" value="/pages" />
+					<property name="prefix" value="/jsp" />
 					<property name="suffix" value=".jsp"></property>
 				</bean>
 			</list>
