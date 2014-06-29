@@ -22,7 +22,8 @@
 
 	<!-- Spring Bean Auto Scan -->
 	<context:component-scan base-package="org.luis.sainteclaires" />
+	<context:component-scan base-package="org.luis.sainteclaires.base.bean" />
 
 	<import resource="spring-ds.xml" />
-<!-- 	<import resource="spring-aop.xml" /> -->
+<!-- 	<import resource="spring-mvc.xml" /> -->
 </beans>

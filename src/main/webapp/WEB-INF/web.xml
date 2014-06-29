@@ -57,7 +57,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring-rest</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
 	<!-- mime-mapping Start -->
