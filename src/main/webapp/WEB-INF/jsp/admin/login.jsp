@@ -11,13 +11,13 @@
 <meta name="author" content="">
 
 <link rel="stylesheet" type="text/css"
-	href="../../css/bootstrap/css/bootstrap.css">
+	href="../css/bootstrap/css/bootstrap.css">
 
-<link rel="stylesheet" type="text/css" href="../../css/theme.css">
+<link rel="stylesheet" type="text/css" href="../css/theme.css">
 <link rel="stylesheet"
-	href="../../css/font-awesome/css/font-awesome.css">
+	href="../css/font-awesome/css/font-awesome.css">
 
-<script src="../../js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
 
 <style type="text/css">
 #line-chart {
