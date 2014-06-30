@@ -3,7 +3,7 @@
 
 <sqlMap>
 	<typeAlias alias="category"
-		type="org.luis.sainteclaires.base.bean.Category" />
+		type="com.sainteclaires.base.bean.Category" />
 	<select id="categoryQuery" parameterClass="category"
 		resultClass="category">
 		select * from category where parentId is not null

@@ -60,6 +60,16 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+    		<servlet-name>ValidateCodeServlet</servlet-name>
+    		<servlet-class>org.luis.basic.servlet.ValidateCodeServlet
+    	</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    		<servlet-name>ValidateCodeServlet</servlet-name>
+    		<url-pattern>/validateCode</url-pattern>
+	</servlet-mapping>
+	
 	<!-- mime-mapping Start -->
 	<mime-mapping>
 		<extension>xlsx</extension>

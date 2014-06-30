@@ -17,6 +17,7 @@
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
+		<property name="useCodeAsDefaultMessage" value="true" />
 	</bean>
 	<bean id="localeChangeInterceptor"
 		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
@@ -27,8 +28,11 @@
 			<value>1</value>
 		</property>
 	</bean>
+	<!-- <bean id="localeResolver" -->
+	<!-- class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"> -->
+	<!-- </bean> -->
 	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver">
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
 	</bean>
 
 	<bean
@@ -63,6 +67,7 @@
 				<entry key="json" value="application/json" />
 			</map>
 		</property>
+		<property name="favorParameter" value="false" />
 		<property name="defaultViews">
 			<list>
 				<!-- for application/json -->
