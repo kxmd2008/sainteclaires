@@ -67,7 +67,6 @@
 				<entry key="json" value="application/json" />
 			</map>
 		</property>
-		<property name="favorParameter" value="false" />
 		<property name="defaultViews">
 			<list>
 				<!-- for application/json -->
