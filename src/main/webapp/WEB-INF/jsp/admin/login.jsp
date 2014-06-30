@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,16 +48,6 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="../assets/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="../assets/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="../assets/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="../assets/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="../assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
 <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
@@ -72,28 +63,27 @@
 			<ul class="nav pull-right">
 
 			</ul>
-			<a class="brand" href="index.html"><span class="first">Your</span>
-				<span class="second">Company</span></a>
+			<a class="brand" ><span class="first">Your</span>
+				<span class="second ">Company</span></a>
 		</div>
 	</div>
 
 	<div class="row-fluid">
 		<div class="dialog">
 			<div class="block">
-				<p class="block-heading">Sign In</p>
+				<p class="block-heading"><spring:message code="login.admin.title" /></p>
 				<div class="block-body">
-					<form>
-						<label>Username</label> <input type="text" class="span12">
-						<label>Password</label> <input type="password" class="span12">
-						<a href="index.html" class="btn btn-primary pull-right">Sign
-							In</a> <label class="remember-me"><input type="checkbox">
-							Remember me</label>
+					<form action="../auth/login.do" method="post">
+						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12">
+						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12">
+						<input type="submit"   class="btn btn-primary pull-right" value="<spring:message code="login.admin.btn.login" />">
+						
 						<div class="clearfix"></div>
 					</form>
 				</div>
 			</div>
 			<p>
-				<a href="reset-password.html">Forgot your password?</a>
+				<span  style="display: none;"><spring:message code="login.admin.password.error" /></span>
 			</p>
 		</div>
 	</div>
