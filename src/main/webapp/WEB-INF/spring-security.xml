@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:ippui="http://infinity.com/bpm/ui/common/uiDefinition" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:security="http://www.springframework.org/schema/security"  
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
         http://www.springframework.org/schema/context   
@@ -49,7 +50,7 @@
 		id="passwordEncoder" />
 
 	<!-- 通过 customUserDetailsService,Spring会自动的用户的访问级别. 也可以理解成:以后我们和数据库操作就是通过customUserDetailsService来进行关联. -->
-	<bean id="customUserDetailsService" class="com.sainteclaires.base.security.UserDetailServiceImpl" />
+	<bean id="customUserDetailsService" class="org.luis.sainteclaires.base.security.UserDetailServiceImpl" />
 
 
 </beans>
