@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"></jsp:include>
 <style type="text/css">
         #line-chart {
@@ -60,26 +61,68 @@
         </div>
     </div>
     <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Orders</a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Order<span class="label label-info">+3</span></a>
+        <c:if test="${collapse=='order'}">
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="unsettledOrders.jsp">待处理订单</a></li>
-            <li ><a href="orders.jsp">订单查询</a></li>
-            <li ><a href="user.html">订单统计</a></li>
+        </c:if>
+        <c:if test="${collapse!='order'}">
+        <ul id="dashboard-menu" class="nav nav-list collapse">
+        </c:if>
+        	<c:if test="${active=='unsettledOrders'}">
+            <li class="active"><a href="unsettledOrders.do">待处理订单</a></li>
+            </c:if>
+            <c:if test="${active!='unsettledOrders'}">
+            <li><a href="unsettledOrders.do">待处理订单</a></li>
+            </c:if>
+            <c:if test="${active=='orders'}">
+            <li class="active"><a href="orders.do">订单查询</a></li>
+            </c:if>
+            <c:if test="${active!='orders'}">
+            <li ><a href="orders.do">订单查询</a></li>
+            </c:if>
+<!--             <li ><a href="orderStat.do">订单统计</a></li> -->
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Account<span class="label label-info">+3</span></a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Category</a>
+      	 <c:if test="${collapse=='category'}">
+        <ul id="accounts-menu" class="nav nav-list collapse in">
+        </c:if>
+        <c:if test="${collapse!='category'}">
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">Sign In</a></li>
-            <li ><a href="sign-up.html">Sign Up</a></li>
-            <li ><a href="reset-password.html">Reset Password</a></li>
-        </ul>
+        </c:if>
+        	<c:if test="${active=='categorys'}">
+            <li class="active"><a href="categorys.do">Category List</a></li>
+            </c:if>
+            <c:if test="${active!='categorys'}">
+            <li ><a href="categorys.do">Category List</a></li>
+            </c:if>
+            <c:if test="${active=='categoryAdd'}">
+            <li class="active"><a href="categoryAdd.do">Add Category</a></li>
+            </c:if>
+            <c:if test="${active!='categoryAdd'}">
+            <li ><a href="categoryAdd.do">Add Category</a></li>
+            </c:if>
+        </ul> 
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Product</a>
+       <c:if test="${collapse=='product'}">
+        <ul id="error-menu" class="nav nav-list collapse in">
+         </c:if>
+        <c:if test="${collapse!='product'}">
         <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">403 page</a></li>
-            <li ><a href="404.html">404 page</a></li>
-            <li ><a href="500.html">500 page</a></li>
-            <li ><a href="503.html">503 page</a></li>
+         </c:if>
+         	 <c:if test="${active=='products'}">
+            <li class="active"><a href="products.do">Product List</a></li>
+            </c:if>
+            <c:if test="${active!='products'}">
+            <li ><a href="products.do">Product List</a></li>
+            </c:if>
+             <c:if test="${active=='productAdd'}">
+            <li class="active"><a href="productAdd.do">Add Product</a></li>
+            </c:if>
+            <c:if test="${active!='productAdd'}">
+            <li ><a href="productAdd.do">Add Product</a></li>
+            </c:if>
         </ul>
 
         <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>

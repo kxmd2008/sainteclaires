@@ -35,7 +35,7 @@
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">hhhhh</h1>
+		<h1 class="page-title">待处理订单</h1>
 	</div>
 
 	<ul class="breadcrumb">
@@ -176,7 +176,7 @@
 
 
 
-<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$("[rel=tooltip]").tooltip();
 	$(function() {
