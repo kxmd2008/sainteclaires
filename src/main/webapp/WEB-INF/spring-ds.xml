@@ -34,7 +34,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>com.sainteclaires.base.bean</value>
+				<value>org.luis.sainteclaires.base.bean</value>
 			</list>
 		</property>
 	</bean>
