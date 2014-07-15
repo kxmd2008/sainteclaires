@@ -26,5 +26,5 @@
 	<context:component-scan base-package="org.luis.sainteclaires.base.bean" />
 
 	<import resource="spring-ds.xml" />
-	<import resource="spring-security.xml" />
+<!-- 	<import resource="spring-security.xml" /> -->
 </beans>
