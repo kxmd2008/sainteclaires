@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<a class="btn btn-primary" href="categoryAdd.do">
+				<a class="btn btn-primary" href="<%=basePath%>/auth/categoryAdd.do">
 					<i class="icon-plus"></i> New Category
 				</a>
 				<div class="btn-group"></div>
