@@ -35,23 +35,20 @@
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">hhhhh</h1>
+		<h1 class="page-title">产品管理</h1>
 	</div>
 
 	<ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Users</li>
+		<li><a href="#">Home</a> <span class="divider">/</span></li>
+		<li class="active">Products</li>
 	</ul>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-
 			<div class="btn-toolbar">
 				<button class="btn btn-primary">
-					<i class="icon-plus"></i> New User
+					<i class="icon-plus"></i> New Product
 				</button>
-				<button class="btn">Import</button>
-				<button class="btn">Export</button>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
@@ -59,7 +56,7 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>First Name</th>
+							<th>Product Name</th>
 							<th>Last Name</th>
 							<th>Username</th>
 							<th style="width: 26px;"></th>

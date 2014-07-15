@@ -60,17 +60,12 @@
 			</div>
 			<div class="well ">
 				<form id="tab">
-					<label>Category Name</label> 
+					<label>Parent Category</label> 
 					<input type="text" value="" class="input-xlarge"> 
-					<label>First Name</label> 
+					<label>Category Name</label> 
 					<input type="text" value="" class="input-xlarge"> 
 					<label>Last Name</label> 
 					<input type="text" value="" class="input-xlarge"> 
-					<label>Email</label>
-					<input type="text" value="" class="input-xlarge"> 
-					<label>Address</label>
-					<textarea value="Smith" rows="3" class="input-xlarge">
-        			</textarea>
 				</form>
 			</div>
 

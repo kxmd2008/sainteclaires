@@ -39,21 +39,12 @@
 	</div>
 
 	<ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Users</li>
+		<li><a href="#">Home</a> <span class="divider">/</span></li>
+		<li class="active">Orders</li>
 	</ul>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-
-			<div class="btn-toolbar">
-				<button class="btn btn-primary">
-					<i class="icon-plus"></i> New User
-				</button>
-				<button class="btn">Import</button>
-				<button class="btn">Export</button>
-				<div class="btn-group"></div>
-			</div>
 			<div class="well">
 				<table class="table">
 					<thead>
