@@ -2,13 +2,15 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%-- <jsp:include page="head.jsp"></jsp:include> --%>
-<link rel="stylesheet" type="text/css"
-	href="../css/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../css/theme.css">
-<link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css">
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
-
+<!-- <link rel="stylesheet" type="text/css" -->
+<!-- 	href="../css/bootstrap/css/bootstrap.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../css/theme.css"> -->
+<!-- <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css"> -->
+<!-- <script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script> -->
+<%
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
+%>
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -41,7 +43,7 @@
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">Edit Category</h1>
+		<h1 class="page-title">New Category</h1>
 	</div>
 
 	<ul class="breadcrumb">
@@ -53,19 +55,19 @@
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<button class="btn btn-primary">
+				<button class="btn btn-primary" onclick="saveCategory();">
 					<i class="icon-save"></i> Save
 				</button>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well ">
-				<form id="tab">
+				<form id="tab" action="<%=basePath%>/auth/category/add.do" method="post">
 					<label>Parent Category</label> 
-					<input type="text" value="" class="input-xlarge"> 
+					<input type="text" value="" class="input-xlarge" name="parentId"> 
 					<label>Category Name</label> 
-					<input type="text" value="" class="input-xlarge"> 
-					<label>Last Name</label> 
-					<input type="text" value="" class="input-xlarge"> 
+					<input type="text" value="" class="input-xlarge" name="name"> 
+					<label>Order</label> 
+					<input type="text" value="" class="input-xlarge" name="orderNo"> 
 				</form>
 			</div>
 
@@ -109,9 +111,8 @@
 	</div>
 </div>
 
-
-
-<script src="../js/bootstrap.min.js"></script>
+<%-- <script src="<%=basePath%>/js/bootstrap.min.js"></script> --%>
+<script src="<%=basePath%>/js/admin/main.js"></script>
 <script type="text/javascript">
 	$("[rel=tooltip]").tooltip();
 	$(function() {

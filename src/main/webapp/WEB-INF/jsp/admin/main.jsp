@@ -3,6 +3,10 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"></jsp:include>
+<%
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
+%>
 <style type="text/css">
         #line-chart {
             height:300px;
@@ -26,7 +30,6 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-</head>
 
 <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
 <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
@@ -69,16 +72,16 @@
         <ul id="dashboard-menu" class="nav nav-list collapse">
         </c:if>
         	<c:if test="${active=='unsettledOrders'}">
-            <li class="active"><a href="unsettledOrders.do">待处理订单</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/unsettledOrders.do">待处理订单</a></li>
             </c:if>
             <c:if test="${active!='unsettledOrders'}">
-            <li><a href="unsettledOrders.do">待处理订单</a></li>
+            <li><a href="<%=basePath%>/auth/unsettledOrders.do">待处理订单</a></li>
             </c:if>
             <c:if test="${active=='orders'}">
-            <li class="active"><a href="orders.do">订单查询</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/orders.do">订单查询</a></li>
             </c:if>
             <c:if test="${active!='orders'}">
-            <li ><a href="orders.do">订单查询</a></li>
+            <li ><a href="<%=basePath%>/auth/orders.do">订单查询</a></li>
             </c:if>
 <!--             <li ><a href="orderStat.do">订单统计</a></li> -->
         </ul>
@@ -91,16 +94,16 @@
         <ul id="accounts-menu" class="nav nav-list collapse">
         </c:if>
         	<c:if test="${active=='categorys'}">
-            <li class="active"><a href="categorys.do">Category List</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/categorys.do">Category List</a></li>
             </c:if>
             <c:if test="${active!='categorys'}">
-            <li ><a href="categorys.do">Category List</a></li>
+            <li ><a href="<%=basePath%>/auth/categorys.do">Category List</a></li>
             </c:if>
             <c:if test="${active=='categoryAdd'}">
-            <li class="active"><a href="categoryAdd.do">Add Category</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/categoryAdd.do">Add Category</a></li>
             </c:if>
             <c:if test="${active!='categoryAdd'}">
-            <li ><a href="categoryAdd.do">Add Category</a></li>
+            <li ><a href="<%=basePath%>/auth/categoryAdd.do">Add Category</a></li>
             </c:if>
         </ul> 
 
@@ -112,16 +115,16 @@
         <ul id="error-menu" class="nav nav-list collapse">
          </c:if>
          	 <c:if test="${active=='products'}">
-            <li class="active"><a href="products.do">Product List</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/products.do">Product List</a></li>
             </c:if>
             <c:if test="${active!='products'}">
-            <li ><a href="products.do">Product List</a></li>
+            <li ><a href="<%=basePath%>/auth/products.do">Product List</a></li>
             </c:if>
              <c:if test="${active=='productAdd'}">
-            <li class="active"><a href="productAdd.do">Add Product</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/productAdd.do">Add Product</a></li>
             </c:if>
             <c:if test="${active!='productAdd'}">
-            <li ><a href="productAdd.do">Add Product</a></li>
+            <li ><a href="<%=basePath%>/auth/productAdd.do">Add Product</a></li>
             </c:if>
         </ul>
 
@@ -134,8 +137,6 @@
         <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>Help</a>
         <a href="faq.html" class="nav-header" ><i class="icon-comment"></i>Faq</a>
     </div>
-	<script src="../js/bootstrap.min.js"></script>
-  </body>
-</html>
+	<script src="<%=basePath%>/js/bootstrap.min.js"></script>
 
 

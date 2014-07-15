@@ -2,7 +2,10 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%-- <jsp:include page="head.jsp"></jsp:include> --%>
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<%
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
+%>
 <style type="text/css">
 #line-chart {
 	height: 300px;

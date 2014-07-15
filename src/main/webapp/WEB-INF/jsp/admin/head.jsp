@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +15,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../css/theme.css">
-<link rel="stylesheet"  href="../css/font-awesome/css/font-awesome.css">
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/theme.css">
+<link rel="stylesheet"  href="<%=basePath%>/css/font-awesome/css/font-awesome.css">
+<script src="<%=basePath%>/js/jquery-1.8.1.min.js" type="text/javascript"></script>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,9 +29,5 @@
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<body class="">
-	<!--<![endif]-->
-  </body>
-</html>
 
 

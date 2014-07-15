@@ -1,4 +1,8 @@
 
+function saveCategory(){
+	$("#tab").submit();;
+}
+
 function buildBtnBar(){
 	var btnBar = $('<div></div>').addclass("btn-toolbar");
 	return btnBar;

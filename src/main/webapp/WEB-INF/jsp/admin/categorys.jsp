@@ -2,8 +2,10 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <jsp:include page="head.jsp"></jsp:include> --%>
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<%
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
+%>
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -141,7 +143,7 @@
 
 
 
-<script src="../js/bootstrap.min.js"></script>
+<!-- <script src="../js/bootstrap.min.js"></script> -->
 <script type="text/javascript">
 	$("[rel=tooltip]").tooltip();
 	$(function() {
