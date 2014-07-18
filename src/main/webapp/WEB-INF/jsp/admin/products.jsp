@@ -38,23 +38,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">hhhhh</h1>
+		<h1 class="page-title">产品管理</h1>
 	</div>
 
 	<ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Users</li>
+		<li><a href="#">Home</a> <span class="divider">/</span></li>
+		<li class="active">产品</li>
 	</ul>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-
 			<div class="btn-toolbar">
 				<button class="btn btn-primary">
-					<i class="icon-plus"></i> New User
+					<i class="icon-plus"></i> 新增产品
 				</button>
-				<button class="btn">Import</button>
-				<button class="btn">Export</button>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
@@ -62,67 +59,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
+							<th>产品名称</th>
+							<th>产品价格</th>
+							<th>产品库存</th>
+							<th>状态</th>
 							<th style="width: 26px;"></th>
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach items="${products }"  var="product"  varStatus="status">
 						<tr>
-							<td>1</td>
-							<td>Mark</td>
-							<td>Tompson</td>
-							<td>the_mark7</td>
+							<td>${status.index + 1}</td>
+							<td>${product.name}</td>
+							<td>${product.price}</td>
+							<td>${product.status}</td>
 							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
 								href="#myModal" role="button" data-toggle="modal"><i
 									class="icon-remove"></i></a></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Ashley</td>
-							<td>Jacobs</td>
-							<td>ash11927</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Audrey</td>
-							<td>Ann</td>
-							<td>audann84</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>John</td>
-							<td>Robinson</td>
-							<td>jr5527</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Aaron</td>
-							<td>Butler</td>
-							<td>aaron_butler</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Chris</td>
-							<td>Albert</td>
-							<td>cab79</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -155,8 +110,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<button class="btn btn-danger" data-dismiss="modal">Delete</button>
 				</div>
 			</div>
-
-
 
 			<footer>
 				<hr>
