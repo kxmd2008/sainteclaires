@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%-- <jsp:include page="head.jsp"></jsp:include> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<jsp:include page="head.jsp"></jsp:include>
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -28,11 +32,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	font-weight: bold;
 }
 </style>
-
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+</head>
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body>
 <jsp:include page="main.jsp"></jsp:include>
 
 <div class="content">
@@ -41,17 +51,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h1 class="page-title">产品管理</h1>
 	</div>
 
-	<ul class="breadcrumb">
-		<li><a href="#">Home</a> <span class="divider">/</span></li>
-		<li class="active">产品</li>
-	</ul>
-
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<button class="btn btn-primary">
+				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd.do">
 					<i class="icon-plus"></i> 新增产品
-				</button>
+				</a>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
@@ -60,6 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<th>#</th>
 							<th>产品名称</th>
+							<th>所属类别</th>
 							<th>产品价格</th>
 							<th>产品库存</th>
 							<th>状态</th>
@@ -70,6 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<c:forEach items="${products }"  var="product"  varStatus="status">
 						<tr>
 							<td>${status.index + 1}</td>
+							<td>${product.parentId}</td>
 							<td>${product.name}</td>
 							<td>${product.price}</td>
 							<td>${product.status}</td>
@@ -92,18 +99,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 
-			<div class="modal small hide fade" id="myModal" tabindex="-1"
-				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal medium hide fade" id="catModel" tabindex="-1"
+				role="dialog" aria-labelledby="catLabel" aria-hidden="true">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">×</button>
-					<h3 id="myModalLabel">Delete Confirmation</h3>
+					<h3 id="catLabel">新增产品</h3>
 				</div>
 				<div class="modal-body">
-					<p class="error-text">
-						<i class="icon-warning-sign modal-icon"></i>Are you sure you want
-						to delete the user?
-					</p>
+					
+					
 				</div>
 				<div class="modal-footer">
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
@@ -141,5 +146,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	});
 </script>
-
+  </body>
+</html>
 

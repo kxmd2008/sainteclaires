@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%-- <jsp:include page="head.jsp"></jsp:include> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<jsp:include page="head.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/my.css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -33,6 +38,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body>
 <jsp:include page="main.jsp"></jsp:include>
 
 <div class="content">
@@ -40,11 +56,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="header">
 		<h1 class="page-title">新增产品</h1>
 	</div>
-
-	<ul class="breadcrumb">
-		<li><a href="#">Home</a> <span class="divider">/</span></li>
-		<li class="active">产品</li>
-	</ul>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
@@ -56,6 +67,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="well ">
 				<form id="tab" action="<%=basePath%>/auth/category/add.do" method="post">
+				<div class="dropdown" style="width: 285px">
+			            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
+			               href="javascript:;"> 选择类别 <span class="caret"></span>
+			            </a>
+			            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+<!-- 			                <li><a href="javascript:;">一级菜单</a></li> -->
+<!-- 			                <li class="divider"></li> -->
+							<c:forEach var="pcat" items="${parents}">
+			                <li class="dropdown-submenu">
+			                    <a tabindex="-1" href="javascript:;">${pcat.name }</a>
+			                    <ul class="dropdown-menu">
+			                    	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
+			                        <li><a tabindex="-1" href="javascript:;">${subcat.name }</a></li>
+			                        </c:forEach>
+			                    </ul>
+			                </li>
+			                </c:forEach>
+			            </ul>
+			        </div>
 					<label>产品名称</label> 
 					<input type="text" value="" class="input-xlarge" name="name"> 
 					<label>产品价格</label> 
@@ -100,5 +130,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	});
 </script>
-
+  </body>
+</html>
 

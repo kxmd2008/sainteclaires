@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,8 +64,8 @@
 			<ul class="nav pull-right">
 
 			</ul>
-			<a class="brand" ><span class="first">Your</span>
-				<span class="second ">Company</span></a>
+			<a class="brand" ><span class="first"></span>
+				<span class="second ">Sainteclaire Management System</span></a>
 		</div>
 	</div>
 
@@ -74,16 +75,17 @@
 				<p class="block-heading"><spring:message code="login.admin.title" /></p>
 				<div class="block-body">
 					<form action="../auth/login.do" method="post">
-						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12">
-						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12">
+						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12" name="loginName" value="">
+						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12" name="password" value="">
 						<input type="submit"   class="btn btn-primary pull-right" value="<spring:message code="login.admin.btn.login" />">
-						
 						<div class="clearfix"></div>
 					</form>
 				</div>
 			</div>
 			<p>
-				<span  style="display: none;"><spring:message code="login.admin.password.error" /></span>
+				<c:if test="${errorMsg != null &&  errorMsg != ''}">
+				<span style="color:red;"><spring:message code="${errorMsg}" /></span>
+				</c:if>
 			</p>
 		</div>
 	</div>
