@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </button>
             {% } %}
             {% if (!i) { %}
-                <button class="btn btn-warning cancel" >
+                <button class="btn btn-warning cancel" onclick="cancel(this)">
                     <i class="glyphicon glyphicon-ban-circle"></i>
                     <span>Cancel</span>
                 </button>

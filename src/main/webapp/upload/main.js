@@ -31,3 +31,9 @@ $(function () {
     });
 
 });
+
+
+function cancel(o){
+	$(o).parent().parent().remove();
+}
+
