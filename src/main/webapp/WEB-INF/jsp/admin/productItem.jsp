@@ -150,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <strong class="error text-danger"></strong>
         </td>
         <td style="vertical-align: middle;">
-			<p class="size">Processing...</p
+            <p class="size">Processing...</p>
             <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress bar-success" style="width:0%;"></div></div>
         </td>
         <td style="vertical-align: middle;">
