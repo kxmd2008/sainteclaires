@@ -10,6 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
 <jsp:include page="head.jsp"></jsp:include>
+<link rel="stylesheet" href="<%=basePath%>/css/bootstrap-multiselect.css" type="text/css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -31,6 +32,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	color: #fff;
 	font-weight: bold;
 }
+
+input {
+	margin-right: 50px;
+}
+
+select {
+	margin-bottom: 10px;
+}
+
+.btn-group{
+	width:220px;
+	margin-bottom: 10px;
+}
 </style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -42,7 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<body>
+<body class=""> 
+  <!--<![endif]-->
 <jsp:include page="main.jsp"></jsp:include>
 
 <div class="content">
@@ -54,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd.do">
+				<a class="btn btn-primary" href="#" role="button" data-toggle="modal" onclick="showDlg('新增产品')">
 					<i class="icon-plus"></i> 新增产品
 				</a>
 				<div class="btn-group"></div>
@@ -73,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${products }"  var="product"  varStatus="status">
+						<c:forEach items="${products}"  var="product"  varStatus="status">
 						<tr>
 							<td>${status.index + 1}</td>
 							<td>${product.parentId}</td>
@@ -99,37 +114,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 
-			<div class="modal medium hide fade" id="catModel" tabindex="-1"
-				role="dialog" aria-labelledby="catLabel" aria-hidden="true">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<h3 id="catLabel">新增产品</h3>
-				</div>
-				<div class="modal-body">
-					
-					
-				</div>
-				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-					<button class="btn btn-danger" data-dismiss="modal">Delete</button>
-				</div>
-			</div>
+<!-- 			<div class="modal medium hide fade" id="productModel" tabindex="-1" -->
+<!-- 				role="dialog" aria-labelledby="productLabel" aria-hidden="true" style="width: 600px;"> -->
+<!-- 				<div class="modal-header"> -->
+<!-- 					<button type="button" class="close" data-dismiss="modal" -->
+<!-- 						aria-hidden="true">×</button> -->
+<!-- 					<h3 id="productLabel">新增产品</h3> -->
+<!-- 				</div> -->
+<!-- 				<div class="modal-body" style="min-height: 400px;"> -->
+<!-- 					<form class="form-horizontal" role="form"> -->
+<!-- 					<fieldset> -->
+<!-- 					<select id="cats" multiple="multiple"> -->
+<%-- 						<c:forEach var="pcat" items="${parents}"> --%>
+<%-- 						<optgroup label="${pcat.name}"> --%>
+<%-- 							<c:forEach var="subcat" items="${subcatMap[pcat.id]}"> --%>
+<%-- 							<option value="${subcat.id}">${subcat.name }</option> --%>
+<%-- 							</c:forEach> --%>
+<!-- 						</optgroup> -->
+<%-- 						</c:forEach> --%>
+<!-- 					</select> -->
+<!-- 				        <input type="hidden" id="category" value=""> -->
+<!-- 							<input type="text" value="" id="name" placeholder="产品名称"> -->
+<!-- 							</diCv>  -->
+<!-- 						<input type="number" value="" step="0.1" min="1" name="price" id="price" placeholder="产品价格">  -->
+<!-- 						<input value="" type="number" min="0" name="num" id="num" placeholder="产品库存">  -->
 
-			<footer>
-				<hr>
+<!-- 						<input value="" type="number" min="0" name="xnum" id="xnum" placeholder="X尺码库存">  -->
+<!-- 						<input value="" type="number" min="0" name="xnum" id="x1num" placeholder="X1尺码库存">  -->
+<!-- 						<input value="" type="number" min="0" name="xnum" id="x2num" placeholder="X2尺码库存">  -->
+<!-- 						<label for="isnew" class="control-label">是否新品 <input type="checkbox" id="isnew" ></label> -->
+<!-- 				</div> -->
+<!-- 				<div class="modal-footer"> -->
+<!-- 					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button> -->
+<!-- 					<button class="btn btn-danger" data-dismiss="modal" onclick="saveProduct();">保存</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-				<!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-				<p class="pull-right">
-					A <a href="http://www.portnine.com/bootstrap-themes"
-						target="_blank">Free Bootstrap Theme</a> by <a
-						href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
+<!-- 			<footer> -->
+<!-- 				<hr> -->
+<!-- 				Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
+<!-- 				<p class="pull-right"> -->
+<!-- 					A <a href="http://www.portnine.com/bootstrap-themes" -->
+<!-- 						target="_blank">Free Bootstrap Theme</a> by <a -->
+<!-- 						href="http://www.portnine.com" target="_blank">Portnine</a> -->
+<!-- 				</p> -->
 
-				<p>
-					&copy; 2012 <a href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
-			</footer>
+<!-- 				<p> -->
+<!-- 					&copy; 2012 <a href="http://www.portnine.com" target="_blank">Portnine</a> -->
+<!-- 				</p> -->
+<!-- 			</footer> -->
 
 		</div>
 	</div>
@@ -137,8 +170,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
+<script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+	    multiSelect('选择类别', 'cats');
+	    multiSelect('产品尺码', 'productSize');
+	});
+	
+	function multiSelect(txt, id){
+		var value = '';
+        $("#"+id).multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText : txt,
+            selectAllValue: value,
+            buttonWidth : '220px',
+            selectAllText : '全选'
+        });
+        return false;
+	}
+	
 	$("[rel=tooltip]").tooltip();
 	$(function() {
 		$('.demo-cancel-click').click(function() {

@@ -11,6 +11,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <jsp:include page="head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/my.css">
+<link rel="stylesheet" href="<%=basePath%>/css/bootstrap-multiselect.css" type="text/css">
+<!-- blueimp Gallery styles -->
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload.css">
+<link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-ui.css">
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-ui-noscript.css"></noscript>
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -48,7 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<body>
+<body class=""> 
+  <!--<![endif]-->
 <jsp:include page="main.jsp"></jsp:include>
 
 <div class="content">
@@ -66,7 +75,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="btn-group"></div>
 			</div>
 			<div class="well ">
-				<form id="tab" action="<%=basePath%>/auth/category/add.do" method="post">
 				<div class="dropdown" style="width: 285px">
 			            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
 			               href="javascript:;"> 选择类别 <span class="caret"></span>
@@ -87,48 +95,174 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            </ul>
 			        </div>
 					<label>产品名称</label> 
-					<input type="text" value="" class="input-xlarge" name="name"> 
+					<input type="text" name="name" placeholder="产品名称"> 
 					<label>产品价格</label> 
-					<input type="text" value="" class="input-xlarge" name="price"> 
+					<input type="number" step="0.1" min="1" id="price" placeholder="产品价格"> 
 					<label>产品库存</label> 
-					<input type="text" value="" class="input-xlarge" name="num"> 
+					<input type="number" min="1" id="num" placeholder="产品库存"> 
 					<label>产品尺码</label> 
-					<select multiple name="productSize" id="productSize" class="input-xlarge">
-						<option value="">X</option>
-						<option value="">X1</option>
-						<option value="">X2</option>
-					</select>
-				</form>
+					<input value="" type="number" min="0" id="xnum" placeholder="X尺码库存"> 
+					<input value="" type="number" min="0" id="x1num" placeholder="X1尺码库存"> 
+					<input value="" type="number" min="0" id="x2num" placeholder="X2尺码库存"> 
+					<label></label>
+					<textarea rows="3" cols="4" placeholder="产品描述"></textarea>
+					<input type="checkbox" id="isnew" >是否新品
+					<form id="fileupload" action="<%=basePath%>/auth/upload.do" method="post" enctype="multipart/form-data">
+						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
+				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+				        <div class="fileupload-buttonbar">
+				            <div>
+				                <!-- The fileinput-button span is used to style the file input field as button -->
+				                <span class="btn btn-success fileinput-button">
+				                    <i class="glyphicon glyphicon-plus"></i>
+				                    <span>上传图片...</span>
+				                    <input type="file" name="files" multiple>
+				                </span>
+				            </div>
+				            <!-- The global progress state -->
+				            <div class="col-lg-5 fileupload-progress fade">
+				                <!-- The global progress bar -->
+				                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+				                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+				                </div>
+				                <!-- The extended global progress state -->
+				                <div class="progress-extended" >&nbsp;</div>
+				            </div>
+				        </div>
+				        <!-- The table listing the files available for upload/download -->
+				        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+					</form>
 			</div>
-			<footer>
-				<hr>
-
-				<!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-				<p class="pull-right">
-					A <a href="http://www.portnine.com/bootstrap-themes"
-						target="_blank">Free Bootstrap Theme</a> by <a
-						href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
-
-				<p>
-					&copy; 2012 <a href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
-			</footer>
-
+			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
 
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td style="vertical-align: middle;">
+            <span class="preview"></span>
+        </td>
+        <td style="vertical-align: middle;">
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td style="vertical-align: middle;">
+			<p class="size">Processing...</p
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress bar-success" style="width:0%;"></div></div>
+        </td>
+        <td style="vertical-align: middle;">
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel" >
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">
+                {% if (file.url) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                {% } else { %}
+                    <span>{%=file.name%}</span>
+                {% } %}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            {% if (file.deleteUrl) { %}
+                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>Delete</span>
+                </button>
+                <input type="checkbox" name="delete" value="1" class="toggle">
+            {% } else { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
 
-
-<script src="../js/bootstrap.min.js"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="<%=basePath%>/upload/vendor/jquery.ui.widget.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="<%=basePath%>/upload/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="<%=basePath%>/upload/load-image.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="<%=basePath%>/upload/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="<%=basePath%>/upload/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<%=basePath%>/upload/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="<%=basePath%>/upload/jquery.fileupload-ui.js"></script>
+<!-- The main application script -->
+<script src="<%=basePath%>/upload/main.js"></script>
+<script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
+<script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">
-	$("[rel=tooltip]").tooltip();
-	$(function() {
-		$('.demo-cancel-click').click(function() {
-			return false;
-		});
-	});
+	$(document).ready(function() {
+		var build = function(select) {
+			var value = 'selectAllValue';
+            select.multiselect({
+                includeSelectAllOption: true,
+                selectAllValue: value
+            });
+	        return false;
+	    }($('#productSize'));
+	})
+// 	$("[rel=tooltip]").tooltip();
+// 	$(function() {
+// 		$('.demo-cancel-click').click(function() {
+// 			return false;
+// 		});
+// 	});
 </script>
   </body>
 </html>
