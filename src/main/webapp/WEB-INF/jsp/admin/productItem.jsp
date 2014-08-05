@@ -119,15 +119,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                    <input type="file" name="files" multiple>
 				                </span>
 				            </div>
-				            <!-- The global progress state -->
-				            <div class="col-lg-5 fileupload-progress fade">
-				                <!-- The global progress bar -->
-				                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-				                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
-				                </div>
-				                <!-- The extended global progress state -->
-				                <div class="progress-extended" >&nbsp;</div>
-				            </div>
 				        </div>
 				        <!-- The table listing the files available for upload/download -->
 				        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
