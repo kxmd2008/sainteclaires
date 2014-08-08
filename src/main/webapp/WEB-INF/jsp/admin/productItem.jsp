@@ -11,7 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <jsp:include page="head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/my.css">
-<link rel="stylesheet" href="<%=basePath%>/css/bootstrap-multiselect.css" type="text/css">
 <!-- blueimp Gallery styles -->
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload.css">
@@ -69,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<button class="btn btn-primary" onclick="saveCategory();">
+				<button class="btn btn-primary" onclick="saveProduct();">
 					<i class="icon-save"></i> 保存
 				</button>
 				<div class="btn-group"></div>
@@ -105,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input value="" type="number" min="0" id="x1num" placeholder="X1尺码库存"> 
 					<input value="" type="number" min="0" id="x2num" placeholder="X2尺码库存"> 
 					<label></label>
-					<textarea rows="3" cols="4" placeholder="产品描述"></textarea>
+					<textarea rows="3" cols="4" placeholder="产品描述" style="width:430px"></textarea>
 					<input type="checkbox" id="isnew" >是否新品
 					<form id="fileupload" action="<%=basePath%>/auth/upload.do" method="post" enctype="multipart/form-data">
 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
@@ -235,19 +234,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/upload/jquery.fileupload-ui.js"></script>
 <!-- The main application script -->
 <script src="<%=basePath%>/upload/main.js"></script>
-<script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
 <script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		var build = function(select) {
-			var value = 'selectAllValue';
-            select.multiselect({
-                includeSelectAllOption: true,
-                selectAllValue: value
-            });
-	        return false;
-	    }($('#productSize'));
-	})
+// 	$(document).ready(function() {
+// 		var build = function(select) {
+// 			var value = 'selectAllValue';
+//             select.multiselect({
+//                 includeSelectAllOption: true,
+//                 selectAllValue: value
+//             });
+// 	        return false;
+// 	    }($('#productSize'));
+// 	})
 // 	$("[rel=tooltip]").tooltip();
 // 	$(function() {
 // 		$('.demo-cancel-click').click(function() {

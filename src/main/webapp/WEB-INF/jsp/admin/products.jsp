@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
 <jsp:include page="head.jsp"></jsp:include>
-<link rel="stylesheet" href="<%=basePath%>/css/bootstrap-multiselect.css" type="text/css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -69,7 +68,7 @@ select {
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<a class="btn btn-primary" href="#" role="button" data-toggle="modal" onclick="showDlg('新增产品')">
+				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd.do">
 					<i class="icon-plus"></i> 新增产品
 				</a>
 				<div class="btn-group"></div>
@@ -150,46 +149,14 @@ select {
 <!-- 				</div> -->
 <!-- 			</div> -->
 
-<!-- 			<footer> -->
-<!-- 				<hr> -->
-<!-- 				Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-<!-- 				<p class="pull-right"> -->
-<!-- 					A <a href="http://www.portnine.com/bootstrap-themes" -->
-<!-- 						target="_blank">Free Bootstrap Theme</a> by <a -->
-<!-- 						href="http://www.portnine.com" target="_blank">Portnine</a> -->
-<!-- 				</p> -->
-
-<!-- 				<p> -->
-<!-- 					&copy; 2012 <a href="http://www.portnine.com" target="_blank">Portnine</a> -->
-<!-- 				</p> -->
-<!-- 			</footer> -->
-
+			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
 
-
-
 <script src="<%=basePath%>/js/bootstrap.min.js"></script>
-<script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
 <script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-	    multiSelect('选择类别', 'cats');
-	    multiSelect('产品尺码', 'productSize');
-	});
-	
-	function multiSelect(txt, id){
-		var value = '';
-        $("#"+id).multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText : txt,
-            selectAllValue: value,
-            buttonWidth : '220px',
-            selectAllText : '全选'
-        });
-        return false;
-	}
 	
 	$("[rel=tooltip]").tooltip();
 	$(function() {
