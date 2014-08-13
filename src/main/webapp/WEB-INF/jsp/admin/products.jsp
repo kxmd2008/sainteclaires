@@ -82,7 +82,7 @@ select {
 							<th>所属类别</th>
 							<th>产品价格</th>
 							<th>产品库存</th>
-							<th>状态</th>
+<!-- 							<th>状态</th> -->
 							<th style="width: 26px;"></th>
 						</tr>
 					</thead>
@@ -90,11 +90,12 @@ select {
 						<c:forEach items="${products}"  var="product"  varStatus="status">
 						<tr>
 							<td>${status.index + 1}</td>
-							<td>${product.parentId}</td>
 							<td>${product.name}</td>
+							<td>${product.categoryName}</td>
 							<td>${product.price}</td>
-							<td>${product.status}</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
+							<td>${product.num}</td>
+<%-- 							<th>${product.status}</th> --%>
+							<td><a href="productEdit.do?id=${product.id}"><i class="icon-pencil"></i></a> <a
 								href="#myModal" role="button" data-toggle="modal"><i
 									class="icon-remove"></i></a></td>
 						</tr>

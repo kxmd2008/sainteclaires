@@ -1,3 +1,51 @@
+
+var URL = "/";
 function saveProduct(){
-	
+	var name = $("#name").val();
+	var price = $("#price").val();
+	var num = $("#num").val();
+	var meses06 = $("#meses06").val();
+	var meses09 = $("#meses09").val();
+	var meses12 = $("#meses12").val();
+	var meses18 = $("#meses18").val();
+	var meses24 = $("#meses24").val();
+	var desc = $("#desc").val();
+	var isnew = $("#isnew").val() == 'on' ? true : false;
+	var cateId = $("#cateId").val();
+	var pics = "";
+	$("#pics").children().each(function(i, tr){
+//		pics[i] = $(tr).find("p").html();
+		pics += $(tr).find("p").html()+",";
+	});
+	var d = {
+		"categoryId" : cateId,	
+		"categoryName" : $("#cateName").val(),	
+		"name" : name,	
+		"price" : price,	
+		"num" : num,	
+		"meses06" : meses06,	
+		"meses09" : meses09,	
+		"meses12" : meses12,	
+		"meses18" : meses18,	
+		"meses24" : meses24,	
+		"description" : desc,	
+		"isnew" : isnew,	
+		"pics" : pics	
+	};
+	alert(tostring(d));
+	$.post("product/add.do", d, function(data){
+		if(data.head.rep_code == '200'){
+			location.href = "auth/products.do";
+		}
+	});
+}
+
+function selectCate(id, name){
+	$("#cateId").val(id);
+	$("#cateName").val(name);
+	$("#catLabel").html(name);
+}
+
+function tostring(json){
+	return JSON.stringify(json);
 }

@@ -75,8 +75,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="well ">
 				<div class="dropdown" style="width: 285px">
-			            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
-			               href="javascript:;"> 选择类别 <span class="caret"></span>
+			            <a role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
+			               href="javascript:;"><span id="catLabel">选择类别</span> <span class="caret"></span>
 			            </a>
 			            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
 <!-- 			                <li><a href="javascript:;">一级菜单</a></li> -->
@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                    <a tabindex="-1" href="javascript:;">${pcat.name }</a>
 			                    <ul class="dropdown-menu">
 			                    	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-			                        <li><a tabindex="-1" href="javascript:;">${subcat.name }</a></li>
+			                        <li><a tabindex="-1" href="javascript:selectCate(${subcat.id },'${subcat.name }');">${subcat.name }</a></li>
 			                        </c:forEach>
 			                    </ul>
 			                </li>
@@ -94,18 +94,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            </ul>
 			        </div>
 					<label>产品名称</label> 
-					<input type="text" name="name" placeholder="产品名称"> 
+					<input type="text" id="name" value="${vo.name }" placeholder="产品名称"> 
 					<label>产品价格</label> 
-					<input type="number" step="0.1" min="1" id="price" placeholder="产品价格"> 
+					<input type="number" step="0.1" min="1" value="${vo.price }" id="price" placeholder="产品价格"> 
 					<label>产品库存</label> 
-					<input type="number" min="1" id="num" placeholder="产品库存"> 
+					<input type="number" min="1" id="num" value="${vo.num }" placeholder="产品库存"> 
 					<label>产品尺码</label> 
-					<input value="" type="number" min="0" id="xnum" placeholder="X尺码库存"> 
-					<input value="" type="number" min="0" id="x1num" placeholder="X1尺码库存"> 
-					<input value="" type="number" min="0" id="x2num" placeholder="X2尺码库存"> 
+					<input value="${vo.meses06 }" type="number" min="0" id="meses06" placeholder="06尺码库存"> 
+					<input value="${vo.meses09 }" type="number" min="0" id="meses09" placeholder="09尺码库存"> 
+					<input value="${vo.meses12 }" type="number" min="0" id="meses12" placeholder="12尺码库存"> 
+					<input value="${vo.meses18 }" type="number" min="0" id="meses18" placeholder="18尺码库存"> 
+					<input value="${vo.meses24 }" type="number" min="0" id="meses24" placeholder="24尺码库存"> 
 					<label></label>
-					<textarea rows="3" cols="4" placeholder="产品描述" style="width:430px"></textarea>
-					<input type="checkbox" id="isnew" >是否新品
+					<textarea rows="3" cols="4" placeholder="产品描述" id="desc" style="width:240px">${vo.description }</textarea>
+					<input type="checkbox" id="isnew"  
+						<c:if test="${vo.isNew}">
+							checked="checked"
+						</c:if>
+					>是否新品
 					<form id="fileupload" action="<%=basePath%>/auth/upload.do" method="post" enctype="multipart/form-data">
 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
 				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -120,14 +126,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				            </div>
 				        </div>
 				        <!-- The table listing the files available for upload/download -->
-				        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+				        <table role="presentation" class="table table-striped"><tbody class="files" id="pics"></tbody></table>
 					</form>
 			</div>
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
-
+<input type="hidden" id="cateId">
+<input type="hidden" id="cateName">
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
