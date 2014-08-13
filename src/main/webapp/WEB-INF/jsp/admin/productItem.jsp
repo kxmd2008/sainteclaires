@@ -76,7 +76,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="well ">
 				<div class="dropdown" style="width: 285px">
 			            <a role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
-			               href="javascript:;"><span id="catLabel">选择类别</span> <span class="caret"></span>
+			               href="javascript:;"><span id="catLabel">
+			      			<c:choose>
+								<c:when test="${vo.id != null }">${vo.categoryName }</c:when>
+								<c:otherwise>选择类别</c:otherwise>
+							</c:choose>         
+			               </span> <span class="caret"></span>
 			            </a>
 			            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
 <!-- 			                <li><a href="javascript:;">一级菜单</a></li> -->
