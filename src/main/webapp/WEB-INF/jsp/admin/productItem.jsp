@@ -18,6 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- CSS adjustments for browsers with JavaScript disabled -->
 <noscript><link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-ui-noscript.css"></noscript>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jcarousel.basic.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.nailthumb.1.0.min.css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -38,6 +40,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .brand .second {
 	color: #fff;
 	font-weight: bold;
+}
+.wrapper {
+    max-width: 620px;
+    padding: 0 20px 40px 20px;
+    margin: auto;
+}
+.bhoriz {
+	width: 300px;
+	height: 200px;
 }
 </style>
 
@@ -111,14 +122,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input value="${vo.meses18 }" type="number" min="0" id="meses18" placeholder="18尺码库存"> 
 					<input value="${vo.meses24 }" type="number" min="0" id="meses24" placeholder="24尺码库存"> 
 					<label></label>
-					<textarea rows="3" cols="4" placeholder="产品描述" id="desc" style="width:240px">${vo.description }</textarea>
-					<input type="checkbox" id="isnew"  
+					<textarea rows="3" cols="4" placeholder="产品描述" id="desc" style="width:240px" >${vo.description }</textarea>
+					<input type="checkbox" id="isNew"  
 						<c:if test="${vo.isNew}">
 							checked="checked"
 						</c:if>
 					>是否新品
+					<!--产品图片展示 -->
+					<div class="wrapper" 
+						<c:if test="${vo.id == null }">
+							style="display: none"
+						</c:if>
+					>
+			            <div class="jcarousel-wrapper">
+			                <div class="jcarousel" >
+			                    <ul>
+			                    	<c:forEach var="pic" items="${vo.picList }">
+<%-- 			                    	<li class="thumbwrapper bhoriz"> <a href="#"><img src="<%=basePath%>/${pic}"  /></a></li> --%>
+			                        <li class="bhoriz"><img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}"></li>
+			                    	</c:forEach>
+			                    </ul>
+			                </div>
+			                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+			                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+			                <p class="jcarousel-pagination">
+			                </p>
+			            </div>
+			        </div>
 					<form id="fileupload" action="<%=basePath%>/auth/upload.do" method="post" enctype="multipart/form-data">
-						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
+<!-- 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
 				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 				        <div class="fileupload-buttonbar">
 				            <div>
@@ -131,15 +163,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				            </div>
 				        </div>
 				        <!-- The table listing the files available for upload/download -->
-				        <table role="presentation" class="table table-striped"><tbody class="files" id="pics"></tbody></table>
+				        <table role="presentation" class="table table-striped"><tbody class="files" id="files"></tbody></table>
 					</form>
 			</div>
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
-<input type="hidden" id="cateId">
-<input type="hidden" id="cateName">
+
+<input type="hidden" id="pics" value="${vo.pics }">
+<input type="hidden" id="productId" value="${vo.id }">
+<input type="hidden" id="cateId" value="${vo.categoryId }">
+<input type="hidden" id="cateName" value="${vo.categoryName }">
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -215,7 +250,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
 {% } %}
 </script>
-
+<script type="text/javascript" src="<%=basePath%>/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/jcarousel.basic.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/jquery.nailthumb.1.0.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<%=basePath%>/upload/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->

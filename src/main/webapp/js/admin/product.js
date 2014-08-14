@@ -10,10 +10,10 @@ function saveProduct(){
 	var meses18 = $("#meses18").val();
 	var meses24 = $("#meses24").val();
 	var desc = $("#desc").val();
-	var isnew = $("#isnew").val() == 'on' ? true : false;
+	var isNew = $("#isNew").val() == 'on' ? true : false;
 	var cateId = $("#cateId").val();
-	var pics = "";
-	$("#pics").children().each(function(i, tr){
+	var pics = $("#pics").val();
+	$("#files").children().each(function(i, tr){
 //		pics[i] = $(tr).find("p").html();
 		pics += $(tr).find("p").html()+",";
 	});
@@ -29,13 +29,16 @@ function saveProduct(){
 		"meses18" : meses18,	
 		"meses24" : meses24,	
 		"description" : desc,	
-		"isnew" : isnew,	
+		"isNew" : isNew,	
 		"pics" : pics	
 	};
-	alert(tostring(d));
-	$.post("product/add.do", d, function(data){
+	var id = $("#productId").val();
+	if(id){
+		d["id"] = id;
+	}
+	$.post("product/save.do", d, function(data){
 		if(data.head.rep_code == '200'){
-			location.href = "auth/products.do";
+			location.href = "products.do";
 		}
 	});
 }
