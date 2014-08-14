@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path; 
 %>
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<jsp:include page="head.jsp"></jsp:include>
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -28,11 +32,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	font-weight: bold;
 }
 </style>
-
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+</head>
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body>
 <jsp:include page="main.jsp"></jsp:include>
 
 <div class="content">
@@ -155,38 +165,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<button class="btn btn-danger" data-dismiss="modal">Delete</button>
 				</div>
 			</div>
-
-
-
-			<footer>
-				<hr>
-
-				<!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-				<p class="pull-right">
-					A <a href="http://www.portnine.com/bootstrap-themes"
-						target="_blank">Free Bootstrap Theme</a> by <a
-						href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
-
-				<p>
-					&copy; 2012 <a href="http://www.portnine.com" target="_blank">Portnine</a>
-				</p>
-			</footer>
-
+			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
 
-
-
 <script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$("[rel=tooltip]").tooltip();
-	$(function() {
-		$('.demo-cancel-click').click(function() {
-			return false;
-		});
-	});
-</script>
-
+  </body>
+</html>
 
