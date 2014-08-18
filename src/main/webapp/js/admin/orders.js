@@ -1,18 +1,4 @@
 $(document).ready(function() {
-//    $('#ordersTable').dataTable( {
-////    	"processing": true,
-//    	"bSort": false,
-//		"serverSide": true,
-//		"ajax": {
-//            "url": "scripts/post.php",
-//            "type": "POST"
-//        },
-//        "columns": [
-//            { "data": "name" },
-//            { "data": "position" },
-//            { "data": "salary" }
-//        ]
-//    } );
 	addTableInfo();
 } );
 var fvTable ;
@@ -23,7 +9,7 @@ function addTableInfo(){
         fvTable.fnDraw();     //重新加载数据
 　　　    //fvTable.fnAdjustColumnSizing(); //重新判断列宽度，实际执行并没有效果　
      }else{
-    	fvTable = $('#ordersTable').dataTable({
+    	fvTable = $('#orders').dataTable({
 		"processing" : true,
 		"serverSide" : true,
 		"sAjaxDataProp" : "data",
@@ -45,7 +31,7 @@ function addTableInfo(){
 			"sProcessing" : "Loading......",
 //			            "sLengthMenu": "每页显示 _MENU_ 条记录",
 			"sLengthMenu":"Show_MENU_Rows",
-			"sZeroRecords" : "对不起，查询不到相关数据！",
+			"sZeroRecords" : "No matching records found",
 			"sEmptyTable" : "No Data！",
 			//            "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
 			//            "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
@@ -58,9 +44,11 @@ function addTableInfo(){
 ////				"sLast" : "尾页"
 //			}
 		},
+//		"bSearchable":true,
+//		"bStateSave":true,
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
-			"url" : "unsettledOrders/find.do",
+			"url" : "orders/find.do",
 			"type" : "GET"
 		},
 		"columns" : [
@@ -87,20 +75,21 @@ function addTableInfo(){
 			 "targets": [5],
 			 "data":"status",
 			"render":function (data,type,row) {
-				if(data == 1){
-					return "已付款未发送";
+				if(data == 0){
+					return "<font color='#7761A7'>待付款</font>";
+				}else if(data == 1){
+					return "<font color='red'>已付款未处理</font>";
+				}else if(data == 2){
+					return "<font color='blue'>已发送</font>";
+				}else if(data ==3){
+					return "<font color='green'>已收货</font>";
 				}
-                return row; 
-			}
-		 },
-		{
-			 "targets": [6],
-			 "data":"id",
-			"render":function (data,type,row) {
-                return "<a href='javascript:deal("+data+")' >发货</a>"; 
 			}
 		 }]
 	});
+//    	Datarow[] dr=dt.select("条件");
+    	DataTable dt;
+//    	DataTable newdt=dt.DefaultView.ToTable(true, new string[]{"id"});
     }
 }
 /**
@@ -108,10 +97,10 @@ function addTableInfo(){
  * @param data
  * @returns
  */
-function deal(id){
-	$.get("unsettledOrders/send.do?id="+id+"/",function(data){
-		if(data.head.rep_code == 200){
-			addTableInfo();
-		}
-	});
-}
+//function deal(id){
+//	$.get("unsettledOrders/send.do?id="+id,function(data){
+//		if(data.head.rep_code == 200){
+//			addTableInfo();
+//		}
+//	});
+//}

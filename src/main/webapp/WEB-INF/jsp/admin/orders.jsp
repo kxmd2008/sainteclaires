@@ -10,6 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
 <jsp:include page="head.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap-responsiv.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/dataTables.bootstra.css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -60,83 +63,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<button class="btn btn-primary">
+				<!-- <button class="btn btn-primary">
 					<i class="icon-plus"></i> New User
 				</button>
 				<button class="btn">Import</button>
-				<button class="btn">Export</button>
+				<button class="btn">Export</button> -->
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
-				<table class="table">
+				<table class="table table-striped table-bordered table-hover datatable" id="orders">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
-							<th style="width: 26px;"></th>
+							<th>订单号</th>
+							<th>客户帐号</th>
+							<th>下单时间</th>
+							<th>付款时间</th>
+							<th>订单金额</th>
+							<th>订单状态</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Mark</td>
-							<td>Tompson</td>
-							<td>the_mark7</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Ashley</td>
-							<td>Jacobs</td>
-							<td>ash11927</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Audrey</td>
-							<td>Ann</td>
-							<td>audann84</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>John</td>
-							<td>Robinson</td>
-							<td>jr5527</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Aaron</td>
-							<td>Butler</td>
-							<td>aaron_butler</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Chris</td>
-							<td>Albert</td>
-							<td>cab79</td>
-							<td><a href="user.html"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
+						
 					</tbody>
 				</table>
 			</div>
-			<div class="pagination">
+			<!-- <div class="pagination">
 				<ul>
 					<li><a href="#">Prev</a></li>
 					<li><a href="#">1</a></li>
@@ -145,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><a href="#">4</a></li>
 					<li><a href="#">Next</a></li>
 				</ul>
-			</div>
+			</div> -->
 
 			<div class="modal small hide fade" id="myModal" tabindex="-1"
 				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -170,7 +121,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/js/jquery.dataTables.js"></script>
+<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/js/dataTables.bootstrap.js"></script>
+<script src="<%=basePath%>/js/admin/orders.js"></script>
   </body>
 </html>
 

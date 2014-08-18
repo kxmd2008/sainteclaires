@@ -58,20 +58,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<button class="btn btn-primary">
-					<i class="icon-plus"></i> New User
-				</button>
-				<div class="btn-group"></div>
+<!-- 				<button class="btn btn-primary"> -->
+<!-- 					<i class="icon-plus"></i> New User -->
+<!-- 				</button> -->
+<!-- 				<div class="btn-group"></div> -->
 			</div>
 			<div class="well">
 				<table class="table table-striped table-bordered table-hover datatable" id="ordersTable">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
-							<th style="width: 26px;"></th>
+<!-- 							<th>#</th> -->
+							<th>订单号</th>
+							<th>客户帐号</th>
+							<th>下单时间</th>
+							<th>付款时间</th>
+							<th>订单金额</th>
+							<th>订单状态</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 				</table>
