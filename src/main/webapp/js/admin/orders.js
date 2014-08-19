@@ -88,7 +88,7 @@ function addTableInfo(){
 		 }]
 	});
 //    	Datarow[] dr=dt.select("条件");
-    	DataTable dt;
+//    	DataTable dt;
 //    	DataTable newdt=dt.DefaultView.ToTable(true, new string[]{"id"});
     }
 }

@@ -63,10 +63,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<!-- <button class="btn btn-primary">
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				   <input type="text" class="form-control" id="order_no" placeholder="订单号">
+				  </div>
+				  <div class="form-group">
+				   <input type="text" class="form-control" id="account_no" placeholder="客户号">
+				  </div>
+				</form>
+				 <button class="btn btn-primary">
 					<i class="icon-plus"></i> New User
 				</button>
-				<button class="btn">Import</button>
+				<!--<button class="btn">Import</button>
 				<button class="btn">Export</button> -->
 				<div class="btn-group"></div>
 			</div>
