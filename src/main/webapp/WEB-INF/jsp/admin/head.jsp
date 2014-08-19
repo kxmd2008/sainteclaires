@@ -12,6 +12,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/theme.css">
 <link rel="stylesheet"  href="<%=basePath%>/css/font-awesome/css/font-awesome.css">
-<script src="<%=basePath%>/js/jquery-1.8.1.min.js" type="text/javascript"></script>
-
+<script src="<%=basePath%>/js/jquery.js" type="text/javascript"></script>
 
