@@ -6625,12 +6625,17 @@ ul.timeline li > .date {
   padding: 0 !important;
 }
 .tree .title {
-  padding: 20px;
+  padding: 0px 15px;
 }
 .treeview label {
-  font-weight: 400;
+/*   font-weight: 400; */
+  font-weight : bold;
+  font-size : 15px;
   margin: 0;
   padding: 7px 18px;
+/*   padding-top : 1px; */
+/*   padding-bottom : 1px; */
+  padding-left : 30px;
   display: block;
   border-bottom: 0px solid #E5E5E5;
 }
@@ -6646,6 +6651,8 @@ ul.timeline li > .date {
 }
 .treeview ul li {
   border-bottom: 0px solid #E5E5E5;
+  padding-left: 10px;
+  font-weight: bold;
 }
 .treeview ul li a {
   padding-top: 5px;
@@ -7570,7 +7577,6 @@ ul.timeline li > .date {
   .form-horizontal.group-border-dashed .form-group label {
     margin-bottom: 7px;
   }
-  
   
   .login-container .middle-login {
     left: auto;

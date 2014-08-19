@@ -73,30 +73,70 @@
 								</ul></li>
 						</ul>
 						<ul class="nav navbar-nav not-nav">
-							<li class="button dropdown"><a href="javascript:;"
-								class="dropdown-toggle" data-toggle="dropdown"><i
-									class=" fa fa-inbox"></i></a></li>
-							<li class="button dropdown"><a href="javascript:;"
-								class="dropdown-toggle" data-toggle="dropdown"><i
-									class="fa fa-globe"></i><span class="bubble">2</span></a></li>
-							<li class="button"><a class="dropdown-toggle"
-								href="javascript:;"><i class="fa fa-comments"></i></a></li>
+							<div style="margin-left:20px;"></div>
+							<li class="button dropdown"><a href="javascript:;">
+								<img src="<%=basePath%>/common/image/icon_weibo_24.png"></a>
+							</li>
+							<li class="button dropdown"><a href="javascript:;">
+								<img src="<%=basePath%>/common/image/icon_weibo_24.png"></a>
+							</li>
+							<li class="button dropdown"><a href="javascript:;">
+								<img src="<%=basePath%>/common/image/icon_weibo_24.png"></a>
+							</li>
+							<li class="button dropdown"><a href="javascript:;">
+								<img src="<%=basePath%>/common/image/icon_weibo_24.png"></a>
+							</li>
 						</ul>
 
 					</div>
 				</div>
 			</div>
 
-
 			<div class="cl-mcont aside">
 				<div class="page-aside tree">
 					<div class="nano nscroller has-scrollbar">
 						<div class="content" tabindex="0" style="right: -17px;">
 							<div class="title">
-								<h2>Tree View</h2>
+								<img alt="Sainte Claire" title="Sainte Claire" src="<%=basePath%>/common/image/logo_txt.png">
 							</div>
 							<ul class="nav nav-list treeview">
 								<li class="open"><label class="tree-toggler nav-header">
+										General</label>
+									<ul class="nav nav-list tree" style="display: block;">
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li><label class="tree-toggler nav-header"><i
+												class="fa fa-folder-o"></i> Structure</label>
+											<ul class="nav nav-list tree">
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+												<li><label class="tree-toggler nav-header"><i
+														class="fa fa-folder-o"></i> Plugins</label>
+													<ul class="nav nav-list tree">
+														<li><a href="#">Link</a></li>
+														<li><a href="#">Link</a></li>
+													</ul></li>
+											</ul></li>
+									</ul></li>
+									<li class="open"><label class="tree-toggler nav-header">
+										General</label>
+									<ul class="nav nav-list tree" style="display: block;">
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li><label class="tree-toggler nav-header"><i
+												class="fa fa-folder-o"></i> Structure</label>
+											<ul class="nav nav-list tree">
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+												<li><label class="tree-toggler nav-header"><i
+														class="fa fa-folder-o"></i> Plugins</label>
+													<ul class="nav nav-list tree">
+														<li><a href="#">Link</a></li>
+														<li><a href="#">Link</a></li>
+													</ul></li>
+											</ul></li>
+									</ul></li>
+									<li class="open"><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: block;">
 										<li><a href="#">Link</a></li>
