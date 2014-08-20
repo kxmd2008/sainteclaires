@@ -203,6 +203,9 @@
      });
 
    });
+   $(function(){
+	   $("body").css('background-image','url(images/IMG_8543.JPG)');
+	  });
 </script>
 
 <%-- 	<script type="text/javascript" src="<%=basePath%>/js/jquery.flot.js"></script> --%>
