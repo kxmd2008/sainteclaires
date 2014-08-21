@@ -52,10 +52,39 @@
 	font: 10px arial, san serif;
 	text-align: left;
 }
+
+body {
+	position: absolute;
+	background-repeat: no-repeat;
+	left: 0px; top : 0px;
+	z-index: 0;
+	background-size: cover;
+	top: 0px;
+}
+
+.strange {
+	position: absolute;
+	background-repeat: no-repeat;
+	left: 0px; top : 0px;
+	z-index: 0;
+	background-size: cover;
+	top: 0px;
+}
+
+.alert {
+	filter: alpha(opacity = 0); /* IE */
+	-moz-opacity: 0.0; /* Moz + FF */
+	opacity: 1.0;
+	background: #ccc;
+	position: absolute;
+	z-index: 99;
+	text-align: center;
+}
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
-	<div id="cl-wrapper" style="opacity: 1; margin-left: 0px;">
+<!-- 	<img src="images/Desert.jpg" class="stretch" id="bodyBgImg"> -->
+	<div id="cl-wrapper" class="strange" style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
 			<div id="head-nav" class="navbar navbar-default">
 				<div class="container-fluid">
@@ -161,16 +190,12 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="content">
 					<h3 class="text-center">Content goes here!</h3>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
-
 <script src="<%=basePath%>/js/jquery.js"></script>
 <script src="<%=basePath%>/js/jquery.cookie.js"></script>
 <script src="<%=basePath%>/js/jPushMenu.js"></script>
@@ -182,30 +207,46 @@
 <script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
 
 <script  type="text/javascript">
-   var link = $('link[href="css/style.css"]');
-   if($.cookie("css")) {
-     link.attr("href",'css/skin-' + $.cookie("css") + '.css');
-   }
+//    var link = $('link[href="css/style.css"]');
+//    if($.cookie("css")) {
+//      link.attr("href",'css/skin-' + $.cookie("css") + '.css');
+//    }
  </script> <script  type="text/javascript">
    $(document).ready(function(){
-     $('label.tree-toggler').click(function () {
-       var icon = $(this).children(".fa");
-         if(icon.hasClass("fa-folder-o")){
-           icon.removeClass("fa-folder-o").addClass("fa-folder-open-o");
-         }else{
-           icon.removeClass("fa-folder-open-o").addClass("fa-folder-o");
-         }        
-         
-       $(this).parent().children('ul.tree').toggle(300,function(){
-         $(this).parent().toggleClass("open");
-         $(".tree .nscroller").nanoScroller({ preventPageScrolling: true });
-       });
-     });
-
+	   $('label.tree-toggler').click(function () {
+	       var icon = $(this).children(".fa");
+	         if(icon.hasClass("fa-folder-o")){
+	           icon.removeClass("fa-folder-o").addClass("fa-folder-open-o");
+	         }else{
+	           icon.removeClass("fa-folder-open-o").addClass("fa-folder-o");
+	         }        
+	         
+	       $(this).parent().children('ul.tree').toggle(300,function(){
+	         $(this).parent().toggleClass("open");
+	         $(".tree .nscroller").nanoScroller({ preventPageScrolling: true });
+	       });
+	     });
+     setInterval("intervalChangeImg()",2000);
    });
-   $(function(){
-	   $("body").css('background-image','url(images/IMG_8543.JPG)');
-	  });
+   
+	var imgs = [ "images/Chrysanthemum.jpg", "images/Desert.jpg",
+			"images/Hydrangeas.jpg", "images/Jellyfish.jpg",
+			"images/Koala.jpg", "images/Lighthouse.jpg",
+			"images/Penguins.jpg", "images/Tulips.jpg" ];
+	var index = 0;
+	function intervalChangeImg() {
+// 		$("#bodyBgImg").attr("src", imgs[index]);
+// 		$("body").css('background-image', 'url('+imgs[index]+')')
+		$("#cl-wrapper").css("background-image", 'url('+imgs[index]+')');
+		if (index == imgs.length - 1) {
+			index = 0;
+		} else {
+			index++;
+		}
+	}
+	//    $(function() {
+	// 		$("body").css('background-image', 'url(images/Desert.jpg)').addClass("bodybg");
+	// 	});
 </script>
 
 <%-- 	<script type="text/javascript" src="<%=basePath%>/js/jquery.flot.js"></script> --%>
