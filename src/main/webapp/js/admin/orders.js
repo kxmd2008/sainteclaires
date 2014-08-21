@@ -1,13 +1,23 @@
+var fvTable ;
+var orderNo="" ;
+var customerNo="" ;
 $(document).ready(function() {
+	orderNo = $("#order_no").val();
+	customerNo = $("#account_no").val();
 	addTableInfo();
 } );
-var fvTable ;
 function addTableInfo(){
 	//为了避免多次初始化datatable()
-	if (typeof fvTable != 'undefined' && fvTable != null) { 
-        fvTable.fnClearTable(0); //清空数据
+	if(typeof fvTable != 'undefined' && fvTable != null) { 
+		var data = {
+			"orderNo" : orderNo,
+			"customerNo":customerNo
+		};
+//		fvTable.ajax.data = data;
+        fvTable.fnClearTable(false); //清空数据 ，false少调用一个后台
+//        oTable.fnSettings().sAjaxSource='/you.action?date='+date; 
+        fvTable.fnSettings().ajax.data = data;   //点击按钮事件后
         fvTable.fnDraw();     //重新加载数据
-　　　    //fvTable.fnAdjustColumnSizing(); //重新判断列宽度，实际执行并没有效果　
      }else{
     	fvTable = $('#orders').dataTable({
 		"processing" : true,
@@ -16,8 +26,8 @@ function addTableInfo(){
 		"bPaginite" : true, //使用分页  bPaginate
 		//        "sPaginationType": "full_numbers",
 		"bAutoWidth" : true,
-		"bFilter" : true, //不使用搜索 
-		"bLengthChange" : true, //是否启用设置每页显示记录数 
+		"bFilter" : false, //不使用搜索 
+		"bLengthChange" : false, //是否启用设置每页显示记录数 
 		"bSort" : true, //是否使用排序 
 		"aaSorting": [ [ 0, "asc"]], 
 		"bInfo" : false, //是否显示表格的一些信息
@@ -49,8 +59,19 @@ function addTableInfo(){
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
 			"url" : "orders/find.do",
-			"type" : "GET"
+			"data" : {
+				"orderNo" : orderNo,
+				"customerNo":customerNo
+			},
+			"type" : "POST",
+			"dataType":"json"  ,
+//			"data":"orderNo="+orderNo+"&customerNo="+customerNo,
 		},
+//		"sServerMethod": "POST",   
+//		"sAjaxSource": "orders/find.do",
+//		"fnServerParams": function (aoData) {  
+//			            aoData.push({"orderNo": orderNo, "customerNo":customerNo});  
+//		}, 
 		"columns" : [
 		{
 			"data" : "orderNo"
@@ -93,14 +114,14 @@ function addTableInfo(){
     }
 }
 /**
- * 将未处理的订单改为【已发送】
- * @param data
- * @returns
+ * 点击搜索按钮，搜索
  */
-//function deal(id){
-//	$.get("unsettledOrders/send.do?id="+id,function(data){
-//		if(data.head.rep_code == 200){
-//			addTableInfo();
-//		}
-//	});
-//}
+function search(){
+	alert("aaaaaaaaaa");
+	orderNo = $("#order_no").val();
+	customerNo = $("#account_no").val();
+	alert("orderNo="+orderNo);
+	alert("customerNo="+customerNo);
+	//先清空数据，然后重新加载
+	addTableInfo();
+}

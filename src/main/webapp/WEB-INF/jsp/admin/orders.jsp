@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container-fluid">
 		<div class="row-fluid">
 
-			<div class="btn-toolbar">
+<!-- 			<div class="btn-toolbar"> -->
 				<form class="form-inline" role="form">
 				  <div class="form-group">
 				   <input type="text" class="form-control" id="order_no" placeholder="订单号">
@@ -70,14 +70,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <div class="form-group">
 				   <input type="text" class="form-control" id="account_no" placeholder="客户号">
 				  </div>
-				</form>
-				 <button class="btn btn-primary">
+				  <button class="btn btn-primary" type="button" onclick="javascript:search();"> <!-- onclick="javascript:search(); -->
 					<i class="icon-plus"></i> New User
-				</button>
-				<!--<button class="btn">Import</button>
+				  </button>
+				</form>
+				
+				<!-- <button class="btn">Import</button>
 				<button class="btn">Export</button> -->
 				<div class="btn-group"></div>
-			</div>
+<!-- 			</div> -->
 			<div class="well">
 				<table class="table table-striped table-bordered table-hover datatable" id="orders">
 					<thead>
