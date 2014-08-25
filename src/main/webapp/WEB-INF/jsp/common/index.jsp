@@ -109,59 +109,23 @@
 								<img alt="Sainte Claire" title="Sainte Claire" src="<%=basePath%>/common/image/logo_txt.png">
 							</div>
 							<ul class="nav nav-list treeview">
-								<li class="open"><label class="tree-toggler nav-header">
+								<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
-									<li class="open"><label class="tree-toggler nav-header">
+									<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
-									<li class="open"><label class="tree-toggler nav-header">
+									<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
 							</ul>
 						</div>
@@ -305,21 +269,7 @@
 //    }
  </script> <script  type="text/javascript">
    $(document).ready(function(){
-	   $('label.tree-toggler').click(function () {
-	       var icon = $(this).children(".fa");
-	         if(icon.hasClass("fa-folder-o")){
-	           icon.removeClass("fa-folder-o").addClass("fa-folder-open-o");
-	         }else{
-	           icon.removeClass("fa-folder-open-o").addClass("fa-folder-o");
-	         }        
-	         
-	       $(this).parent().children('ul.tree').toggle(300,function(){
-	         $(this).parent().toggleClass("open");
-	         $(".tree .nscroller").nanoScroller({ preventPageScrolling: true });
-	       });
-	     });
-// $('label.tree-toggler').click(treeToggler);
-	   
+		$('label.tree-toggler').click(treeToggler);
 //      setInterval("intervalChangeImg()",2000);
    });
    

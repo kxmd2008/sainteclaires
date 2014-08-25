@@ -107,59 +107,23 @@
 									src="<%=basePath%>/common/image/logo_txt.png">
 							</div>
 							<ul class="nav nav-list treeview">
-								<li class="open"><label class="tree-toggler nav-header">
+								<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
-								<li class="open"><label class="tree-toggler nav-header">
+								<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
-								<li class="open"><label class="tree-toggler nav-header">
+								<li class=""><label class="tree-toggler nav-header">
 										General</label>
 									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-										<li><label class="tree-toggler nav-header"><i
-												class="fa fa-folder-o"></i> Structure</label>
-											<ul class="nav nav-list tree">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><label class="tree-toggler nav-header"><i
-														class="fa fa-folder-o"></i> Plugins</label>
-													<ul class="nav nav-list tree">
-														<li><a href="#">Link</a></li>
-														<li><a href="#">Link</a></li>
-													</ul></li>
-											</ul></li>
 									</ul></li>
 							</ul>
 						</div>
