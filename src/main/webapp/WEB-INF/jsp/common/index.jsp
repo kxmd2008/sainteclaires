@@ -26,6 +26,8 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/css/nanoscroller.css">
 <link href="<%=basePath%>/css/style.css" rel="stylesheet">
+<link href="./css/product.css" rel="stylesheet">
+<link href="./css/my.css" rel="stylesheet">
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -52,34 +54,6 @@
 	font: 10px arial, san serif;
 	text-align: left;
 }
-
-body {
-	position: absolute;
-	background-repeat: no-repeat;
-	left: 0px; top : 0px;
-	z-index: 0;
-	background-size: cover;
-	top: 0px;
-}
-
-.strange {
-	position: absolute;
-	background-repeat: no-repeat;
-	left: 0px; top : 0px;
-	z-index: 0;
-	background-size: cover;
-	top: 0px;
-}
-
-.alert {
-	filter: alpha(opacity = 0); /* IE */
-	-moz-opacity: 0.0; /* Moz + FF */
-	opacity: 1.0;
-	background: #ccc;
-	position: absolute;
-	z-index: 99;
-	text-align: center;
-}
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
@@ -90,16 +64,22 @@ body {
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class="dropdown profile_menu"><a href="#"
-								class="dropdown-toggle" data-toggle="dropdown"><span>Jane
-										Smith</span> <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">Profile</a></li>
-									<li><a href="#">Messages</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Sign Out</a></li>
-								</ul></li>
+							<li class=""><a href="#">home</a></li>
+							<li class=""><a href="#">shop</a></li>
+							<li class=""><a href="#">blog</a></li>
+							<li class=""><a href="#">Changes</a></li>
+							<li class=""><a href="#">contact</a></li>
+<!-- 							<li class="dropdown profile_menu"><a href="#" -->
+<!-- 								class="dropdown-toggle" data-toggle="dropdown"><span>Jane -->
+<!-- 										Smith</span> <b class="caret"></b></a> -->
+<!-- 								<ul class="dropdown-menu"> -->
+<!-- 									<li><a href="#">My Account</a></li> -->
+<!-- 									<li><a href="#">Profile</a></li> -->
+<!-- 									<li><a href="#">Messages</a></li> -->
+<!-- 									<li class="divider"></li> -->
+<!-- 									<li><a href="#">Sign Out</a></li> -->
+<!-- 								</ul> -->
+<!-- 							</li> -->
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left:20px;"></div>
@@ -131,7 +111,7 @@ body {
 							<ul class="nav nav-list treeview">
 								<li class="open"><label class="tree-toggler nav-header">
 										General</label>
-									<ul class="nav nav-list tree" style="display: block;">
+									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
 										<li><label class="tree-toggler nav-header"><i
@@ -149,7 +129,7 @@ body {
 									</ul></li>
 									<li class="open"><label class="tree-toggler nav-header">
 										General</label>
-									<ul class="nav nav-list tree" style="display: block;">
+									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
 										<li><label class="tree-toggler nav-header"><i
@@ -167,7 +147,7 @@ body {
 									</ul></li>
 									<li class="open"><label class="tree-toggler nav-header">
 										General</label>
-									<ul class="nav nav-list tree" style="display: block;">
+									<ul class="nav nav-list tree" style="display: none;">
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
 										<li><label class="tree-toggler nav-header"><i
@@ -191,11 +171,123 @@ body {
 					</div>
 				</div>
 				<div class="content">
-					<h3 class="text-center">Content goes here!</h3>
+					<div class="page-head " style="height:75px;width: 100%; display: table;">
+						<ol class="breadcrumb" style="padding-top:35px;">
+							<li class="mini-cart">
+								<div class="cart-inner">
+									<a href="http://www.sainteclaire.es/carro/" class="cart-link">
+										<strong class="cart-name hide-for-small">Cesta</strong> <span
+										class="cart-price hide-for-small">/ <span
+											class="amount">34,90€</span></span>
+										<div class="cart-icon">
+											<div class="custom-cart-inner">
+												<div class="custom-cart-count">1</div>
+												<img class="custom-cart-icon"
+													src="./images/icon0531.png">
+											</div>
+										</div>
+									</a>
+									<div class="nav-dropdown" style="display: none;">
+										<div class="nav-dropdown-inner">
+											<div class="cart_list">
+												<div class="row mini-cart-item collapse">
+													<div class="small-2 columns">
+														<a
+															href="http://www.sainteclaire.es/carro/?remove_item=8080a9e5cc9752ad111a2de3417e1a17&_n=4c29be2ee0"
+															class="remove" title="Remove this item"><span
+															class="icon-close"></span></a>
+													</div>
+													<div class="small-7 columns">
+														<a class="cart_list_product_title"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
+															Chaqueta bebé rosa</a>
+														<div class="cart_list_product_price">
+															<span class="amount">34,90€</span> /
+														</div>
+														<div class="cart_list_product_quantity">Cantidad: 1</div>
+													</div>
+													<div class="small-3 columns">
+														<a class="cart_list_product_img"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+															width="90" height="90"
+															src="./product/imgs/chaqueta-bebe-rosa-90x90.jpg"
+															class="attachment-shop_thumbnail wp-post-image"
+															alt="chaqueta bebe rosa"></a>
+													</div>
+												</div>
+											</div>
+											<div class="minicart_total_checkout">
+												Total cesta<span><span class="amount">34,90€</span></span>
+											</div>
+											<a href="http://www.sainteclaire.es/carro/"
+												class="button expand uppercase">Ver cesta</a> <a
+												href="http://www.sainteclaire.es/realizar-pedido/"
+												class="button secondary expand uppercase">Proceder a la
+												compra</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ol>
+					</div>
+					<div class="row products">
+						<a href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
+						<div class="col-sm-6 col-md-6 col-lg-6">
+							<!-- 							<div class="block-flat"> -->
+							<div class="product-image">
+								<div class="front-image">
+									<img width="500" height="500"
+										src="./product/imgs/DSC6436-500x500.jpg"
+										class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
+								</div>
+								<div class="quick-view" data-prod="12101">+ Vista rápida</div>
+							</div>
+							<div class="info text-center">
+								<p class="name">(Español) Vestido pana topo</p>
+								<span class="price"><span class="amount">59,90€</span></span>
+							</div>
+						</div>
+						</a>
+						<a  href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
+						<div class="col-sm-6 col-md-6 col-lg-6">
+<!-- 							<div class="block-flat"> -->
+								<div class="product-image">
+									<div class="front-image">
+										<img width="500" height="500"
+											src="./product/imgs/DSC6436-500x500.jpg"
+											class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
+									</div>
+									<div class="quick-view" data-prod="12101">+ Vista rápida</div>
+								</div>
+<!-- 							</div> -->
+								<div class="info text-center">
+									<p class="name">(Español) Vestido pana topo</p>
+								<span class="price"><span class="amount">59,90€</span></span>
+							</div>
+						</div>
+						</a>
+						<a href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
+						<div class="col-sm-6 col-md-6 col-lg-6">
+							<!-- 							<div class="block-flat"> -->
+							<div class="product-image">
+								<div class="front-image">
+									<img width="500" height="500"
+										src="./product/imgs/DSC6436-500x500.jpg"
+										class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
+								</div>
+								<div class="quick-view" data-prod="12101">+ Vista rápida</div>
+							</div>
+							<div class="info text-center">
+								<p class="name">(Español) Vestido pana topo</p>
+								<span class="price"><span class="amount">59,90€</span></span>
+							</div>
+						</div>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
+
 <script src="<%=basePath%>/js/jquery.js"></script>
 <script src="<%=basePath%>/js/jquery.cookie.js"></script>
 <script src="<%=basePath%>/js/jPushMenu.js"></script>
@@ -226,7 +318,9 @@ body {
 	         $(".tree .nscroller").nanoScroller({ preventPageScrolling: true });
 	       });
 	     });
-     setInterval("intervalChangeImg()",2000);
+// $('label.tree-toggler').click(treeToggler);
+	   
+//      setInterval("intervalChangeImg()",2000);
    });
    
 	var imgs = [ "images/Chrysanthemum.jpg", "images/Desert.jpg",
