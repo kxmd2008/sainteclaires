@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 
-<%-- <script src="<%=basePath%>/js/bootstrap.min.js"></script> --%>
+<script src="<%=basePath%>/js/bootstrap.min_v2.js"></script>
 <script src="<%=basePath%>/js/admin/main.js"></script>
 <script type="text/javascript">
 	$("[rel=tooltip]").tooltip();

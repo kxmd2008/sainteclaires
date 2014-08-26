@@ -11,10 +11,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/common/bootstrap.min_v2.css">
 <link rel="stylesheet" type="text/css" href="../css/theme.css">
 <link rel="stylesheet"  href="../css/font-awesome/css/font-awesome.css">
-<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="../js/jquery.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
 
@@ -177,7 +177,7 @@ Cress green bean potato bunya nuts water chestnut chicory rock melon jÃ­cama l
     
 
 
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {

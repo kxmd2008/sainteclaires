@@ -155,7 +155,7 @@ select {
 	</div>
 </div>
 
-<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">
 	

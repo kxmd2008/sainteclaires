@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <%-- <script src="<%=basePath%>/js/admin/main.js"></script> --%>
 <script src="<%=basePath%>/js/admin/category.js"></script>
 <script type="text/javascript">

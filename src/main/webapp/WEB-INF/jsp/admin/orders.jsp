@@ -11,8 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <jsp:include page="head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap-responsiv.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/dataTables.bootstra.css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -131,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <script src="<%=basePath%>/js/jquery.dataTables.js"></script>
-<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <script src="<%=basePath%>/js/dataTables.bootstrap.js"></script>
 <script src="<%=basePath%>/js/admin/orders.js"></script>
   </body>

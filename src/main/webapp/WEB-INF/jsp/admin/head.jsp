@@ -9,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/theme.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/common/bootstrap.min_v2.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/theme_v2.css">
 <link rel="stylesheet"  href="<%=basePath%>/css/font-awesome/css/font-awesome.css">
 <script src="<%=basePath%>/js/jquery.js" type="text/javascript"></script>
 
