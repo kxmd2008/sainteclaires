@@ -26,7 +26,7 @@
 <link href="./css/my.css" rel="stylesheet">
 <link href="./css/product.css" rel="stylesheet">
 <link href="./css/fonts.css" rel="stylesheet">
-
+<link href="./css/magnific-popup.css" rel="stylesheet" />
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -52,6 +52,17 @@
 	color: white;
 	font: 10px arial, san serif;
 	text-align: left;
+}
+#show_tooltip:hover .dropdown-menu {
+	display: block;
+}
+.fontSize{
+	font-size: 12px;
+	color: #838383;
+	font-weight : bold;
+}
+.icon-close:before{
+	content:"";
 }
 </style>
 </head>
@@ -123,6 +134,64 @@
 					</div>
 				</div>
 				<div class="content">
+					<div class="page-head"	style="height: 75px; width: 100%; display: table;">
+						<ol class="breadcrumb" style="padding-top: 35px;">
+							<li class="mini-cart">
+								<div class="cart-inner">
+									<div class="dropdown" id="show_tooltip">
+										<a href="http://www.sainteclaire.es/carro/" class="cart-link"
+											data-toggle="dropdown"> <strong
+											class="cart-name hide-for-small">Cesta</strong> <span
+											class="cart-price hide-for-small">/ <span
+												class="amount">34,90€</span></span>
+											<div class="cart-icon">
+												<div class="custom-cart-inner">
+													<div class="custom-cart-count">1</div>
+													<img class="custom-cart-icon" src="./images/icon0531.png">
+												</div>
+											</div> 
+										</a>
+										<ul class="dropdown-menu  pull-right" style="min-width:300px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.2);">
+											<li>	
+												<div class="col-md-2">
+													<a href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
+														class="remove" title="Remove this item"><span
+														class="icon-close" style="margin:0px;text-align: center"><span class="glyphicon glyphicon-remove"></span></span></a>
+												</div>
+												<div class="col-md-7">
+													<a class="cart_list_product_title fontSize"
+														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
+														Chaqueta bebé rosa</a>
+													<div class="cart_list_product_price fontSize">
+														<span class="amount">34,90€</span> /<span class="amount">Cantidad:1</span>
+													</div>
+<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
+<!-- 														1</div> -->
+												</div>
+												<div class="col-md-3">
+													<a class="cart_list_product_img"
+														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+														width="90" height="90"
+														src="<%=basePath%>/images/bebe.jpg"
+														class="attachment-shop_thumbnail wp-post-image"
+														alt="chaqueta bebe rosa"></a>
+												</div>
+														<hr/>
+														<div class="minicart_total_checkout">
+															Total cesta<span><span class="amount">34,90€</span></span>
+														</div>
+														<a href="http://www.sainteclaire.es/realizar-pedido/"
+															class="button secondary expand uppercase" style="text-align:center;">Proceder a
+															la compra</a>
+											</li>
+										</ul>
+					</div>
+				</div>
+				</li>
+				</ol>
+			</div>
+				
+				
 					<div class="row">
 						<div class="large-6 columns product-gallery">
 							<div class="product-image images">
@@ -132,28 +201,23 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-											<span itemprop="image"><img
-												src="./product/imgs/DSC6436-500x500.jpg" alt=""
-												data-o_src="http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa.jpg"
-												data-o_title="" title=""></span> <a
-												href="http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa.jpg"
-												title="zoom">
-												<div class="zoom-button" data-tip="Zoom">
-													<span class="glyphicon glyphicon-resize-full"></span>
-												</div>
-											</a>
+												<a title="" class="image-popup-vertical-fit" href="./product/imgs/DSC6436-500x500.jpg">
+													<img width="75" height="75" src="./product/imgs/DSC6436-500x500.jpg">
+												</a>
+<!-- 											<span itemprop="image"> -->
+<!-- 												<img -->
+<!-- 												src="./product/imgs/DSC6436-500x500.jpg" alt="" -->
+<!-- 												data-o_src="http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa.jpg" -->
+<!-- 												data-o_title="" title=""></span>  -->
+<!-- 												<a -->
+<!-- 												href="#" -->
+<!-- 												title="zoom"> -->
+<!-- 												<div class="zoom-button" data-tip="Zoom"> -->
+<!-- 													<span class="glyphicon glyphicon-resize-full"></span> -->
+<!-- 												</div> -->
+<!-- 											</a> -->
 										</div>
 									</div>
-<!-- 									<div class="scrollbarBlock1" -->
-<!-- 										style="margin: 0px; overflow: hidden; display: block; position: absolute; left: 0px; width: 510px; top: 0px;"> -->
-<!-- 										<div class="scrollbar1" -->
-<!-- 											style="border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; background-color: rgb(221, 221, 221); height: 3px; width: 510px; min-width: 3px; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; position: relative; opacity: 0.75; box-shadow: rgb(0, 0, 0) 0px 0px 0px; background-position: initial initial; background-repeat: initial initial;"></div> -->
-<!-- 									</div> -->
-<!-- 									<div class="scrollbarBlock1" -->
-<!-- 										style="margin: 0px; overflow: hidden; display: block; position: absolute; left: 0px; width: 510px; top: 0px;"> -->
-<!-- 										<div class="scrollbar1" -->
-<!-- 											style="border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; background-color: rgb(221, 221, 221); height: 3px; width: 510px; min-width: 3px; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; position: relative; opacity: 0.75; box-shadow: rgb(0, 0, 0) 0px 0px 0px; background-position: initial initial; background-repeat: initial initial;"></div> -->
-<!-- 									</div> -->
 								</div>
 							</div>
 						</div>
@@ -282,7 +346,7 @@
 	<script type="text/javascript" src="<%=basePath%>/js/core.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
-
+	<script src="<%=basePath%>/js/jquery.magnific-popup.min.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
@@ -293,4 +357,5 @@
 	<a href="#" class="back-to-top" style="display: none;"><i
 		class="fa fa-angle-up"></i></a>
 </body>
+	<script src="<%=basePath%>/js/common/detail.js"></script>
 </html>
