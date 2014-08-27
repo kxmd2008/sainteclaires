@@ -107,24 +107,14 @@
 									src="<%=basePath%>/common/image/logo_txt.png">
 							</div>
 							<ul class="nav nav-list treeview">
-								<li class=""><label class="tree-toggler nav-header">
-										General</label>
+								<c:forEach var="pcat" items="${parents}">
+								<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
 									<ul class="nav nav-list tree" style="display: none;">
-										<li><a href="#">Link</a></li>
-										<li><a href="#">Link</a></li>
+										<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
+											<li><a href="./products.do?subCateId=${subcat.id }">${subcat.name }</a></li>
+										</c:forEach>
 									</ul></li>
-								<li class=""><label class="tree-toggler nav-header">
-										General</label>
-									<ul class="nav nav-list tree" style="display: none;">
-										<li><a href="#">Link</a></li>
-										<li><a href="#">Link</a></li>
-									</ul></li>
-								<li class=""><label class="tree-toggler nav-header">
-										General</label>
-									<ul class="nav nav-list tree" style="display: none;">
-										<li><a href="#">Link</a></li>
-										<li><a href="#">Link</a></li>
-									</ul></li>
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="pane" style="display: none;">
@@ -290,6 +280,7 @@
 	<script type="text/javascript" src="<%=basePath%>/js/jquery-ui.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/jquery.gritter.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/core.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
@@ -297,8 +288,6 @@
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
-	</script>
-	<script type="text/javascript">
 		$(document).ready(treeToggler);
 	</script>
 	<a href="#" class="back-to-top" style="display: none;"><i
