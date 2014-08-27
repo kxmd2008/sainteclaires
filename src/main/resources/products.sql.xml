@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="product">
+	<typeAlias alias="ProductVo" type="org.luis.sainteclaires.base.bean.ProductVo" />
+	<typeAlias alias="Category" type="org.luis.sainteclaires.base.bean.Category" />
+	<resultMap class="ProductVo" id="ProductVoMap">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="num" column="num" />
+		<result property="pics" column="pics" />
+		<result property="isNew" column="isNew" />
+		<result property="description" column="description" />
+		<result property="categorys" resultMap="product.CategoryMap" />
+	</resultMap>
+	<resultMap class="Category" id="CategoryMap">
+		<result property="id" column="cid" />
+		<result property="name" column="cname" />
+	</resultMap>
+	<select id="findProductByCateId" resultMap="ProductVoMap">
+		select p.id, p.name, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname 
+		from product as p 
+		left join category_product as cp on p.id = cp.product_id
+		left join category as c on cp.product_id = c.id
+		where cp.category_id = 2
+	</select>
+</sqlMap>
