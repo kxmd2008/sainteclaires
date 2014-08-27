@@ -26,8 +26,10 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/css/nanoscroller.css">
 <link href="<%=basePath%>/css/style.css" rel="stylesheet">
-<link href="./css/product.css" rel="stylesheet">
 <link href="./css/my.css" rel="stylesheet">
+<link href="./css/product.css" rel="stylesheet">
+<link href="./css/fonts.css" rel="stylesheet">
+
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -81,10 +83,11 @@
 #show_tooltip:hover .dropdown-menu {
 	display: block;
 }
-.fontSize{
+
+.fontSize {
 	font-size: 12px;
-	color:#838383;
-	font-weight : bold;
+	color: #838383;
+	font-weight: bold;
 }
 </style>
 </head>
@@ -102,17 +105,7 @@
 							<li class=""><a href="#">blog</a></li>
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>
-							<!-- 							<li class="dropdown profile_menu"><a href="#" -->
-							<!-- 								class="dropdown-toggle" data-toggle="dropdown"><span>Jane -->
-							<!-- 										Smith</span> <b class="caret"></b></a> -->
-							<!-- 								<ul class="dropdown-menu"> -->
-							<!-- 									<li><a href="#">My Account</a></li> -->
-							<!-- 									<li><a href="#">Profile</a></li> -->
-							<!-- 									<li><a href="#">Messages</a></li> -->
-							<!-- 									<li class="divider"></li> -->
-							<!-- 									<li><a href="#">Sign Out</a></li> -->
-							<!-- 								</ul> -->
-							<!-- 							</li> -->
+							<li class=""><a href="#">Login</a></li>
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>
@@ -155,166 +148,136 @@
 					</div>
 				</div>
 				<div class="content">
-					<div class="page-head "
-						style="height: 75px; width: 100%; display: table;">
-						<ol class="breadcrumb" style="padding-top: 35px;">
-							<li class="mini-cart">
-								<div class="cart-inner">
-									<div class="dropdown" id="show_tooltip">
-										<a href="http://www.sainteclaire.es/carro/" class="cart-link"
-											data-toggle="dropdown"> <strong
-											class="cart-name hide-for-small">Cesta</strong> <span
-											class="cart-price hide-for-small">/ <span
-												class="amount">34,90€</span></span>
-											<div class="cart-icon">
-												<div class="custom-cart-inner">
-													<div class="custom-cart-count">1</div>
-													<img class="custom-cart-icon" src="./images/icon0531.png">
-												</div>
-											</div> 
-										</a>
-										<ul class="dropdown-menu  pull-right" style="min-width:300px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.1);">
-											<li>	
-												<div class="col-md-2">
-													<a
-														href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
-														class="remove" title="Remove this item"><span
-														class="icon-close"><span class="glyphicon glyphicon-remove"></span></span></a>
-												</div>
-												<div class="col-md-7">
-													<a class="cart_list_product_title fontSize"
-														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
-														Chaqueta bebé rosa</a>
-													<div class="cart_list_product_price fontSize">
-														<span class="amount">34,90€</span> /<span class="amount">Cantidad:1</span>
+					<div class="row">
+						<div class="page-head "
+							style="height: 75px; width: 100%; display: table;">
+							<ol class="breadcrumb" style="padding-top: 35px;">
+								<li class="mini-cart">
+									<div class="cart-inner">
+										<div class="dropdown" id="show_tooltip">
+											<a href="http://www.sainteclaire.es/carro/" class="cart-link"
+												data-toggle="dropdown"> <strong
+												class="cart-name hide-for-small">Cesta</strong> <span
+												class="cart-price hide-for-small">/ <span
+													class="amount">34,90€</span></span>
+												<div class="cart-icon">
+													<div class="custom-cart-inner">
+														<div class="custom-cart-count">1</div>
+														<img class="custom-cart-icon" src="./images/icon0531.png">
 													</div>
-<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
-<!-- 														1</div> -->
 												</div>
-												<div class="col-md-3">
-													<a class="cart_list_product_img"
-														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
-														width="90" height="90"
-														src="<%=basePath%>/images/bebe.jpg"
-														class="attachment-shop_thumbnail wp-post-image"
-														alt="chaqueta bebe rosa"></a>
-												</div>
-														<hr/>
-														<div class="minicart_total_checkout">
-															Total cesta<span><span class="amount">34,90€</span></span>
+											</a>
+											<ul class="dropdown-menu  pull-right"
+												style="min-width: 300px; box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);">
+												<li>
+													<div class="col-md-2">
+														<a
+															href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
+															class="remove" title="Remove this item"><span
+															class="icon-close"><span
+																class="glyphicon glyphicon-remove"></span></span></a>
+													</div>
+													<div class="col-md-7">
+														<a class="cart_list_product_title fontSize"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
+															Chaqueta bebé rosa</a>
+														<div class="cart_list_product_price fontSize">
+															<span class="amount">34,90€</span> /<span class="amount">Cantidad:1</span>
 														</div>
-
-<!-- 														<a href="http://www.sainteclaire.es/carro/" -->
-<!-- 															class="button expand uppercase">Ver cesta</a> --><a 
-															href="http://www.sainteclaire.es/realizar-pedido/"
-															class="button secondary expand uppercase" style="text-align:center;">Proceder a
-															la compra</a>
-<!-- 													</div> -->
-<!-- 												</div> -->
-										</li>
-								</ul>
-					</div>
-					<div class="nav-dropdown" style="display: none;">
-						<div class="nav-dropdown-inner">
-							<div class="cart_list">
-								<div class="row mini-cart-item collapse">
-									<div class="small-2 columns">
-										<a
-											href="http://www.sainteclaire.es/carro/?remove_item=8080a9e5cc9752ad111a2de3417e1a17&_n=4c29be2ee0"
-											class="remove" title="Remove this item"><span
-											class="icon-close"></span></a>
-									</div>
-									<div class="small-7 columns">
-										<a class="cart_list_product_title"
-											href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
-											Chaqueta bebé rosa</a>
-										<div class="cart_list_product_price">
-											<span class="amount">34,90€</span> /
+														<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
+														<!-- 														1</div> -->
+													</div>
+													<div class="col-md-3">
+														<a class="cart_list_product_img"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+															width="90" height="90"
+															src="<%=basePath%>/images/bebe.jpg"
+															class="attachment-shop_thumbnail wp-post-image"
+															alt="chaqueta bebe rosa"></a>
+													</div>
+													<hr />
+													<div class="minicart_total_checkout">
+														Total cesta<span><span class="amount">34,90€</span></span>
+													</div> <!-- 														<a href="http://www.sainteclaire.es/carro/" -->
+													<!-- 															class="button expand uppercase">Ver cesta</a> -->
+													<a href="http://www.sainteclaire.es/realizar-pedido/"
+													class="button secondary expand uppercase"
+													style="text-align: center;">Proceder a la compra</a> <!-- 													</div> -->
+													<!-- 												</div> -->
+												</li>
+											</ul>
 										</div>
-										<div class="cart_list_product_quantity">Cantidad: 1</div>
+										<div class="nav-dropdown" style="display: none;">
+											<div class="nav-dropdown-inner">
+												<div class="cart_list">
+													<div class="row mini-cart-item collapse">
+														<div class="small-2 columns">
+															<a
+																href="http://www.sainteclaire.es/carro/?remove_item=8080a9e5cc9752ad111a2de3417e1a17&_n=4c29be2ee0"
+																class="remove" title="Remove this item"><span
+																class="icon-close"></span></a>
+														</div>
+														<div class="small-7 columns">
+															<a class="cart_list_product_title"
+																href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
+																Chaqueta bebé rosa</a>
+															<div class="cart_list_product_price">
+																<span class="amount">34,90€</span> /
+															</div>
+															<div class="cart_list_product_quantity">Cantidad: 1</div>
+														</div>
+														<div class="small-3 columns">
+															<a class="cart_list_product_img"
+																href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+																width="90" height="90"
+																src="./product/imgs/chaqueta-bebe-rosa-90x90.jpg"
+																class="attachment-shop_thumbnail wp-post-image"
+																alt="chaqueta bebe rosa"></a>
+														</div>
+													</div>
+												</div>
+												<div class="minicart_total_checkout">
+													Total cesta<span><span class="amount">34,90€</span></span>
+												</div>
+												<a href="http://www.sainteclaire.es/carro/"
+													class="button expand uppercase">Ver cesta</a> <a
+													href="http://www.sainteclaire.es/realizar-pedido/"
+													class="button secondary expand uppercase">Proceder a la
+													compra</a>
+											</div>
+										</div>
 									</div>
-									<div class="small-3 columns">
-										<a class="cart_list_product_img"
-											href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
-											width="90" height="90"
-											src="./product/imgs/chaqueta-bebe-rosa-90x90.jpg"
-											class="attachment-shop_thumbnail wp-post-image"
-											alt="chaqueta bebe rosa"></a>
+								</li>
+							</ol>
+						</div>
+						<div class="row products">
+							<c:forEach var="product" items="${products}">
+							<a href="<%=basePath%>/detail.do?id=${product.id}">
+								<div class="col-sm-6 col-md-6 col-lg-6">
+									<!-- 							<div class="block-flat"> -->
+									<div class="product-image">
+										<div class="front-image">
+											<img width="500" height="500"
+												src="./product/imgs/${product.pics}"
+												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
+										</div>
+										<div class="quick-view" data-prod="12101">+ Vista rápida</div>
+									</div>
+									<div class="info text-center">
+										<p class="name">${product.name}</p>
+										<span class="price"><span class="amount">${product.price}</span></span>
 									</div>
 								</div>
-							</div>
-							<div class="minicart_total_checkout">
-								Total cesta<span><span class="amount">34,90€</span></span>
-							</div>
-							<a href="http://www.sainteclaire.es/carro/"
-								class="button expand uppercase">Ver cesta</a> <a
-								href="http://www.sainteclaire.es/realizar-pedido/"
-								class="button secondary expand uppercase">Proceder a la
-								compra</a>
+							</a>
+							</c:forEach>
 						</div>
+						<!-- end row -->
 					</div>
 				</div>
-				</li>
-				</ol>
-			</div>
-			<div class="row products">
-				<a
-					href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
-					<div class="col-sm-6 col-md-6 col-lg-6">
-						<!-- 							<div class="block-flat"> -->
-						<div class="product-image">
-							<div class="front-image">
-								<img width="500" height="500"
-									src="./product/imgs/DSC6436-500x500.jpg"
-									class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
-							</div>
-							<div class="quick-view" data-prod="12101">+ Vista rápida</div>
-						</div>
-						<div class="info text-center">
-							<p class="name">(Español) Vestido pana topo</p>
-							<span class="price"><span class="amount">59,90€</span></span>
-						</div>
-					</div>
-				</a> <a
-					href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
-					<div class="col-sm-6 col-md-6 col-lg-6">
-						<!-- 							<div class="block-flat"> -->
-						<div class="product-image">
-							<div class="front-image">
-								<img width="500" height="500"
-									src="./product/imgs/DSC6436-500x500.jpg"
-									class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
-							</div>
-							<div class="quick-view" data-prod="12101">+ Vista rápida</div>
-						</div>
-						<!-- 							</div> -->
-						<div class="info text-center">
-							<p class="name">(Español) Vestido pana topo</p>
-							<span class="price"><span class="amount">59,90€</span></span>
-						</div>
-					</div>
-				</a> <a
-					href="http://www.sainteclaire.es/en/tienda/bebe/vestido-pana-topo/">
-					<div class="col-sm-6 col-md-6 col-lg-6">
-						<!-- 							<div class="block-flat"> -->
-						<div class="product-image">
-							<div class="front-image">
-								<img width="500" height="500"
-									src="./product/imgs/DSC6436-500x500.jpg"
-									class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
-							</div>
-							<div class="quick-view" data-prod="12101">+ Vista rápida</div>
-						</div>
-						<div class="info text-center">
-							<p class="name">(Español) Vestido pana topo</p>
-							<span class="price"><span class="amount">59,90€</span></span>
-						</div>
-					</div>
-				</a>
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
 	<script src="<%=basePath%>/js/jPushMenu.js"></script>
@@ -325,47 +288,16 @@
 	<script type="text/javascript" src="<%=basePath%>/js/jquery-ui.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/jquery.gritter.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/core.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=basePath%>/js/common/products.js"></script>
-	<script type="text/javascript">
-		//    var link = $('link[href="css/style.css"]');
-		//    if($.cookie("css")) {
-		//      link.attr("href",'css/skin-' + $.cookie("css") + '.css');
-		//    }
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('label.tree-toggler').click(treeToggler);
-			//      setInterval("intervalChangeImg()",2000);
-		});
 
-		var imgs = [ "images/Chrysanthemum.jpg", "images/Desert.jpg",
-				"images/Hydrangeas.jpg", "images/Jellyfish.jpg",
-				"images/Koala.jpg", "images/Lighthouse.jpg",
-				"images/Penguins.jpg", "images/Tulips.jpg" ];
-		var index = 0;
-		function intervalChangeImg() {
-			// 		$("#bodyBgImg").attr("src", imgs[index]);
-			// 		$("body").css('background-image', 'url('+imgs[index]+')')
-			$("#cl-wrapper")
-					.css("background-image", 'url(' + imgs[index] + ')');
-			if (index == imgs.length - 1) {
-				index = 0;
-			} else {
-				index++;
-			}
+	<script type="text/javascript">
+		var link = $('link[href="css/style.css"]');
+		if ($.cookie("css")) {
+			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
-		//    $(function() {
-		// 		$("body").css('background-image', 'url(images/Desert.jpg)').addClass("bodybg");
-		// 	});
+		$(document).ready(treeToggler);
 	</script>
-
-	<%-- 	<script type="text/javascript" src="<%=basePath%>/js/jquery.flot.js"></script> --%>
-	<%-- 	<script type="text/javascript" src="<%=basePath%>/js/jquery.flot.pie.js"></script> --%>
-	<!-- 	<script type="text/javascript" -->
-	<%-- 		src="<%=basePath%>/js/jquery.flot.resize.js"></script> --%>
-	<!-- 	<script type="text/javascript" -->
-	<%-- 		src="<%=basePath%>/js/jquery.flot.labels.js"></script> --%>
 	<a href="#" class="back-to-top" style="display: none;"><i
 		class="fa fa-angle-up"></i></a>
 </body>
