@@ -1,6 +1,10 @@
-
+$(document).ready(function(){
+	$('#choose_category').multiselect();
+});
 var URL = "/";
 function saveProduct(){
+	alert($("#example19").val());
+	var cateId = $("#choose_category").val();//123:1,245:2
 	var name = $("#name").val();
 	var price = $("#price").val();
 	var num = $("#num").val();
@@ -11,7 +15,6 @@ function saveProduct(){
 	var meses24 = $("#meses24").val();
 	var desc = $("#desc").val();
 	var isNew = $("#isNew").val() == 'on' ? true : false;
-	var cateId = $("#cateId").val();
 	var pics = $("#pics").val();
 	$("#files").children().each(function(i, tr){
 //		pics[i] = $(tr).find("p").html();
@@ -19,7 +22,7 @@ function saveProduct(){
 	});
 	var d = {
 		"categoryId" : cateId,	
-		"categoryName" : $("#cateName").val(),	
+//		"categoryName" : $("#cateName").val(),	
 		"name" : name,	
 		"price" : price,	
 		"num" : num,	

@@ -20,6 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <noscript><link rel="stylesheet" href="<%=basePath%>/upload/jquery.fileupload-ui-noscript.css"></noscript>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jcarousel.basic.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.nailthumb.1.0.min.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap-multiselect.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/prettify.css">
 <style type="text/css">
 #line-chart {
 	height: 300px;
@@ -50,6 +52,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	width: 300px;
 	height: 200px;
 }
+/* .btn-group button{ */
+/*  	color: #fff; */
+/*  	background: #556075; */
+/*   	border-color: #357ebd; */
+/* } */
 </style>
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -85,30 +92,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="btn-group"></div>
 			</div>
 			<div class="well ">
-				<div class="dropdown" style="width: 285px">
-			            <a role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" style="width: 130px"
-			               href="javascript:;"><span id="catLabel">
-			      			<c:choose>
-								<c:when test="${vo.id != null }">${vo.categoryName }</c:when>
-								<c:otherwise>选择类别</c:otherwise>
-							</c:choose>         
-			               </span> <span class="caret"></span>
-			            </a>
-			            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-<!-- 			                <li><a href="javascript:;">一级菜单</a></li> -->
-<!-- 			                <li class="divider"></li> -->
-							<c:forEach var="pcat" items="${parents}">
-			                <li class="dropdown-submenu">
-			                    <a tabindex="-1" href="javascript:;">${pcat.name }</a>
-			                    <ul class="dropdown-menu">
-			                    	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-			                        <li><a tabindex="-1" href="javascript:selectCate(${subcat.id },'${subcat.name }');">${subcat.name }</a></li>
-			                        </c:forEach>
-			                    </ul>
-			                </li>
-			                </c:forEach>
-			            </ul>
-			        </div>
+					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="选择类别" >
+						 <c:forEach var="pcat" items="${parents}">
+                            <optgroup label="${pcat.name }">
+                            	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
+                                	<option value="${subcat.id}">${subcat.name }</option>
+                                </c:forEach>
+                            </optgroup>
+                          </c:forEach>
+                    </select>
 					<label>产品名称</label> 
 					<input type="text" id="name" value="${vo.name }" placeholder="产品名称"> 
 					<label>产品价格</label> 
@@ -262,7 +254,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- The Canvas to Blob plugin is included for image resizing functionality -->
 <script src="<%=basePath%>/upload/canvas-to-blob.min.js"></script>
 <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <!-- blueimp Gallery script -->
 <script src="<%=basePath%>/upload/jquery.blueimp-gallery.min.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
@@ -281,6 +273,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/upload/jquery.fileupload-validate.js"></script>
 <!-- The File Upload user interface plugin -->
 <script src="<%=basePath%>/upload/jquery.fileupload-ui.js"></script>
+<script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
+<script src="<%=basePath%>/js/prettify.js"></script>
 <!-- The main application script -->
 <script src="<%=basePath%>/upload/main.js"></script>
 <script src="<%=basePath%>/js/admin/product.js"></script>
