@@ -96,7 +96,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						 <c:forEach var="pcat" items="${parents}">
                             <optgroup label="${pcat.name }">
                             	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-                                	<option value="${subcat.id}">${subcat.name }</option>
+                                	<option value="${subcat.id}" 
+                                		<c:if test="${subcat.selected}">selected="selected"</c:if>
+                                	>${subcat.name }</option>
                                 </c:forEach>
                             </optgroup>
                           </c:forEach>
