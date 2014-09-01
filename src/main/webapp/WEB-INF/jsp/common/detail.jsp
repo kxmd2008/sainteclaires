@@ -17,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="<%=basePath%>/common/image/icon.png">
-<title>Flat Dream</title>
+<title>Sainte Claire</title>
 <link href="<%=basePath%>/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.gritter.css">
 <link rel="stylesheet" href="<%=basePath%>/css/font-awesome.min.css">
@@ -64,6 +64,15 @@
 .icon-close:before{
 	content:"";
 }
+.dropdown-menu {
+	padding: 10px 0;
+	margin: 10px 0 0;
+	border: 1px solid #ccc;
+	 border: 1px solid rgba(0, 0, 0, .15); 
+	 border-radius: 4px; 
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
@@ -81,17 +90,6 @@
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>
 							<li class=""><a href="#">Login</a></li>
-							<!-- 							<li class="dropdown profile_menu"><a href="#" -->
-							<!-- 								class="dropdown-toggle" data-toggle="dropdown"><span>Jane -->
-							<!-- 										Smith</span> <b class="caret"></b></a> -->
-							<!-- 								<ul class="dropdown-menu"> -->
-							<!-- 									<li><a href="#">My Account</a></li> -->
-							<!-- 									<li><a href="#">Profile</a></li> -->
-							<!-- 									<li><a href="#">Messages</a></li> -->
-							<!-- 									<li class="divider"></li> -->
-							<!-- 									<li><a href="#">Sign Out</a></li> -->
-							<!-- 								</ul> -->
-							<!-- 							</li> -->
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>
@@ -120,7 +118,14 @@
 							<ul class="nav nav-list treeview">
 								<c:forEach var="pcat" items="${parents}">
 								<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
-									<ul class="nav nav-list tree" style="display: none;">
+									<c:choose>
+										<c:when test="${pcat.id == parentCatId }">
+											<ul class="nav nav-list tree" style="display: block;">
+										</c:when>
+										<c:otherwise>
+											<ul class="nav nav-list tree" style="display: none;">
+										</c:otherwise>
+									</c:choose>
 										<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
 											<li><a href="./products.do?subCateId=${subcat.id }">${subcat.name }</a></li>
 										</c:forEach>
@@ -143,7 +148,7 @@
 											data-toggle="dropdown"> <strong
 											class="cart-name hide-for-small">Cesta</strong> <span
 											class="cart-price hide-for-small">/ <span
-												class="amount">34,90â¬</span></span>
+												class="amount">34,90￥</span></span>
 											<div class="cart-icon">
 												<div class="custom-cart-inner">
 													<div class="custom-cart-count">1</div>
@@ -163,7 +168,7 @@
 														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(EspaÃ±ol)
 														Chaqueta bebÃ© rosa</a>
 													<div class="cart_list_product_price fontSize">
-														<span class="amount">34,90â¬</span> /<span class="amount">Cantidad:1</span>
+														<span class="amount">34,90Y</span> /<span class="amount">Cantidad:1</span>
 													</div>
 <!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
 <!-- 														1</div> -->
@@ -178,11 +183,10 @@
 												</div>
 														<hr/>
 														<div class="minicart_total_checkout">
-															Total cesta<span><span class="amount">34,90â¬</span></span>
+															总金额：<span><span class="amount">34,90￥</span></span>
 														</div>
 														<a href="http://www.sainteclaire.es/realizar-pedido/"
-															class="button secondary expand uppercase" style="text-align:center;">Proceder a
-															la compra</a>
+															class="button secondary expand uppercase" style="text-align:center;">结算</a>
 											</li>
 										</ul>
 					</div>
@@ -190,7 +194,6 @@
 				</li>
 				</ol>
 			</div>
-				
 				
 					<div class="row">
 						<div class="large-6 columns product-gallery">
@@ -201,33 +204,20 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./product/imgs/DSC6436-500x500.jpg">
-													<img width="75" height="75" src="./product/imgs/DSC6436-500x500.jpg">
+												<a title="" class="image-popup-vertical-fit" href="./product/imgs/${product.pics }">
+													<img width="75" height="75" src="./product/imgs/${product.pics }">
 												</a>
-<!-- 											<span itemprop="image"> -->
-<!-- 												<img -->
-<!-- 												src="./product/imgs/DSC6436-500x500.jpg" alt="" -->
-<!-- 												data-o_src="http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa.jpg" -->
-<!-- 												data-o_title="" title=""></span>  -->
-<!-- 												<a -->
-<!-- 												href="#" -->
-<!-- 												title="zoom"> -->
-<!-- 												<div class="zoom-button" data-tip="Zoom"> -->
-<!-- 													<span class="glyphicon glyphicon-resize-full"></span> -->
-<!-- 												</div> -->
-<!-- 											</a> -->
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="product-info large-4 small-12 columns left">
-							<h1 itemprop="name" class="entry-title">(EspaÃ±ol) Chaqueta
-								bebÃ© rosa</h1>
+							<h1 itemprop="name" class="entry-title">${product.name }</h1>
 							<div class="tx-div small"></div>
 							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 								<p itemprop="price" class="price large">
-									<span class="amount">34,90â¬</span>
+									<span class="amount">${product.price }</span>
 								</p>
 								<meta itemprop="priceCurrency" content="EUR">
 								<link itemprop="availability" href="http://schema.org/InStock">
@@ -237,7 +227,7 @@
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
 										<select id="pa_talla" name="attribute_pa_talla">
-											<option value="">Choose an optionâ¦</option>
+											<option value="">选择尺码</option>
 											<option value="0-meses" class="active">0 meses</option>
 											<option value="3m" class="active">03 Meses</option>
 											<option value="6m" class="active">06 Meses</option>
@@ -254,7 +244,7 @@
 									<input type="hidden" name="variation_id" value="">
 									<button type="submit"
 										class="single_add_to_cart_button button1 secondary alt"
-										disabled="disabled">Add to cart</button>
+										disabled="disabled">加入购物车</button>
 									<div class="quantity buttons_added">
 										<input type="button" value="-" class="minus"><input
 											type="number" step="1" name="quantity" value="1" title="Qty"
@@ -300,33 +290,33 @@
 							</div>
 						</div>
 						<div class="product-page-aside large-2 small-12 columns text-center hide-for-small" style="width: 100px;">
-								<div class="next-prev-nav">
-									<div class="prod-dropdown">
-										<a href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"
-											rel="next" ><span class="glyphicon glyphicon-chevron-left"></span></a>
-										<div class="nav-dropdown" style="display: none;">
-											<a
-												href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"><img
-												width="90" height="90"
-												src="./product/imgs/DSC6610-90x90.jpg"
-												class="attachment-shop_thumbnail wp-post-image"
-												alt="_DSC6610"></a>
-										</div>
+							<div class="next-prev-nav">
+								<div class="prod-dropdown">
+									<a href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"
+										rel="next" ><span class="glyphicon glyphicon-chevron-left"></span></a>
+									<div class="nav-dropdown" style="display: none;">
+										<a
+											href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"><img
+											width="90" height="90"
+											src="./product/imgs/DSC6610-90x90.jpg"
+											class="attachment-shop_thumbnail wp-post-image"
+											alt="_DSC6610"></a>
 									</div>
-									<div class="prod-dropdown">
-										<a href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"
-											rel="prev" ><span class="glyphicon glyphicon-chevron-right"></span></a>
-										<div class="nav-dropdown" style="display: none;">
-											<a
-												href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"><img
-												width="90" height="90"
-												src="./product/imgs/DSC6646-90x90.jpg"
-												class="attachment-shop_thumbnail wp-post-image"
-												alt="_DSC6646"></a>
-										</div>
+								</div>
+								<div class="prod-dropdown">
+									<a href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"
+										rel="prev" ><span class="glyphicon glyphicon-chevron-right"></span></a>
+									<div class="nav-dropdown" style="display: none;">
+										<a
+											href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"><img
+											width="90" height="90"
+											src="./product/imgs/DSC6646-90x90.jpg"
+											class="attachment-shop_thumbnail wp-post-image"
+											alt="_DSC6646"></a>
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>

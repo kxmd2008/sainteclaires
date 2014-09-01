@@ -17,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="<%=basePath%>/common/image/icon.png">
-<title>Flat Dream</title>
+<title>Sainte Claire</title>
 <link href="<%=basePath%>/css/bootstrap/css/bootstrap.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
@@ -134,7 +134,14 @@
 							<ul class="nav nav-list treeview">
 								<c:forEach var="pcat" items="${parents}">
 									<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
-										<ul class="nav nav-list tree" style="display: none;">
+										<c:choose>
+											<c:when test="${pcat.id == parentCatId }">
+												<ul class="nav nav-list tree" style="display: block;">
+											</c:when>
+											<c:otherwise>
+												<ul class="nav nav-list tree" style="display: none;">
+											</c:otherwise>
+										</c:choose>
 											<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
 												<li><a href="./products.do?subCateId=${subcat.id }">${subcat.name }</a></li>
 											</c:forEach>
