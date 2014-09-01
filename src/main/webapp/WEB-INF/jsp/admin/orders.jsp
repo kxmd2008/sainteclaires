@@ -32,6 +32,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	color: #fff;
 	font-weight: bold;
 }
+
+.left-margin {
+	margin-left: 10px;
+}
 </style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -52,27 +56,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h1 class="page-title">订单查询</h1>
 	</div>
 
-	<ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Users</li>
-	</ul>
-
 	<div class="container-fluid">
 		<div class="row-fluid">
-
-<!-- 			<div class="btn-toolbar"> -->
-				<form class="form-inline" role="form">
+			<div class="btn-toolbar">
+				<form class="form-inline" role="form" style="margin-bottom: 0px;">
 				   <input type="text" class="form-control" id="order_no" placeholder="订单号">
-				   <input type="text" class="form-control" id="account_no" placeholder="客户号">
-				  <button class="btn btn-primary" type="button" onclick="javascript:search();"> <!-- onclick="javascript:search(); -->
-					<i class="icon-plus"></i> New User
+				   <input type="text" class="form-control left-margin" id="account_no" placeholder="客户号">
+				  <button class="btn btn-primary left-margin" type="button" onclick="javascript:search();"> <!-- onclick="javascript:search(); -->
+					<i class="icon-plus"></i> 查询
 				  </button>
 				</form>
 				
 				<!-- <button class="btn">Import</button>
 				<button class="btn">Export</button> -->
 				<div class="btn-group"></div>
-<!-- 			</div> -->
+			</div>
 			<div class="well">
 				<table class="table table-striped table-bordered table-hover datatable" id="orders">
 					<thead>
@@ -90,35 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tbody>
 				</table>
 			</div>
-			<!-- <div class="pagination">
-				<ul>
-					<li><a href="#">Prev</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">Next</a></li>
-				</ul>
-			</div> -->
 
-			<div class="modal small hide fade" id="myModal" tabindex="-1"
-				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<h3 id="myModalLabel">Delete Confirmation</h3>
-				</div>
-				<div class="modal-body">
-					<p class="error-text">
-						<i class="icon-warning-sign modal-icon"></i>Are you sure you want
-						to delete the user?
-					</p>
-				</div>
-				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-					<button class="btn btn-danger" data-dismiss="modal">Delete</button>
-				</div>
-			</div>
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
