@@ -17,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="<%=basePath%>/common/image/favicon.png">
-<title>Flat Dream</title>
+<title>Sainte Claire</title>
 <link href="<%=basePath%>/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.gritter.css">
 <link rel="stylesheet" href="<%=basePath%>/css/font-awesome.min.css">
@@ -67,8 +67,8 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="#">home</a></li>
-							<li class=""><a href="#">shop</a></li>
+							<li class=""><a href="./index.do">home</a></li>
+							<li class=""><a href="./shop.do">shop</a></li>
 							<li class=""><a href="#">blog</a></li>
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>

@@ -26,7 +26,7 @@
 <link href="./css/my.css" rel="stylesheet">
 <link href="./css/product.css" rel="stylesheet">
 <link href="./css/fonts.css" rel="stylesheet">
-
+<link href="./css/magnific-popup.css" rel="stylesheet" />
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -52,6 +52,17 @@
 	color: white;
 	font: 10px arial, san serif;
 	text-align: left;
+}
+#show_tooltip:hover .dropdown-menu {
+	display: block;
+}
+.fontSize{
+	font-size: 12px;
+	color: #838383;
+	font-weight : bold;
+}
+.icon-close:before{
+	content:"";
 }
 </style>
 </head>
@@ -123,6 +134,64 @@
 					</div>
 				</div>
 				<div class="content">
+					<div class="page-head"	style="height: 75px; width: 100%; display: table;">
+						<ol class="breadcrumb" style="padding-top: 35px;">
+							<li class="mini-cart">
+								<div class="cart-inner">
+									<div class="dropdown" id="show_tooltip">
+										<a href="http://www.sainteclaire.es/carro/" class="cart-link"
+											data-toggle="dropdown"> <strong
+											class="cart-name hide-for-small">Cesta</strong> <span
+											class="cart-price hide-for-small">/ <span
+												class="amount">34,90â¬</span></span>
+											<div class="cart-icon">
+												<div class="custom-cart-inner">
+													<div class="custom-cart-count">1</div>
+													<img class="custom-cart-icon" src="./images/icon0531.png">
+												</div>
+											</div> 
+										</a>
+										<ul class="dropdown-menu  pull-right" style="min-width:300px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.2);">
+											<li>	
+												<div class="col-md-2">
+													<a href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
+														class="remove" title="Remove this item"><span
+														class="icon-close" style="margin:0px;text-align: center"><span class="glyphicon glyphicon-remove"></span></span></a>
+												</div>
+												<div class="col-md-7">
+													<a class="cart_list_product_title fontSize"
+														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(EspaÃ±ol)
+														Chaqueta bebÃ© rosa</a>
+													<div class="cart_list_product_price fontSize">
+														<span class="amount">34,90â¬</span> /<span class="amount">Cantidad:1</span>
+													</div>
+<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
+<!-- 														1</div> -->
+												</div>
+												<div class="col-md-3">
+													<a class="cart_list_product_img"
+														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+														width="90" height="90"
+														src="<%=basePath%>/images/bebe.jpg"
+														class="attachment-shop_thumbnail wp-post-image"
+														alt="chaqueta bebe rosa"></a>
+												</div>
+														<hr/>
+														<div class="minicart_total_checkout">
+															Total cesta<span><span class="amount">34,90â¬</span></span>
+														</div>
+														<a href="http://www.sainteclaire.es/realizar-pedido/"
+															class="button secondary expand uppercase" style="text-align:center;">Proceder a
+															la compra</a>
+											</li>
+										</ul>
+					</div>
+				</div>
+				</li>
+				</ol>
+			</div>
+				
+				
 					<div class="row">
 						<div class="large-6 columns product-gallery">
 							<div class="product-image images">
@@ -132,37 +201,43 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-											<span itemprop="image"><img
-												src="./product/imgs/${product.pics }" alt=""
-												data-o_src="./product/imgs/${product.pics }"
-												data-o_title="" title=""></span> <a
-												href="./product/imgs/${product.pics }"
-												title="zoom">
-												<div class="zoom-button" data-tip="Zoom">
-													<span class="glyphicon glyphicon-resize-full"></span>
-												</div>
-											</a>
+												<a title="" class="image-popup-vertical-fit" href="./product/imgs/DSC6436-500x500.jpg">
+													<img width="75" height="75" src="./product/imgs/DSC6436-500x500.jpg">
+												</a>
+<!-- 											<span itemprop="image"> -->
+<!-- 												<img -->
+<!-- 												src="./product/imgs/DSC6436-500x500.jpg" alt="" -->
+<!-- 												data-o_src="http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa.jpg" -->
+<!-- 												data-o_title="" title=""></span>  -->
+<!-- 												<a -->
+<!-- 												href="#" -->
+<!-- 												title="zoom"> -->
+<!-- 												<div class="zoom-button" data-tip="Zoom"> -->
+<!-- 													<span class="glyphicon glyphicon-resize-full"></span> -->
+<!-- 												</div> -->
+<!-- 											</a> -->
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="product-info large-4 small-12 columns left">
-							<h1 itemprop="name" class="entry-title">${product.name }</h1>
+							<h1 itemprop="name" class="entry-title">(EspaÃ±ol) Chaqueta
+								bebÃ© rosa</h1>
 							<div class="tx-div small"></div>
-							<div itemprop="offers" itemscope="">
+							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 								<p itemprop="price" class="price large">
-									<span class="amount">${product.price }</span>
+									<span class="amount">34,90â¬</span>
 								</p>
 								<meta itemprop="priceCurrency" content="EUR">
-								<link itemprop="availability" >
+								<link itemprop="availability" href="http://schema.org/InStock">
 							</div>
 							<div class="variations variations_form cart custom">
-								<h6>尺码</h6>
+								<h6>Size</h6>
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
 										<select id="pa_talla" name="attribute_pa_talla">
-											<option value="">Choose an option…</option>
+											<option value="">Choose an optionâ¦</option>
 											<option value="0-meses" class="active">0 meses</option>
 											<option value="3m" class="active">03 Meses</option>
 											<option value="6m" class="active">06 Meses</option>
@@ -179,7 +254,7 @@
 									<input type="hidden" name="variation_id" value="">
 									<button type="submit"
 										class="single_add_to_cart_button button1 secondary alt"
-										disabled="disabled">添加到购物车</button>
+										disabled="disabled">Add to cart</button>
 									<div class="quantity buttons_added">
 										<input type="button" value="-" class="minus"><input
 											type="number" step="1" name="quantity" value="1" title="Qty"
@@ -194,11 +269,10 @@
 							<div class="product_meta">
 								<span itemprop="productID" class="sku_wrapper">SKU: <span
 									class="sku" data-o_sku="S805 R">S805 R</span>.
-								</span> <span class="posted_in">类别: 
-									
-									<a href="http://www.sainteclaire.es/en/product-category/bebe/"
-									rel="tag">Baby</a>, 
-									<a href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
+								</span> <span class="posted_in">Categories: <a
+									href="http://www.sainteclaire.es/en/product-category/bebe/"
+									rel="tag">Baby</a>, <a
+									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
 									rel="tag">Newborn Essentials</a>, <a
 									href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
 									rel="tag">Cardigans and sweaters</a>, <a
@@ -207,7 +281,8 @@
 								</span>
 							</div>
 							<div class="social-icons share-row">
-								<a href="http://www.facebook.com/sharer.php?u=http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-rosa/&images=http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa-150x150.jpg"
+								<a
+									href="http://www.facebook.com/sharer.php?u=http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-rosa/&images=http://www.sainteclaire.es/wp-content/uploads/2014/07/chaqueta-bebe-rosa-150x150.jpg"
 									target="_blank" class="icon facebook tip-top"
 									data-tip="Compartir en Facebook"><span
 									class="icon-facebook"></span> </a> <a
@@ -253,7 +328,6 @@
 								</div>
 							</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -271,7 +345,8 @@
 	<script type="text/javascript" src="<%=basePath%>/js/core.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
-
+	<script src="<%=basePath%>/js/jquery.magnific-popup.min.js"></script>
+	<script src="<%=basePath%>/js/common/detail.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
