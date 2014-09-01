@@ -75,27 +75,30 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-			<form role="form" >
+			<form role="form" action="account/create.do" method="post">
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize">账号</label>
-					<input type="email"
-						class="form-control" id="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
+					<input type="text"
+						class="form-control" id="loginName" name="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
+					<label id="loginMsg" class="fontSize" style="display:none"><font color="red">用户名已存在</font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize">密码</label> <input type="password"
-						class="form-control" id="password"
+						class="form-control" id="password" name="password" 
 						placeholder="6~16位数字/字母/符号" style="width:250px;font-size:10px;">
+					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red">密码不符合要求</font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize">确认密码</label> <input type="password"
-						class="form-control" id="password"
+						class="form-control" id="passwordAgin" 
 						placeholder="6~16位数字/字母/符号" style="width:250px;font-size:10px;">
+					<label id="passwordAginMsg" class="fontSize" style="display:none"><font color="red">两次输入密码不一致</font></label>
 				</div>
 				<!-- <button type="submit" class="btn btn-primary col-md-2">登录</button>
 				<label class="fontSize" style="margin-left:45px;">已有账号?&nbsp;&nbsp;<a href="#">直接登陆</a></label> -->
 				<div class="checkbox" style="padding-left:0px;">
 					<button type="submit" class="btn btn-primary col-md-4 pull-left">登录</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">已有账号?&nbsp;&nbsp;<a href="#">直接登陆</a></label>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">已有账号?&nbsp;&nbsp;<a href="login.do">直接登陆</a></label>
 				</div>
 				<div class="checkbox" style="margin-top:20px;width:286px;">
 					<label class="fontSize" > <input type="checkbox" /> <font style="font-weight: bold;font-size: 8px;">我已阅读并同意《sainleclaire服务协议》</font>

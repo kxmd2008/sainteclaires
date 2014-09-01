@@ -75,15 +75,16 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-			<form role="form" >
+			<form role="form" action="login.do" method="post">
 				<div class="form-group">
-					<label for="exampleInputEmail1" class="fontSize">账号</label> <input type="email"
-						class="form-control" id="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
+					<label for="exampleInputEmail1" class="fontSize">账号</label> <input type="text"
+						class="form-control" id="loginName" name="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize">密码</label> <input type="password"
-						class="form-control" id="password"
+						class="form-control" id="password" name="password"
 						placeholder="可用数字，字母，不少于6位" style="width:250px;font-size:10px;">
+<!-- 					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red">密码不符合要求</font></label> -->
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
 					<!-- <label class="fontSize" style="font-weight: bold;"> <input type="checkbox"> 记住密码
@@ -94,7 +95,7 @@
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
 					<button type="submit" class="btn btn-primary col-md-4 pull-left">登录</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="#">立即注册</a></label>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="register.do">立即注册</a></label>
 				</div>
 				
 			</form>
