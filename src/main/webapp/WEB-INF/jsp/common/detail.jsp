@@ -11,21 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="<%=basePath%>/common/image/icon.png">
-<title>Sainte Claire</title>
-<link href="<%=basePath%>/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.gritter.css">
-<link rel="stylesheet" href="<%=basePath%>/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/nanoscroller.css">
-<link href="<%=basePath%>/css/style.css" rel="stylesheet">
-<link href="./css/my.css" rel="stylesheet">
-<link href="./css/product.css" rel="stylesheet">
-<link href="./css/fonts.css" rel="stylesheet">
+<jsp:include page="../head.jsp"/>
 <link href="./css/magnific-popup.css" rel="stylesheet" />
 <style type="text/css">
 .jqstooltip {
@@ -53,8 +39,34 @@
 	font: 10px arial, san serif;
 	text-align: left;
 }
+.box {
+	position: absolute;
+	top: 100%;
+	/*   left: 0; */
+	z-index: 1000;
+/* 	display: block; */
+	float: right;
+	min-width: 160px;
+	padding: 5px;
+	margin: 2px 0 0;
+	font-size: 14px;
+	text-align: left;
+	list-style: none;
+	background-color: #fff;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 3px solid #ccc;
+	border: 3px solid rgba(0, 0, 0, .15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 12px 12px rgba(0, 0, 0, .175);
+}
+
 #show_tooltip:hover .dropdown-menu {
 	display: block;
+}
+.icon-close:before{
+	content: "";
 }
 .fontSize{
 	font-size: 12px;
@@ -80,69 +92,9 @@
 	<div id="cl-wrapper" class="strange"
 		style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
-			<div id="head-nav" class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-collapse">
-						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="./index.do">home</a></li>
-							<li class=""><a href="./shop.do">shop</a></li>
-							<li class=""><a href="#">blog</a></li>
-							<li class=""><a href="#">Changes</a></li>
-							<li class=""><a href="#">contact</a></li>
-							<c:if test="${ custAccount == null}">
-								<li class=""><a href="login.do">Login</a></li> 
-							</c:if>
-							<c:if test="${ custAccount != null}">
-								<li class=""><a href="logout.do">Login Out</a></li> 
-							</c:if>
-						</ul>
-						<ul class="nav navbar-nav not-nav">
-							<div style="margin-left: 20px;"></div>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-						</ul>
-
-					</div>
-				</div>
-			</div>
-
+			<jsp:include page="../header.jsp"/>
 			<div class="cl-mcont aside">
-				<div class="page-aside tree">
-					<div class="nano nscroller has-scrollbar">
-						<div class="content" tabindex="0" style="right: -17px;">
-							<div class="title">
-								<img alt="Sainte Claire" title="Sainte Claire"
-									src="<%=basePath%>/common/image/logo_txt.png">
-							</div>
-							<ul class="nav nav-list treeview">
-								<c:forEach var="pcat" items="${parents}">
-								<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
-									<c:choose>
-										<c:when test="${pcat.id == parentCatId }">
-											<ul class="nav nav-list tree" style="display: block;">
-										</c:when>
-										<c:otherwise>
-											<ul class="nav nav-list tree" style="display: none;">
-										</c:otherwise>
-									</c:choose>
-										<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-											<li><a href="./products.do?subCateId=${subcat.id }">${subcat.name }</a></li>
-										</c:forEach>
-									</ul></li>
-								</c:forEach>
-							</ul>
-						</div>
-						<div class="pane" style="display: none;">
-							<div class="slider" style="height: 1117px; top: 0px;"></div>
-						</div>
-					</div>
-				</div>
+				<jsp:include page="../left.jsp"/>
 				<div class="content">
 					<div class="page-head"	style="height: 75px; width: 100%; display: table;">
 						<ol class="breadcrumb" style="padding-top: 35px;">
@@ -161,39 +113,49 @@
 												</div>
 											</div> 
 										</a>
-										<ul class="dropdown-menu  pull-right" style="min-width:300px;display:block;padding:8px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.2);">
-											<li>	
-												<div class="col-md-2">
-													<a href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
-														class="remove" title="Remove this item"><span
-														class="icon-close" style="margin:0px;text-align: center"><span class="glyphicon glyphicon-remove" style="margin:0 2px;"></span></span></a>
-												</div>
-												<div class="col-md-7">
-													<a class="cart_list_product_title fontSize"
-														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(EspaÃ±ol)
-														Chaqueta bebÃ© rosa</a>
-													<div class="cart_list_product_price fontSize">
-														<span class="amount">34,90Y</span> /<span class="amount">Cantidad:1</span>
+										<ul class="dropdown-menu  pull-right box"
+												style="min-width: 330px;min-height:270px;padding:25px; ">
+												<li>
+													<ul style="margin-left:0px;">
+													<li>
+													<div class="col-md-2" style="vertical-align:middle;padding-left:0px;padding-right:0px;">
+														<a
+															href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
+															class="remove" title="Remove this item"><span
+															class="icon-close"><span
+																class="glyphicon glyphicon-remove" style="margin:0 2px;"></span></span></a>
 													</div>
-<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
-<!-- 														1</div> -->
-												</div>
-												<div class="col-md-3">
-													<a class="cart_list_product_img"
-														href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
-														width="90" height="90"
-														src="<%=basePath%>/images/bebe.jpg"
-														class="attachment-shop_thumbnail wp-post-image"
-														alt="chaqueta bebe rosa"></a>
-												</div>
-														<hr/>
-														<div class="minicart_total_checkout">
-															总金额：<span><span class="amount">34,90￥</span></span>
+													<div class="col-md-7">
+														<a class="cart_list_product_title fontSize"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/" style="color:#3d3d3d;font-weight: bold;">(Español)
+															Chaqueta bebé rosa</a>
+														<div class="cart_list_product_price fontSize">
+															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">34,90€</span> /<span class="amount" style="color:#777777">Cantidad:1</span>
 														</div>
-														<a href="http://www.sainteclaire.es/realizar-pedido/"
-															class="button secondary expand uppercase" style="text-align:center;">结算</a>
-											</li>
-										</ul>
+														<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
+														<!-- 														1</div> -->
+													</div>
+													<div class="col-md-3">
+														<a class="cart_list_product_img"
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+															width="90px" height="90px"
+															src="<%=basePath%>/images/bebe.jpg"
+															class="attachment-shop_thumbnail wp-post-image"
+															alt="chaqueta bebe rosa"></a>
+													</div>
+													</li>
+													</ul>
+													<hr style="margin-bottom:8px;"/>
+													<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
+														Total cesta<span><span class="amount" style="color:#000000">34,90€</span></span>
+													</div> <!-- 														<a href="http://www.sainteclaire.es/carro/" -->
+													<!-- 															class="button expand uppercase">Ver cesta</a> -->
+													<a href="http://www.sainteclaire.es/realizar-pedido/"
+													class="button secondary expand uppercase"
+													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">Proceder a la compra</a> <!-- 													</div> -->
+													<!-- 												</div> -->
+												</li>
+											</ul>
 					</div>
 				</div>
 				</li>
