@@ -51,7 +51,7 @@
 		<!-- 放图片 -->
 		<div class="col-md-4"></div>
 		<div class="col-md-8" style="margin-top:0px;">
-			<img src="<%=basePath%>/common/image/DSC7073.jpg" width="350px;" height="400px;" class="img-circle"/>
+			<img src="<%=basePath%>/images/DSC13491.jpg" width="350px;" height="400px;" class=""/>
 		</div>
 		
 	</div>
