@@ -73,8 +73,8 @@
 	background-color: #fff;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0, 0, 0, .15);
+	border: 3px solid #ccc;
+	border: 3px solid rgba(0, 0, 0, .15);
 	border-radius: 4px;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 	box-shadow: 0 12px 12px rgba(0, 0, 0, .175);
@@ -182,7 +182,7 @@
 												</div>
 											</a>
 											<ul class="dropdown-menu  pull-right box"
-												style="min-width: 330px;min-height:270px;display:block;padding:25px; ">
+												style="min-width: 330px;min-height:270px;padding:25px; ">
 												<li>
 													<ul style="margin-left:0px;">
 													<li>
@@ -198,7 +198,7 @@
 															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/" style="color:#3d3d3d;font-weight: bold;">(Español)
 															Chaqueta bebé rosa</a>
 														<div class="cart_list_product_price fontSize">
-															<span class="amount" style="color:#3d3d3d">34,90€</span> /<span class="amount" style="color:#777777">Cantidad:1</span>
+															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">34,90€</span> /<span class="amount" style="color:#777777">Cantidad:1</span>
 														</div>
 														<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
 														<!-- 														1</div> -->
