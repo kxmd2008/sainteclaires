@@ -72,7 +72,12 @@
 							<li class=""><a href="#">blog</a></li>
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>
-							<li class=""><a href="#">Login</a></li>
+							<c:if test="${ custAccount == null}">
+								<li class=""><a href="login.do">Login</a></li> 
+							</c:if>
+							<c:if test="${ custAccount != null}">
+								<li class=""><a href="logout.do">Login Out</a></li> 
+							</c:if>
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>

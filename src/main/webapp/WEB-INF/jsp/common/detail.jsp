@@ -62,17 +62,17 @@
 	font-weight : bold;
 }
 .icon-close:before{
-	content:"";
+	content: "";
 }
-.dropdown-menu {
-	padding: 10px 0;
-	margin: 10px 0 0;
-	border: 1px solid #ccc;
-	 border: 1px solid rgba(0, 0, 0, .15); 
-	 border-radius: 4px; 
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
+/* .dropdown-menu { */
+/* 	padding: 10px 0; */
+/* 	margin: 10px 0 0; */
+/* 	border: 1px solid #ccc; */
+/* 	 border: 1px solid rgba(0, 0, 0, .15);  */
+/* 	 border-radius: 4px;  */
+/* 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
+/* 	box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
+/* } */
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
@@ -84,12 +84,17 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="#">home</a></li>
-							<li class=""><a href="#">shop</a></li>
+							<li class=""><a href="./index.do">home</a></li>
+							<li class=""><a href="./shop.do">shop</a></li>
 							<li class=""><a href="#">blog</a></li>
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>
-							<li class=""><a href="#">Login</a></li>
+							<c:if test="${ custAccount == null}">
+								<li class=""><a href="login.do">Login</a></li> 
+							</c:if>
+							<c:if test="${ custAccount != null}">
+								<li class=""><a href="logout.do">Login Out</a></li> 
+							</c:if>
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>
@@ -156,12 +161,12 @@
 												</div>
 											</div> 
 										</a>
-										<ul class="dropdown-menu  pull-right" style="min-width:300px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.2);">
+										<ul class="dropdown-menu  pull-right" style="min-width:300px;display:block;padding:8px; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.2);">
 											<li>	
 												<div class="col-md-2">
 													<a href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
 														class="remove" title="Remove this item"><span
-														class="icon-close" style="margin:0px;text-align: center"><span class="glyphicon glyphicon-remove"></span></span></a>
+														class="icon-close" style="margin:0px;text-align: center"><span class="glyphicon glyphicon-remove" style="margin:0 2px;"></span></span></a>
 												</div>
 												<div class="col-md-7">
 													<a class="cart_list_product_title fontSize"

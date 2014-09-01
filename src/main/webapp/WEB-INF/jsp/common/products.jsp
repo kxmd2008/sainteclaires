@@ -65,7 +65,7 @@
 	display: block;
 	float: right;
 	min-width: 160px;
-	padding: 5px 0;
+	padding: 5px;
 	margin: 2px 0 0;
 	font-size: 14px;
 	text-align: left;
@@ -77,13 +77,15 @@
 	border: 1px solid rgba(0, 0, 0, .15);
 	border-radius: 4px;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 12px 12px rgba(0, 0, 0, .175);
 }
 
 #show_tooltip:hover .dropdown-menu {
 	display: block;
 }
-
+.icon-close:before{
+	content: "";
+}
 .fontSize {
 	font-size: 12px;
 	color: #838383;
@@ -100,12 +102,17 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="#">home</a></li>
-							<li class=""><a href="#">shop</a></li>
+							<li class=""><a href="./index.do">home</a></li>
+							<li class=""><a href="./shop.do">shop</a></li>
 							<li class=""><a href="#">blog</a></li>
 							<li class=""><a href="#">Changes</a></li>
 							<li class=""><a href="#">contact</a></li>
-							<li class=""><a href="#">Login</a></li>
+							<c:if test="${ custAccount == null}">
+								<li class=""><a href="login.do">Login</a></li> 
+							</c:if>
+							<c:if test="${ custAccount != null}">
+								<li class=""><a href="logout.do">Login Out</a></li> 
+							</c:if>
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>
@@ -174,22 +181,24 @@
 													</div>
 												</div>
 											</a>
-											<ul class="dropdown-menu  pull-right"
-												style="min-width: 300px; box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);">
+											<ul class="dropdown-menu  pull-right box"
+												style="min-width: 330px;min-height:270px;display:block;padding:25px; ">
 												<li>
-													<div class="col-md-2">
+													<ul style="margin-left:0px;">
+													<li>
+													<div class="col-md-2" style="vertical-align:middle;padding-left:0px;padding-right:0px;">
 														<a
 															href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
 															class="remove" title="Remove this item"><span
 															class="icon-close"><span
-																class="glyphicon glyphicon-remove"></span></span></a>
+																class="glyphicon glyphicon-remove" style="margin:0 2px;"></span></span></a>
 													</div>
 													<div class="col-md-7">
 														<a class="cart_list_product_title fontSize"
-															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/">(Español)
+															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/" style="color:#3d3d3d;font-weight: bold;">(Español)
 															Chaqueta bebé rosa</a>
 														<div class="cart_list_product_price fontSize">
-															<span class="amount">34,90€</span> /<span class="amount">Cantidad:1</span>
+															<span class="amount" style="color:#3d3d3d">34,90€</span> /<span class="amount" style="color:#777777">Cantidad:1</span>
 														</div>
 														<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
 														<!-- 														1</div> -->
@@ -197,19 +206,21 @@
 													<div class="col-md-3">
 														<a class="cart_list_product_img"
 															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
-															width="90" height="90"
+															width="90px" height="90px"
 															src="<%=basePath%>/images/bebe.jpg"
 															class="attachment-shop_thumbnail wp-post-image"
 															alt="chaqueta bebe rosa"></a>
 													</div>
-													<hr />
-													<div class="minicart_total_checkout">
-														Total cesta<span><span class="amount">34,90€</span></span>
+													</li>
+													</ul>
+													<hr style="margin-bottom:8px;"/>
+													<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
+														Total cesta<span><span class="amount" style="color:#000000">34,90€</span></span>
 													</div> <!-- 														<a href="http://www.sainteclaire.es/carro/" -->
 													<!-- 															class="button expand uppercase">Ver cesta</a> -->
 													<a href="http://www.sainteclaire.es/realizar-pedido/"
 													class="button secondary expand uppercase"
-													style="text-align: center;">Proceder a la compra</a> <!-- 													</div> -->
+													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">Proceder a la compra</a> <!-- 													</div> -->
 													<!-- 												</div> -->
 												</li>
 											</ul>
