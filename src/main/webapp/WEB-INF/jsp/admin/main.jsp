@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Order<span class="label label-info">+3</span></a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>订单管理<span class="label label-info">+3</span></a>
         <c:if test="${collapse=='order'}">
         <ul id="dashboard-menu" class="nav nav-list collapse in">
         </c:if>
@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--             <li ><a href="orderStat.do">订单统计</a></li> -->
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Category</a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>类别管理</a>
       	 <c:if test="${collapse=='category'}">
         <ul id="accounts-menu" class="nav nav-list collapse in">
         </c:if>
@@ -78,10 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="accounts-menu" class="nav nav-list collapse">
         </c:if>
         	<c:if test="${active=='categorys'}">
-            <li class="active"><a href="<%=basePath%>/auth/categorys.do">Category List</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/categorys.do">类别列表</a></li>
             </c:if>
             <c:if test="${active!='categorys'}">
-            <li ><a href="<%=basePath%>/auth/categorys.do">Category List</a></li>
+            <li ><a href="<%=basePath%>/auth/categorys.do">类别列表</a></li>
             </c:if>
 <%--             <c:if test="${active=='categoryAdd'}"> --%>
 <%--             <li class="active"><a href="<%=basePath%>/auth/categoryAdd.do">Add Category</a></li> --%>
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--             </c:if> --%>
         </ul> 
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Product</a>
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>产品管理</a>
        <c:if test="${collapse=='product'}">
         <ul id="error-menu" class="nav nav-list collapse in">
          </c:if>
@@ -99,21 +99,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="error-menu" class="nav nav-list collapse">
          </c:if>
          	 <c:if test="${active=='products'}">
-            <li class="active"><a href="<%=basePath%>/auth/products.do">Product List</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/products.do">产品列表</a></li>
             </c:if>
             <c:if test="${active!='products'}">
-            <li ><a href="<%=basePath%>/auth/products.do">Product List</a></li>
+            <li ><a href="<%=basePath%>/auth/products.do">产品列表</a></li>
             </c:if>
              <c:if test="${active=='productAdd'}">
-            <li class="active"><a href="<%=basePath%>/auth/productAdd.do">Add Product</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/productAdd.do">新增产品</a></li>
             </c:if>
             <c:if test="${active!='productAdd'}">
-            <li ><a href="<%=basePath%>/auth/productAdd.do">Add Product</a></li>
+            <li ><a href="<%=basePath%>/auth/productAdd.do">新增产品</a></li>
             </c:if>
         </ul>
 
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>Help</a>
-        <a href="faq.html" class="nav-header" ><i class="icon-comment"></i>Faq</a>
+        <a href="#" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
     </div>
 
 
