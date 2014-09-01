@@ -62,7 +62,7 @@
 	top: 100%;
 	/*   left: 0; */
 	z-index: 1000;
-	display: block;
+/* 	display: block; */
 	float: right;
 	min-width: 160px;
 	padding: 5px;
