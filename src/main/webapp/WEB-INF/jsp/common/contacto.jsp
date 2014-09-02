@@ -30,7 +30,7 @@
 				<div class="content">
 					<div class="row">
 						<div style="min-height: 75px;"></div>
-						<div class="col-sm-12 col-md-12">
+<!-- 						<div class="col-sm-12 col-md-12"> -->
 							<div class="block-flat">
 								<p><span style="padding-bottom: 5px;">您可以通过以下方式联系我们：</span><br/>
 								<span style="padding-bottom: 5px;">电子邮箱：correo@sainteclaire.es</span><br/>
@@ -51,7 +51,7 @@
 									</div>		
 								</div>
 							</div>
-						</div>
+<!-- 						</div> -->
 					</div><!-- end row -->
 					<div class="row">
 						<div class="block-flat">
