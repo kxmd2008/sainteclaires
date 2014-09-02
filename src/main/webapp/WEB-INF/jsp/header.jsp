@@ -14,7 +14,7 @@
 						<ul class="nav navbar-nav navbar-right user-nav">
 							<li class=""><a href="./index.do">首页 </a></li>
 							<li class=""><a href="./shop.do">商店</a></li>
-							<li class=""><a href="./blog.do">博客</a></li>
+<!-- 							<li class=""><a href="./blog.do">博客</a></li> -->
 							<li class=""><a href="./changes.do">Changes</a></li>
 							<li class=""><a href="./contact.do">联系我们</a></li>
 							<c:if test="${ custAccount == null}">
