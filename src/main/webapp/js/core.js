@@ -400,3 +400,24 @@ function treeToggler() {
 		});
 	});
 }
+
+/**
+ * 商品数量增加1
+ */
+function addNumber(){
+	var $cleaninit = $("#cleaninit");
+	var value = $cleaninit.val();
+	value = eval(value+"+"+1);
+	$cleaninit.val(value);
+}
+/**
+ * 商品数量减少1
+ */
+function delNumber(){
+	var $cleaninit = $("#cleaninit");
+	var value = $cleaninit.val();
+	if(value != 0){
+		value = eval(value+"-"+1);
+		$cleaninit.val(value);
+	}
+}
