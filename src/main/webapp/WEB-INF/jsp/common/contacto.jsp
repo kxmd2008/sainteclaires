@@ -29,22 +29,22 @@
 				<jsp:include page="../left.jsp"/>
 				<div class="content">
 					<div class="row">
-						<div style="min-height: 75px;"></div>
+						<div style="min-height: 0px;"></div>
 <!-- 						<div class="col-sm-12 col-md-12"> -->
-							<div class="block-flat">
-								<p><span style="padding-bottom: 5px;">您可以通过以下方式联系我们：</span><br/>
+							<div class="block-flat" >
+								<p style="line-height:2"><span style="padding-bottom: 5px;">您可以通过以下方式联系我们：</span><br/>
 								<span style="padding-bottom: 5px;">电子邮箱：correo@sainteclaire.es</span><br/>
 								<span>也可以填写下面的联系申请表联系我们</span></p>
-								<div class="header" >
+								<div class="header" style="height:30px;">
 									<h3 style="font-weight: bold;">商店地址</h3>
 								</div>
-								<div class="content">
-									<div class="cl col-md-6">
+								<div class="content" >
+									<div class="cl col-md-6" style="padding-left:0px;padding-right:0px;">
 										<p>Sainte Claire Aravaca<br/>
 										Plaza del Rollo, 1<br/>
 										28023 Madrid</p>
 									</div>
-									<div class="cl col-md-6">
+									<div class="cl col-md-6" style="padding-left:0px;padding-right:0px;">
 										<p>Sainte Claire Aravaca<br/>
 										Plaza del Rollo, 1<br/>
 										28023 Madrid</p>
@@ -53,8 +53,8 @@
 							</div>
 <!-- 						</div> -->
 					</div><!-- end row -->
-					<div class="row">
-						<div class="block-flat">
+					<div class="row" style="margin-top:0px;">
+						<div class="block-flat" style="padding-top:0px;margin-bottom:0px;padding-bottom:0px;">
 								<div class="form-group">
 					              <label>姓名（必填）</label> <input type="text" class="form-control">
 					            </div>
@@ -68,6 +68,7 @@
 		               				<label control-label">您的信息</label>
 					                <textarea class="form-control"></textarea>
 					             </div>
+					             <button type="button" class="btn btn-default" style="margin-left:0px;">提交</button>
 				            </div>
 					</div>
 				</div>

@@ -5098,7 +5098,7 @@ body.modal-open,
 .block .header,
 .widget-block .header,
 .block-flat .header {
-  padding: 10px;
+/*   padding: 10px; */
   background-color: #FEFEFE;
   border-bottom: 1px solid #dadada;
   transition: border 500ms;
