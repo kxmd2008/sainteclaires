@@ -27,22 +27,22 @@
 				<jsp:include page="../left.jsp" />
 				<div class="content">
 					<div class="row">
-						<div class="block-flat">
+						<div class="block-flat" style="margin-bottom:20px;">
 							<h3 style="font-weight: bold;">变更信息</h3>
 							<p style="line-height: 2">*无退货信息*</p>
 							<p style="line-height: 2">
 							<h4 style="font-weight: bold;">变更信息</h4>
-							<span>•目前无变更信息</span><br /> <span>•在收到本商店确认发货信息起一个月内可退换商品</span>
+							<span style="line-height: 2">•目前无变更信息</span><br /> <span style="line-height: 2">•在收到本商店确认发货信息起一个月内可退换商品</span>
 							</p>
-							<h3 style="font-weight: bold;">你需要填写下面的表格：</h3>
-							<div class="content">
+							<h3 style="font-weight: bold;margin-top:20px;">你需要填写下面的表格：</h3>
+							<div class="content" style="padding:0px;">
 								<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4 class="panel-title">
+									<div class="panel panel-default" style="border:  ;">
+										<div class="panel-heading" onclick="javascript:openCollapse();">
+											<h4 class="panel-title" style="margin-top:0px;">
 												<a data-toggle="collapse" data-parent="#accordion"
 													href="#collapseOne"><span
-													class="glyphicon glyphicon-minus" id="collapseIcon"></span>变更申请表
+													class="glyphicon glyphicon-plus" id="collapseIcon"></span>变更申请表
 												</a>
 											</h4>
 										</div>
@@ -77,12 +77,12 @@
 						</div>
 					</div>
 					<!-- end row -->
-					<div class="row">
+					<div class="row" style="margin-top:0px;margin-left:0px;">
 <!-- 						<div class="block-flat"> -->
-							<p style="line-height: 2">退换货申请提示：<br/>
-								<div>
-								<span>1.退换货产生的费用有顾客承担，但本店会赠送优惠券给您.</span><br/>
-								<span>2.本店有权拒绝在人为情况下损坏商品的退还货申请.</span>
+							<p style="line-height: 2"><h5>退换货申请提示：</h5><br/>
+								<div style="margin-left:20px;line-height: 2">
+									<span>1.退换货产生的费用有顾客承担，但本店会赠送优惠券给您.</span><br/>
+									<span>2.本店有权拒绝在人为情况下损坏商品的退还货申请.</span>
 								</div>
 							</p>
 <!-- 						</div> -->
@@ -104,7 +104,7 @@
 	<script type="text/javascript" src="<%=basePath%>/js/core.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
-
+	<script src="<%=basePath%>/js/common/changes.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
