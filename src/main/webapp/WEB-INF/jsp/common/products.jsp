@@ -192,7 +192,7 @@
 						</div>
 						<div class="row products">
 							<c:forEach var="product" items="${products}">
-							<a href="<%=basePath%>/detail.do?id=${product.id}">
+							<a href="#" data-toggle="modal" data-target="#myModal">
 								<div class="col-sm-6 col-md-6 col-lg-6">
 									<!-- 							<div class="block-flat"> -->
 									<div class="product-image">
@@ -217,7 +217,97 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" style="min-width:830px;">
+	    <div class="modal-content" >
+	      <div class="modal-header" style="padding-top:0px;padding-bottom:0px;padding-right:5px;">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<!-- 	        <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+	      </div>
+	      <div class="modal-body" style="padding-top:0px;padding-bottom:0px;">
+	        <div class="content">
+				
+					<div class="row">
+						<div class="large-7 columns product-gallery">
+							<div class="product-image images">
+								<div class="iosSlider product-gallery-slider"
+									style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 0; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; min-height: 509px; width: 510px; height: auto;">
+									<div class="slider gallery-popup"
+										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
+										<div class="slide"
+											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
+												<a title="" class="image-popup-vertical-fit" href="./product/imgs/${product.pics }">
+													<img width="75" height="75" src="./product/imgs/DSC6436-500x500.jpg">
+												</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="product-info large-5 small-12 columns left">
+							<h1 itemprop="name" class="entry-title">${product.name }dfdfdfdfd</h1>
+							<div class="tx-div small"></div>
+							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+								<p itemprop="price" class="price large">
+									<span class="amount">${product.price }</span>
+								</p>
+								<meta itemprop="priceCurrency" content="EUR">
+								<link itemprop="availability" href="http://schema.org/InStock">
+							</div>
+							<div class="variations variations_form cart custom">
+								<h6>Size</h6>
+								<div class="value pa_talla alt">
+									<div class="select-wrapper">
+										<select id="pa_talla" name="attribute_pa_talla">
+											<option value="">选择尺码</option>
+											<option value="0-meses" class="active">0 meses</option>
+											<option value="3m" class="active">03 Meses</option>
+											<option value="6m" class="active">06 Meses</option>
+											<option value="9m" class="active">09 Meses</option>
+											<option value="12m" class="active">12 Meses</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="single_variation_wrap" style="display: block;">
+								<div class="single_variation"></div>
+								<div class="variations_button">
+									<input type="hidden" name="variation_id" value="">
+									<button type="submit"
+										class="single_add_to_cart_button button1 secondary alt"
+										disabled="disabled" style="padding:7px;width:150px;">加入购物车</button>
+									<div class="quantity buttons_added">
+										<input
+											type="number" step="1" name="quantity" value="1" title="Qty"
+											class="input-text qty text" min="1">
+									</div>
+								</div>
+							</div>
+							<div>
+								<input type="hidden" name="product_id" value="12132">
+							</div>
+							<div class="product_meta">
+								<span itemprop="productID" class="sku_wrapper">SKU: <span
+									class="sku" data-o_sku="S805 R">S805 R</span>.
+								</span> <span class="posted_in">Categories: <a
+									href="http://www.sainteclaire.es/en/product-category/bebe/"
+									rel="tag">Baby</a>, <a
+									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
+									rel="tag">Newborn Essentials</a>, <a
+									href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
+									rel="tag">Cardigans and sweaters</a>, <a
+									href="http://www.sainteclaire.es/en/product-category/primera-puesta/punto-primera-puesta/"
+									rel="tag">Cardigans and sweaters</a>.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
 	<script src="<%=basePath%>/js/jPushMenu.js"></script>
