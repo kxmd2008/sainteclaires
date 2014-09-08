@@ -12,16 +12,16 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="./index.do">首页 </a></li>
-							<li class=""><a href="./shop.do">商店</a></li>
-<!-- 							<li class=""><a href="./blog.do">博客</a></li> -->
-							<li class=""><a href="./changes.do">Changes</a></li>
-							<li class=""><a href="./contact.do">联系我们</a></li>
+							<li class=""><a href="./index">首页 </a></li>
+							<li class=""><a href="./shop">商店</a></li>
+<!-- 							<li class=""><a href="./blog">博客</a></li> -->
+							<li class=""><a href="./changes">Changes</a></li>
+							<li class=""><a href="./contact">联系我们</a></li>
 							<c:if test="${ custAccount == null}">
-								<li class=""><a href="login.do">登陆</a></li> 
+								<li class=""><a href="login">登陆</a></li> 
 							</c:if>
 							<c:if test="${ custAccount != null}">
-								<li class=""><a href="logout.do">退出</a></li> 
+								<li class=""><a href="logout">退出</a></li> 
 							</c:if>
 						</ul>
 						<ul class="nav navbar-nav not-nav">

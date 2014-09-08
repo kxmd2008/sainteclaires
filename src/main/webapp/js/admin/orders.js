@@ -58,7 +58,7 @@ function addTableInfo(){
 //		"bStateSave":true,
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
-			"url" : "orders/find.do",
+			"url" : "orders/find",
 			"data" : {
 				"orderNo" : orderNo,
 				"customerNo":customerNo
@@ -68,7 +68,7 @@ function addTableInfo(){
 //			"data":"orderNo="+orderNo+"&customerNo="+customerNo,
 		},
 //		"sServerMethod": "POST",   
-//		"sAjaxSource": "orders/find.do",
+//		"sAjaxSource": "orders/find",
 //		"fnServerParams": function (aoData) {  
 //			            aoData.push({"orderNo": orderNo, "customerNo":customerNo});  
 //		}, 

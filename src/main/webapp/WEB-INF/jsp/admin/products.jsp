@@ -68,7 +68,7 @@ select {
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd.do">
+				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd">
 					<i class="icon-plus"></i> 新增产品
 				</a>
 				<div class="btn-group"></div>
@@ -95,7 +95,7 @@ select {
 							<td>${product.price}</td>
 							<td>${product.num}</td>
 <%-- 							<th>${product.status}</th> --%>
-							<td><a href="productEdit.do?id=${product.id}"><i class="icon-pencil"></i></a> <a
+							<td><a href="productEdit?id=${product.id}"><i class="icon-pencil"></i></a> <a
 								href="#myModal" role="button" data-toggle="modal"><i
 									class="icon-remove"></i></a></td>
 						</tr>

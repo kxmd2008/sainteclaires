@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-			<form role="form" action="login.do" method="post">
+			<form role="form" action="login" method="post">
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize">账号</label> <input type="text"
 						class="form-control" id="loginName" name="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
@@ -95,7 +95,7 @@
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
 					<button type="submit" class="btn btn-primary col-md-4 pull-left">登录</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="register.do">立即注册</a></label>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="register">立即注册</a></label>
 				</div>
 				
 			</form>

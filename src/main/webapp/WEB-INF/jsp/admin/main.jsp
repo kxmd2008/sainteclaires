@@ -56,18 +56,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="dashboard-menu" class="nav nav-list collapse">
         </c:if>
         	<c:if test="${active=='unsettledOrders'}">
-            <li class="active"><a href="<%=basePath%>/auth/unsettledOrders.do">待处理订单</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/unsettledOrders">待处理订单</a></li>
             </c:if>
             <c:if test="${active!='unsettledOrders'}">
-            <li><a href="<%=basePath%>/auth/unsettledOrders.do">待处理订单</a></li>
+            <li><a href="<%=basePath%>/auth/unsettledOrders">待处理订单</a></li>
             </c:if>
             <c:if test="${active=='orders'}">
-            <li class="active"><a href="<%=basePath%>/auth/orders.do">订单查询</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/orders">订单查询</a></li>
             </c:if>
             <c:if test="${active!='orders'}">
-            <li ><a href="<%=basePath%>/auth/orders.do">订单查询</a></li>
+            <li ><a href="<%=basePath%>/auth/orders">订单查询</a></li>
             </c:if>
-<!--             <li ><a href="orderStat.do">订单统计</a></li> -->
+<!--             <li ><a href="orderStat">订单统计</a></li> -->
         </ul>
 
         <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>类别管理</a>
@@ -78,16 +78,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="accounts-menu" class="nav nav-list collapse">
         </c:if>
         	<c:if test="${active=='categorys'}">
-            <li class="active"><a href="<%=basePath%>/auth/categorys.do">类别列表</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/categorys">类别列表</a></li>
             </c:if>
             <c:if test="${active!='categorys'}">
-            <li ><a href="<%=basePath%>/auth/categorys.do">类别列表</a></li>
+            <li ><a href="<%=basePath%>/auth/categorys">类别列表</a></li>
             </c:if>
 <%--             <c:if test="${active=='categoryAdd'}"> --%>
-<%--             <li class="active"><a href="<%=basePath%>/auth/categoryAdd.do">Add Category</a></li> --%>
+<%--             <li class="active"><a href="<%=basePath%>/auth/categoryAdd">Add Category</a></li> --%>
 <%--             </c:if> --%>
 <%--             <c:if test="${active!='categoryAdd'}"> --%>
-<%--             <li ><a href="<%=basePath%>/auth/categoryAdd.do">Add Category</a></li> --%>
+<%--             <li ><a href="<%=basePath%>/auth/categoryAdd">Add Category</a></li> --%>
 <%--             </c:if> --%>
         </ul> 
 
@@ -99,16 +99,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="error-menu" class="nav nav-list collapse">
          </c:if>
          	 <c:if test="${active=='products'}">
-            <li class="active"><a href="<%=basePath%>/auth/products.do">产品列表</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/products">产品列表</a></li>
             </c:if>
             <c:if test="${active!='products'}">
-            <li ><a href="<%=basePath%>/auth/products.do">产品列表</a></li>
+            <li ><a href="<%=basePath%>/auth/products">产品列表</a></li>
             </c:if>
              <c:if test="${active=='productAdd'}">
-            <li class="active"><a href="<%=basePath%>/auth/productAdd.do">新增产品</a></li>
+            <li class="active"><a href="<%=basePath%>/auth/productAdd">新增产品</a></li>
             </c:if>
             <c:if test="${active!='productAdd'}">
-            <li ><a href="<%=basePath%>/auth/productAdd.do">新增产品</a></li>
+            <li ><a href="<%=basePath%>/auth/productAdd">新增产品</a></li>
             </c:if>
         </ul>
 

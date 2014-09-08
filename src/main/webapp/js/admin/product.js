@@ -39,9 +39,9 @@ function saveProduct(){
 	if(id){
 		d["id"] = id;
 	}
-	$.post("product/save.do", d, function(data){
+	$.post("product/save", d, function(data){
 		if(data.head.rep_code == '200'){
-			location.href = "products.do";
+			location.href = "products";
 		}
 	});
 }

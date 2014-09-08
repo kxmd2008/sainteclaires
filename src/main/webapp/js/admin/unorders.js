@@ -60,7 +60,7 @@ function addTableInfo(){
 		},
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
-			"url" : "unsettledOrders/find.do",
+			"url" : "unsettledOrders/find",
 			"type" : "GET"
 		},
 		"columns" : [
@@ -109,7 +109,7 @@ function addTableInfo(){
  * @returns
  */
 function deal(id){
-	$.get("unsettledOrders/send.do?id="+id+"/",function(data){
+	$.get("unsettledOrders/send?id="+id+"/",function(data){
 		if(data.head.rep_code == 200){
 			addTableInfo();
 		}

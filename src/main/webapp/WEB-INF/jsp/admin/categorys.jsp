@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h3 id="catLabel">新增类别</h3>
 				</div>
 				<div class="modal-body">
-					<form id="tab" action="<%=basePath%>/auth/category/add.do" method="post">
+					<form id="tab" action="<%=basePath%>/auth/category/add" method="post">
 						<input type="hidden" name="id" id="id" value="">
 						<input type="hidden" name="parentName" id="parentName" value="">
 						<label>所属种类</label> 

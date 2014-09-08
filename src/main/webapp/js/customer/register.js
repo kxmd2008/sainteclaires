@@ -10,7 +10,7 @@ function checkLoginName(){
 	$("#loginName").on("blur",function(){
 		var $loginName = $("#loginName").val();
 		var data = {"loginName":$loginName};
-		$.post("account/check.do",data , function(msg){
+		$.post("account/check",data , function(msg){
 			if(msg.head.rep_code != 200){
 				$("#loginMsg").css("display","block");
 				$("#loginMsg").html("<font color='red'>用户名已存在</font>");

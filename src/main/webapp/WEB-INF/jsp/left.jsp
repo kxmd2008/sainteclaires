@@ -27,7 +27,7 @@
 							</c:otherwise>
 						</c:choose>
 							<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-								<li><a href="./products.do?subCateId=${subcat.id }">${subcat.name }</a></li>
+								<li><a href="./products?subCateId=${subcat.id }">${subcat.name }</a></li>
 							</c:forEach>
 						</ul></li>
 					</c:forEach>

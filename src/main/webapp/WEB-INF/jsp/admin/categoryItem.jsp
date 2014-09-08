@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="btn-group"></div>
 			</div>
 			<div class="well ">
-				<form id="tab" action="<%=basePath%>/auth/category/add.do" method="post">
+				<form id="tab" action="<%=basePath%>/auth/category/add" method="post">
 					<label>Parent Category</label> 
 					<input type="text" value="" class="input-xlarge" name="parentId"> 
 					<label>Category Name</label> 

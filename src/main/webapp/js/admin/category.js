@@ -6,7 +6,7 @@ $(document).ready(function(){
 var currPageItems = {};
 var parents = {};
 function findCates(){
-	$.post("category/find.do", function(data, status) {
+	$.post("category/find", function(data, status) {
 		if (data.head.rep_code='200') {
 			$(data.records).each(function(index) {
 				var value = data.records[index];
@@ -24,7 +24,7 @@ function findCates(){
 }
 
 function findParentCats(){
-	$.post("parentCats/find.do", function(data, status) {
+	$.post("parentCats/find", function(data, status) {
 		if (data.head.rep_code='200') {
 			$("#parentId").empty();
 			$("#parentId").append("<option>");
@@ -83,7 +83,7 @@ function saveCategory(){
 			"name" : $("#cname").val(),
 			"orderNo" : $("#orderNo").val()
 	};
-	$.post("category/save.do", d, function(data){
+	$.post("category/save", d, function(data){
 		if(data.head.rep_code='200'){
 			if("" == id){//new
 				findParentCats();
@@ -149,7 +149,7 @@ function deleteCategory(){
 //	}else {
 //		url = "category/delete/";
 //	}
-	$.get("category/delete/"+id+".do", function(data){
+	$.get("category/delete/"+id, function(data){
 		if(data.head.rep_code='200'){
 			$("#row" + id).remove();
 			if(currPageItems[id].parentId == null){

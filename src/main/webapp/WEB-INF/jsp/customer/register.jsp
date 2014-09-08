@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-			<form role="form" action="account/create.do" method="post">
+			<form role="form" action="account/create" method="post">
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize">账号</label>
 					<input type="text"
@@ -98,7 +98,7 @@
 				<label class="fontSize" style="margin-left:45px;">已有账号?&nbsp;&nbsp;<a href="#">直接登陆</a></label> -->
 				<div class="checkbox" style="padding-left:0px;">
 					<button type="submit" class="btn btn-primary col-md-4 pull-left">登录</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">已有账号?&nbsp;&nbsp;<a href="login.do">直接登陆</a></label>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">已有账号?&nbsp;&nbsp;<a href="login">直接登陆</a></label>
 				</div>
 				<div class="checkbox" style="margin-top:20px;width:286px;">
 					<label class="fontSize" > <input type="checkbox" /> <font style="font-weight: bold;font-size: 8px;">我已阅读并同意《sainleclaire服务协议》</font>

@@ -1,7 +1,7 @@
 var RPC_URL = "test/auth/";
 
 function logout(){
-	$.post(getURL() + "/auth/logout.do", function(data){
+	$.post(getURL() + "/auth/logout", function(data){
 		
 	});
 }

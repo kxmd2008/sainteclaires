@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                </p>
 			            </div>
 			        </div>
-					<form id="fileupload" action="<%=basePath%>/auth/upload.do" method="post" enctype="multipart/form-data">
+					<form id="fileupload" action="<%=basePath%>/auth/upload" method="post" enctype="multipart/form-data">
 <!-- 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
 				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 				        <div class="fileupload-buttonbar">

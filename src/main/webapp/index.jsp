@@ -57,7 +57,7 @@
     				</div>
     				<div class='modal-footer'>
     					<a href="http://ngbf/oss/plugins/ngbf-c-account/AccountForgotPassword.xhtml">忘记密码？</a>
-    					<button id='btn_login' class='btn btn-primary' onclick='nj.auth.doLogin()'>登 录</button>
+    					<button id='btn_login' class='btn btn-primary' onclick='nj.authLogin()'>登 录</button>
     				</div>
     			</div>
     		</div>
