@@ -192,23 +192,24 @@
 						</div>
 						<div class="row products">
 							<c:forEach var="product" items="${products}">
-							<a href="#" data-toggle="modal" data-target="#myModal">
+							
 								<div class="col-sm-6 col-md-6 col-lg-6">
 									<!-- 							<div class="block-flat"> -->
 									<div class="product-image">
+										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
 											<img width="500" height="500"
 												src="./product/imgs/${product.pics}"
 												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
 										</div>
-										<div class="quick-view" data-prod="12101">+ Vista rápida</div>
+										</a>
+										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal">+ Vista rápida</div>
 									</div>
 									<div class="info text-center">
 										<p class="name">${product.name}</p>
 										<span class="price"><span class="amount">${product.price}</span></span>
 									</div>
 								</div>
-							</a>
 							</c:forEach>
 						</div>
 						<!-- end row -->
