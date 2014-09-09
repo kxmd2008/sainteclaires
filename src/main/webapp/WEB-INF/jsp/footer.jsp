@@ -4,15 +4,16 @@
 	<footer class="" role="contentinfo"
 		style="margin-top: 40px;">
 		<div class="absolute-footer light"
-			style="background-color: #ffffff; margin-top: 40px;">
-			<div class="row">
-				<div class="large-12 columns">
-					<div class="copyright-footer"
-						style="float: left; margin-right: 40px; margin-top: 40px;">Copyright
+			style="background-color: #ffffff; margin-top: 40px;margin-bottom:20px;padding-top:0px;">
+<!-- 			<div class="row"> -->
+				<hr style="width:70%;border:1px solid #C1C1C1;margin-top:0px;margin-bottom:0px;margin-left: auto !important;margin-right: auto !important;float:none !important;display: block;text-align:center;"/>
+				<div class="columns container " style="padding-left:0px;padding-right:0px;width:70%;margin-left: auto !important;margin-right: auto !important;float:none !important;display: block;text-align:center;">
+					<div class="copyright-footer col-md-6 pull-left"
+						style="margin-top: 40px;text-align:left;padding-left:0px;padding-right:0px;">Copyright
 						2014 © Sainte Claire</div>
-					<div
-						style="width: 50%; text-align: center; margin-left: auto; margin-top: 40px;">
-						<div class="menu-footer-container">
+					<div class="col-md-6 pull-right"
+						style="text-align: center; margin-top: 40px;padding-left:0px;padding-right:0px;">
+						<div class="menu-footer-container pull-right">
 							<ul id="menu-footer" class="footer-nav">
 								<li id="menu-item-8405"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a
@@ -28,14 +29,13 @@
 									href="./legal">法律声明</a></li>
 							</ul>
 						</div>
-
-					</div>
-					<div class="right">
-						<p style="font-size: 9px; margin-top: -30px;">
-							by <a href="http://slrinformatica.com" target="_blank">SLR</a>
-						</p>
+<!-- 						<div class="right" style="margin-right:200px;"> -->
+<!-- 							<p style="font-size: 9px; margin-top: -30px;"> -->
+<!-- 								by <a href="http://slrinformatica.com" target="_blank">SLR</a> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
 					</div>
 				</div>
-			</div>
+<!-- 			</div> -->
 		</div>
 	</footer>
