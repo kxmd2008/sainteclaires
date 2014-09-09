@@ -434,6 +434,17 @@ function showAddCartBtn(selectId){
 	
 }
 
+function productDelete(productId){
+	var url = "shot/delete/" + productId;
+	$.get(url, function(data){
+		if(data.head.rep_code == '200'){
+			$("#trShot"+productId).remove();
+			$("#totalAmount1").html(data.item.totalAmount);
+			$("#totalAmount2").html(data.item.totalAmount);
+		}
+	});
+}
+
 function tostring(json){
 	return JSON.stringify(json);
 }
