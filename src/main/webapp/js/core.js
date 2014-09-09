@@ -421,3 +421,13 @@ function delNumber(){
 		$cleaninit.val(value);
 	}
 }
+
+function showAddCartBtn(selectId){
+	var value = $("#" + selectId).val();
+	if(value){
+		$(".single_variation_wrap").attr("style", "display: block;");
+	} else {
+		$(".single_variation_wrap").attr("style", "display: none;");
+	}
+	
+}

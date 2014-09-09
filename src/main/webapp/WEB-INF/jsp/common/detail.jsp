@@ -193,7 +193,7 @@
 								<h6>Size</h6>
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
-										<select id="pa_talla" name="attribute_pa_talla">
+										<select id="pa_talla" name="attribute_pa_talla" onchange="showAddCartBtn('pa_talla')">
 											<option value="">选择尺码</option>
 											<option value="0-meses" class="active">0 meses</option>
 											<option value="3m" class="active">03 Meses</option>
@@ -205,7 +205,7 @@
 								</div>
 							</div>
 							<div class="clear"></div>
-							<div class="single_variation_wrap" style="display: block;">
+							<div class="single_variation_wrap" style="display: none;">
 								<div class="single_variation"></div>
 								<div class="variations_button">
 									<input type="hidden" name="variation_id" value="">
@@ -287,6 +287,7 @@
 					</div>
 				</div>
 			</div>
+			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>
 
@@ -311,5 +312,7 @@
 		}
 		$(document).ready(treeToggler);
 	</script>
+	<a href="#" class="back-to-top" style="display: none;"><i
+		class="fa fa-angle-up"></i></a>
 </body>
 </html>
