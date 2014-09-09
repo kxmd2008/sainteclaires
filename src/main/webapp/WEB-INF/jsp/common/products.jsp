@@ -216,8 +216,10 @@
 					</div>
 				</div>
 			</div>
+			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>
+	
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" style="min-width:830px;">
 	    <div class="modal-content" >

@@ -2445,7 +2445,8 @@ img.attachment-shop_catalog, img.attachment-shop_single, img.attachment-shop_thu
   left: 0;
   right: 0;
   color: #404040;
-  background: #627f9a;
+/*   background: #627f9a; */
+  background: #fff;
   text-align: center;
   text-transform: uppercase;
   padding: 5px 0;
