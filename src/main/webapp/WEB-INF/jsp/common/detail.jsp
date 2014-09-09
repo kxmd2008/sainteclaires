@@ -172,7 +172,7 @@
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
 												<a title="" class="image-popup-vertical-fit" href="./product/imgs/${product.pics }">
-													<img width="75" height="75" src="./product/imgs/${product.pics }">
+													<img width="75" height="75" src="./product/imgs/${product.pics }" id="proImg" pic="${product.pics }">
 												</a>
 										</div>
 									</div>
@@ -180,26 +180,28 @@
 							</div>
 						</div>
 						<div class="product-info large-4 small-12 columns left">
-							<h1 itemprop="name" class="entry-title">${product.name }</h1>
+							<h1 itemprop="name" class="entry-title" id="name">${product.name }</h1>
 							<div class="tx-div small"></div>
+							<form action="./shot/add" method="post" id="shotAddForm">
+								<input type="hidden" id="productId" name="productId" value="${product.id }">
 							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 								<p itemprop="price" class="price large">
-									<span class="amount">${product.price }</span>
+									<span class="amount" id="price">${product.price }</span>
 								</p>
 								<meta itemprop="priceCurrency" content="EUR">
 								<link itemprop="availability" href="http://schema.org/InStock">
 							</div>
 							<div class="variations variations_form cart custom">
-								<h6>Size</h6>
+								<h6>尺码</h6>
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
-										<select id="pa_talla" name="attribute_pa_talla" onchange="showAddCartBtn('pa_talla')">
+										<select id="size" name="size" onchange="showAddCartBtn('size')" value="${product.size }">
 											<option value="">选择尺码</option>
-											<option value="0-meses" class="active">0 meses</option>
-											<option value="3m" class="active">03 Meses</option>
-											<option value="6m" class="active">06 Meses</option>
-											<option value="9m" class="active">09 Meses</option>
-											<option value="12m" class="active">12 Meses</option>
+											<option value="0-meses" class="active" <c:if test="${product.size =='0-meses'}">selected="selected"</c:if>  >0 meses</option>
+											<option value="3m" class="active" <c:if test="${product.size =='3m'}">selected="selected"</c:if> >03 Meses</option>
+											<option value="6m" class="active" <c:if test="${product.size =='6m'}">selected="selected"</c:if> >06 Meses</option>
+											<option value="9m" class="active" <c:if test="${product.size =='9m'}">selected="selected"</c:if> >09 Meses</option>
+											<option value="12m" class="active" <c:if test="${product.size =='12m'}">selected="selected"</c:if>  >12 Meses</option>
 										</select>
 									</div>
 								</div>
@@ -211,18 +213,16 @@
 									<input type="hidden" name="variation_id" value="">
 									<button type="submit"
 										class="single_add_to_cart_button button1 secondary alt"
-										disabled="disabled">加入购物车</button>
+										>加入购物车</button>
 									<div class="quantity buttons_added">
-										<input type="button" value="-" class="minus" onclick="delNumber('prodcutQty')"><input id="prodcutQty"
-											type="number" step="1" name="quantity" value="1" title="Qty"
+										<input type="button" value="-" class="minus" onclick="delNumber('number')"><input id="number"
+											type="number" step="1" name="number" value="${product.num }" title="Qty"
 											class="input-text qty text" min="1"><input
-											type="button" value="+" class="plus" onclick="addNumber('prodcutQty')">
+											type="button" value="+" class="plus" onclick="addNumber('number')">
 									</div>
 								</div>
 							</div>
-							<div>
-								<input type="hidden" name="product_id" value="12132">
-							</div>
+							</form>
 							<div class="product_meta">
 								<span itemprop="productID" class="sku_wrapper">SKU: <span
 									class="sku" data-o_sku="S805 R">S805 R</span>.
@@ -290,7 +290,6 @@
 			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>
-
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
 	<script src="<%=basePath%>/js/jPushMenu.js"></script>
@@ -310,9 +309,24 @@
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
-		$(document).ready(treeToggler);
+		$(function() {
+			treeToggler();
+			$('.image-popup-vertical-fit').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-img-mobile',
+				image: {
+					verticalFit: true
+				}
+				
+			});
+			var value = $("#size").val();
+			if(value){
+				$(".single_variation_wrap").attr("style", "display: block;");
+			} else {
+				$(".single_variation_wrap").attr("style", "display: none;");
+			}
+		});
 	</script>
-	<a href="#" class="back-to-top" style="display: none;"><i
-		class="fa fa-angle-up"></i></a>
 </body>
 </html>

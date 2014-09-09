@@ -401,6 +401,8 @@ function treeToggler() {
 	});
 }
 
+
+
 /**
  * 商品数量增加1
  */
@@ -430,4 +432,8 @@ function showAddCartBtn(selectId){
 		$(".single_variation_wrap").attr("style", "display: none;");
 	}
 	
+}
+
+function tostring(json){
+	return JSON.stringify(json);
 }
