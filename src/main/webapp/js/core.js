@@ -404,8 +404,8 @@ function treeToggler() {
 /**
  * 商品数量增加1
  */
-function addNumber(){
-	var $cleaninit = $("#cleaninit");
+function addNumber(id){
+	var $cleaninit = $("#" + id);
 	var value = $cleaninit.val();
 	value = eval(value+"+"+1);
 	$cleaninit.val(value);
@@ -413,10 +413,10 @@ function addNumber(){
 /**
  * 商品数量减少1
  */
-function delNumber(){
-	var $cleaninit = $("#cleaninit");
+function delNumber(id){
+	var $cleaninit = $("#" + id);
 	var value = $cleaninit.val();
-	if(value != 0){
+	if(value > 1){
 		value = eval(value+"-"+1);
 		$cleaninit.val(value);
 	}

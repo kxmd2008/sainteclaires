@@ -213,10 +213,10 @@
 										class="single_add_to_cart_button button1 secondary alt"
 										disabled="disabled">加入购物车</button>
 									<div class="quantity buttons_added">
-										<input type="button" value="-" class="minus"><input
+										<input type="button" value="-" class="minus" onclick="delNumber('prodcutQty')"><input id="prodcutQty"
 											type="number" step="1" name="quantity" value="1" title="Qty"
 											class="input-text qty text" min="1"><input
-											type="button" value="+" class="plus">
+											type="button" value="+" class="plus" onclick="addNumber('prodcutQty')">
 									</div>
 								</div>
 							</div>
