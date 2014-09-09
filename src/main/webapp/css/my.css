@@ -606,3 +606,12 @@ table tr {
 
 .shop_table th.product-total {
   text-align: right; }
+  .cl-mcont {
+  	display:block;
+  }
+  .aside{
+  	display:block;
+  }
+  .cl-mcont.aside{
+  	display:block;
+  }
