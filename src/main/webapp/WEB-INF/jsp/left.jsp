@@ -9,7 +9,7 @@
 			+ path;
 %>
 	<div class="page-aside tree">
-		<div class="nano nscroller has-scrollbar">
+		<div class="nano nscroller has-scrollbar" style="min-height:200px;height:100%;">
 			<div class="content" tabindex="0" style="right: -17px;">
 				<div class="title">
 					<img alt="Sainte Claire" title="Sainte Claire"
