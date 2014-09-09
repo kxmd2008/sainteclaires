@@ -76,6 +76,13 @@
 .icon-close:before{
 	content: "";
 }
+.icon-close:hover .glyphicon-remove{
+/*    border-color: #000;  */
+  color: #000; 
+  }
+.prod-dropdown:hover #show_icon{
+	display:block;
+}
 /* .dropdown-menu { */
 /* 	padding: 10px 0; */
 /* 	margin: 10px 0 0; */
@@ -108,22 +115,21 @@
 												class="amount">${shopingbag.totalAmount}￥</span></span>
 											<div class="cart-icon">
 												<div class="custom-cart-inner">
-													<div class="custom-cart-count">1</div>
 													<img class="custom-cart-icon" src="./images/icon0531.png">
 												</div>
 											</div> 
 										</a>
-										<ul class="dropdown-menu  pull-right box" style="min-width: 330px;min-height:270px;padding:25px; ">
+										<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:300px;padding:25px;overflow-y:scroll; ">
 											<li>
 											<c:forEach var="shot" items="${shopingbag.productShots }">
-												<ul style="margin-left:0px;">
+												<ul style="margin-left:0px;" class="list-unstyled">
 													<li>
 													<div class="col-md-2" style="vertical-align:middle;padding-left:0px;padding-right:0px;">
-														<a href="./shot/delete/${shot.productId }" class="remove" title="Remove this item">
-															<span class="icon-close">
-															<span class="glyphicon glyphicon-remove" style="margin:0 2px;">
-															</span></span>
-														</a>
+														<a class="remove" title="Remove this item" style="vertical-align: middle;"
+																href="./shot/delete/${shot.productId }"><span
+																class="icon-close"><span
+																	class="glyphicon glyphicon-remove"
+																	style="margin: 0 2px;"></span></span></a>
 													</div>
 													<div class="col-md-7">
 														<a class="cart_list_product_title fontSize"
@@ -134,7 +140,7 @@
 													</div>
 													<div class="col-md-3">
 														<a class="cart_list_product_img"
-															href="./detail?id=${shot.productId }"><img
+															href="./detail?id=${shot.productId }" style="height:40px;"><img
 															width="90px" height="90px"
 															src="./product/imgs/${shot.pic }"
 															class="attachment-shop_thumbnail wp-post-image"
@@ -142,8 +148,10 @@
 													</div>
 													</li>
 													
-												</ul></c:forEach>
-												<hr style="margin-bottom:8px;"/>
+												</ul>
+												<hr style="margin-top:0px;margin-bottom:8px;"/>
+												</c:forEach>
+<!-- 												<hr style="margin-bottom:8px;"/> -->
 												<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
 													总计：<span><span class="amount" style="color:#000000">${shopingbag.totalAmount}</span></span>
 												</div> 
@@ -253,7 +261,7 @@
 							</div>
 						</div>
 						<div class="product-page-aside large-2 small-12 columns text-center hide-for-small" style="width: 100px;">
-							<div class="next-prev-nav">
+							<div class="next-prev-nav" style="margin-bottom:0px;">
 								<div class="prod-dropdown">
 									<a href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"
 										rel="next" ><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -279,6 +287,11 @@
 									</div>
 								</div>
 							</div>
+							<div style="display:none;" id="show_icon"><img
+									width="50px" height="50px"
+									src="./product/imgs/chaqueta-bebe-rosa-90x90.jpg"
+									class="attachment-shop_thumbnail wp-post-image img-thumbnail"
+									alt="chaqueta bebe rosa" style="border: 2px solid #ddd;"></div>
 						</div>
 					</div>
 				</div>
@@ -299,7 +312,7 @@
 	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>/js/jquery.magnific-popup.min.js"></script>
-	<script src="<%=basePath%>/js/common/detail.js"></script>
+<%-- 	<script src="<%=basePath%>/js/common/detail.js"></script> --%>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
@@ -307,6 +320,12 @@
 		}
 		$(function() {
 			treeToggler();
+			$(".prod-dropdown").hover(function(){
+				$("#show_icon").css("display","block");
+			});
+			$(".prod-dropdown").mouseleave(function(){
+				$("#show_icon").css("display","none");
+			});
 			$('.image-popup-vertical-fit').magnificPopup({
 				type: 'image',
 				closeOnContentClick: true,
