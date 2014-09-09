@@ -103,9 +103,9 @@
 									<div class="dropdown" id="show_tooltip">
 										<a href="http://www.sainteclaire.es/carro/" class="cart-link"
 											data-toggle="dropdown"> <strong
-											class="cart-name hide-for-small">Cesta</strong> <span
+											class="cart-name hide-for-small">购物车</strong> <span
 											class="cart-price hide-for-small">/ <span
-												class="amount">34,90￥</span></span>
+												class="amount">${shopingbag.totalAmount}￥</span></span>
 											<div class="cart-icon">
 												<div class="custom-cart-inner">
 													<div class="custom-cart-count">1</div>
@@ -113,54 +113,50 @@
 												</div>
 											</div> 
 										</a>
-										<ul class="dropdown-menu  pull-right box"
-												style="min-width: 330px;min-height:270px;padding:25px; ">
-												<li>
-													<ul style="margin-left:0px;">
+										<ul class="dropdown-menu  pull-right box" style="min-width: 330px;min-height:270px;padding:25px; ">
+											<li>
+											<c:forEach var="shot" items="${shopingbag.productShots }">
+												<ul style="margin-left:0px;">
 													<li>
 													<div class="col-md-2" style="vertical-align:middle;padding-left:0px;padding-right:0px;">
-														<a
-															href="http://www.sainteclaire.es/carro/?remove_item=3788b64dde2e72ed4a6a5da0591ff11e&_n=4c29be2ee0"
-															class="remove" title="Remove this item"><span
-															class="icon-close"><span
-																class="glyphicon glyphicon-remove" style="margin:0 2px;"></span></span></a>
+														<a href="./shot/delete/${shot.productId }" class="remove" title="Remove this item">
+															<span class="icon-close">
+															<span class="glyphicon glyphicon-remove" style="margin:0 2px;">
+															</span></span>
+														</a>
 													</div>
 													<div class="col-md-7">
 														<a class="cart_list_product_title fontSize"
-															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/" style="color:#3d3d3d;font-weight: bold;">(Español)
-															Chaqueta bebé rosa</a>
+															href="./detail?id=${shot.productId}" style="color:#3d3d3d;font-weight: bold;">${shot.productName }</a>
 														<div class="cart_list_product_price fontSize">
-															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">34,90€</span> /<span class="amount" style="color:#777777">Cantidad:1</span>
+															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777">数量:${shot.number }</span>
 														</div>
-														<!-- 													<div class="cart_list_product_quantity fontSize">Cantidad: -->
-														<!-- 														1</div> -->
 													</div>
 													<div class="col-md-3">
 														<a class="cart_list_product_img"
-															href="http://www.sainteclaire.es/tienda/bebe/chaqueta-bebe-rosa/"><img
+															href="./detail?id=${shot.productId }"><img
 															width="90px" height="90px"
-															src="<%=basePath%>/images/bebe.jpg"
+															src="./product/imgs/${shot.pic }"
 															class="attachment-shop_thumbnail wp-post-image"
 															alt="chaqueta bebe rosa"></a>
 													</div>
 													</li>
-													</ul>
-													<hr style="margin-bottom:8px;"/>
-													<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
-														Total cesta<span><span class="amount" style="color:#000000">34,90€</span></span>
-													</div> <!-- 														<a href="http://www.sainteclaire.es/carro/" -->
-													<!-- 															class="button expand uppercase">Ver cesta</a> -->
-													<a href="http://www.sainteclaire.es/realizar-pedido/"
-													class="button secondary expand uppercase"
-													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">Proceder a la compra</a> <!-- 													</div> -->
-													<!-- 												</div> -->
-												</li>
-											</ul>
+													
+												</ul></c:forEach>
+												<hr style="margin-bottom:8px;"/>
+												<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
+													总计：<span><span class="amount" style="color:#000000">${shopingbag.totalAmount}</span></span>
+												</div> 
+												<a href="./cart"
+												class="button secondary expand uppercase"
+												style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">购物车</a> <!-- 													</div> -->
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ol>
 					</div>
-				</div>
-				</li>
-				</ol>
-			</div>
 				
 					<div class="row">
 						<div class="large-6 columns product-gallery">
