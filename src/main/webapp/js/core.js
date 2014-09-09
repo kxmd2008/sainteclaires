@@ -234,7 +234,7 @@ $(function() {
 	/* Return to top */
 	var offset = 220;
 	var duration = 500;
-	var button = $('<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>');
+	var button = $('<a href="#" class="back-to-top"><span class="glyphicon glyphicon-chevron-up"></span></a>');
 	button.appendTo("body");
 
 	jQuery(window).scroll(function() {

@@ -331,7 +331,7 @@
 		}
 		$(document).ready(treeToggler);
 	</script>
-	<a href="#" class="back-to-top" style="display: none;"><i
-		class="fa fa-angle-up"></i></a>
+<!-- 	<a href="#" class="back-to-top" style="display: none;"><i -->
+<!-- 		class="fa fa-angle-up"></i></a> -->
 </body>
 </html>
