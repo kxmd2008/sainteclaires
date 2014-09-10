@@ -69,18 +69,21 @@ td {
 														<ul class="list-unstyled list-inline" style="margin-bottom:0px;display:table;">
 															<li style="vertical-align: middle;display:table-cell;padding-left:0px;">
 																<a class="remove" title="Remove this item" style="vertical-align: middle;"
-																href="javascript:productDelete(${shot.productId })"><span
+																href="./shot/delete/${shot.productId }"><span
+<%-- 																href="javascript:productDelete(${shot.productId })"><span --%>
 																class="icon-close"><span
 																	class="glyphicon glyphicon-remove"
 																	style="margin: 0 2px;"></span></span></a>
 															</li>
 															<li style="vertical-align: middle;display:table-cell;">
+																<div style="width: 90px;height: 90px;">
 																<a class="cart_list_product_img"
-																href="./detail?id=${shot.productId }"><img
-																width="90px" height="90px"
-																src="<%=basePath%>/product/imgs/${shot.pic }"
-																class="attachment-shop_thumbnail wp-post-image"
-																alt="chaqueta bebe rosa"></a>
+																	href="./detail?id=${shot.productId }"><img
+																	width="90px" height="90px"
+																	src="<%=basePath%>/product/imgs/${shot.pic }"
+																	class="attachment-shop_thumbnail wp-post-image"
+																	alt="chaqueta bebe rosa"></a>
+																</div>
 															</li>
 															<li style="vertical-align: middle;display:table-cell;"><div><span class="detailFont">${shot.productName }</span> </div><div><span
 																class="detailFont">尺码：${shot.size }</span></div></li>
@@ -161,7 +164,5 @@ td {
 		}
 		$(document).ready(treeToggler);
 	</script>
-	<a href="#" class="back-to-top" style="display: none;"><i
-		class="fa fa-angle-up"></i></a>
 </body>
 </html>
