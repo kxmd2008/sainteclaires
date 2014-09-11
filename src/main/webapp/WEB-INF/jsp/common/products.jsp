@@ -95,7 +95,16 @@
 												data-toggle="dropdown"> <strong
 												class="cart-name hide-for-small">购物车</strong> <span
 												class="cart-price hide-for-small">/ <span
-													class="amount">${shopingbag.totalAmount}￥</span></span>
+													class="amount">
+													<c:choose>
+														<c:when test="${! empty shopingbag.productShots}">
+															${shopingbag.totalAmount}
+														</c:when>
+														<c:otherwise>
+															0.00	
+														</c:otherwise>
+													</c:choose>
+													￥</span></span>
 												<div class="cart-icon">
 													<div class="custom-cart-inner">
 														<img class="custom-cart-icon" src="./images/icon0531.png">
