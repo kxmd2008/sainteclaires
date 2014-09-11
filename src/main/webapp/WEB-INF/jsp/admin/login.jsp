@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/common/bootstrap.min_v2.css">
+<link rel="stylesheet" type="text/css" href="../common/bootstrap.min_v2.css">
 
 <link rel="stylesheet" type="text/css" href="../css/theme_v2.css">
 <link rel="stylesheet"
@@ -72,9 +72,9 @@
 			<div class="block">
 				<p class="block-heading"><spring:message code="login.admin.title" /></p>
 				<div class="block-body">
-					<form action="../auth/login" method="post">
-						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12" name="loginName" value="">
-						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12" name="password" value="">
+					<form action="j_spring_security_check" method="post">
+						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12" name="j_username" value="">
+						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12" name="j_password" value="">
 						<input type="submit"   class="btn btn-primary pull-right" value="<spring:message code="login.admin.btn.login" />">
 						<div class="clearfix"></div>
 					</form>
@@ -90,7 +90,7 @@
 
 
 <!-- 	<script src="../js/bootstrap.min.js"></script> -->
-<script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
+<script src="../common/bootstrap.min_v2.js"></script>
 	<script type="text/javascript">
 		$("[rel=tooltip]").tooltip();
 		$(function() {
