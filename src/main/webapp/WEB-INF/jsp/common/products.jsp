@@ -84,13 +84,13 @@
 			<div class="cl-mcont aside">
 				<jsp:include page="../left.jsp"/>
 				<div class="content">
-					<div class="row">
+					<div class="row" style="max-width:82em;">
 						<div class="page-head "
 							style="height: 75px; width: 100%; display: table;">
 							<ol class="breadcrumb" style="padding-top: 35px;">
 								<li class="mini-cart">
 									<div class="cart-inner">
-										<div class="dropdown" id="show_tooltip">
+										<div class="dropdown" id="show_tooltip" style="height:20px;">
 											<a href="http://www.sainteclaire.es/carro/" class="cart-link"
 												data-toggle="dropdown"> <strong
 												class="cart-name hide-for-small">购物车</strong> <span
@@ -107,13 +107,14 @@
 													￥</span></span>
 												<div class="cart-icon">
 													<div class="custom-cart-inner">
-														<img class="custom-cart-icon" src="./images/icon0531.png">
+														<img class="custom-cart-icon" src="./images/icon0531.png" style="bottom:0px;">
 													</div>
 												</div> 
 											</a>
-											<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:300px;padding:25px;overflow-y:scroll; ">
+											
 												<c:choose>
 												<c:when test="${! empty shopingbag.productShots}">
+												<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:300px;padding:25px;overflow-y:scroll;margin-top:0px; ">
 												<li>
 												<c:forEach var="shot" items="${shopingbag.productShots }">
 													<ul style="margin-left:0px;" class="list-unstyled">
@@ -153,14 +154,17 @@
 													class="button secondary expand uppercase"
 													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">购物车</a> <!-- 													</div> -->
 												</li>
+												</ul>
 												</c:when>
 												<c:otherwise>
+												<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:80px;padding:25px;margin-top:0px; ">
 												<li>
 													购物车里没有物品.
 												</li>	
+												</ul>
 												</c:otherwise>
 												</c:choose>
-											</ul>
+											
 										</div>
 									</div>
 								</li>

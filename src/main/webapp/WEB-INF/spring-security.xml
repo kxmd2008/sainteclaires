@@ -24,6 +24,7 @@
 	<security:http pattern="/product/**" security="none" />
 	<security:http pattern="/images/**" security="none" />
 	<security:http pattern="/index" security="none" />
+	<security:http pattern="/register" security="none" />
 	<security:http use-expressions="true" entry-point-ref="loginUrlEntryPoint">
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/shop" access="permitAll" />
