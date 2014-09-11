@@ -24,37 +24,49 @@
 	<security:http pattern="/product/**" security="none" />
 	<security:http pattern="/images/**" security="none" />
 	<security:http pattern="/index" security="none" />
+	<security:http pattern="/shop" security="none" />
+	<security:http pattern="/cart" security="none" />
+	<security:http pattern="/products" security="none" />
+	<security:http pattern="/detail" security="none" />
+	<security:http pattern="/contacto" security="none" />
+	<security:http pattern="/changes" security="none" />
+	<security:http pattern="/howtobuy" security="none" />
+	<security:http pattern="/about" security="none" />
+	<security:http pattern="/legal" security="none" />
 	<security:http pattern="/register" security="none" />
+	<security:http pattern="/logout" security="none" />
+	<security:http pattern="/auth/admin" security="none" />
+	<security:http pattern="/auth/logout" security="none" />
 	<security:http use-expressions="true" entry-point-ref="loginUrlEntryPoint">
-		<security:intercept-url pattern="/login" access="permitAll" />
-		<security:intercept-url pattern="/shop" access="permitAll" />
-		<security:intercept-url pattern="/cart" access="permitAll" />
-		<security:intercept-url pattern="/products" access="permitAll" />
-		<security:intercept-url pattern="/detail" access="permitAll" />
-		<security:intercept-url pattern="/auth/admin" access="permitAll" />
-		<security:intercept-url pattern="/auth/**" access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
-		 <!-- 登录过滤器 -->
-		<!-- <security:custom-filter before="FORM_LOGIN_FILTER" -->
-		<!-- ref="loginFilter" /> -->
-		<!-- <security:custom-filter position="FORM_LOGIN_FILTER" -->
-		<!-- ref="adminLoginFilter" /> -->
+		<!-- 登录过滤器 -->
+		<security:custom-filter before="FORM_LOGIN_FILTER"
+			ref="loginFilter" />
+		<security:custom-filter position="FORM_LOGIN_FILTER"
+			ref="adminLoginFilter" />
 
-		 <!-- 注销过滤器 -->
+		<security:intercept-url pattern="/login"
+			access="permitAll" />
+		<security:intercept-url pattern="/auth/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/**"
+			access="hasRole('ROLE_USER')" />
+
+		<!-- 注销过滤器 -->
 		<!-- <security:custom-filter before="LOGOUT_FILTER" -->
 		<!-- ref="logoutFilter" /> -->
 		<!-- <security:custom-filter position="LOGOUT_FILTER" -->
 		<!-- ref="adminLogoutFilter" /> -->
-		<security:form-login login-page="/auth/admin"
-			authentication-failure-url="/auth/admin?error=true"
-			default-target-url="/auth/unsettledOrders" />
-		<security:form-login login-page="/login"
-			authentication-failure-url="/login?error=true"
-			default-target-url="/cart" />
+		<!-- <security:form-login login-page="/auth/admin" -->
+		<!-- authentication-failure-url="/auth/admin?error=true" -->
+		<!-- default-target-url="/auth/unsettledOrders" /> -->
+		<!-- <security:form-login -->
+		<!-- authentication-success-handler-ref="mySuccessHandler" -->
+		<!-- authentication-failure-handler-ref="myFailureHandler" /> -->
 
-		<!-- <security:logout invalidate-session="true" -->
-		<!-- logout-success-url="/auth/login" logout-url="/auth/logout" /> -->
-
+		<security:logout invalidate-session="true"
+			logout-success-url="/auth/admin" logout-url="/auth/logout" />
+		<security:logout invalidate-session="true"
+			logout-success-url="/index" logout-url="/logout" />
 	</security:http>
 
 	<bean id="loginUrlEntryPoint"
@@ -68,10 +80,15 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
+	<bean id="mySuccessHandler"
+		class="org.luis.sainteclaires.base.security.MySavedRequestAwareAuthenticationSuccessHandler" />
+	<bean id="myFailureHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
+
 	<!-- 对密码进行MD5编码 -->
-	<bean
-		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"
-		id="passwordEncoder" />
+	<bean id="passwordEncoder" class="org.luis.basic.security.PasswordEncode">
+		<constructor-arg name="algorithm" value="md5"/>
+	</bean>
 
 	<!-- 通过 customUserDetailsService,Spring会自动的用户的访问级别. 也可以理解成:以后我们和数据库操作就是通过customUserDetailsService来进行关联. -->
 	<bean id="customUserDetailsService"
@@ -83,7 +100,7 @@
 		<property name="authenticationManager" ref="authenticationManager" />
 		<property name="authenticationFailureHandler" ref="failureHandler" />
 		<property name="authenticationSuccessHandler" ref="successHandler" />
-		<property name="filterProcessesUrl" value="/login" />
+		<property name="filterProcessesUrl" value="/j_spring_security_check" />
 	</bean>
 
 	<bean id="failureHandler"
@@ -94,7 +111,7 @@
 	<bean id="successHandler"
 		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
 		<property name="alwaysUseDefaultTargetUrl" value="true" />
-		<property name="defaultTargetUrl" value="/shop" />
+		<property name="defaultTargetUrl" value="/cart" />
 	</bean>
 	<!-- 验证后台用户 -->
 	<bean id="adminLoginFilter"
