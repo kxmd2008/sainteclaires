@@ -83,14 +83,24 @@
 .prod-dropdown:hover #show_icon{
 	display:block;
 }
-/* .dropdown-menu { */
-/* 	padding: 10px 0; */
-/* 	margin: 10px 0 0; */
-/* 	border: 1px solid #ccc; */
-/* 	 border: 1px solid rgba(0, 0, 0, .15);  */
-/* 	 border-radius: 4px;  */
-/* 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
-/* 	box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
+.circle {
+  font-size: 16px;
+  padding: 2px 2px 6px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  border: 2px solid ;
+  display: inline-block;
+  background-color: #000;
+  -webkit-border-radius: 99px;
+  border-radius: 99px;
+  color: #ccc; 
+ }
+
+/* .circle:hover { */
+/*   border-color: #627f9a; */
+/*   background-color: #627f9a; */
+/*   color: #FFF;  */
 /* } */
 </style>
 </head>
@@ -104,6 +114,10 @@
 				<jsp:include page="../left.jsp"/>
 				<div class="content">
 					<div class="page-head"	style="height: 75px; width: 98%; display: table;">
+						<ul class="list-unstyled list-inline pull-left" style="margin-top:5px;padding-top:35px;margin-bottom:0px;display:block;" id="show_info">
+							<li class="circle" style="text-align:center;vertical-align: middle;padding-top:0px;"><span class="glyphicon glyphicon-ok" style="margin-left:-2px;color:#fff;"></span></li>
+							<li class="fontSize" style="font-size:14px;color:#000;">您所选择的商品已经被加入到购入车</li>
+						</ul>
 						<ol class="breadcrumb" style="padding-top: 35px;">
 							<li class="mini-cart">
 								<div class="cart-inner">
@@ -251,7 +265,7 @@
 							<div class="product_meta">
 								<span itemprop="productID" class="sku_wrapper">SKU: <span
 									class="sku" data-o_sku="S805 R">S805 R</span>.
-								</span> <span class="posted_in">Categories: <a
+								</span> <span class="posted_in">类别: <a
 									href="http://www.sainteclaire.es/en/product-category/bebe/"
 									rel="tag">Baby</a>, <a
 									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
@@ -340,6 +354,9 @@
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(function() {
+			$(".single_add_to_cart_button").on("click",function(){
+				$("#show_info").css("display","block");
+			});
 			treeToggler();
 			$(".prod-dropdown").hover(function(){
 				$("#show_icon").css("display","block");
