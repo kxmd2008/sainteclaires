@@ -35,6 +35,8 @@
 	<security:http pattern="/legal" security="none" />
 	<security:http pattern="/register" security="none" />
 	<security:http pattern="/logout" security="none" />
+	<security:http pattern="/account/check" security="none" />
+	<security:http pattern="/account/create" security="none" />
 	<security:http pattern="/auth/admin" security="none" />
 	<security:http pattern="/auth/logout" security="none" />
 	<security:http use-expressions="true" entry-point-ref="loginUrlEntryPoint">
@@ -80,14 +82,9 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-	<bean id="mySuccessHandler"
-		class="org.luis.sainteclaires.base.security.MySavedRequestAwareAuthenticationSuccessHandler" />
-	<bean id="myFailureHandler"
-		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
-
 	<!-- 对密码进行MD5编码 -->
 	<bean id="passwordEncoder" class="org.luis.basic.security.PasswordEncode">
-		<constructor-arg name="algorithm" value="md5"/>
+		<constructor-arg name="algorithm" value="md5" />
 	</bean>
 
 	<!-- 通过 customUserDetailsService,Spring会自动的用户的访问级别. 也可以理解成:以后我们和数据库操作就是通过customUserDetailsService来进行关联. -->
@@ -109,10 +106,15 @@
 	</bean>
 
 	<bean id="successHandler"
-		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+		class="org.luis.sainteclaires.base.security.MySavedRequestAwareAuthenticationSuccessHandler">
 		<property name="alwaysUseDefaultTargetUrl" value="true" />
 		<property name="defaultTargetUrl" value="/cart" />
 	</bean>
+<!-- 	<bean id="successHandler" -->
+<!-- 		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"> -->
+<!-- 		<property name="alwaysUseDefaultTargetUrl" value="true" /> -->
+<!-- 		<property name="defaultTargetUrl" value="/cart" /> -->
+<!-- 	</bean> -->
 	<!-- 验证后台用户 -->
 	<bean id="adminLoginFilter"
 		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
