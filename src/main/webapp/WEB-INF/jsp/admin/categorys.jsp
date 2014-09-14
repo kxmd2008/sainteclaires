@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<th>所属种类</th>
 							<th>种类名称</th>
 <!-- 							<th>Username</th> -->
-							<th style="width: 26px;"></th>
+							<th style="width: 26px;">操作</th>
 						</tr>
 					</thead>
 					<tbody id="tbody">
