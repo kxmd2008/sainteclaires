@@ -34,20 +34,17 @@
 	<security:http pattern="/about" security="none" />
 	<security:http pattern="/legal" security="none" />
 	<security:http pattern="/register" security="none" />
-	<security:http pattern="/logout" security="none" />
 	<security:http pattern="/account/check" security="none" />
 	<security:http pattern="/account/create" security="none" />
 	<security:http pattern="/auth/admin" security="none" />
-	<security:http pattern="/auth/logout" security="none" />
+	
 	<security:http use-expressions="true" entry-point-ref="loginUrlEntryPoint">
 		<!-- 登录过滤器 -->
-		<security:custom-filter before="FORM_LOGIN_FILTER"
-			ref="loginFilter" />
-		<security:custom-filter position="FORM_LOGIN_FILTER"
-			ref="adminLoginFilter" />
-
-		<security:intercept-url pattern="/login"
-			access="permitAll" />
+		<security:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />
+		<security:custom-filter position="FORM_LOGIN_FILTER" ref="adminLoginFilter" />
+		<security:intercept-url pattern="/logout" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/auth/logout" access="permitAll"  />
 		<security:intercept-url pattern="/auth/**"
 			access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/**"
@@ -65,10 +62,10 @@
 		<!-- authentication-success-handler-ref="mySuccessHandler" -->
 		<!-- authentication-failure-handler-ref="myFailureHandler" /> -->
 
-		<security:logout invalidate-session="true"
-			logout-success-url="/auth/admin" logout-url="/auth/logout" />
-		<security:logout invalidate-session="true"
-			logout-success-url="/index" logout-url="/logout" />
+<!-- 		<security:logout invalidate-session="true" -->
+<!-- 			logout-success-url="/auth/admin" logout-url="/auth/logout" /> -->
+<!-- 		<security:logout invalidate-session="true" -->
+<!-- 			logout-success-url="/index" logout-url="/logout" /> -->
 	</security:http>
 
 	<bean id="loginUrlEntryPoint"
@@ -121,24 +118,24 @@
 		<property name="authenticationManager" ref="authenticationManager" />
 		<property name="authenticationFailureHandler" ref="adminFailureHandler" />
 		<property name="authenticationSuccessHandler" ref="adminSuccessHandler" />
-		<property name="filterProcessesUrl" value="/auth/login" />
+		<property name="filterProcessesUrl" value="/adminLogin" />
 	</bean>
 
 	<bean id="adminFailureHandler"
 		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
-		<property name="defaultFailureUrl" value="/admin/login.jsp?error=true" />
+		<property name="defaultFailureUrl" value="/auth/admin?error=true" />
 	</bean>
-
+	
 	<bean id="adminSuccessHandler"
-		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+		class="org.luis.sainteclaires.base.security.MySavedRequestAwareAuthenticationSuccessHandler">
 		<property name="alwaysUseDefaultTargetUrl" value="true" />
-		<property name="defaultTargetUrl" value="/admin/unsettledOrders.jsp" />
+		<property name="defaultTargetUrl" value="/auth/unsettledOrders" />
 	</bean>
 
 	<!-- 注销过滤器，完成前台用户注销时的定向功能 -->
 	<bean id="logoutFilter"
 		class="org.springframework.security.web.authentication.logout.LogoutFilter">
-		<constructor-arg value="/customer/login.jsp" />
+		<constructor-arg value="/index" />
 		<constructor-arg>
 			<list>
 				<bean
@@ -150,7 +147,7 @@
 	<!-- 注销过滤器，完成后台用户注销时的定向功能 -->
 	<bean id="adminLogoutFilter"
 		class="org.springframework.security.web.authentication.logout.LogoutFilter">
-		<constructor-arg value="/admin/login.jsp" />
+		<constructor-arg value="/auth/admin" />
 		<constructor-arg>
 			<list>
 				<bean

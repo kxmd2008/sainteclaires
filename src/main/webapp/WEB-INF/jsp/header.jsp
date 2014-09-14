@@ -1,21 +1,12 @@
-<%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
-<%@page import="org.luis.sainteclaires.base.bean.Account"%>
-<%@page import="org.springframework.security.core.context.SecurityContextImpl" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>   
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path;
-	SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
-	String username = securityContextImpl.getAuthentication().getName();
-// Account currentAccount = (Account) SecurityContextHolder.getContext()
-//     .getAuthentication()
-//     .getPrincipal();
 %>
 			<div id="head-nav" class="navbar navbar-default">
 				<div class="container-fluid">

@@ -72,7 +72,7 @@
 			<div class="block">
 				<p class="block-heading"><spring:message code="login.admin.title" /></p>
 				<div class="block-body">
-					<form action="j_spring_security_check" method="post">
+					<form action="../adminLogin" method="post">
 						<label><spring:message code="login.admin.username" /></label> <input type="text" class="span12" name="j_username" value="">
 						<label><spring:message code="login.admin.password" /></label> <input type="password" class="span12" name="j_password" value="">
 						<input type="submit"   class="btn btn-primary pull-right" value="<spring:message code="login.admin.btn.login" />">
