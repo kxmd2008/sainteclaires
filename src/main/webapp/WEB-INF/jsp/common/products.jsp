@@ -137,7 +137,7 @@
 															<a class="cart_list_product_img"
 																href="./detail?id=${shot.productId }" style="height:40px;"><img
 																width="90px" height="90px"
-																src="./product/imgs/${shot.pic }"
+																src="./product/${shot.pic }"
 																class="attachment-shop_thumbnail wp-post-image"
 																alt="chaqueta bebe rosa"></a>
 														</div>
@@ -179,7 +179,7 @@
 										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
 											<img width="500" height="500"
-												src="./product/imgs/${product.pics}"
+												src="./product/${product.pics}"
 												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
 										</div>
 										</a>
@@ -219,8 +219,8 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./product/imgs/${product.pics }">
-													<img width="75" height="75" src="./product/imgs/DSC6436-500x500.jpg">
+												<a title="" class="image-popup-vertical-fit" href="./product/${product.pics }">
+													<img width="75" height="75" src="./product/DSC6436-500x500.jpg">
 												</a>
 										</div>
 									</div>

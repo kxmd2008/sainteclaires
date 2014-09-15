@@ -80,7 +80,7 @@ td {
 																<a class="cart_list_product_img"
 																	href="./detail?id=${shot.productId }"><img
 																	width="90px" height="90px"
-																	src="<%=basePath%>/product/imgs/${shot.pic }"
+																	src="<%=basePath%>/product/${shot.pic }"
 																	class="attachment-shop_thumbnail wp-post-image"
 																	alt="chaqueta bebe rosa"></a>
 																</div>
