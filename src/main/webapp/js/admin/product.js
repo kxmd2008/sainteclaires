@@ -42,7 +42,7 @@ function addTableInfo(){
 		{
 			"data" : "name"
 		}, {
-			"data" : "categorys.name"
+			"data" : "categorys"
 		}, {
 			"data" : "price"
 		},
@@ -54,7 +54,6 @@ function addTableInfo(){
 		}
 		],
 		"fnCreatedRow" : function(nRow, data, iDataIndex) {
-			alert(JSON.stringify(data));
 				$('td:eq(0)', nRow).html(function() {
 					return (iDataIndex+1);
 				});
@@ -62,7 +61,11 @@ function addTableInfo(){
 					return data.name;
 				});
 				$('td:eq(2)', nRow).html(function() {
-					return data.categorys.name;
+					var name = "";
+					$(data.categorys).each(function(index){
+						name+=data.categorys[index].name + ",";
+					});
+					return name.substring(0, name.length-1);
 				});
 				$('td:eq(3)', nRow).html(function() {
 					return data.price;
