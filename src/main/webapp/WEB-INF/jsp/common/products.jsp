@@ -91,7 +91,7 @@
 								<li class="mini-cart">
 									<div class="cart-inner">
 										<div class="dropdown" id="show_tooltip" style="height:20px;">
-											<a href="http://www.sainteclaire.es/carro/" class="cart-link"
+											<a href="./cart" class="cart-link"
 												data-toggle="dropdown"> <strong
 												class="cart-name hide-for-small">购物车</strong> <span
 												class="cart-price hide-for-small">/ <span
@@ -137,7 +137,7 @@
 															<a class="cart_list_product_img"
 																href="./detail?id=${shot.productId }" style="height:40px;"><img
 																width="90px" height="90px"
-																src="./product/${shot.pic }"
+																src="./${shot.pic }"
 																class="attachment-shop_thumbnail wp-post-image"
 																alt="chaqueta bebe rosa"></a>
 														</div>
@@ -179,7 +179,7 @@
 										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
 											<img width="500" height="500"
-												src="./product/${product.pics}"
+												src="./${product.pics}"
 												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
 										</div>
 										</a>
@@ -219,8 +219,8 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./product/${product.pics }">
-													<img width="75" height="75" src="./product/DSC6436-500x500.jpg">
+												<a title="" class="image-popup-vertical-fit" href="./${product.pics }">
+													<img width="75" height="75" src="./DSC6436-500x500.jpg">
 												</a>
 										</div>
 									</div>
