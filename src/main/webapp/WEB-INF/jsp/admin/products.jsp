@@ -44,6 +44,9 @@ select {
 	width:220px;
 	margin-bottom: 10px;
 }
+.pagination{
+	float:right;
+}
 </style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -74,7 +77,7 @@ select {
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
-				<table class="table">
+				<table class="table table-striped table-bordered table-hover datatable" id="products">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -83,78 +86,42 @@ select {
 							<th>产品价格</th>
 							<th>产品库存</th>
 <!-- 							<th>状态</th> -->
-							<th style="width: 26px;"></th>
+							<th style="width: 40px;">操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${products}"  var="product"  varStatus="status">
-						<tr>
-							<td>${status.index + 1}</td>
-							<td>${product.name}</td>
-							<td>${product.categoryName}</td>
-							<td>${product.price}</td>
-							<td>${product.num}</td>
-<%-- 							<th>${product.status}</th> --%>
-							<td><a href="productEdit?id=${product.id}"><i class="icon-pencil"></i></a> <a
-								href="#myModal" role="button" data-toggle="modal"><i
-									class="icon-remove"></i></a></td>
-						</tr>
-						</c:forEach>
+<%-- 						<c:forEach items="${products}"  var="product"  varStatus="status"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${status.index + 1}</td> --%>
+<%-- 							<td>${product.name}</td> --%>
+<%-- 							<td>${product.categoryName}</td> --%>
+<%-- 							<td>${product.price}</td> --%>
+<%-- 							<td>${product.num}</td> --%>
+<%-- <%-- 							<th>${product.status}</th> --%> 
+<%-- 							<td><a href="productEdit?id=${product.id}"><i class="icon-pencil"></i></a> <a --%>
+<!-- 								href="#myModal" role="button" data-toggle="modal"><i -->
+<!-- 									class="icon-remove"></i></a></td> -->
+<!-- 						</tr> -->
+<%-- 						</c:forEach> --%>
 					</tbody>
 				</table>
 			</div>
-			<div class="pagination">
-				<ul>
-					<li><a href="#">Prev</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">Next</a></li>
-				</ul>
-			</div>
-
-<!-- 			<div class="modal medium hide fade" id="productModel" tabindex="-1" -->
-<!-- 				role="dialog" aria-labelledby="productLabel" aria-hidden="true" style="width: 600px;"> -->
-<!-- 				<div class="modal-header"> -->
-<!-- 					<button type="button" class="close" data-dismiss="modal" -->
-<!-- 						aria-hidden="true">×</button> -->
-<!-- 					<h3 id="productLabel">新增产品</h3> -->
-<!-- 				</div> -->
-<!-- 				<div class="modal-body" style="min-height: 400px;"> -->
-<!-- 					<form class="form-horizontal" role="form"> -->
-<!-- 					<fieldset> -->
-<!-- 					<select id="cats" multiple="multiple"> -->
-<%-- 						<c:forEach var="pcat" items="${parents}"> --%>
-<%-- 						<optgroup label="${pcat.name}"> --%>
-<%-- 							<c:forEach var="subcat" items="${subcatMap[pcat.id]}"> --%>
-<%-- 							<option value="${subcat.id}">${subcat.name }</option> --%>
-<%-- 							</c:forEach> --%>
-<!-- 						</optgroup> -->
-<%-- 						</c:forEach> --%>
-<!-- 					</select> -->
-<!-- 				        <input type="hidden" id="category" value=""> -->
-<!-- 							<input type="text" value="" id="name" placeholder="产品名称"> -->
-<!-- 							</diCv>  -->
-<!-- 						<input type="number" value="" step="0.1" min="1" name="price" id="price" placeholder="产品价格">  -->
-<!-- 						<input value="" type="number" min="0" name="num" id="num" placeholder="产品库存">  -->
-
-<!-- 						<input value="" type="number" min="0" name="xnum" id="xnum" placeholder="X尺码库存">  -->
-<!-- 						<input value="" type="number" min="0" name="xnum" id="x1num" placeholder="X1尺码库存">  -->
-<!-- 						<input value="" type="number" min="0" name="xnum" id="x2num" placeholder="X2尺码库存">  -->
-<!-- 						<label for="isnew" class="control-label">是否新品 <input type="checkbox" id="isnew" ></label> -->
-<!-- 				</div> -->
-<!-- 				<div class="modal-footer"> -->
-<!-- 					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button> -->
-<!-- 					<button class="btn btn-danger" data-dismiss="modal" onclick="saveProduct();">保存</button> -->
-<!-- 				</div> -->
+<!-- 			<div class="pagination"> -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="#">Prev</a></li> -->
+<!-- 					<li><a href="#">1</a></li> -->
+<!-- 					<li><a href="#">2</a></li> -->
+<!-- 					<li><a href="#">3</a></li> -->
+<!-- 					<li><a href="#">4</a></li> -->
+<!-- 					<li><a href="#">Next</a></li> -->
+<!-- 				</ul> -->
 <!-- 			</div> -->
-
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
-
+<script src="<%=basePath%>/js/jquery.dataTables.js"></script>
+<script src="<%=basePath%>/js/dataTables.bootstrap.js"></script>
 <script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <script src="<%=basePath%>/js/admin/product.js"></script>
 <script type="text/javascript">

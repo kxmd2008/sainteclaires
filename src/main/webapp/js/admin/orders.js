@@ -47,15 +47,7 @@ function addTableInfo(){
 			//            "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
 //			            "sSearch": "搜索",
 			"sSearch":"Search",
-//			"oPaginate" : {
-////				"sFirst" : "首页",
-//				"sPrevious" : "上一页",
-//				"sNext" : "下一页",
-////				"sLast" : "尾页"
-//			}
 		},
-//		"bSearchable":true,
-//		"bStateSave":true,
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
 			"url" : "orders/find",
@@ -65,13 +57,7 @@ function addTableInfo(){
 			},
 			"type" : "POST",
 			"dataType":"json"  ,
-//			"data":"orderNo="+orderNo+"&customerNo="+customerNo,
 		},
-//		"sServerMethod": "POST",   
-//		"sAjaxSource": "orders/find",
-//		"fnServerParams": function (aoData) {  
-//			            aoData.push({"orderNo": orderNo, "customerNo":customerNo});  
-//		}, 
 		"columns" : [
 		{
 			"data" : "orderNo"
@@ -86,10 +72,6 @@ function addTableInfo(){
 		{
 			"data" : "amount"
 		}
-//		, 
-//		{
-//			"data" : "status"
-//		}
 		],
 		"columnDefs":[
 		 { 
@@ -108,20 +90,14 @@ function addTableInfo(){
 			}
 		 }]
 	});
-//    	Datarow[] dr=dt.select("条件");
-//    	DataTable dt;
-//    	DataTable newdt=dt.DefaultView.ToTable(true, new string[]{"id"});
     }
 }
 /**
  * 点击搜索按钮，搜索
  */
 function search(){
-	alert("aaaaaaaaaa");
 	orderNo = $("#order_no").val();
 	customerNo = $("#account_no").val();
-	alert("orderNo="+orderNo);
-	alert("customerNo="+customerNo);
 	//先清空数据，然后重新加载
 	addTableInfo();
 }

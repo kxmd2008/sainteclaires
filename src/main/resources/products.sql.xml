@@ -22,15 +22,23 @@
 		select p.id, p.name, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
-		left join category as c on cp.product_id = c.id
-		where cp.category_id = #cateId#
+		left join category as c on cp.category_id = c.id
+		where cp.category_id = #cateId# 
+	</select>
+	
+	<select id="findProductByPage" parameterClass="java.util.Map" resultMap="ProductVoMap">
+		select p.id, p.name, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname 
+		from product as p 
+		left join category_product as cp on p.id = cp.product_id
+		left join category as c on cp.category_id = c.id
+		limit #start#,#length#
 	</select>
 	
 	<select id="findById" parameterClass="java.lang.Long" resultMap="ProductVoMap">
 		select p.id, p.name, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
-		left join category as c on cp.product_id = c.id
+		left join category as c on cp.category_id = c.id
 		where p.id = #id#
 	</select>
 </sqlMap>

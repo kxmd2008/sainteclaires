@@ -1,10 +1,111 @@
 $(document).ready(function(){
-	findCates();
+//	findCates();
+	addTableInfo();
 	findParentCats();
 });
 
 var currPageItems = {};
 var parents = {};
+var fvTable ;
+function addTableInfo(){
+	//为了避免多次初始化datatable()
+	if(typeof fvTable != 'undefined' && fvTable != null) { 
+//		var data = {
+//			"orderNo" : orderNo,
+//			"customerNo":customerNo
+//		};
+//		fvTable.ajax.data = data;
+        fvTable.fnClearTable(false); //清空数据 ，false少调用一个后台
+//        oTable.fnSettings().sAjaxSource='/you.action?date='+date; 
+//        fvTable.fnSettings().ajax.data = data;   //点击按钮事件后
+        fvTable.fnDraw();     //重新加载数据
+     }else{
+    	fvTable = $('#catogrys').dataTable({
+		"processing" : true,
+		"serverSide" : true,
+		"sAjaxDataProp" : "data",
+		"bPaginite" : true, //使用分页  bPaginate
+		//        "sPaginationType": "full_numbers",
+		"bAutoWidth" : true,
+		"bFilter" : false, //不使用搜索 
+		"bLengthChange" : false, //是否启用设置每页显示记录数 
+		"bSort" : true, //是否使用排序 
+		"aaSorting": [ [ 0, "asc"]], 
+		"bInfo" : false, //是否显示表格的一些信息
+		"bScrollInfinite":false,
+		//        "aaSorting": [[0, "desc"]],
+		//        "sScrollX": "100%", //横向滚动条 
+//		"sScrollXInner" : "100%",
+//		"sPaginationType" : "full_numbers",
+		"bJQueryUI":false,
+		"oLanguage" : {
+			"sProcessing" : "Loading......",
+//			            "sLengthMenu": "每页显示 _MENU_ 条记录",
+			"sLengthMenu":"Show_MENU_Rows",
+			"sZeroRecords" : "No matching records found",
+			"sEmptyTable" : "No Data！",
+			//            "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+			//            "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+//			            "sSearch": "搜索",
+			"sSearch":"Search",
+		},
+		"iDisplayLength" : 10, //默认为10
+		"ajax" : {
+			"url" : "category/find",
+//			"data" : {
+//				"orderNo" : orderNo,
+//				"customerNo":customerNo
+//			},
+			"type" : "GET",
+			"dataType":"json"  ,
+		},
+		"columns" : [
+		{
+			"data" : "orderNo"
+		}, {
+			"data" : "parentName"
+		}, {
+			"data" : "name"
+		},
+		{
+			"data" : "id"
+		}
+		],
+		"fnCreatedRow" : function(nRow, data, iDataIndex) {
+				$(nRow).attr("id","row"+data.id);
+				currPageItems[data.id] = data;
+				$('td:eq(0)', nRow).html(function() {
+					return (iDataIndex+1);
+				});
+				$('td:eq(1)', nRow).attr("id" , "parentName"+data.id).html(function() {
+					return data.parentName;
+				});
+				$('td:eq(2)', nRow).attr("id", "name" + data.id).html(function() {
+					return data.name;
+				});
+				$('td:eq(3)', nRow).css("width" , "40px").html(function() {
+					var ls = '<a href="#" role="button" data-toggle="modal" onclick="showDlg('+ "'修改类别'"+', '+ data.id+')" class="icon-pencil"></i></a>'
+					+ '&nbsp;&nbsp;'
+					+ '<a href="#myModal" role="button" data-toggle="modal" onclick="beforDelete('+ data.id+');"> <i class="icon-remove"></i></a>';
+					$("#rowIndex").val(iDataIndex);
+					return ls;
+				});
+			}
+    	});
+    }
+}
+function buildCat(info, index){
+	var ls = '<tr id="row' + info.id + '"><td >' + (index + 1)
+	+ '</td><td id="parentName'+ info.id+'">' + info.parentName
+	+ '</td><td id="name'+ info.id+'">' +  info.name
+	+ '</td><td style="width:40px;">'
+	+ '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>'
+	+ '&nbsp;&nbsp;'
+	+ '<a href="#myModal" role="button" data-toggle="modal" onclick="beforDelete('+ info.id+');"> <i class="icon-remove"></i></a>'
+	+'</td>';
+	$("#rowIndex").val(index);
+return ls;
+}
 function findCates(){
 	$.post("category/find", function(data, status) {
 		if (data.head.rep_code='200') {
@@ -40,6 +141,7 @@ function findParentCats(){
 }
 
 function showDlg(title, id){
+	alert("id="+id);
 	$("#catLabel").html(title);
 	if(id){
 		$("#id").val(currPageItems[id].id);
@@ -58,19 +160,6 @@ function showDlg(title, id){
 function buildCatSelects(cat){
 	var op = '<option id="option'+cat.id+'" value="'+cat.id+'">' + cat.name;
 	return op;
-}
-
-function buildCat(info, index){
-	var ls = '<tr id="row' + info.id + '"><td >' + (index + 1)
-	+ '</td><td id="parentName'+ info.id+'">' + info.parentName
-	+ '</td><td id="name'+ info.id+'">' +  info.name
-	+ '</td><td style="width:40px;">'
-	+ '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>'
-	+ '&nbsp;&nbsp;'
-	+ '<a href="#myModal" role="button" data-toggle="modal" onclick="beforDelete('+ info.id+');"> <i class="icon-remove"></i></a>'
-	+'</td>';
-	$("#rowIndex").val(index);
-return ls;
 }
 
 function saveCategory(){
@@ -97,7 +186,6 @@ function saveCategory(){
 				currPageItems[id].parentName = d.parentName;
 				$("#parentName" + id).html(currPageItems[id].parentName);
 				$("#name" + id).html(currPageItems[id].name);
-				alert(toString(currPageItems[id]));
 			}
 		} else {
 			alert(data.head.rep_message);

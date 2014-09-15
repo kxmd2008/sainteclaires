@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 				<div class="btn-group"></div> -->
 			</div>
 			<div class="well">
-				<table class="table table-striped table-bordered table-hover datatable" id="ordersTable">
+				<table class="table table-striped table-bordered table-hover datatable" id="ordersTable" style="margin-bottom:20px;">
 					<thead>
 						<tr>
 <!-- 							<th>#</th> -->

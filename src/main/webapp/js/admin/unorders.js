@@ -30,8 +30,8 @@ function addTableInfo(){
 		"bPaginite" : true, //使用分页  bPaginate
 		//        "sPaginationType": "full_numbers",
 		"bAutoWidth" : true,
-		"bFilter" : true, //不使用搜索 
-		"bLengthChange" : true, //是否启用设置每页显示记录数 
+		"bFilter" : false, //不使用搜索 
+		"bLengthChange" : false, //是否启用设置每页显示记录数 
 		"bSort" : true, //是否使用排序 
 		"aaSorting": [ [ 0, "asc"]], 
 		"bInfo" : false, //是否显示表格的一些信息

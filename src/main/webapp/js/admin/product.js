@@ -1,60 +1,82 @@
 $(document).ready(function(){
-	$('#choose_category').multiselect({
-      maxHeight: 280,
-      buttonWidth: '220px',
-      nonSelectedText : '选择类别'
-    });
+	addTableInfo();
 });
 var URL = "/";
-function saveProduct(){
-	var cateId = $("#choose_category").val();//123:1,245:2
-	var name = $("#name").val();
-	var price = $("#price").val();
-	var num = $("#num").val();
-	var meses06 = $("#meses06").val();
-	var meses09 = $("#meses09").val();
-	var meses12 = $("#meses12").val();
-	var meses18 = $("#meses18").val();
-	var meses24 = $("#meses24").val();
-	var desc = $("#desc").val();
-	var isNew = $("#isNew").val() == 'on' ? true : false;
-	var pics = $("#pics").val();
-	$("#files").children().each(function(i, tr){
-//		pics[i] = $(tr).find("p").html();
-		pics += $(tr).find("p").html()+",";
-	});
-	var d = {
-		"categoryId" : cateId,	
-//		"categoryName" : $("#cateName").val(),	
-		"name" : name,	
-		"price" : price,	
-		"num" : num,	
-		"meses06" : meses06,	
-		"meses09" : meses09,	
-		"meses12" : meses12,	
-		"meses18" : meses18,	
-		"meses24" : meses24,	
-		"description" : desc,	
-		"isNew" : isNew,	
-		"pics" : pics	
-	};
-	var id = $("#productId").val();
-	if(id){
-		d["id"] = id;
-	}
-	$.post("product/save", d, function(data){
-		if(data.head.rep_code == '200'){
-			location.href = "products";
+var fvTable;
+function addTableInfo(){
+	//为了避免多次初始化datatable()
+	if(typeof fvTable != 'undefined' && fvTable != null) { 
+        fvTable.fnClearTable(false); //清空数据 ，false少调用一个后台
+        fvTable.fnDraw();     //重新加载数据
+     }else{
+    	fvTable = $('#products').dataTable({
+		"processing" : true,
+		"serverSide" : true,
+		"sAjaxDataProp" : "data",
+		"bPaginite" : true, //使用分页  bPaginate
+		"bAutoWidth" : true,
+		"bFilter" : false, //不使用搜索 
+		"bLengthChange" : false, //是否启用设置每页显示记录数 
+		"bSort" : true, //是否使用排序 
+		"aaSorting": [ [ 0, "asc"]], 
+		"bInfo" : false, //是否显示表格的一些信息
+		"bScrollInfinite":false,
+		"bJQueryUI":false,
+		"oLanguage" : {
+			"sProcessing" : "Loading......",
+			"sLengthMenu":"Show_MENU_Rows",
+			"sZeroRecords" : "No matching records found",
+			"sEmptyTable" : "No Data！",
+			"sSearch":"Search",
+		},
+		"iDisplayLength" : 10, //默认为10
+		"ajax" : {
+			"url" : "products/find",
+			"type" : "GET",
+			"dataType":"json"  ,
+		},
+		"columns" : [
+		{
+			"data" : "categoryId"
+		},
+		{
+			"data" : "name"
+		}, {
+			"data" : "categorys.name"
+		}, {
+			"data" : "price"
+		},
+		{
+			"data" : "num"
+		},
+		{
+			"data" : "id"
 		}
-	});
-}
-
-function selectCate(id, name){
-	$("#cateId").val(id);
-	$("#cateName").val(name);
-	$("#catLabel").html(name);
-}
-
-function tostring(json){
-	return JSON.stringify(json);
+		],
+		"fnCreatedRow" : function(nRow, data, iDataIndex) {
+			alert(JSON.stringify(data));
+				$('td:eq(0)', nRow).html(function() {
+					return (iDataIndex+1);
+				});
+				$('td:eq(1)', nRow).html(function() {
+					return data.name;
+				});
+				$('td:eq(2)', nRow).html(function() {
+					return data.categorys.name;
+				});
+				$('td:eq(3)', nRow).html(function() {
+					return data.price;
+				});
+				$('td:eq(4)', nRow).html(function() {
+					return data.num;
+				});
+				$('td:eq(5)', nRow).css("width" , "40px").html(function() {
+					var ls = '<a href="productEdit?id='+data.id+'"><i class="icon-pencil"></i></a> <a'
+						+'href="#myModal" role="button" data-toggle="modal"><i '
+						+ 'class="icon-remove"></i></a>';
+					return ls;
+				});
+			}
+    	});
+    }
 }

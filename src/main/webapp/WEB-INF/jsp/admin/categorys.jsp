@@ -31,6 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	color: #fff;
 	font-weight: bold;
 }
+.pagination{
+	float:right;
+}
 </style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -58,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="btn-group"></div>
 			</div>
 			<div class="well">
-				<table class="table">
+				<table class="table table-striped table-bordered table-hover datatable" id="catogrys">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -73,16 +76,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tbody>
 				</table>
 			</div>
-<!-- 			<div class="pagination"> -->
-<!-- 				<ul> -->
-<!-- 					<li><a href="#">Prev</a></li> -->
-<!-- 					<li><a href="#">1</a></li> -->
-<!-- 					<li><a href="#">2</a></li> -->
-<!-- 					<li><a href="#">3</a></li> -->
-<!-- 					<li><a href="#">4</a></li> -->
-<!-- 					<li><a href="#">Next</a></li> -->
-<!-- 				</ul> -->
-<!-- 			</div> -->
 			
 			<div class="modal medium hide fade" id="catModel" tabindex="-1"
 				role="dialog" aria-labelledby="catLabel" aria-hidden="true">
@@ -140,7 +133,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
-
+<script src="<%=basePath%>/js/jquery.dataTables.js"></script>
+<script src="<%=basePath%>/js/dataTables.bootstrap.js"></script>
 <script src="<%=basePath%>/common/bootstrap.min_v2.js"></script>
 <%-- <script src="<%=basePath%>/js/admin/main.js"></script> --%>
 <script src="<%=basePath%>/js/admin/category.js"></script>
