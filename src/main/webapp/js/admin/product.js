@@ -1,9 +1,12 @@
 $(document).ready(function(){
-	$('#choose_category').multiselect();
+	$('#choose_category').multiselect({
+      maxHeight: 280,
+      buttonWidth: '220px',
+      nonSelectedText : '选择类别'
+    });
 });
 var URL = "/";
 function saveProduct(){
-	alert($("#example19").val());
 	var cateId = $("#choose_category").val();//123:1,245:2
 	var name = $("#name").val();
 	var price = $("#price").val();

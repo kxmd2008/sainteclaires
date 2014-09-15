@@ -23,6 +23,7 @@
 	<security:http pattern="/css/**" security="none" />
 	<security:http pattern="/product/**" security="none" />
 	<security:http pattern="/images/**" security="none" />
+	<security:http pattern="/upload/**" security="none" />
 	<security:http pattern="/index" security="none" />
 	<security:http pattern="/shop" security="none" />
 	<security:http pattern="/cart" security="none" />

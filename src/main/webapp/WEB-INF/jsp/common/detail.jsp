@@ -167,7 +167,7 @@
 														<a class="cart_list_product_img"
 															href="./detail?id=${shot.productId }" style="height:40px;"><img
 															width="90px" height="90px"
-															src="./product/imgs/${shot.pic }"
+															src="./product/${shot.pic }"
 															class="attachment-shop_thumbnail wp-post-image"
 															alt="chaqueta bebe rosa"></a>
 													</div>
@@ -210,8 +210,8 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./product/imgs/${product.pics }">
-													<img width="75" height="75" src="./product/imgs/${product.pics }" id="proImg" pic="${product.pics }">
+												<a title="" class="image-popup-vertical-fit" href="./product/${product.pics }">
+													<img width="75" height="75" src="./product/${product.pics }" id="proImg" pic="${product.pics }">
 												</a>
 										</div>
 									</div>
@@ -304,7 +304,7 @@
 										<a
 											href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"><img
 											width="90" height="90"
-											src="./product/imgs/DSC6610-90x90.jpg"
+											src="./product/DSC6610-90x90.jpg"
 											class="attachment-shop_thumbnail wp-post-image"
 											alt="_DSC6610"></a>
 									</div>
@@ -316,7 +316,7 @@
 										<a
 											href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"><img
 											width="90" height="90"
-											src="./product/imgs/DSC6646-90x90.jpg"
+											src="./product/DSC6646-90x90.jpg"
 											class="attachment-shop_thumbnail wp-post-image"
 											alt="_DSC6646"></a>
 									</div>
@@ -324,7 +324,7 @@
 							</div>
 							<div style="display:none;" id="show_icon"><img
 									width="50px" height="50px"
-									src="./product/imgs/chaqueta-bebe-rosa-90x90.jpg"
+									src="./product/chaqueta-bebe-rosa-90x90.jpg"
 									class="attachment-shop_thumbnail wp-post-image img-thumbnail"
 									alt="chaqueta bebe rosa" style="border: 2px solid #ddd;"></div>
 						</div>
