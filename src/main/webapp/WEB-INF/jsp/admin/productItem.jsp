@@ -80,7 +80,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">新增产品</h1>
+		<c:choose>
+			<c:when test="${empty vo }">
+				<h1 class="page-title" id="product_title">新增产品</h1>
+			</c:when>
+			<c:otherwise>
+					<h1 class="page-title" id="product_title">修改产品</h1>
+			</c:otherwise>
+		</c:choose>
 	</div>
 
 	<div class="container-fluid">
@@ -279,7 +286,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/js/prettify.js"></script>
 <!-- The main application script -->
 <script src="<%=basePath%>/upload/main.js"></script>
-<script src="<%=basePath%>/js/admin/product.js"></script>
+<script src="<%=basePath%>/js/admin/productItem.js"></script>
 <script type="text/javascript">
 // 	$(document).ready(function() {
 // 		var build = function(select) {
