@@ -47,11 +47,11 @@
 			<img src="<%=basePath%>/common/image/logo_txt.png" />
 		</div>
 	</div>
-	<div class="col-md-7" style="margin-top:60px;">
+	<div class="col-md-7" style="margin-top:10px;">
 		<!-- 放图片 -->
-		<div class="col-md-4"></div>
-		<div class="col-md-8" style="margin-top:0px;">
-			<img src="<%=basePath%>/images/DSC13491.jpg" width="350px;" height="400px;" class=""/>
+		<div class="col-md-3"></div>
+		<div class="col-md-9 center" style="margin-top:0px;">
+			<img src="<%=basePath%>/images/login.png" style="margin-right:20px;" />
 		</div>
 		
 	</div>
