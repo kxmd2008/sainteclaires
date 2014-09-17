@@ -8,7 +8,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path;
 %>
-<<style>
+<style>
 <!--
 .treeview label{
 	font-size: 10px;
