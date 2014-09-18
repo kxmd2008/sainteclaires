@@ -72,55 +72,37 @@ td {
 						<div class="block-flat" style="margin-top:0px;">
 							<div class="col-md-12" style="margin-top:10px;min-height:140px;height:100%;padding:0px;">
 							<div class="list-inline pull-left col-md-12" id="address_box" style="padding:0px;">
-								<div class="pull-left box " style="min-height:140px;">
-									<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;">
-										<li style="text-align:left;font-size:10px;">李凤超(收)</li>
-										<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-										<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号</li>
-										<li style="text-align:left;font-size:10px;">18602131588</li>
-										<li style="text-align:left;font-size:10px;">201412</li>
-									</ul>
-									<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;" class="pull-right">
-										<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
+								<c:forEach items="${addresses }" var="address">
+									<div class="pull-left box " style="min-height:158px;">
+										<input type="hidden" value="${address.id }" />
+										<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;min-height:128px;">
+											<li style="text-align:left;font-size:10px;">${address.custName }(收)</li>
+											<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
+											<li style="text-align:left;font-size:10px;word-break:break-all;">${address.address }</li>
+											<li style="text-align:left;font-size:10px;">${address.telphone }</li>
+											<li style="text-align:left;font-size:10px;">${address.post }</li>
+										</ul>
+										<c:if test="${custAccount.addressId == address.id}">
+										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block" class="pull-right">
+										</c:if>
+										<c:if test="${custAccount.addressId != address.id}">
+										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none" class="pull-right">
+										</c:if>
+											<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
+										</div>
 									</div>
-								</div>
-								<div class="pull-left box" style="min-height:140px;">
-									<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;">
-										<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-										<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-										<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号</li>
-										<li style="text-align:left;font-size:10px;">电话：18602131588</li>
-										<li style="text-align:left;font-size:10px;">邮编：201412</li>
-									</ul>
-									<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-										<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-									</div>
-								</div>
-								<div class="pull-left box" style="min-height:140px;">
-									<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;">
-										<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-										<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-										<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号</li>
-										<li style="text-align:left;font-size:10px;">电话：18602131588</li>
-										<li style="text-align:left;font-size:10px;">邮编：201412</li>
-									</ul>
-									<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-										<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-									</div>
-								</div>
-								<div class="pull-left box" style="min-height:140px;">
-									<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;">
-										<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-										<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-										<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号</li>
-										<li style="text-align:left;font-size:10px;">电话：18602131588</li>
-										<li style="text-align:left;font-size:10px;">邮编：201412</li>
-									</ul>
-									<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-										<label class="fontSize center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
+						</div>
+						<div class="col-md-12" style="padding-left:2px;padding-right:0px;margin-top:10px;">
+								<c:if test="${succ == true }">
+									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;">新建收货地址成功！</div>
+								</c:if>
+								<c:if test="${succ == false }">
+									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;">新建收货地址失败！</div>
+								</c:if>
+								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;">新建收货地址成功！</div>
+								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;">新建收货地址失败！</div>
 						</div>
 							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;">新建收货地址</p>
 							<div class="col-md-12" style="padding-left:0px;padding-top:0px;">
@@ -129,25 +111,24 @@ td {
 							<div class="content">
 								<div class="cl col-md-5"
 									style="padding-left: 0px; padding-right: 0px;">
-									<form role="form">
+									<form role="form" action="address/save" method="post">
 									  <div class="form-group">
 									    <label for="username">姓名(必填)</label>
-									    <input type="text" class="form-control" id="username" placeholder="请输入姓名">
+									    <input type="text" class="form-control" id="custName" name="custName" placeholder="请输入姓名">
 									  </div>
 									  <div class="form-group">
-									    <label for="email">电子邮件(必填)</label>
-									    <input type="email" class="form-control" id="email" placeholder="请输入电子邮件">
+									    <label for="post">邮编(必填)</label>
+									    <input type="text" class="form-control" id="post" name="post" placeholder="请输入邮编">
 									  </div>
 									  <div class="form-group">
 									    <label for="telphone">电话(必填)</label>
-									    <input type="tel" class="form-control" id="telphone" placeholder="请输入电话号码">
+									    <input type="tel" class="form-control" id="telphone" name="telphone" placeholder="请输入电话号码">
 									  </div>
 									  <div class="form-group">
 									    <label for="address">收货地址(必填)</label>
-<!-- 									    <input type="tel" class="form-control" id="address" placeholder="请输入收货地址"> -->
-											<textarea rows="3" cols="" class="form-control" id="address" placeholder="请输入收货地址" style="resize: none;"></textarea>
+											<textarea rows="3" cols="" class="form-control" id="address" name="address" placeholder="请输入收货地址" style="resize: none;"></textarea>
 									  </div>
-									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;">提交</button>
+									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" >提交</button>
 									</form>
 								</div>
 								<div class="cl col-md-3"
@@ -173,7 +154,7 @@ td {
 	<script src="<%=basePath%>/js/core.js"></script>
 	<script src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=basePath%>/js/customer/addresmg.js"></script>
+	<script src="<%=basePath%>/js/customer/addressmg.js"></script>
 
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
@@ -181,6 +162,32 @@ td {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
+		$(document).ready(function(){
+			$("#custName").on("blur",function(){
+				var custName = $("#custName").val();
+				if(custName == null || custName == ""){
+					showMsg("收货人不能为空!");
+				}
+			});
+			$("#post").on("blur",function(){
+				var post = $("#post").val();
+				if(post == null || post == ""){
+					showMsg("邮编不能为空!");
+				}
+			});
+			$("#telphone").on("blur",function(){
+				var telphone = $("#telphone").val();
+				if(telphone == null || telphone == ""){
+					showMsg("电话不能为空!");
+				}
+			});
+			$("#address").on("blur",function(){
+				var address = $("#address").val();
+				if(address == null || address == ""){
+					showMsg("收货人地址不能为空!");
+				}
+			});
+		});
 	</script>
 </body>
 </html>
