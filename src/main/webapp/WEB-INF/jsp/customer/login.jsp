@@ -80,14 +80,17 @@
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize">账号</label> <input type="text"
 						class="form-control" id="loginName" name="j_username" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
+					<label id="loginMsg" class="fontSize" style="display:none"><font color="red">账号不能为空</font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize">密码</label> <input type="password"
 						class="form-control" id="password" name="j_password"
 						placeholder="可用数字，字母，不少于6位" style="width:250px;font-size:10px;">
-					<c:if test="${errorMsg != null &&  errorMsg != ''}">
-					<span style="color:red;"><spring:message code="${errorMsg}" /></span>
+					<c:if test="${param.error}">
+					<label  class="fontSize"><font color="red">用户名或密码错误</font></label>
+					<%-- <span style="color:red;"><spring:message code="${errorMsg}" /></span> --%>
 					</c:if>
+					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red">密码不能为空</font></label>
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
 					<!-- <label class="fontSize" style="font-weight: bold;"> <input type="checkbox"> 记住密码
@@ -97,7 +100,7 @@
 					</div>
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
-					<button type="submit" class="btn btn-primary col-md-4 pull-left">登录</button>
+					<button type="submit" class="btn btn-primary col-md-4 pull-left" onclick="return checkForm();">登录</button>
 					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="register">立即注册</a></label>
 				</div>
 				

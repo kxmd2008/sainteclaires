@@ -64,7 +64,7 @@ td {
 									  </div>
 									  <div class="form-group">
 									    <label for="new_password">新密码</label>
-									    <input type="password" class="form-control" id="new_password" name="newPwd" placeholder="请输入新密码">
+									    <input type="password" class="form-control" id="new_password" name="newPwd" placeholder="请输入新密码(6~16位数字+字母组合)">
 									  </div>
 									  <div class="form-group">
 									    <label for="confirm_password">确认密码</label>
@@ -116,8 +116,13 @@ td {
 				showDanger("旧密码不能为空");
 				return;
 			}
+			var reg=/^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/;
 			if(newPwd == "" || newPwd == null){
 				showDanger("新密码不能为空");
+				return;
+			}
+			if(!reg.test(newPwd)){
+				showDanger("密码必须为6~16为由数字+字母组成");
 				return;
 			}
 			if(confirmPwd == "" || confirmPwd == null){

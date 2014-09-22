@@ -45,14 +45,18 @@ td {
 				<jsp:include page="../profile.jsp" />
 				<div class="content" style="min-height:200px;">
 					<div class="row">
+<!-- 						<div class="col-md-12" style="padding-left:20px;"> -->
+<!-- <!-- 							<p style="line-height: 2; font-weight: bold;"> --> -->
+<%-- 								<c:if test="${succ == true }"> --%>
+<!-- 									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;">账号信息保存成功！</div> -->
+<%-- 								</c:if> --%>
+<%-- 								<c:if test="${succ == false }"> --%>
+<!-- 									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;">账号信息保存成功！账号信息保存成功！</div> -->
+<%-- 								</c:if> --%>
+<!-- 						</div> -->
 						<div class="col-md-12" style="padding-left:20px;">
-<!-- 							<p style="line-height: 2; font-weight: bold;"> -->
-								<c:if test="${succ == true }">
-									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;">账号信息保存成功！</div>
-								</c:if>
-								<c:if test="${succ == false }">
-									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;">账号信息保存失败！</div>
-								</c:if>
+								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;">账号信息保存成功！</div>
+								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;">账号信息保存成功！</div>
 						</div>
 						<div class="block-flat" style="margin-top:40px;">
 							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;">账号管理</p>
@@ -62,7 +66,7 @@ td {
 							<div class="content">
 								<div class="cl col-md-5"
 									style="padding-left: 0px; padding-right: 0px;">
-									<form role="form" action="account/save" method="post">
+									<form role="form" >
 									  <div class="form-group">
 									    <label for="username">姓名(必填)</label>
 									    <input type="text" class="form-control" name="custName" id="username" placeholder="请输入姓名" value="${custAccount.custName }">
@@ -72,10 +76,10 @@ td {
 									    <input type="email" class="form-control" name="email" id="email" placeholder="请输入电子邮件" value="${custAccount.email }">
 									  </div>
 									  <div class="form-group">
-									    <label for="telphone">电话</label>
+									    <label for="telphone">电话号码(必填)</label>
 									    <input type="tel" class="form-control" id="telphone" name="phone" placeholder="请输入电话号码" value="${custAccount.phone }">
 									  </div>
-									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;">提交</button>
+									  <button type="button" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="updateAccount();">提交</button>
 									</form>
 								</div>
 								<div class="cl col-md-3"
@@ -108,6 +112,44 @@ td {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
+		$(document).ready(function(){
+			
+		});
+		function updateAccount(){
+			var username = $("#username").val();
+			var email = $("#email").val();
+			var telphone = $("#telphone").val();
+			if(username == null || username == ""){
+				showDanger("姓名不能为空!");
+				return;
+			}
+			if(email == null || email == ""){
+				showDanger("电子邮件不能为空!");
+				return;
+			}
+			if(telphone == null || telphone == ""){
+				showDanger("电话号码不能为空!");
+				return;
+			}
+			var data = {
+					"custName":username,
+					"email":email,
+					"phone":telphone
+			}
+			$.post("account/save",data,function(msg){
+				if(msg.head.rep_code == 200){
+					$(".alert-success").css("display","block");
+					$(".alert-danger").css("display","none");
+				}else{
+					showDanger(msg.head.rep_message);
+				}
+			});
+		}
+		function showDanger(msg){
+			$(".alert-danger").css("display","block");
+			$(".alert-danger").html(msg);
+			$(".alert-success").css("display","none");
+		}
 	</script>
 </body>
 </html>

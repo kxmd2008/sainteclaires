@@ -113,8 +113,8 @@ td {
 									style="padding-left: 0px; padding-right: 0px;">
 									<form role="form" action="address/save" method="post">
 									  <div class="form-group">
-									    <label for="username">姓名(必填)</label>
-									    <input type="text" class="form-control" id="custName" name="custName" placeholder="请输入姓名">
+									    <label for="username">收货人(必填)</label>
+									    <input type="text" class="form-control" id="custName" name="custName" placeholder="请输入收货人">
 									  </div>
 									  <div class="form-group">
 									    <label for="post">邮编(必填)</label>
@@ -128,7 +128,7 @@ td {
 									    <label for="address">收货地址(必填)</label>
 											<textarea rows="3" cols="" class="form-control" id="address" name="address" placeholder="请输入收货地址" style="resize: none;"></textarea>
 									  </div>
-									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" >提交</button>
+									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="return checkForm();">提交</button>
 									</form>
 								</div>
 								<div class="cl col-md-3"
@@ -162,32 +162,7 @@ td {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
-		$(document).ready(function(){
-			$("#custName").on("blur",function(){
-				var custName = $("#custName").val();
-				if(custName == null || custName == ""){
-					showMsg("收货人不能为空!");
-				}
-			});
-			$("#post").on("blur",function(){
-				var post = $("#post").val();
-				if(post == null || post == ""){
-					showMsg("邮编不能为空!");
-				}
-			});
-			$("#telphone").on("blur",function(){
-				var telphone = $("#telphone").val();
-				if(telphone == null || telphone == ""){
-					showMsg("电话不能为空!");
-				}
-			});
-			$("#address").on("blur",function(){
-				var address = $("#address").val();
-				if(address == null || address == ""){
-					showMsg("收货人地址不能为空!");
-				}
-			});
-		});
+		
 	</script>
 </body>
 </html>
