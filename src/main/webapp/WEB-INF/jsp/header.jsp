@@ -25,10 +25,10 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="./index">首页 </a></li>
-							<li class=""><a href="./shop">商店</a></li>
-							<li class=""><a href="./changes">Changes</a></li>
-							<li class=""><a href="./contact">联系我们</a></li>
+							<li class=""><a href="<%=basePath%>/index">首页 </a></li>
+							<li class=""><a href="<%=basePath%>/shop">商店</a></li>
+							<li class=""><a href="<%=basePath%>/changes">Changes</a></li>
+							<li class=""><a href="<%=basePath%>/contact">联系我们</a></li>
 							<c:if test="${ empty userName }">
 								<li class=""><a href="login">登陆</a></li> 
 							</c:if>
@@ -39,9 +39,11 @@
     									<c:out value="${userName}"></c:out> </a>
    									 <span class="caret"></span>		
     								<ul class="dropdown-menu" role="menu" id="profile_center" aria-labelledby="profile_center" style="margin-top:3px;padding-top:0px;padding-bottom:0px;right:20px;min-width:105px;border-radius:0px;">
-									    <li role="presentation"><a role="menuitem" tabindex="-1" href="account">个人中心</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/account">个人中心</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/cart">购物车</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/orders">我的订单</a></li>
 									    <li role="presentation" class="divider" style="margin-top:0px;margin-bottom:0px;"></li>
-									    <li role="presentation"><a role="menuitem" tabindex="-1" href="logout">退出</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/logout">退出</a></li>
 									</ul>
  								</div>
 								</li> 

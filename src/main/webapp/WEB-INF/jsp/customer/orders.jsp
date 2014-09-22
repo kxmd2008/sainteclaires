@@ -117,120 +117,75 @@
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
-	<!-- 	<img src="images/Desert.jpg" class="stretch" id="bodyBgImg"> -->
 	<div id="cl-wrapper" class="strange"
 		style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
 			<jsp:include page="../header.jsp"/>
 <!-- 			<div class="cl-mcont aside" style="display:block;"> -->
 <!-- 			</div> -->
-			<div class="col-md-12" >
-		<div class="col-md-9 center">
-			<div class="col-md-12" style="margin-top:20px;height:80px;">
-				<img src="<%=basePath%>/common/image/logo_txt.png" class="pull-left"/>
+			<div class="col-md-12">
+				<div class="col-md-9 center">
+					<div class="col-md-12" style="margin-top: 20px; height: 80px;">
+						<img src="<%=basePath%>/common/image/logo_txt.png"
+							class="pull-left" />
+					</div>
+					<div class="col-md-12" style="height: 20px;">
+						<div class="pull-left fontSize">查看订单信息</div>
+					</div>
+					<div class="col-md-12" style="min-height: 160px; height: 100%;">
+						<hr
+							style="width: 100%; border: 1px solid #F0F0F0; margin-bottom: 0px; margin-top: 5px;" />
+						<div class="table-responsive">
+						<table class="table no-border hover">
+							<thead class="no-border">
+								<tr>
+									<th>商品</th>
+									<th>属性</th>
+									<th>单价</th>
+									<th>数量</th>
+									<th>小计</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody class="no-border-y">
+								<c:forEach items="${orders }" var="order">
+								<c:forEach items="${order.items }" var="item">
+								<tr>
+									<td>
+										<ul class="list-unstyled list-inline"
+											style="vertical-align: middle; margin-bottom: 0px;">
+											<li><a class="cart_list_product_img" href="<%=basePath%>/detail?id=${item.productId }">
+												<img src="<%=basePath%>/${item.pic}"  width="75" height="75"/></a></li>
+											<li><label class="fontSize"
+												style="vertical-align: middle; font-weight: normal;">${item.productName}</label></li>
+										</ul>
+									</td>
+									<td style="vertical-align: middle">
+										<ul class="list-unstyled"
+											style="vertical-align: middle; margin-bottom: 0px;">
+<!-- 											<li>颜色分类：红色</li> -->
+											<li>尺码：${item.size }</li>
+										</ul>
+									</td>
+									<td style="vertical-align: middle">${item.price }</td>
+									<td style="vertical-align: middle" class="">${item.num }</td>
+									<td style="vertical-align: middle"><font color="red">${item.num*item.price }</font></td>
+									<td style="vertical-align: middle"><button type="button"
+											class="btn btn-default">确认收货</button></td>
+								</tr>
+								</c:forEach>
+								</c:forEach>
+							</tbody>
+							<tfoot>
+								<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥${order.amount }</label></td>
+							</tfoot>
+						</table>
+						</div>
+						<hr
+							style="width: 100%; border: 1px solid #F0F0F0; margin-bottom: 0px; margin-top: 0px;" />
+					</div>
+				</div>
 			</div>
-			<div class="col-md-12" style="height:20px;">
-				<div class="pull-left fontSize" >查看订单信息</div>
-			</div>
-			<div class="col-md-12" style="min-height:160px;height:100%;">
-				<hr style="width:100%;border:1px solid #F0F0F0;margin-bottom:0px;margin-top:5px;" />
-				<table class="table table-hover fontSize" style="font-weight:normal;margin-bottom:40px;">
-					<thead>
-						<tr>
-							<td>商品</td>
-							<td>属性</td>
-							<td>单价</td>
-							<td>数量</td>
-							<td>小计</td>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<ul class="list-unstyled list-inline" style="vertical-align: middle;margin-bottom:0px;">
-									<li><img src="<%=basePath%>/common/image/qunzi.jpg"/></li>
-									<li><label class="fontSize" style="vertical-align: middle;font-weight: normal;">儿童连体裙</label></li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">
-								<ul class="list-unstyled" style="vertical-align: middle;margin-bottom:0px;">
-									<li>颜色分类：红色</li>
-									<li>尺码：M</li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">125.00</td>
-							<td style="vertical-align: middle" class="">1
-							</td>
-							<td style="vertical-align: middle"><font color="red">125.00</font></td>
-							<td style="vertical-align: middle"><button type="button" class="btn btn-default" >确认收货</button></td>
-						</tr>
-						<tr>
-							<td>
-								<ul class="list-unstyled list-inline" style="vertical-align: middle;margin-bottom:0px;">
-									<li><img src="<%=basePath%>/common/image/qunzi.jpg"/></li>
-									<li><label class="fontSize" style="vertical-align: middle;font-weight: normal;">儿童连体裙</label></li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">
-								<ul class="list-unstyled" style="vertical-align: middle;margin-bottom:0px;">
-									<li>颜色分类：红色</li>
-									<li>尺码：M</li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">125.00</td>
-							<td style="vertical-align: middle" class="">1
-							</td>
-							<td style="vertical-align: middle"><font color="red">125.00</font></td>
-							<td style="vertical-align: middle"><button type="button" class="btn btn-default" >确认收货</button></td>
-						</tr>
-						<tr>
-							<td>
-								<ul class="list-unstyled list-inline" style="vertical-align: middle;margin-bottom:0px;">
-									<li><img src="<%=basePath%>/common/image/qunzi.jpg"/></li>
-									<li><label class="fontSize" style="vertical-align: middle;font-weight: normal;">儿童连体裙</label></li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">
-								<ul class="list-unstyled" style="vertical-align: middle;margin-bottom:0px;">
-									<li>颜色分类：红色</li>
-									<li>尺码：M</li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">125.00</td>
-							<td style="vertical-align: middle" class="">1
-							</td>
-							<td style="vertical-align: middle"><font color="red">125.00</font></td>
-							<td style="vertical-align: middle"><button type="button" class="btn btn-default" >确认收货</button></td>
-						</tr>
-						<tr>
-							<td>
-								<ul class="list-unstyled list-inline" style="vertical-align: middle;margin-bottom:0px;">
-									<li><img src="<%=basePath%>/common/image/qunzi.jpg"/></li>
-									<li><label class="fontSize" style="vertical-align: middle;font-weight: normal;">儿童连体裙</label></li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">
-								<ul class="list-unstyled" style="vertical-align: middle;margin-bottom:0px;">
-									<li>颜色分类：红色</li>
-									<li>尺码：M</li>
-								</ul>
-							</td>
-							<td style="vertical-align: middle">125.00</td>
-							<td style="vertical-align: middle" class="">1
-							</td>
-							<td style="vertical-align: middle"><font color="red">125.00</font></td>
-							<td style="vertical-align: middle"><button type="button" class="btn btn-default" >确认收货</button></td>
-						</tr>
-					</tbody>
-<!-- 					<tfoot> -->
-<!-- 						<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥125.00</label></td> -->
-<!-- 					</tfoot> -->
-				</table>
-				<hr style="width:100%;border:1px solid #F0F0F0;margin-bottom:0px;margin-top:0px;" />
-			</div>
-		</div>
-	</div>
 			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>

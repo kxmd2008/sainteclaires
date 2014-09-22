@@ -46,7 +46,6 @@ td {
 				<div class="content">
 					<div class="row">
 						<div style="min-height: 0px;"></div>
-						<!-- 						<div class="col-sm-12 col-md-12"> -->
 						<div class="block-flat">
 							<p style="line-height: 2; font-weight: bold;">购物车</p>
 							<div class="content">
@@ -70,7 +69,6 @@ td {
 															<li style="vertical-align: middle;display:table-cell;padding-left:0px;">
 																<a class="remove" title="Remove this item" style="vertical-align: middle;"
 																href="./shot/delete/${shot.productId }"><span
-<%-- 																href="javascript:productDelete(${shot.productId })"><span --%>
 																class="icon-close"><span
 																	class="glyphicon glyphicon-remove"
 																	style="margin: 0 2px;"></span></span></a>
