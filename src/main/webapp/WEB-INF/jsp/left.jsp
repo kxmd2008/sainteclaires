@@ -16,12 +16,12 @@
 -->
 </style>
 	<div class="page-aside tree">
+		<div class="title">
+			<img alt="Sainte Claire" title="Sainte Claire"
+				src="<%=basePath%>/common/image/logo_txt.png">
+		</div>
 		<div class="nano nscroller has-scrollbar" style="min-height:200px;max-height:600px;">
 			<div class="content" tabindex="0" style="right: -17px;">
-				<div class="title">
-					<img alt="Sainte Claire" title="Sainte Claire"
-						src="<%=basePath%>/common/image/logo_txt.png">
-				</div>
 				<ul class="nav nav-list treeview" style="line-height: 1">
 					<c:forEach var="pcat" items="${parents}">
 					<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
