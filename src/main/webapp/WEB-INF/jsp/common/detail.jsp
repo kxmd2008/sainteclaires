@@ -298,6 +298,7 @@
 									class="icon-pinterest"></span></a>
 							</div>
 						</div>
+						<!-- 
 						<div class="product-page-aside large-2 small-12 columns text-center hide-for-small" style="width: 100px;">
 							<div class="next-prev-nav" style="margin-bottom:0px;">
 								<div class="prod-dropdown">
@@ -330,7 +331,7 @@
 									src="./chaqueta-bebe-rosa-90x90.jpg"
 									class="attachment-shop_thumbnail wp-post-image img-thumbnail"
 									alt="chaqueta bebe rosa" style="border: 2px solid #ddd;"></div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
