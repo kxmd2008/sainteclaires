@@ -11,7 +11,7 @@
 <style>
 <!--
 .treeview label{
-	font-size: 10px;
+	font-size: 12px;
 }
 -->
 </style>

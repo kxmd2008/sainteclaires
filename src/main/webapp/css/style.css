@@ -1205,7 +1205,7 @@ input::-webkit-input-speech-button {
   display: inline-block;
 }
 .cl-vnavigation li ul {
-  background-color: #1d1f26;
+/*   background-color: #1d1f26; */
   display: none;
   margin: 0;
   padding: 0;
