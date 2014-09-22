@@ -204,6 +204,7 @@
 				
 					<div class="row">
 						<div class="large-6 columns product-gallery">
+							<c:forEach var="pic" items="${product.picList}">
 							<div class="product-image images">
 								<div class="iosSlider product-gallery-slider"
 									style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 0; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; min-height: 509px; width: 510px; height: auto;">
@@ -211,15 +212,14 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<c:forEach var="pic" items="${product.picList}">
-												<a title="" class="image-popup-vertical-fit" href="./${pic }">
-													<img width="75" height="75" src="./${pic }" id="proImg" pic="${pic }">
-												</a>
-												</c:forEach>
+											<a title="" class="image-popup-vertical-fit" href="./${pic }">
+												<img width="75" height="75" src="./${pic }" id="proImg" pic="${pic }">
+											</a>
 										</div>
 									</div>
 								</div>
 							</div>
+							</c:forEach>
 						</div>
 						<div class="product-info large-4 small-12 columns left">
 							<h1 itemprop="name" class="entry-title" id="name">${product.name }</h1>

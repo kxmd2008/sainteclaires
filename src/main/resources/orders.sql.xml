@@ -14,21 +14,21 @@
 		<result property="account" column="account" />
 		<result property="amount" column="amount" />
 		<result property="status" column="status" />
-		<result property="items" resultMap="order.OrderMap" />
+		<result property="items" resultMap="order.OrderItemMap" />
 	</resultMap>
-	<resultMap class="OrderItem" id="OrderMap">
+	<resultMap class="OrderItem" id="OrderItemMap">
 		<result property="id" column="oiid" />
 		<result property="orderId" column="order_id" />
 		<result property="num" column="num" />
 		<result property="price" column="price" />
 		<result property="productId" column="product_id" />
 		<result property="productName" column="productName" />
-		<result property="pic" column="pic" />
+		<result property="pic" column="pics" />
 		<result property="size" column="size" />
 	</resultMap>
 	<select id="findUnpayOrders" parameterClass="java.lang.String" resultMap="OrderMap">
-		select o.*, oi.id as oiid, oi.order_id, oi.num, oi.price, oi.product_id, oi.size, p.name as productName, p.pics, p.size
-		from order as o 
+		select o.*, oi.id as oiid, oi.order_id, oi.num, oi.price, oi.product_id, oi.size, p.name as productName, p.pics
+		from cust_order as o 
 		left join order_item as oi on o.id = oi.order_id
 		left join product as p on oi.product_id = p.id
 		where o.account = #userName# 

@@ -64,72 +64,34 @@
 			</div>
 			<div class="col-md-12" style="margin-top:10px;height:20px;">
 				<div class="pull-left fontSize" >选择收货地址</div>
-				<div class="pull-right">
-					<img src="<%=basePath%>/common/image/jiahao.jpg" width="24px;" height="24px;" style="clear:both;"  class="center" onclick="addAddressShow();"/>
-				</div>
+<!-- 				<div class="pull-right"> -->
+<%-- 					<img src="<%=basePath%>/common/image/jiahao.jpg" width="24px;" height="24px;" style="clear:both;"  class="center" onclick="addAddressShow();"/> --%>
+<!-- 				</div> -->
 				<hr style="width:100%;border:1px solid #F0F0F0;" />
 			</div>
 			<div class="col-md-12" style="margin-top:10px;min-height:140px;height:100%;">
 				<div class="list-inline pull-left col-md-12" id="address_box">
-					<div class="pull-left box">
-						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">
-							<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-							<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-							<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号 18602131588</li>
-						</ul>
-						<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-					</div>
-					<div class="pull-left box">
-						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">
-							<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-							<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-							<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号 18602131588</li>
-						</ul>
-						<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-					</div>
-					<div class="pull-left box">
-						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">
-							<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-							<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-							<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号 18602131588</li>
-						</ul>
-						<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-					</div>
-					<div class="pull-left box">
-						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">
-							<li style="text-align:left;font-size:10px;">辽宁大连(李凤超  收)</li>
-							<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-							<li style="text-align:left;font-size:10px;">和平张自忠路 162 号 见他公寓二单元 2713号 18602131588</li>
-						</ul>
-						<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-					</div>
-					<%-- <c:forEach items="${addresses}"  var="address"  varStatus="status">
+					<c:forEach items="${addresses}"  var="address"  varStatus="status">
 					<div class="pull-left box">
 						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">
 							<li style="text-align:left;font-size:10px;">${address.custName}  收</li>
 							<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
 							<li style="text-align:left;font-size:10px;">${address.address } ${address.telphone} ${address.post }</li>
 						</ul>
-						<c:if test="${status.index } == 0">
-						<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-						</c:if>
-						<c:if test="${status.index } != 0">
-							<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
-							<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-						</div>
-						</c:if>
+						<c:choose>
+							<c:when test="${custAccount.addressId == address.id}">
+								<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block;" class="pull-right">
+									<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none;" class="pull-right">
+									<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					</c:forEach> --%>
+					</c:forEach>
 <!-- 					<div class="pull-left box"> -->
 <!-- 						<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;"> -->
 <!-- 							<li style="text-align:left;font-size:10px;">添加收货地址</li> -->
@@ -161,33 +123,47 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><img src="<%=basePath%>/common/image/qunzi.jpg"/><label class="fontSize" style="vertical-align: middle;font-weight: normal;">儿童连体裙</label></td>
-							<td style="vertical-align: middle"><ul class="list-unstyled" style="vertical-align: middle"><li>颜色分类：红色</li><li>尺码：M</li></ul></td>
-							<td style="vertical-align: middle">125.00</td>
-							<td style="vertical-align: middle" class="">
+						<c:forEach items="${order.items }" var="item">
+							<tr>
+								<td>
+									<ul class="list-unstyled list-inline"
+										style="vertical-align: middle; margin-bottom: 0px;">
+										<li><img src="<%=basePath%>/${item.pic}" /></li>
+										<li><label class="fontSize"
+											style="vertical-align: middle; font-weight: normal;">${item.productName}</label></li>
+									</ul>
+								</td>
+								<td style="vertical-align: middle">
+									<ul class="list-unstyled"
+										style="vertical-align: middle; margin-bottom: 0px;">
+										<li>尺码：${item.size }</li>
+									</ul>
+								</td>
+								<td style="vertical-align: middle">${item.price }</td>
+								<td style="vertical-align: middle" class="">
 								<div class="input-group" style="width:103px;margin-left: auto !important;margin-right:auto !important;float:none !important;text-align: center;">
 									<span class="input-group-btn">
 										<button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="delNumber();">-</button>
 									</span>
-									<input id="cleaninit" type="text" class="form-control" name="cleaninit" style="width:40px;" value="1" />
+									<input id="cleaninit" type="text" class="form-control" name="cleaninit" style="width:40px;" value="${item.num}" />
 									<span class="input-group-btn">
 										<button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="addNumber();">+</button>
 									</span>
 								</div>
 							</td>
-							<td style="vertical-align: middle"><font color="red">125.00</font></td>
-							<td style="vertical-align: middle">快递：包邮</td>
-						</tr>
+								<td style="vertical-align: middle"><font color="red">${item.num*item.price }</font></td>
+								<td style="vertical-align: middle">快递：包邮</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 					<tfoot>
-						<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥125.00</label></td>
+						<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥${order.amount }</label></td>
 					</tfoot>
 				</table>
 				<hr style="width:100%;border:1px solid #F0F0F0;margin-bottom:0px;margin-top:0px;" />
 			</div>
 			<div class="col-md-12">
-				<div class="pull-right"><label class="fontSize">实付款：</label><font style="font-size:20px;color:red;font-weight:bold;">￥125.00</font></div>
+				<div class="pull-right"><label class="fontSize">实付款：</label><font style="font-size:20px;color:red;font-weight:bold;">￥${order.amount }</font></div>
 			</div>
 			<div class="col-md-12" style="margin-top:40px;">
 				<div class="pull-right"><button type="button" class="btn btn-default" style="background:red;width:150px;"><font color="white">提交订单</font></button></div>

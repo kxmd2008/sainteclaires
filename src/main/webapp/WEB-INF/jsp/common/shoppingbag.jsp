@@ -80,7 +80,7 @@ td {
 																<a class="cart_list_product_img"
 																	href="./detail?id=${shot.productId }"><img
 																	width="90px" height="90px"
-																	src="<%=basePath%>/product/${shot.pic }"
+																	src="<%=basePath%>/${shot.pic }"
 																	class="attachment-shop_thumbnail wp-post-image"
 																	alt="chaqueta bebe rosa"></a>
 																</div>
@@ -93,7 +93,7 @@ td {
 													<td style="vertical-align: middle;"><div class="quantity buttons_added">
 															<input type="button" value="-" class="minus" onclick="delNumber()">
 															<input id="cleaninit1" style="margin-bottom:0px;margin-left:-4px;margin-right:-4px;"
-																type="number" step="1" name="quantity" value="1"
+																type="number" step="1" name="quantity" value="${shot.number }"
 																title="Qty" class="input-text qty text" min="1">
 															<input type="button" value="+" class="plus" onclick="addNumber()" >
 														</div></td>
@@ -129,9 +129,9 @@ td {
 												</tr>
 											</tbody>
 										</table>
-										<a href="http://www.sainteclaire.es/realizar-pedido/" class="button secondary expand uppercase"
+										<a href="./shop" class="button secondary expand uppercase"
 											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; padding-top: 10px;">继续购物</a>
-										<a href="http://www.sainteclaire.es/realizar-pedido/" class="button secondary expand uppercase"
+										<a href="./order/confirm" class="button secondary expand uppercase"
 											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; margin-top: 10px; padding-top: 10px;">订单确认</a>
 									</div>
 								</div>
