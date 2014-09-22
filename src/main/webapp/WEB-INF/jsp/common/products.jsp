@@ -179,7 +179,7 @@
 										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
 											<img width="500" height="500"
-												src="./${product.pics}"
+												src="./${product.picList[0]}"
 												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
 										</div>
 										</a>

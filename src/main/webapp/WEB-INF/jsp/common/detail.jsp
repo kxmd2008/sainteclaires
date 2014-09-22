@@ -115,8 +115,9 @@
 				<div class="content">
 					<div class="page-head"	style="height: 75px; width: 98%; display: table;">
 						<ul class="list-unstyled list-inline pull-left" style="margin-top:5px;padding-top:35px;margin-bottom:0px;display:block;" id="show_info">
+							<c:if test="${addSucc }">
 							<li class="circle" style="text-align:center;vertical-align: middle;padding-top:0px;"><span class="glyphicon glyphicon-ok" style="margin-left:-2px;color:#fff;"></span></li>
-							<li class="fontSize" style="font-size:14px;color:#000;">您所选择的商品已经被加入到购入车</li>
+							<li class="fontSize" style="font-size:14px;color:#000;">您所选择的商品已经被加入到购入车</li></c:if>
 						</ul>
 						<ol class="breadcrumb" style="padding-top: 35px;">
 							<li class="mini-cart">
@@ -210,9 +211,11 @@
 										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 										<div class="slide"
 											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./${product.pics }">
-													<img width="75" height="75" src="./${product.pics }" id="proImg" pic="${product.pics }">
+												<c:forEach var="pic" items="${product.picList}">
+												<a title="" class="image-popup-vertical-fit" href="./${pic }">
+													<img width="75" height="75" src="./${pic }" id="proImg" pic="${pic }">
 												</a>
+												</c:forEach>
 										</div>
 									</div>
 								</div>

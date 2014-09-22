@@ -141,7 +141,6 @@ function findParentCats(){
 }
 
 function showDlg(title, id){
-	alert("id="+id);
 	$("#catLabel").html(title);
 	if(id){
 		$("#id").val(currPageItems[id].id);
