@@ -104,11 +104,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 	<option value="首页" 
                         		<c:if test="${'首页' == picture.name}">selected="selected"</c:if>
                         	>首页</option>
-					 <c:forEach var="pcat" items="${parents}">
-                           <option value="${pcat.name}" 
-                               		<c:if test="${pcat.name == picture.name}">selected="selected"</c:if>
-                               	>${pcat.name }</option>
-                         </c:forEach>
+                    <option value="商店" 
+                        		<c:if test="${'商店' == picture.name}">selected="selected"</c:if>
+                        	>商店</option>
                    </select>
 					<!--产品图片展示 -->
 					<div class="wrapper" 
@@ -266,4 +264,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/js/admin/bgItem.js"></script>
   </body>
 </html>
-
