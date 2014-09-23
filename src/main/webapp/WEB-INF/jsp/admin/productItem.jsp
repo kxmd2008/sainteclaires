@@ -52,6 +52,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	width: 300px;
 	height: 200px;
 }
+#product_add .error{
+	color:red
+}
+.btn-group{
+	float:left;
+}
 /* .btn-group button{ */
 /*  	color: #fff; */
 /*  	background: #556075; */
@@ -73,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<body class=""> 
+<body class="" style="position: relative;"> 
   <!--<![endif]-->
 <jsp:include page="main.jsp"></jsp:include>
 
@@ -93,13 +99,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
-				<button class="btn btn-primary" onclick="saveProduct();">
+				<button class="btn btn-primary"  class="button" onclick="saveProduct();">
 					<i class="icon-save"></i> 保存
 				</button>
 				<div class="btn-group"></div>
 			</div>
-			<div class="well ">
-					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="选择类别" >
+			<div class="well " >
+<!-- 				<form id="product_add"> -->
+					<div class="span12" style="margin-left:0px;">
+					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="选择类别" style="float:left;">
 						 <c:forEach var="pcat" items="${parents}">
                             <optgroup label="${pcat.name }">
                             	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
@@ -110,25 +118,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </optgroup>
                           </c:forEach>
                     </select>
+                    <label id="categoryMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">必须选择一项类别！</font></label>
+                    </div>
+                    <div class="span12" style="margin-left:0px;">
 					<label>产品名称</label> 
-					<input type="text" id="name" value="${vo.name }" placeholder="产品名称"> 
+					<input type="text" id="name" name="name" value="${vo.name }" placeholder="产品名称" style="float:left;">
+					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品名称不能为空！</font></label>
+					</div> 
+					<div class="span12" style="margin-left:0px;">
 					<label>产品价格</label> 
-					<input type="number" step="0.1" min="1" value="${vo.price }" id="price" placeholder="产品价格"> 
+					<input type="text" step="0.1" min="1" value="${vo.price }" id="price" name="price" placeholder="产品价格" style="float:left;">
+					<label id="priceMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品价格不能为空！</font></label>
+					</div>  
+					<div class="span12" style="margin-left:0px;">
 					<label>产品库存</label> 
-					<input type="number" min="1" id="num" value="${vo.num }" placeholder="产品库存"> 
+					<input type="text" min="1" id="num" name="num" value="${vo.num }" placeholder="产品库存" style="float:left;">
+					<label id="numMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品库存不能为空！</font></label>
+					</div>
+					<div class="span12" style="margin-left:0px;">   
 					<label>产品尺码</label> 
-					<input value="${vo.meses06 }" type="number" min="0" id="meses06" placeholder="06尺码库存"> 
-					<input value="${vo.meses09 }" type="number" min="0" id="meses09" placeholder="09尺码库存"> 
-					<input value="${vo.meses12 }" type="number" min="0" id="meses12" placeholder="12尺码库存"> 
-					<input value="${vo.meses18 }" type="number" min="0" id="meses18" placeholder="18尺码库存"> 
-					<input value="${vo.meses24 }" type="number" min="0" id="meses24" placeholder="24尺码库存"> 
+					<input value="${vo.meses06 }" type="text" min="0" id="meses06" name="meses06" placeholder="06尺码库存" style="float:left;">
+					<label id="meses06Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码06不能为空！</font></label>
+					</div>
+					<div class="span12" style="margin-left:0px;">  
+					<input value="${vo.meses09 }" type="text" min="0" id="meses09" name="meses09" placeholder="09尺码库存" style="float:left;">
+					<label id="meses09Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码09不能为空！</font></label>
+					</div>
+					<div class="span12" style="margin-left:0px;">  
+					<input value="${vo.meses12 }" type="text" min="0" id="meses12" name="meses12" placeholder="12尺码库存" style="float:left;">
+					<label id="meses12Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码12不能为空！</font></label>
+					</div>
+					<div class="span12" style="margin-left:0px;">  
+					<input value="${vo.meses18 }" type="text" min="0" id="meses18" name="meses18" placeholder="18尺码库存" style="float:left;">
+					<label id="meses18Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码18不能为空！</font></label>
+					</div>
+					<div class="span12" style="margin-left:0px;">  
+					<input value="${vo.meses24 }" type="text" min="0" id="meses24" name="meses24" placeholder="24尺码库存" style="float:left;">
+					<label id="meses24Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码24不能为空！</font></label>
+					</div> 
 					<label></label>
-					<textarea rows="3" cols="4" placeholder="产品描述" id="desc" style="width:240px" >${vo.description }</textarea>
-					<input type="checkbox" id="isNew"  
-						<c:if test="${vo.isNew}">
-							checked="checked"
-						</c:if>
-					>是否新品
+					<div class="span12" style="margin-left:0px;">   
+						<textarea rows="3" cols="4" placeholder="产品描述" id="desc" name="desc" style="width:240px;float:left;" >${vo.description }</textarea>
+						<label id="descMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品描述不能为空！</font></label>
+					</div>
 					<!--产品图片展示 -->
 					<div class="wrapper" 
 						<c:if test="${vo.id == null }">
@@ -150,17 +182,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                </p>
 			            </div>
 			        </div>
+<!-- 			        </form> -->
 					<form id="fileupload" action="<%=basePath%>/auth/upload" method="post" enctype="multipart/form-data">
 <!-- 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
 				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 				        <div class="fileupload-buttonbar">
 				            <div>
 				                <!-- The fileinput-button span is used to style the file input field as button -->
-				                <span class="btn btn-success fileinput-button">
+				                <span class="btn btn-success fileinput-button" style="float:left;">
 				                    <i class="glyphicon glyphicon-plus"></i>
 				                    <span>上传图片...</span>
-				                    <input type="file" name="files" multiple>
+				                    <input type="file" name="files" id="files" multiple>
 				                </span>
+				                <label id="filesMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">必须上传图片！</font></label>
 				            </div>
 				        </div>
 				        <!-- The table listing the files available for upload/download -->
@@ -284,6 +318,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/upload/jquery.fileupload-ui.js"></script>
 <script src="<%=basePath%>/js/bootstrap-multiselect.js"></script>
 <script src="<%=basePath%>/js/prettify.js"></script>
+<script src="<%=basePath%>/js/jquery.validate.min.js"></script>
+<script src="<%=basePath%>/js/additional-methods.min.js"></script>
+
 <!-- The main application script -->
 <script src="<%=basePath%>/upload/main.js"></script>
 <script src="<%=basePath%>/js/admin/productItem.js"></script>
