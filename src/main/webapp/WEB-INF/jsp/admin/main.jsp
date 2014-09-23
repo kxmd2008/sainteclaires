@@ -83,12 +83,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:if test="${active!='categorys'}">
             <li ><a href="<%=basePath%>/auth/categorys">类别列表</a></li>
             </c:if>
-<%--             <c:if test="${active=='categoryAdd'}"> --%>
-<%--             <li class="active"><a href="<%=basePath%>/auth/categoryAdd">Add Category</a></li> --%>
-<%--             </c:if> --%>
-<%--             <c:if test="${active!='categoryAdd'}"> --%>
-<%--             <li ><a href="<%=basePath%>/auth/categoryAdd">Add Category</a></li> --%>
-<%--             </c:if> --%>
         </ul> 
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>产品管理</a>
@@ -112,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </c:if>
         </ul>
 
-        <a href="#" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
+        <a href="#<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i>背景图片管理</a>
     </div>
 
 
