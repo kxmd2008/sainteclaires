@@ -9,11 +9,11 @@ function addTableInfo(){
         fvTable.fnClearTable(false); //清空数据 ，false少调用一个后台
         fvTable.fnDraw();     //重新加载数据
      }else{
-    	fvTable = $('#products').dataTable({
+    	fvTable = $('#bgs').dataTable({
 		"processing" : true,
 		"serverSide" : true,
-		"sAjaxDataProp" : "data",
-		"bPaginite" : true, //使用分页  bPaginate
+		"sAjaxDataProp" : "records",
+		"bPaginite" : false, //使用分页  bPaginate
 		"bAutoWidth" : true,
 		"bFilter" : false, //不使用搜索 
 		"bLengthChange" : false, //是否启用设置每页显示记录数 
@@ -31,29 +31,26 @@ function addTableInfo(){
 		},
 		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
-			"url" : "products/find",
+			"url" : "bg/find",
 			"type" : "GET",
 			"dataType":"json"  ,
 		},
 		"columns" : [
 		{
-			"data" : "categoryId"
+			"records" : "id"
 		},
 		{
-			"data" : "name"
-		}, {
-			"data" : "categorys"
-		}, {
-			"data" : "price"
+			"records" : "name"
 		},
 		{
-			"data" : "num"
-		},
+			"records" : "name"
+		}, 
 		{
-			"data" : "id"
+			"records" : "id"
 		}
 		],
 		"fnCreatedRow" : function(nRow, data, iDataIndex) {
+				$(nRow).attr("id", "tr" + data.id);
 				$('td:eq(0)', nRow).html(function() {
 					return (iDataIndex+1);
 				});
@@ -61,25 +58,30 @@ function addTableInfo(){
 					return data.name;
 				});
 				$('td:eq(2)', nRow).html(function() {
-					var name = "";
-					$(data.categorys).each(function(index){
-						name+=data.categorys[index].name + ",";
-					});
-					return name.substring(0, name.length-1);
+					var pics = data.pics;
+					
+					return pics[0];
 				});
-				$('td:eq(3)', nRow).html(function() {
-					return data.price;
-				});
-				$('td:eq(4)', nRow).html(function() {
-					return data.num;
-				});
-				$('td:eq(5)', nRow).css("width" , "40px").html(function() {
-					var ls = '<a href="productEdit?id='+data.id+'"><i class="icon-pencil"></i></a> <a'
-						+' href="#myModal" role="button" data-toggle="modal"><i '
+				$('td:eq(3)', nRow).css("width" , "40px").html(function() {
+					var ls = '<a href="bgEdit?id='+data.id+'"><i class="icon-pencil"></i></a>&nbsp;&nbsp;&nbsp;<a '
+						+'href="#myModal" onclick="beforeDelete('+data.id+')" role="button" data-toggle="modal"><i '
 						+ 'class="icon-remove"></i></a>';
 					return ls;
 				});
 			}
     	});
     }
+}
+
+function beforeDelete(id){
+	$("#bgId").val(id);
+}
+
+function deleteBg(){
+	var id = $("#bgId").val();
+	$.get("bg/delete/"+id, function(data){
+		if(data.head.rep_code == '200'){
+			$("#tr" + id).remove();
+		}
+	});
 }

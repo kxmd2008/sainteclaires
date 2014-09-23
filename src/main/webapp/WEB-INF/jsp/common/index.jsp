@@ -86,7 +86,6 @@
 				sequenceMode: 'normal',
 			});
 		});
-		
 // 		function intervalChangeImg() {
 // //	 		$("#bodyBgImg").attr("src", imgs[index]);
 // //	 		$("body").css('background-image', 'url('+imgs[index]+')')

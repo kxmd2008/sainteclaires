@@ -24,12 +24,13 @@
 			<div class="content" tabindex="0" style="right: -17px;">
 				<ul class="nav nav-list treeview" style="line-height: 1">
 					<c:forEach var="pcat" items="${parents}">
-					<li class=""><label class="tree-toggler nav-header">${pcat.name }</label>
 						<c:choose>
 							<c:when test="${pcat.id == parentCatId }">
+							<li class="open" ><label class="tree-toggler nav-header">${pcat.name }</label>
 								<ul class="nav nav-list tree" style="display: block;">
 							</c:when>
 							<c:otherwise>
+							<li class="" ><label class="tree-toggler nav-header">${pcat.name }</label>
 								<ul class="nav nav-list tree" style="display: none;">
 							</c:otherwise>
 						</c:choose>
@@ -45,6 +46,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="<%=basePath%>/js/tendina.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
