@@ -47,6 +47,13 @@ select {
 .pagination{
 	float:right;
 }
+.center{
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float:none !important;
+	display: block;
+	text-align:center;
+}
 </style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -119,6 +126,25 @@ select {
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 	</div>
+	<!-- Modal -->
+<input type="hidden" value="" id="product_id"/>
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+        <h4 class="modal-title" id="myModalLabel">删除框</h4>
+      </div>
+      <div class="modal-body">
+      	<h5>您确定要删除吗？</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="productDelete();">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <script src="<%=basePath%>/js/jquery.dataTables.js"></script>
 <script src="<%=basePath%>/js/dataTables.bootstrap.js"></script>
