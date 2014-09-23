@@ -192,7 +192,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <span class="btn btn-success fileinput-button" style="float:left;">
 				                    <i class="glyphicon glyphicon-plus"></i>
 				                    <span>上传图片...</span>
-				                    <input type="file" name="files" id="files" multiple>
+				                    <input type="file" name="files"  multiple>
 				                </span>
 				                <label id="filesMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">必须上传图片！</font></label>
 				            </div>

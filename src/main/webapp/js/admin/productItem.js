@@ -7,163 +7,47 @@ $(document).ready(function() {
 	validatorProduct();
 });
 var URL = "/";
+var numReg = /^\d+$/;
 function validatorProduct() {
 	var numReg = /^\d+$/;
 	$("#choose_category").change(function(){
-//		var category = $("#choose_category").val();
-//		if(category == "选择类别" || category == null){
-//			$("#categoryMsg").css("display","block");
-//			$("#categoryMsg font").html("必须选择一项类别！");
-//		}else{
-//			$("#categoryMsg").css("display","none");
-//		}
 		showCategoryMsg();
 	});
 	$("#name").on("blur", function() {
-//		var name = $("#name").val();
-//		if (name == null || name == "") {
-//			$("#nameMsg").css("display", "block");
-//			$("#nameMsg font").html("产品名称不能为空！");
-//		} else {
-//			$("#nameMsg").css("display", "none");
-//		}
 		showNameMsg();
 	});
 	$("#price").on("blur", function() {
-//		var price = $("#price").val();
-//		if (price == null || price == "") {
-//			$("#priceMsg").css("display", "block");
-//			$("#priceMsg font").html("产品价格不能为空！");
-//		} else {
-//			$("#priceMsg").css("display", "none");
-//		}
 		showPriceMsg();
 	});
 	$("#num").on("blur", function() {
-//		var $num = $("#num").val();
-//		if ($num == null || $num == "") {
-//			$("#numMsg").css("display", "block");
-//			$("#numMsg font").html("产品数量不能为空！");
-//		} else {
-//			$("#numMsg").css("display", "none");
-//		}
-//		if ($num != null && $num != "") {
-//			if (!numReg.test($num)) {
-//				$("#numMsg").css("display", "block");
-//				$("#numMsg font").html("库存数量只能输入数字！");
-//			} else {
-//				$("#numMsg").css("display", "none");
-//			}
-//		}
 		showNumMsg();
 	});
 	$("#meses06").on(
 			"blur",
 			function() {
-//				var meses06 = $("#meses06").val();
-//				if (meses06 == null || meses06 == "") {
-//					$("#meses06Msg").css("display", "block");
-//					$("#meses06Msg font").html("06尺码库存数量不能为空！");
-//				} else {
-//					$("#meses06Msg").css("display", "none");
-//				}
-//				if (meses06 != null && meses06 != "") {
-//					if (!numReg.test(meses06)) {
-//						$("#meses06Msg").css("display", "block");
-//						$("#meses06Msg font").html("06尺码库存数量只能输入数字！");
-//					} else {
-//						$("#meses06Msg").css("display", "none");
-//					}
-//				}
 				showMeses06Msg();
 			});
 	$("#meses09").on(
 			"blur",
 			function() {
-//				var meses09 = $("#meses09").val();
-//				if (meses09 == null || meses09 == "") {
-//					$("#meses09Msg").css("display", "block");
-//					$("#meses09Msg font").html("09尺码库存数量不能为空！");
-//				} else {
-//					$("#meses09Msg").css("display", "none");
-//				}
-//				if (meses09 != null && meses09 != "") {
-//					if (!numReg.test(meses09)) {
-//						$("#meses09Msg").css("display", "block");
-//						$("#meses09Msg font").html("09尺码库存数量只能输入数字！");
-//					} else {
-//						$("#meses09Msg").css("display", "none");
-//					}
-//				}
 				showMeses09Msg();
 			});
 	$("#meses12").on(
 			"blur",
 			function() {
-//				var meses12 = $("#meses12").val();
-//				if (meses12 == null || meses12 == "") {
-//					$("#meses12Msg").css("display", "block");
-//					$("#meses12Msg font").html("12尺码库存数量不能为空！");
-//				} else {
-//					$("#meses12Msg").css("display", "none");
-//				}
-//				if (meses12 != null && meses12 != "") {
-//					if (!numReg.test(meses12)) {
-//						$("#meses12Msg").css("display", "block");
-//						$("#meses12Msg font").html("09尺码库存数量只能输入数字！");
-//					} else {
-//						$("#meses12Msg").css("display", "none");
-//					}
-//				}
 				showMeses12Msg();
 			});
 	$("#meses18").on(
 			"blur",
 			function() {
-//				var meses18 = $("#meses18").val();
-//				if (meses18 == null || meses18 == "") {
-//					$("#meses18Msg").css("display", "block");
-//					$("#meses18Msg font").html("18尺码库存数量不能为空！");
-//				} else {
-//					$("#meses18Msg").css("display", "none");
-//				}
-//				if (meses18 != null && meses18 != "") {
-//					if (!numReg.test(meses18)) {
-//						$("#meses18Msg").css("display", "block");
-//						$("#meses18Msg font").html("09尺码库存数量只能输入数字！");
-//					} else {
-//						$("#meses18Msg").css("display", "none");
-//					}
-//				}
 				showMeses18Msg();
 			});
 	$("#meses24").on(
 			"blur",
 			function() {
-//				var meses24 = $("#meses24").val();
-//				if (meses24 == null || meses24 == "") {
-//					$("#meses24Msg").css("display", "block");
-//					$("#meses24Msg font").html("24尺码库存数量不能为空！");
-//				} else {
-//					$("#meses24Msg").css("display", "none");
-//				}
-//				if (meses24 != null && meses24 != "") {
-//					if (!numReg.test(meses24)) {
-//						$("#meses24Msg").css("display", "block");
-//						$("#meses24Msg font").html("09尺码库存数量只能输入数字！");
-//					} else {
-//						$("#meses24Msg").css("display", "none");
-//					}
-//				}
 				showMeses24Msg();
 			});
 	$("#desc").on("blur", function() {
-//		var desc = $("#desc").val();
-//		if (desc == null || desc == "") {
-//			$("#descMsg").css("display", "block");
-//		} else {
-//			$("#descMsg").css("display", "none");
-//		}
 		showDescMsg();
 	});
 }
@@ -201,7 +85,6 @@ function showPriceMsg(){
 	}
 }
 function showNumMsg(){
-	var numReg = /^\d+$/;
 	var $num = $("#num").val();
 	if ($num == null || $num == "") {
 		$("#numMsg").css("display", "block");
@@ -390,9 +273,8 @@ function saveProduct() {
 	var meses18 = $("#meses18").val();
 	var meses24 = $("#meses24").val();
 	var desc = $("#desc").val();
-	var isNew = $("#isNew").val() == 'on' ? true : false;
+//	var isNew = $("#isNew").val() == 'on' ? true : false;
 	var pics = $("#pics").val();
-	alert(pics);
 	$("#files").children().each(function(i, tr) {
 		// pics[i] = $(tr).find("p").html();
 		pics += $(tr).find("p").html() + ",";
@@ -409,7 +291,7 @@ function saveProduct() {
 		"meses18" : meses18,
 		"meses24" : meses24,
 		"description" : desc,
-		"isNew" : isNew,
+//		"isNew" : isNew,
 		"pics" : pics
 	};
 	var id = $("#productId").val();
