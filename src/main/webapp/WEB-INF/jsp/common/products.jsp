@@ -178,9 +178,12 @@
 									<div class="product-image">
 										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
-											<img width="500" height="500"
+											<img width="500px" height="500px" id="picList0"
 												src="./${product.picList[0]}"
-												class="attachment-shop_catalog wp-post-image" alt="_DSC6436">
+												class="attachment-shop_catalog wp-post-image" style="display:block;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
+											<img width="500px" height="500px"
+												src="./${product.picList[1]}" id="picList1"
+												class="attachment-shop_catalog wp-post-image" style="display:none;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
 										</div>
 										</a>
 										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal">+ Vista rápida</div>
@@ -310,6 +313,16 @@
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
+		$(document).ready(function(){
+			$("#picList0").mouseover(function(){
+				$("#picList0").css("display","none");
+				$("#picList1").css("display","block");
+			});
+			$("#picList1").mouseout(function(){
+				$("#picList1").css("display","none");
+				$("#picList0").css("display","block");
+			});
+		});
 	</script>
 <!-- 	<a href="#" class="back-to-top" style="display: none;"><i -->
 <!-- 		class="fa fa-angle-up"><span class="glyphicon glyphicon-chevron-up"></span></i></a> -->
