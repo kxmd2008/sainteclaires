@@ -75,11 +75,25 @@ function addTableInfo(){
 				});
 				$('td:eq(5)', nRow).css("width" , "40px").html(function() {
 					var ls = '<a href="productEdit?id='+data.id+'"><i class="icon-pencil"></i></a> <a'
-						+' href="#myModal" role="button" data-toggle="modal"><i '
+						+' href="javascript:showDialog(\''+data.id+'\')" role="button" ><i '
 						+ 'class="icon-remove"></i></a>';
 					return ls;
 				});
 			}
     	});
     }
+}
+function showDialog(id){
+	alert(id);
+	$("#product_id").val(id);
+	$("#myModal").modal('show');
+}
+function productDelete(id){
+	var id = $("#product_id").val();
+	$.get("product/delete?id="+id,function(msg){
+		if(msg.head.rep_code == "200"){
+			addTableInfo();
+			$("#myModal").modal('hide');
+		}
+	});
 }
