@@ -60,6 +60,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="bgPic" value="${bgs }">
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/js/jquery.nanoscroller.js"></script>
@@ -68,8 +69,9 @@
 	<script src="./js/bgstretcher.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
-		var imgs = [ "product/imgs/DSC5545.jpg", "product/imgs/DSC7339.jpg",
-			 			"product/imgs/DSC8158.jpg"];
+// 		var imgs = [ "product/imgs/DSC5545.jpg", "product/imgs/DSC7339.jpg",
+// 			 			"product/imgs/DSC8158.jpg"];
+		var imgs = $("#bgPic").val().split(",");
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
