@@ -55,12 +55,16 @@
 		function closeTree(obj){
 			$(".treeview ul").css("display","none");
 			$(obj).children("ul").css("display","block");
-			var categoryName = $(obj).children("label").html();
-			var d = {"categoryName" : categoryName};
-			$.post("catebg", d, function(data){
-				if(data.head.rep_code == '200' && data.item.pics.length > 0){
-					$("#cl-wrapper").css("background-image", "url('"+data.item.pics[data.item.pics.length-1]+"')");
-				}
-			});
+			var div = $("#cl-wrapper");
+			if(div.hasClass("expend")) {
+				var categoryName = $(obj).children("label").html();
+				var d = {"categoryName" : categoryName};
+				$.post("catebg", d, function(data){
+					if(data.head.rep_code == '200' && data.item.pics.length > 0){
+						$("#cl-wrapper").css("background-image", "url('"+data.item.pics[data.item.pics.length-1]+"')");
+					}
+				});
+			}
+			
 		}
 	</script>

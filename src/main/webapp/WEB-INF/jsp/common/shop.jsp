@@ -21,7 +21,7 @@
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
-	<div id="cl-wrapper" class="strange"
+	<div id="cl-wrapper" class="strange expend"
 		style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
 			<jsp:include page="../header.jsp"/>
