@@ -34,6 +34,8 @@
 	<security:http pattern="/howtobuy" security="none" />
 	<security:http pattern="/about" security="none" />
 	<security:http pattern="/legal" security="none" />
+	<security:http pattern="/shot/**" security="none" />
+	<security:http pattern="/catebg/**" security="none" />
 	<security:http pattern="/register" security="none" />
 	<security:http pattern="/account/check" security="none" />
 	<security:http pattern="/account/create" security="none" />

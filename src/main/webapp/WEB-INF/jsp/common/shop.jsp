@@ -21,7 +21,7 @@
 </style>
 </head>
 <body class="animated cbp-spmenu-push" style="">
-	<div id="cl-wrapper" class="strange divbg"
+	<div id="cl-wrapper" class="strange"
 		style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
 			<jsp:include page="../header.jsp"/>
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 	</div>
-
+<input type="hidden" id="bgPic"  value="${bgs }">
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
 	<script src="<%=basePath%>/js/jPushMenu.js"></script>
@@ -56,7 +56,7 @@
 		}
 		$(document).ready(treeToggler);
 		var imgs = $("#bgPic").val().split(",");
-		$("#cl-wrapper").attr("style", "background-image: url('"+imgs[imgs.length-1]+"')");
+		$("#cl-wrapper").css("background-image", "url('"+imgs[imgs.length-1]+"')");
 	</script>
 </body>
 </html>

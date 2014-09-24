@@ -46,7 +46,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="<%=basePath%>/js/tendina.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
@@ -56,5 +55,12 @@
 		function closeTree(obj){
 			$(".treeview ul").css("display","none");
 			$(obj).children("ul").css("display","block");
+			var categoryName = $(obj).children("label").html();
+			var d = {"categoryName" : categoryName};
+			$.post("catebg", d, function(data){
+				if(data.head.rep_code == '200' && data.item.pics.length > 0){
+					$("#cl-wrapper").css("background-image", "url('"+data.item.pics[data.item.pics.length-1]+"')");
+				}
+			});
 		}
 	</script>

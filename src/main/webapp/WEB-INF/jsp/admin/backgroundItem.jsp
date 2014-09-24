@@ -119,11 +119,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							style="display: none"
 						</c:if>
 					>
-			            <div class="jcarousel-wrapper" style="width:300px;">
+			            <div class="jcarousel-wrapper"  style="width:300px;">
 			                <div class="jcarousel" >
 			                    <ul>
 			                    	<c:forEach var="pic" items="${picture.pics }">
 			                        <li class="bhoriz">
+			                        	<div style="z-index: 100;float: right;">
+			                        	<span class="glyphicon glyphicon-remove-circle"></span>
+			                        	</div>
 			                        	<img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}">
 			                        </li>
 			                    	</c:forEach>
@@ -271,3 +274,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/js/admin/bgItem.js"></script>
   </body>
 </html>
+
