@@ -401,29 +401,6 @@ function treeToggler() {
 	});
 }
 
-
-
-/**
- * 商品数量增加1
- */
-function addNumber(id){
-	var $cleaninit = $("#" + id);
-	var value = $cleaninit.val();
-	value = eval(value+"+"+1);
-	$cleaninit.val(value);
-}
-/**
- * 商品数量减少1
- */
-function delNumber(id){
-	var $cleaninit = $("#" + id);
-	var value = $cleaninit.val();
-	if(value > 1){
-		value = eval(value+"-"+1);
-		$cleaninit.val(value);
-	}
-}
-
 function showAddCartBtn(selectId){
 	var value = $("#" + selectId).val();
 	if(value){
