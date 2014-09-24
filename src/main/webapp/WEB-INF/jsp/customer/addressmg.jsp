@@ -79,8 +79,8 @@ td {
 											<li style="text-align:left;font-size:10px;">${address.custName }(收)</li>
 											<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
 											<li style="text-align:left;font-size:10px;word-break:break-all;">${address.address }</li>
-											<li style="text-align:left;font-size:10px;">${address.telphone }</li>
-											<li style="text-align:left;font-size:10px;">${address.post }</li>
+											<li style="text-align:left;font-size:10px;">电话：${address.telphone }</li>
+											<li style="text-align:left;font-size:10px;">邮编：${address.post }</li>
 										</ul>
 										<c:if test="${custAccount.addressId == address.id}">
 										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block" class="pull-right">
