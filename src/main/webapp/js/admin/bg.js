@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	addTableInfo();
+	$("#bgs + div").remove();
 });
 var URL = "/";
 var fvTable;
@@ -12,12 +13,12 @@ function addTableInfo(){
     	fvTable = $('#bgs').dataTable({
 		"processing" : true,
 		"serverSide" : true,
-		"sAjaxDataProp" : "records",
-		"bPaginite" : false, //使用分页  bPaginate
+		"sAjaxDataProp" : "data",
+		"bPaginite" : true, //使用分页  bPaginate
 		"bAutoWidth" : true,
 		"bFilter" : false, //不使用搜索 
 		"bLengthChange" : false, //是否启用设置每页显示记录数 
-		"bSort" : true, //是否使用排序 
+		"bSort" : false, //是否使用排序 
 		"aaSorting": [ [ 0, "asc"]], 
 		"bInfo" : false, //是否显示表格的一些信息
 		"bScrollInfinite":false,
@@ -29,24 +30,24 @@ function addTableInfo(){
 			"sEmptyTable" : "No Data！",
 			"sSearch":"Search",
 		},
-		"iDisplayLength" : 10, //默认为10
+//		"iDisplayLength" : 10, //默认为10
 		"ajax" : {
 			"url" : "bg/find",
 			"type" : "GET",
-			"dataType":"json"  ,
+			"dataType":"json"
 		},
 		"columns" : [
 		{
-			"records" : "id"
+			"data" : "picStr"
 		},
 		{
-			"records" : "name"
+			"data" : "name"
 		},
 		{
-			"records" : "name"
+			"data" : "pics"
 		}, 
 		{
-			"records" : "id"
+			"data" : "id"
 		}
 		],
 		"fnCreatedRow" : function(nRow, data, iDataIndex) {
@@ -59,7 +60,6 @@ function addTableInfo(){
 				});
 				$('td:eq(2)', nRow).html(function() {
 					var pics = data.pics;
-					
 					return pics[0];
 				});
 				$('td:eq(3)', nRow).css("width" , "40px").html(function() {
