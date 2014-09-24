@@ -34,4 +34,13 @@
 		where o.account = #userName# and status = 0
 	</select>
 	
+	<select id="findOrders" parameterClass="java.lang.String" resultMap="OrderMap">
+		select o.*, oi.id as oiid, oi.order_id, oi.num, oi.price, oi.product_id, oi.size, p.name as productName, p.pics
+		from cust_order as o 
+		left join order_item as oi on o.id = oi.order_id
+		left join product as p on oi.product_id = p.id
+		where o.account = #userName#
+		order by o.status asc, o.order_date desc
+	</select>
+	
 </sqlMap>
