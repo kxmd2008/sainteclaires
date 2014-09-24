@@ -58,6 +58,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .btn-group{
 	float:left;
 }
+/* .circle { */
+/*   position: absolute; */
+/*   top: 100%; */
+/*   z-index:1000; */
+/*   float: right; */
+/*   font-size: 16px; */
+/*   padding: 2px 2px 6px; */
+/*   text-align: center; */
+/*   width: 25px; */
+/*   height: 25px; */
+/*   border: 2px solid ; */
+/*   display: inline-block; */
+/*   background-color: #000; */
+/*   -webkit-border-radius: 99px; */
+/*   border-radius: 99px; */
+/*   color: #ccc;  */
+/*  } */
+ .circle {
+    position: absolute;
+/*     bottom: 0; */
+	top:0;
+	right:0px;
+	margin-top:0px;
+/*     left: 15px; */
+}
+
+.circle a {
+    text-decoration: none;
+    display: inline-block;
+    
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    
+    background: #fff;
+    color: #000;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    
+    margin-right: 2px;
+/*     border:1px solid #000; */
+    
+    opacity: .75;
+}
+
+.circle a:hover {
+    background: #000;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
 /* .btn-group button{ */
 /*  	color: #fff; */
 /*  	background: #556075; */
@@ -105,7 +157,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="btn-group"></div>
 			</div>
 			<div class="well " >
-<!-- 				<form id="product_add"> -->
 					<div class="span12" style="margin-left:0px;">
 					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="选择类别" style="float:left;">
 						 <c:forEach var="pcat" items="${parents}">
@@ -162,6 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<label id="descMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品描述不能为空！</font></label>
 					</div>
 					<!--产品图片展示 -->
+					<div class="span12">
 					<div class="wrapper" 
 						<c:if test="${vo.id == null }">
 							style="display: none"
@@ -171,8 +223,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <div class="jcarousel" >
 			                    <ul>
 			                    	<c:forEach var="pic" items="${vo.picList }">
-<%-- 			                    	<li class="thumbwrapper bhoriz"> <a href="#"><img src="<%=basePath%>/${pic}"  /></a></li> --%>
-			                        <li class="bhoriz"><img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}"></li>
+			                        <li class="bhoriz"></span><img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}" ></li>
 			                    	</c:forEach>
 			                    </ul>
 			                </div>
@@ -180,9 +231,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
 			                <p class="jcarousel-pagination">
 			                </p>
+			                <p class="circle" >
+			                	<a href="javascript:deletePic();"><i class="icon-remove"></i></a>
+			                </p>
 			            </div>
 			        </div>
-<!-- 			        </form> -->
+			        </div>
 					<form id="fileupload" action="<%=basePath%>/auth/upload" method="post" enctype="multipart/form-data">
 <!-- 						<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
 				        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -325,22 +379,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=basePath%>/upload/main.js"></script>
 <script src="<%=basePath%>/js/admin/productItem.js"></script>
 <script type="text/javascript">
-// 	$(document).ready(function() {
-// 		var build = function(select) {
-// 			var value = 'selectAllValue';
-//             select.multiselect({
-//                 includeSelectAllOption: true,
-//                 selectAllValue: value
-//             });
-// 	        return false;
-// 	    }($('#productSize'));
-// 	})
-// 	$("[rel=tooltip]").tooltip();
-// 	$(function() {
-// 		$('.demo-cancel-click').click(function() {
-// 			return false;
-// 		});
-// 	});
+	function deletePic(){
+		var picNum = $(".jcarousel-pagination .active").html();
+		var pics = $(".jcarousel ul li");
+		var i = eval(picNum + "-" + 1);
+		var alt;
+		var value="";
+		$(pics).each(function(index){
+			if(index == i){
+				alt = $(pics[index]).children("img").attr("alt");
+				pics[i].remove();
+				var hiddenPics = $("#pics").val();
+				var hiddenPic = hiddenPics.split(",");
+				$(hiddenPic).each(function(i){
+					if(hiddenPic[i] != alt){
+						value = value+ hiddenPic[i]+",";
+					}
+				});
+				value = value.substring(0,value.length-1);
+				$("#pics").val(value);
+			}
+		});
+		var child = $(".jcarousel ul").children();
+		if(child.length == 0){
+			$(".wrapper").css("display","none");
+		}
+	}
 </script>
   </body>
 </html>
