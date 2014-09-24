@@ -101,9 +101,9 @@ function delNumber(itemId){
 function edit(itemId){
 	var url = "item/edit/" + itemId + "/" + $("#cleaninit").val();
 	$.get(url, function(data){
-		alert(JSON.stringify(data));
 		if(data.head.rep_code == '200'){
 			$("#amount").html(data.item.amount);
+			$("#realAmount").html(data.item.amount);
 			$(data.item.items).each(function(index){
 				if(data.item.items[index].id == itemId){
 					$("#sum" + itemId).html(data.item.items[index].sum);

@@ -173,8 +173,8 @@
 					</div>
 					<div class="col-md-12">
 						<div class="pull-right">
-							<label class="fontSize">实付款：</label><font
-								style="font-size: 20px; color: red; font-weight: bold;">￥${order.amount }</font>
+							<label class="fontSize">实付款：￥</label><font
+								style="font-size: 20px; color: red; font-weight: bold;" id="realAmount">${order.amount }</font>
 						</div>
 					</div>
 					<div class="col-md-12" style="margin-top: 40px;">
