@@ -78,20 +78,37 @@ function getAddressAll(){
 /**
  * 商品数量增加1
  */
-function addNumber(){
+function addNumber(itemId){
 	var $cleaninit = $("#cleaninit");
 	var value = $cleaninit.val();
 	value = eval(value+"+"+1);
 	$cleaninit.val(value);
+	edit(itemId);
 }
 /**
  * 商品数量减少1
  */
-function delNumber(){
+function delNumber(itemId){
 	var $cleaninit = $("#cleaninit");
 	var value = $cleaninit.val();
-	if(value != 0){
+	if(value > 1){
 		value = eval(value+"-"+1);
 		$cleaninit.val(value);
+		edit(itemId);
 	}
+}
+
+function edit(itemId){
+	var url = "item/edit/" + itemId + "/" + $("#cleaninit").val();
+	$.get(url, function(data){
+		alert(JSON.stringify(data));
+		if(data.head.rep_code == '200'){
+			$("#amount").html(data.item.amount);
+			$(data.item.items).each(function(index){
+				if(data.item.items[index].id == itemId){
+					$("#sum" + itemId).html(data.item.items[index].sum);
+				}
+			});
+		}
+	});
 }

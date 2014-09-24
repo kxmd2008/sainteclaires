@@ -149,22 +149,22 @@
 												style="width: 103px; margin-right: auto !important; float: none !important; text-align: left;">
 												<span class="input-group-btn">
 													<button class="btn btn-default bootstrap-touchspin-down"
-														type="button" onclick="delNumber();">-</button>
+														type="button" onclick="delNumber(${item.id});">-</button>
 												</span> <input id="cleaninit" type="text" class="form-control"
-													name="cleaninit" style="width: 40px;" value="${item.num}" />
-												<span class="input-group-btn">
-													<button class="btn btn-default bootstrap-touchspin-down"
-														type="button" onclick="addNumber();">+</button>
+													name="cleaninit" style="width: 45px;margin-bottom:0px;margin-left:-2px;" value="${item.num}" />
+												<span class="input-group-btn" style="margin-left: -1px;">
+													<button class="btn btn-default bootstrap-touchspin-down" 
+														type="button" onclick="addNumber(${item.id});">+</button>
 												</span>
 											</div>
 										</td>
-										<td style="vertical-align: middle;text-align: left;"><font color="red">${item.num*item.price }</font></td>
+										<td style="vertical-align: middle;text-align: left;"><font color="red" id="sum${item.id }">${item.price*item.num }</font></td>
 										<td style="vertical-align: middle;text-align: left;">快递：包邮</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 							<tfoot>
-								<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥${order.amount }</label></td>
+								<td colspan="6" class=""><label class="pull-right fontSize" id="amount">${order.amount }</label><label class="pull-right fontSize">合计（含运费）：￥</label></td>
 							</tfoot>
 						</table>
 						</div>
@@ -181,7 +181,7 @@
 						<div class="pull-right">
 							<button type="button" class="btn btn-default"
 								style="background: red; width: 150px;">
-								<font color="white">提交订单</font>
+								<font color="white">支付</font>
 							</button>
 						</div>
 					</div>

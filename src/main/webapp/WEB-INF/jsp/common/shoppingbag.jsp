@@ -89,11 +89,11 @@ td {
 													</td>
 													<td style="vertical-align: middle;">￥${shot.price }</td>
 													<td style="vertical-align: middle;"><div class="quantity buttons_added">
-															<input type="button" value="-" class="minus" onclick="delNumber('cleaninit1', ${shot.productId);">
+															<input type="button" value="-" class="minus" onclick="delNumber('cleaninit1', ${shot.productId});">
 															<input id="cleaninit1" style="margin-bottom:0px;margin-left:-4px;margin-right:-4px;"
 																type="number" step="1" name="quantity" value="${shot.number }"
 																title="Qty" class="input-text qty text" min="1">
-															<input type="button" value="+" class="plus" onclick="addNumber('cleaninit1', ${shot.productId);" >
+															<input type="button" value="+" class="plus" onclick="addNumber('cleaninit1', ${shot.productId});" >
 														</div></td>
 													<td style="vertical-align: middle;" id="sum${shot.productId}">￥${shot.sum }</td>
 												</tr>
@@ -135,7 +135,6 @@ td {
 								</div>
 							</div>
 						</div>
-						<!-- 						</div> -->
 					</div>
 					<!-- end row -->
 				</div>
