@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </c:if>
         </ul>
 
-        <a href="#<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i>背景图片管理</a>
+        <a href="<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i>背景图片管理</a>
     </div>
 
 
