@@ -52,6 +52,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	width: 300px;
 	height: 200px;
 }
+.circle {
+    position: absolute;
+/*     bottom: 0; */
+	top:0;
+	right:0px;
+	margin-top:0px;
+/*     left: 15px; */
+}
+
+.circle a {
+    text-decoration: none;
+    display: inline-block;
+    
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    
+    background: #fff;
+    color: #000;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    
+    margin-right: 2px;
+/*     border:1px solid #000; */
+    
+    opacity: .75;
+}
+
+.circle a:hover {
+    background: #000;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
 /* .btn-group button{ */
 /*  	color: #fff; */
 /*  	background: #556075; */
@@ -135,6 +170,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
 			                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
 			                <p class="jcarousel-pagination">
+			                </p>
+			                 <p class="circle" >
+			                	<a href="javascript:deletePic();"><i class="icon-remove"></i></a>
 			                </p>
 			            </div>
 			        </div>
@@ -236,6 +274,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </td>
     </tr>
 {% } %}
+</script>
+<script type="text/javascript">
+function deletePic(){
+	var picNum = $(".jcarousel-pagination .active").html();
+	var pics = $(".jcarousel ul li");
+	var i = eval(picNum + "-" + 1);
+	var alt;
+	var value="";
+	$(pics).each(function(index){
+		if(index == i){
+			alt = $(pics[index]).children("img").attr("alt");
+			pics[i].remove();
+			var hiddenPics = $("#picStr").val();
+			var hiddenPic = hiddenPics.split(",");
+			$(hiddenPic).each(function(i){
+				if(hiddenPic[i] != alt){
+					value = value+ hiddenPic[i]+",";
+				}
+			});
+			value = value.substring(0,value.length-1);
+			$("#picStr").val(value);
+		}
+	});
+	var child = $(".jcarousel ul").children();
+	if(child.length == 0){
+		$(".wrapper").css("display","none");
+	}
+}
 </script>
 <script type="text/javascript" src="<%=basePath%>/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/js/jcarousel.basic.js"></script>

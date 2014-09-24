@@ -1,18 +1,4 @@
 $(document).ready(function() {
-//    $('#ordersTable').dataTable( {
-////    	"processing": true,
-//    	"bSort": false,
-//		"serverSide": true,
-//		"ajax": {
-//            "url": "scripts/post.php",
-//            "type": "POST"
-//        },
-//        "columns": [
-//            { "data": "name" },
-//            { "data": "position" },
-//            { "data": "salary" }
-//        ]
-//    } );
 	addTableInfo();
 } );
 var fvTable ;
@@ -109,7 +95,7 @@ function addTableInfo(){
  * @returns
  */
 function deal(id){
-	$.get("unsettledOrders/send?id="+id+"/",function(data){
+	$.get("unsettledOrders/send/"+id,function(data){
 		if(data.head.rep_code == 200){
 			addTableInfo();
 		}

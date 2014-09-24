@@ -62,14 +62,14 @@ select {
   <!--<![endif]-->
 <jsp:include page="main.jsp"></jsp:include>
 
-<div class="content">
+<div class="content" >
 
 	<div class="header">
 		<h1 class="page-title">背景图片管理</h1>
 	</div>
 
 	<div class="container-fluid">
-		<div class="row-fluid">
+		<div class="row-fluid" style="min-height:350px;">
 			<div class="btn-toolbar">
 				<a class="btn btn-primary" href="<%=basePath%>/auth/bgAdd">
 					<i class="icon-plus"></i> 新增背景图片
@@ -107,8 +107,9 @@ select {
 					<button class="btn btn-danger" data-dismiss="modal" onclick="deleteBg();">删除</button>
 				</div>
 			</div>
-			<jsp:include page="footer.jsp"></jsp:include>
+			
 		</div>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </div>
 <input type="hidden" id="bgId">
