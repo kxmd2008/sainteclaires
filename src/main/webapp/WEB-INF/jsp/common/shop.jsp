@@ -25,7 +25,7 @@
 		style="opacity: 1; margin-left: 0px;">
 		<div class="container-fluid" id="pcont">
 			<jsp:include page="../header.jsp"/>
-			<div class="cl-mcont aside">
+			<div class="cl-mcont aside" >
 				<jsp:include page="../left.jsp"/>
 				<div class="content">
 					<div class="row">
@@ -33,6 +33,7 @@
 					</div><!-- end row -->
 				</div>
 			</div>
+			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>
 <input type="hidden" id="bgPic"  value="${bgs }">
