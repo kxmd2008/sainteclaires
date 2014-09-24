@@ -31,7 +31,7 @@
 		from cust_order as o 
 		left join order_item as oi on o.id = oi.order_id
 		left join product as p on oi.product_id = p.id
-		where o.account = #userName# 
+		where o.account = #userName# and status = 0
 	</select>
 	
 </sqlMap>
