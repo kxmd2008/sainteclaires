@@ -26,11 +26,11 @@
 					<c:forEach var="pcat" items="${parents}">
 						<c:choose>
 							<c:when test="${pcat.id == parentCatId }">
-							<li class="open" ><label class="tree-toggler nav-header">${pcat.name }</label>
+							<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.name }</label>
 								<ul class="nav nav-list tree" style="display: block;">
 							</c:when>
 							<c:otherwise>
-							<li class="" ><label class="tree-toggler nav-header">${pcat.name }</label>
+							<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.name }</label>
 								<ul class="nav nav-list tree" style="display: none;">
 							</c:otherwise>
 						</c:choose>
@@ -53,4 +53,8 @@
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
+		function closeTree(obj){
+			$(".treeview ul").css("display","none");
+			$(obj).children("ul").css("display","block");
+		}
 	</script>
