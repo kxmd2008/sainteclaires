@@ -107,6 +107,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <option value="商店" 
                         		<c:if test="${'商店' == picture.name}">selected="selected"</c:if>
                         	>商店</option>
+                    <c:forEach var="p" items="${parents }">
+                    <option value="${p.name}" 
+                        		<c:if test="${p.name == picture.name}">selected="selected"</c:if>
+                        	>${p.name}</option>
+                    </c:forEach>
                    </select>
 					<!--产品图片展示 -->
 					<div class="wrapper" 
@@ -114,11 +119,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							style="display: none"
 						</c:if>
 					>
-			            <div class="jcarousel-wrapper">
+			            <div class="jcarousel-wrapper" style="width:300px;">
 			                <div class="jcarousel" >
 			                    <ul>
 			                    	<c:forEach var="pic" items="${picture.pics }">
-			                        <li class="bhoriz"><img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}"></li>
+			                        <li class="bhoriz">
+			                        	<img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}">
+			                        </li>
 			                    	</c:forEach>
 			                    </ul>
 			                </div>

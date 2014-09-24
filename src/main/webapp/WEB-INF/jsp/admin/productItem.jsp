@@ -167,7 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							style="display: none"
 						</c:if>
 					>
-			            <div class="jcarousel-wrapper">
+			            <div class="jcarousel-wrapper" style="width:300px;">
 			                <div class="jcarousel" >
 			                    <ul>
 			                    	<c:forEach var="pic" items="${vo.picList }">
