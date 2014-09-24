@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,13 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <jsp:include page="../head.jsp"/>
-<%-- <link href="<%=path%>/common/bootstrap.css" rel="stylesheet" --%>
-<!-- 	type="text/css" /> -->
-<%-- <link href="<%=path%>/common/bootstrap.responsive.css" rel="stylesheet" --%>
-<!-- 	type="text/css" /> -->
-
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -26,8 +21,7 @@
 	visibility: hidden;
 	background: rgb(0, 0, 0) transparent;
 	background-color: rgba(0, 0, 0, 0.6);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,
-		endColorstr=#99000000);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
 	-ms-filter:
 		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 	color: white;
@@ -130,7 +124,7 @@
 							class="pull-left" />
 					</div>
 					<div class="col-md-12" style="height: 20px;">
-						<div class="pull-left fontSize">查看订单信息</div>
+						<div class="pull-left fontSize">查看订单信息 </div>
 					</div>
 					<div class="col-md-12" style="min-height: 160px; height: 100%;">
 						<hr
@@ -144,16 +138,17 @@
 									<th>单价</th>
 									<th>数量</th>
 									<th>小计</th>
+									<th>状态</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody class="no-border-y">
 								<c:forEach items="${orders }" var="order">
 								<c:forEach items="${order.items }" var="item">
-								<tr>
+								<tr >
 									<td>
 										<ul class="list-unstyled list-inline"
-											style="vertical-align: middle; margin-bottom: 0px;">
+											style="vertical-align: middle; margin-bottom: 0px;text-align: left;">
 											<li><a class="cart_list_product_img" href="<%=basePath%>/detail?id=${item.productId }">
 												<img src="<%=basePath%>/${item.pic}"  width="75" height="75"/></a></li>
 											<li><label class="fontSize"
@@ -169,16 +164,21 @@
 									</td>
 									<td style="vertical-align: middle">${item.price }</td>
 									<td style="vertical-align: middle" class="">${item.num }</td>
-									<td style="vertical-align: middle"><font color="red">${item.num*item.price }</font></td>
-									<td style="vertical-align: middle"><button type="button"
+									<td style="vertical-align: middle">${item.num*item.price }</td>
+									<td style="vertical-align: middle">
+									<c:choose>
+										<c:when test="${order.status==0 }">待付款</c:when>
+										<c:when test="${order.status==1 }">已付款</c:when>
+										<c:when test="${order.status==2 }">已发货</c:when>
+										<c:otherwise>已收货</c:otherwise>
+									</c:choose>
+									</td>
+									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}"><button type="button"
 											class="btn btn-default">确认收货</button></td>
 								</tr>
 								</c:forEach>
 								</c:forEach>
 							</tbody>
-							<tfoot>
-								<td colspan="6" class=""><label class="pull-right fontSize">合计（含运费）：￥${order.amount }</label></td>
-							</tfoot>
 						</table>
 						</div>
 						<hr
@@ -189,7 +189,6 @@
 			<jsp:include page="../footer.jsp"/>
 		</div>
 	</div>
-	
 
 	<script src="<%=basePath%>/js/jquery.js"></script>
 	<script src="<%=basePath%>/js/jquery.cookie.js"></script>
@@ -210,9 +209,7 @@
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
-		$(document).ready(treeToggler);
+// 		$(document).ready(treeToggler);
 	</script>
-	<a href="#" class="back-to-top" style="display: none;"><i
-		class="fa fa-angle-up"></i></a>
 </body>
 </html>
