@@ -103,7 +103,7 @@ function edit(itemId){
 	$.get(url, function(data){
 		if(data.head.rep_code == '200'){
 			$("#amount").html(data.item.amount);
-			$("#realAmount").html(data.item.amount);
+			$("#realAmount").html("￥"+data.item.amount);
 			$(data.item.items).each(function(index){
 				if(data.item.items[index].id == itemId){
 					$("#sum" + itemId).html(data.item.items[index].sum);
