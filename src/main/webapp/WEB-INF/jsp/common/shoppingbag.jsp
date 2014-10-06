@@ -62,7 +62,7 @@ td {
 												</tr>
 											</thead>
 											<tbody class="no-border-y">
-												<c:forEach var="shot" items="${shopingbag.productShots }">
+												<c:forEach var="shot" items="${shopingbag.items }">
 												<tr id="trShot${shot.productId}">
 													<td style="vertical-align: middle;">
 														<ul class="list-unstyled list-inline" style="margin-bottom:0px;display:table;">
@@ -91,11 +91,11 @@ td {
 													<td style="vertical-align: middle;"><div class="quantity buttons_added">
 															<input type="button" value="-" class="minus" onclick="delNumber('cleaninit1', ${shot.productId});">
 															<input id="cleaninit1" style="margin-bottom:0px;margin-left:-4px;margin-right:-4px;"
-																type="number" step="1" name="quantity" value="${shot.number }"
+																type="number" step="1" name="quantity" value="${shot.num }" onblur="changeNum(${shot.productId});"
 																title="Qty" class="input-text qty text" min="1">
 															<input type="button" value="+" class="plus" onclick="addNumber('cleaninit1', ${shot.productId});" >
 														</div></td>
-													<td style="vertical-align: middle;" id="sum${shot.productId}">￥${shot.sum }</td>
+													<td style="vertical-align: middle;">￥<span id="sum${shot.productId}">${shot.num * shot.price }</span></td>
 												</tr>
 												</c:forEach>
 											</tbody>
@@ -115,7 +115,7 @@ td {
 											<tbody class="no-border-y">
 												<tr>
 													<td>小计</td>
-													<td ><span id="totalAmount1">${shopingbag.totalAmount }</span>￥</td>
+													<td ><span id="totalAmount1">${shopingbag.amount }</span>￥</td>
 												</tr>
 												<tr>
 													<td>运输</td>
@@ -123,7 +123,7 @@ td {
 												</tr>
 												<tr>
 													<td>订单总额</td>
-													<td><span id="totalAmount2">${shopingbag.totalAmount }</span>￥</td>
+													<td><span id="totalAmount2">${shopingbag.amount }</span>￥</td>
 												</tr>
 											</tbody>
 										</table>

@@ -67,27 +67,39 @@
 					</div>
 					<div class="col-md-12"
 						style="margin-top: 10px; min-height: 140px; height: 100%;">
-						<div class="list-inline pull-left col-md-12" id="address_box" >
-							<c:forEach items="${addresses }" var="address">
-									<div class="pull-left box " style="min-height:164px;">
-										<input type="hidden" value="${address.id }" />
-										<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;min-height:128px;">
-											<li style="text-align:left;font-size:10px;">${address.custName }(收)</li>
-											<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
-											<li style="text-align:left;font-size:10px;word-break:break-all;">${address.address }</li>
-											<li style="text-align:left;font-size:10px;">电话：${address.telphone }</li>
-											<li style="text-align:left;font-size:10px;">邮编：${address.post }</li>
-										</ul>
-										<c:if test="${custAccount.addressId == address.id}">
-										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block" class="pull-right">
-										</c:if>
-										<c:if test="${custAccount.addressId != address.id}">
-										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none" class="pull-right">
-										</c:if>
-											<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
-										</div>
-									</div>
-								</c:forEach>
+						<div class="list-inline pull-left col-md-12" id="address_box">
+							<c:forEach items="${addresses}" var="address" varStatus="status">
+								<div class="pull-left box">
+									<ul class="list-unstyled"
+										style="padding: 8px; margin-bottom: 0px;">
+										<li style="text-align: left; font-size: 10px;">${address.custName}
+											收</li>
+										<li><hr style="margin-top: 0px; margin-bottom: 5px;"></li>
+										<li style="text-align: left; font-size: 10px;">${address.address }
+											${address.telphone} ${address.post }</li>
+									</ul>
+									<c:choose>
+										<c:when test="${custAccount.addressId == address.id}">
+											<div
+												style="width: 60px; height: 26px; background: #D3D3D3; padding-right: -5px; display: block;"
+												class="pull-right">
+												<label class="fontSize"
+													style="font-size: 8px; font-weight: normal;"><font
+													color='white'>默认地址</font></label>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<div
+												style="width: 60px; height: 26px; background: #D3D3D3; padding-right: -5px; display: none;"
+												class="pull-right">
+												<label class="fontSize"
+													style="font-size: 8px; font-weight: normal;"><font
+													color='white'>默认地址</font></label>
+											</div>
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="col-md-12" style="height: 40px;">
@@ -138,7 +150,7 @@
 												<span class="input-group-btn">
 													<button class="btn btn-default bootstrap-touchspin-down"
 														type="button" onclick="delNumber(${item.id});">-</button>
-												</span> <input id="cleaninit" type="text" class="form-control"
+												</span> <input id="cleaninit" type="text" class="form-control" onblur="changeNum(${item.id});" 
 													name="cleaninit" style="width: 45px;margin-bottom:0px;margin-left:-2px;" value="${item.num}" />
 												<span class="input-group-btn" style="margin-left: -1px;">
 													<button class="btn btn-default bootstrap-touchspin-down" 
@@ -161,8 +173,8 @@
 					</div>
 					<div class="col-md-12">
 						<div class="pull-right">
-							<label class="fontSize">实付款：</label><font
-								style="font-size: 20px; color: red; font-weight: bold;" id="realAmount">￥${order.amount }</font>
+							<label class="fontSize">实付款：￥</label><font
+								style="font-size: 20px; color: red; font-weight: bold;" id="realAmount">${order.amount }</font>
 						</div>
 					</div>
 					<div class="col-md-12" style="margin-top: 40px;">

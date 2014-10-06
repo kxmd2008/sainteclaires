@@ -129,8 +129,8 @@
 											class="cart-price hide-for-small">/ <span
 												class="amount">
 													<c:choose>
-														<c:when test="${! empty shopingbag.productShots}">
-															${shopingbag.totalAmount}
+														<c:when test="${! empty shopingbag.items}">
+															${shopingbag.amount}
 														</c:when>
 														<c:otherwise>
 															0.00	
@@ -144,10 +144,10 @@
 											</div> 
 										</a>
 											<c:choose>
-											<c:when test="${! empty shopingbag.productShots}">
+											<c:when test="${! empty shopingbag.items}">
 											<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:300px;padding:25px;overflow-y:scroll;margin-top:0px; ">
 											<li>
-											<c:forEach var="shot" items="${shopingbag.productShots }">
+											<c:forEach var="shot" items="${shopingbag.items }">
 												<ul style="margin-left:0px;" class="list-unstyled">
 													<li>
 													<div class="col-md-2" style="vertical-align:middle;padding-left:0px;padding-right:0px;">
@@ -161,7 +161,7 @@
 														<a class="cart_list_product_title fontSize"
 															href="./detail?id=${shot.productId}" style="color:#3d3d3d;font-weight: bold;">${shot.productName }</a>
 														<div class="cart_list_product_price fontSize">
-															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777">数量:${shot.number }</span>
+															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777">数量:${shot.num }</span>
 														</div>
 													</div>
 													<div class="col-md-3">
@@ -179,7 +179,7 @@
 												</c:forEach>
 <!-- 												<hr style="margin-bottom:8px;"/> -->
 												<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
-													总计：<span><span class="amount" style="color:#000000">${shopingbag.totalAmount}</span></span>
+													总计：<span><span class="amount" style="color:#000000">${shopingbag.amount}</span></span>
 												</div> 
 												<a href="./cart"
 												class="button secondary expand uppercase"
@@ -257,8 +257,8 @@
 										class="single_add_to_cart_button button1 secondary alt"
 										>加入购物车</button>
 									<div class="quantity buttons_added">
-										<input type="button" value="-" class="minus" onclick="delNumber('number')"><input id="number"
-											type="number" step="1" name="number" value="1" title="Qty"
+										<input type="button" value="-" class="minus" onclick="delNumber('number')"><input id="num"
+											type="number" step="1" name="num" value="1" title="Qty"
 											class="input-text qty text" min="1"><input
 											type="button" value="+" class="plus" onclick="addNumber('number')">
 									</div>
