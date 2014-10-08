@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -25,7 +25,13 @@
 				<div class="container-fluid">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
-							<li class=""><a href="<%=basePath%>/index">首页 </a></li>
+							<li class="">
+								<select onchange="changeLocale();" id="localeSel">	
+									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
+									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
+								</select>
+							</li>
+							<li class=""><a href="<%=basePath%>/index"><s:message code="header.home"></s:message></a></li>
 							<li class=""><a href="<%=basePath%>/shop">商店</a></li>
 							<li class=""><a href="<%=basePath%>/changes">Changes</a></li>
 							<li class=""><a href="<%=basePath%>/contact">联系我们</a></li>
@@ -65,3 +71,15 @@
 				</div>
 			</div>
 
+<script>
+	function changeLocale(){
+		var locale = $("#localeSel").val();
+		var d = {"localeStr" : locale};
+		$.post("changeLocale", d, function(data){
+			if(data.head.resp_code = '200'){
+				location.reload();
+			}
+		});
+	}
+
+</script>
