@@ -29,7 +29,7 @@
 	<security:http pattern="/cart" security="none" />
 	<security:http pattern="/products" security="none" />
 	<security:http pattern="/detail" security="none" />
-	<security:http pattern="/contacto" security="none" />
+	<security:http pattern="/contact" security="none" />
 	<security:http pattern="/changes" security="none" />
 	<security:http pattern="/howtobuy" security="none" />
 	<security:http pattern="/about" security="none" />

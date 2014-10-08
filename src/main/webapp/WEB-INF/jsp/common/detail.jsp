@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -117,7 +117,7 @@
 						<ul class="list-unstyled list-inline pull-left" style="margin-top:5px;padding-top:35px;margin-bottom:0px;display:block;" id="show_info">
 							<c:if test="${addSucc }">
 							<li class="circle" style="text-align:center;vertical-align: middle;padding-top:0px;"><span class="glyphicon glyphicon-ok" style="margin-left:-2px;color:#fff;"></span></li>
-							<li class="fontSize" style="font-size:14px;color:#000;">您所选择的商品已经被加入到购入车</li></c:if>
+							<li class="fontSize" style="font-size:14px;color:#000;"><s:message code="shoppingbag.addtocart.succ"/></li></c:if>
 						</ul>
 						<ol class="breadcrumb" style="padding-top: 35px;">
 							<li class="mini-cart">
@@ -125,7 +125,7 @@
 									<div class="dropdown" id="show_tooltip" style="height:20px;">
 										<a href="./cart" class="cart-link"
 											data-toggle="dropdown"> <strong
-											class="cart-name hide-for-small">购物车</strong> <span
+											class="cart-name hide-for-small"><s:message code="shoppingbag.name"/></strong> <span
 											class="cart-price hide-for-small">/ <span
 												class="amount">
 													<c:choose>
@@ -161,7 +161,7 @@
 														<a class="cart_list_product_title fontSize"
 															href="./detail?id=${shot.productId}" style="color:#3d3d3d;font-weight: bold;">${shot.productName }</a>
 														<div class="cart_list_product_price fontSize">
-															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777">数量:${shot.num }</span>
+															<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777"><s:message code="shoppingbag.num"/>:${shot.num }</span>
 														</div>
 													</div>
 													<div class="col-md-3">
@@ -179,18 +179,18 @@
 												</c:forEach>
 <!-- 												<hr style="margin-bottom:8px;"/> -->
 												<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
-													总计：<span><span class="amount" style="color:#000000">${shopingbag.amount}</span></span>
+													<s:message code="shoppingbag.total"/>：<span><span class="amount" style="color:#000000">${shopingbag.amount}</span></span>
 												</div> 
 												<a href="./cart"
 												class="button secondary expand uppercase"
-												style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">购物车</a> <!-- 													</div> -->
+												style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;"><s:message code="shoppingbag.name"/></a> <!-- 													</div> -->
 											</li>
 											</ul>
 											</c:when>
 											<c:otherwise>
 											<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:80px;padding:25px;margin-top:0px; ">
 											<li>
-												购物车里没有物品.
+												<s:message code="shoppingbag.tip"/>.
 											</li>	
 											</ul>
 											</c:otherwise>
@@ -234,11 +234,11 @@
 								<link itemprop="availability" href="http://schema.org/InStock">
 							</div>
 							<div class="variations variations_form cart custom">
-								<h6>尺码</h6>
+								<h6><s:message code="shoppingbag.size"/></h6>
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
 										<select id="size" name="size" onchange="showAddCartBtn('size')" value="${product.size }">
-											<option value="">选择尺码</option>
+											<option value=""><s:message code="shoppingbag.select.size"/></option>
 											<option value="0-meses" class="active" <c:if test="${product.size =='0-meses'}">selected="selected"</c:if>  >0 meses</option>
 											<option value="3m" class="active" <c:if test="${product.size =='3m'}">selected="selected"</c:if> >03 Meses</option>
 											<option value="6m" class="active" <c:if test="${product.size =='6m'}">selected="selected"</c:if> >06 Meses</option>
@@ -255,7 +255,7 @@
 									<input type="hidden" name="variation_id" value="">
 									<button type="submit"
 										class="single_add_to_cart_button button1 secondary alt"
-										>加入购物车</button>
+										><s:message code="shoppingbag.addtocart"/></button>
 									<div class="quantity buttons_added">
 										<input type="button" value="-" class="minus" onclick="delNumber('number')"><input id="num"
 											type="number" step="1" name="num" value="1" title="Qty"
@@ -268,7 +268,7 @@
 							<div class="product_meta">
 								<span itemprop="productID" class="sku_wrapper">SKU: <span
 									class="sku" data-o_sku="S805 R">S805 R</span>.
-								</span> <span class="posted_in">类别: <a
+								</span> <span class="posted_in"><s:message code="shoppingbag.category"/>: <a
 									href="http://www.sainteclaire.es/en/product-category/bebe/"
 									rel="tag">Baby</a>, <a
 									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
@@ -298,40 +298,6 @@
 									class="icon-pinterest"></span></a>
 							</div>
 						</div>
-						<!-- 
-						<div class="product-page-aside large-2 small-12 columns text-center hide-for-small" style="width: 100px;">
-							<div class="next-prev-nav" style="margin-bottom:0px;">
-								<div class="prod-dropdown">
-									<a href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"
-										rel="next" ><span class="glyphicon glyphicon-chevron-left"></span></a>
-									<div class="nav-dropdown" style="display: none;">
-										<a
-											href="http://www.sainteclaire.es/en/tienda/bebe/bombacho-pana-gris/"><img
-											width="90" height="90"
-											src="./DSC6610-90x90.jpg"
-											class="attachment-shop_thumbnail wp-post-image"
-											alt="_DSC6610"></a>
-									</div>
-								</div>
-								<div class="prod-dropdown">
-									<a href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"
-										rel="prev" ><span class="glyphicon glyphicon-chevron-right"></span></a>
-									<div class="nav-dropdown" style="display: none;">
-										<a
-											href="http://www.sainteclaire.es/en/tienda/bebe/chaqueta-bebe-gris/"><img
-											width="90" height="90"
-											src="./DSC6646-90x90.jpg"
-											class="attachment-shop_thumbnail wp-post-image"
-											alt="_DSC6646"></a>
-									</div>
-								</div>
-							</div>
-							<div style="display:none;" id="show_icon"><img
-									width="50px" height="50px"
-									src="./chaqueta-bebe-rosa-90x90.jpg"
-									class="attachment-shop_thumbnail wp-post-image img-thumbnail"
-									alt="chaqueta bebe rosa" style="border: 2px solid #ddd;"></div>
-						</div> -->
 					</div>
 				</div>
 			</div>

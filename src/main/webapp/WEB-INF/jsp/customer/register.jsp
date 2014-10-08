@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -56,55 +56,45 @@
 		
 	</div>
 	<div class="col-md-5" style="margin-top:80px;">
-		<%-- <div class="col-md-12 fontSize">
-			<label style="font-weight: bold;">使用第三方账号登录</label>
-		</div>
-		<div class="col-md-12" style="margin-top:10px;">
-			<div style="width:280px;">
-				<button type="button" class="btn btn-default" style="width:80px;background:#08A2D4"><img alt="" src="<%=basePath%>/common/image/tx_weibo.png" width="24px;" height="24px" /></button>
-				<button type="button" class="btn btn-default" style="width:80px;background:#EA3836"><img alt="" src="<%=basePath%>/common/image/icon_weibo_24.png" /></button>
-				<button type="button" class="btn btn-default" style="width:80px;background:#3274AE"><img src="<%=basePath%>/common/image/renren.jpg" width="24px;" height="24px" /></button>
-			</div>
-		</div> --%>
 		<div class="content" style="height:370px">
 			<div class="col-md-12" style="width:280px;">
 				<div class="fontSize">
 					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">&nbsp;
-					<label style="display: inline-block;vertical-align: middle;">使用sainleclaire账号登录</label>&nbsp;
+					<label style="display: inline-block;vertical-align: middle;"><s:message code="register.title"/></label>&nbsp;
 					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
 				</div>
 			</div>
 			<div class="col-md-12">
 			<form role="form" action="account/create" method="post">
 				<div class="form-group">
-					<label for="exampleInputEmail1" class="fontSize">账号</label>
+					<label for="exampleInputEmail1" class="fontSize"><s:message code="register.account"/></label>
 					<input type="text"
-						class="form-control" id="loginName" name="loginName" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
-					<label id="loginMsg" class="fontSize" style="display:none"><font color="red">用户名已存在</font></label>
+						class="form-control" id="loginName" name="loginName" placeholder="<s:message code="register.account.placeholder"/>" style="width:250px;font-size:10px;">
+					<label id="loginMsg" class="fontSize" style="display:none"><font color="red"><s:message code="register.account.error.exist"/></font></label>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1" class="fontSize">密码</label> <input type="password"
+					<label for="exampleInputPassword1" class="fontSize"><s:message code="register.password"/></label> <input type="password"
 						class="form-control" id="password" name="password" 
-						placeholder="6~16位数字+字母组合" style="width:250px;font-size:10px;">
-					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red">密码不符合要求</font></label>
+						placeholder="<s:message code="register.password.placeholder"/>" style="width:250px;font-size:10px;">
+					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red"><s:message code="register.password.error"/></font></label>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1" class="fontSize">确认密码</label> <input type="password"
+					<label for="exampleInputPassword1" class="fontSize"><s:message code="register.password.confirm"/></label> <input type="password"
 						class="form-control" id="passwordAgin" 
-						placeholder="请输入确认密码" style="width:250px;font-size:10px;">
+						placeholder="<s:message code="register.password.confirm.placeholder"/>" style="width:250px;font-size:10px;">
 					<c:if test="${!empty error }">
-						<label class="fontSize"><font color="red">注册失败</font></label>
+						<label class="fontSize"><font color="red"><s:message code="register.error.fail"/></font></label>
 					</c:if>
-					<label id="passwordAginMsg" class="fontSize" style="display:none"><font color="red">两次输入密码不一致</font></label>
+					<label id="passwordAginMsg" class="fontSize" style="display:none"><font color="red"><s:message code="register.password.confirm.error"/></font></label>
 				</div>
 				<!-- <button type="submit" class="btn btn-primary col-md-2">登录</button>
 				<label class="fontSize" style="margin-left:45px;">已有账号?&nbsp;&nbsp;<a href="#">直接登陆</a></label> -->
 				<div class="checkbox" style="padding-left:0px;">
-					<button type="submit" class="btn btn-primary col-md-4 pull-left" onclick="return checkForm();">注册</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">已有账号?&nbsp;&nbsp;<a href="login">直接登陆</a></label>
+					<button type="submit" class="btn btn-primary col-md-4 pull-left" onclick="return checkForm();"><s:message code="btn.register"/></button>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;"><s:message code="register.has.account"/>?&nbsp;&nbsp;<a href="login"><s:message code="register.link.login"/></a></label>
 				</div>
 				<div class="checkbox" style="margin-top:20px;width:286px;">
-					<label class="fontSize" > <input type="checkbox" /> <font style="font-weight: bold;font-size: 8px;">我已阅读并同意《sainleclaire服务协议》</font>
+					<label class="fontSize" > <input type="checkbox" checked="checked"/> <font style="font-weight: bold;font-size: 8px;"><s:message code="register.protocol"/></font>
 					</label>
 				</div>
 			</form>

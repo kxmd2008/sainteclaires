@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -70,7 +70,7 @@
 			<div class="col-md-12" style="width:280px;">
 				<div class="fontSize">
 					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">&nbsp;
-					<label style="display: inline-block;vertical-align: middle;">使用sainleclaire账号登录</label>&nbsp;
+					<label style="display: inline-block;vertical-align: middle;"><s:message code="login.form.title"/></label>&nbsp;
 					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
 				</div>
 			</div>
@@ -78,30 +78,30 @@
 			<form action="j_spring_security_check" method="post">
 <!-- 			<form role="form" action="login" method="post"> -->
 				<div class="form-group">
-					<label for="exampleInputEmail1" class="fontSize">账号</label> <input type="text"
-						class="form-control" id="loginName" name="j_username" placeholder="电子邮箱或手机号" style="width:250px;font-size:10px;">
-					<label id="loginMsg" class="fontSize" style="display:none"><font color="red">账号不能为空</font></label>
+					<label for="exampleInputEmail1" class="fontSize"><s:message code="login.form.account"/></label> <input type="text"
+						class="form-control" id="loginName" name="j_username" placeholder="<s:message code="login.form.account.placeholder"/>" style="width:250px;font-size:10px;">
+					<label id="loginMsg" class="fontSize" style="display:none"><font color="red"><s:message code="login.form.account.empty.error"/></font></label>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1" class="fontSize">密码</label> <input type="password"
+					<label for="exampleInputPassword1" class="fontSize"><s:message code="login.form.password"/></label> <input type="password"
 						class="form-control" id="password" name="j_password"
-						placeholder="可用数字，字母，不少于6位" style="width:250px;font-size:10px;">
+						placeholder="<s:message code="login.form.password"/>" style="width:250px;font-size:10px;">
 					<c:if test="${param.error}">
-					<label  class="fontSize"><font color="red">用户名或密码错误</font></label>
+					<label  class="fontSize"><font color="red"><s:message code="login.form.password.wrong.error"/></font></label>
 					<%-- <span style="color:red;"><spring:message code="${errorMsg}" /></span> --%>
 					</c:if>
-					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red">密码不能为空</font></label>
+					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red"><s:message code="login.form.password.empty.error"/></font></label>
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
 					<!-- <label class="fontSize" style="font-weight: bold;"> <input type="checkbox"> 记住密码
 					</label> -->
 					<div style="width:250px"><!-- <label style="font-weight: bold;" class="fontSize"> -->
-						<a href="#" class="pull-right fontSize" style="font-weight: bold;">忘记密码</a></label>
+						<a href="#" class="pull-right fontSize" style="font-weight: bold;"><s:message code="login.form.password.forgot"/></a></label>
 					</div>
 				</div>
 				<div class="checkbox" style="padding-left:0px;">
-					<button type="submit" class="btn btn-primary col-md-4 pull-left" onclick="return checkForm();">登录</button>
-					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;">您还没有账号&nbsp;&nbsp;<a href="register">立即注册</a></label>
+					<button type="submit" class="btn btn-primary col-md-4 pull-left" onclick="return checkForm();"><s:message code="btn.login"/></button>
+					<label class=" pull-right fontSize" style="vertical-align: middle;font-weight: bold;"><s:message code="login.form.no.account"/>&nbsp;&nbsp;<a href="register"><s:message code="btn.registion"/></a></label>
 				</div>
 				
 			</form>

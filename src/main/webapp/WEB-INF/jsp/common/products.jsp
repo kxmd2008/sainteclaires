@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -93,7 +93,7 @@
 										<div class="dropdown" id="show_tooltip" style="height:20px;">
 											<a href="./cart" class="cart-link"
 												data-toggle="dropdown"> <strong
-												class="cart-name hide-for-small">购物车</strong> <span
+												class="cart-name hide-for-small"><s:message code="shoppingbag.name"/></strong> <span
 												class="cart-price hide-for-small">/ <span
 													class="amount">
 													<c:choose>
@@ -130,7 +130,7 @@
 															<a class="cart_list_product_title fontSize"
 																href="./detail?id=${shot.productId}" style="color:#3d3d3d;font-weight: bold;">${shot.productName }</a>
 															<div class="cart_list_product_price fontSize">
-																<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777">数量:${shot.num }</span>
+																<span class="amount" style="color:#3d3d3d;margin-left:0px;margin-right:0px;">${shot.price }￥</span> /<span class="amount" style="color:#777777"><s:message code="shoppingbag.num"/>:${shot.num }</span>
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -148,18 +148,18 @@
 													</c:forEach>
 	<!-- 												<hr style="margin-bottom:8px;"/> -->
 													<div class="minicart_total_checkout" style="color:#3d3d3d;font-weight: bold;">
-														总计：<span><span class="amount" style="color:#000000">${shopingbag.amount}</span></span>
+														<s:message code="shoppingbag.total"/>：<span><span class="amount" style="color:#000000">${shopingbag.amount}</span></span>
 													</div> 
 													<a href="./cart"
 													class="button secondary expand uppercase"
-													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;">购物车</a> <!-- 													</div> -->
+													style="text-align: center;background:#aaaaaa;font-weight: bold;height:35px;vertical-align: middle;color:white;margin-bottom:0px;margin-top:60px;padding-top:10px;"><s:message code="shoppingbag.name"/></a> <!-- 													</div> -->
 												</li>
 												</ul>
 												</c:when>
 												<c:otherwise>
 												<ul class="dropdown-menu  pull-right box" style="min-width: 330px;height:80px;padding:25px;margin-top:0px; ">
 												<li>
-													购物车里没有物品.
+													<s:message code="shoppingbag.tip"/>.
 												</li>	
 												</ul>
 												</c:otherwise>
@@ -231,7 +231,7 @@
 							</div>
 						</div>
 						<div class="product-info large-5 small-12 columns left">
-							<h1 itemprop="name" class="entry-title">${product.name }dfdfdfdfd</h1>
+							<h1 itemprop="name" class="entry-title">${product.name }</h1>
 							<div class="tx-div small"></div>
 							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 								<p itemprop="price" class="price large">
@@ -241,11 +241,11 @@
 								<link itemprop="availability" href="http://schema.org/InStock">
 							</div>
 							<div class="variations variations_form cart custom">
-								<h6>Size</h6>
+								<h6><s:message code="shoppingbag.size"/></h6>
 								<div class="value pa_talla alt">
 									<div class="select-wrapper">
 										<select id="pa_talla" name="attribute_pa_talla" onchange="showAddCartBtn('pa_talla')">
-											<option value="">选择尺码</option>
+											<option value=""><s:message code="shoppingbag.select.size"/></option>
 											<option value="0-meses" class="active">0 meses</option>
 											<option value="3m" class="active">03 Meses</option>
 											<option value="6m" class="active">06 Meses</option>
@@ -262,7 +262,7 @@
 									<input type="hidden" name="variation_id" value="">
 									<button type="submit"
 										class="single_add_to_cart_button button1 secondary alt"
-										disabled="disabled" style="padding:7px;width:150px;">加入购物车</button>
+										disabled="disabled" style="padding:7px;width:150px;"><s:message code="shoppingbag.addtocart"/></button>
 									<div class="quantity buttons_added">
 										<input
 											type="number" step="1" name="quantity" value="1" title="Qty"

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -25,9 +25,9 @@
 				<ul class="nav nav-list treeview" style="line-height: 1">
 					<li class=""><label class="tree-toggler nav-header">个人中心</label>
 						<ul class="nav nav-list tree" style="display: block;">
-								<li><a href="./account">账户管理</a></li>
-								<li><a href="./address">收货地址</a></li>
-								<li><a href="./password">修改密码</a></li>
+								<li><a href="./account"><s:message code="profile.accountMgt"/></a></li>
+								<li><a href="./address"><s:message code="profile.addressMgt"/></a></li>
+								<li><a href="./password"><s:message code="profile.passwordReset"/></a></li>
 						</ul>
 					</li>
 				</ul>
