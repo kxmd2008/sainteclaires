@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -65,14 +65,14 @@ select {
 <div class="content" >
 
 	<div class="header">
-		<h1 class="page-title">背景图片管理</h1>
+		<h1 class="page-title"><s:message code="background.mgt.title"/></h1>
 	</div>
 
 	<div class="container-fluid">
 		<div class="row-fluid" style="min-height:350px;">
 			<div class="btn-toolbar">
 				<a class="btn btn-primary" href="<%=basePath%>/auth/bgAdd">
-					<i class="icon-plus"></i> 新增背景图片
+					<i class="icon-plus"></i> <s:message code="background.mgt.new"/>
 				</a>
 				<div class="btn-group"></div>
 			</div>
@@ -81,9 +81,9 @@ select {
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>背景所属</th>
-							<th>背景图片</th>
-							<th style="width: 40px;">操作</th>
+							<th><s:message code="background.mgt.belong"/></th>
+							<th><s:message code="background.mgt.image"/></th>
+							<th style="width: 40px;"><s:message code="background.mgt.opration"/></th>
 						</tr>
 					</thead>
 					<tbody>

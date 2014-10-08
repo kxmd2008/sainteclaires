@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">待处理订单</h1>
+		<h1 class="page-title"><s:message code="unsettled.title"/></h1>
 	</div>
 
 	<div class="container-fluid">
@@ -66,13 +66,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<thead>
 						<tr>
 <!-- 							<th>#</th> -->
-							<th>订单号</th>
-							<th>客户帐号</th>
-							<th>下单时间</th>
-							<th>付款时间</th>
-							<th>订单金额</th>
-							<th>订单状态</th>
-							<th>操作</th>
+							<th><s:message code="unsettled.order.no"/></th>
+							<th><s:message code="unsettled.customer.no"/></th>
+							<th><s:message code="unsettled.order.place.time"/></th>
+							<th><s:message code="unsettled.payment.time"/></th>
+							<th><s:message code="unsettled.order.amount"/></th>
+							<th><s:message code="unsettled.order.status"/></th>
+							<th><s:message code="unsettled.opration"/></th>
 						</tr>
 					</thead>
 				</table>

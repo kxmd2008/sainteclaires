@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -117,10 +117,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="header">
 		<c:choose>
 			<c:when test="${empty picture }">
-				<h1 class="page-title" id="product_title">新增背景图片</h1>
+				<h1 class="page-title" id="product_title"><s:message code="background.item.title"/></h1>
 			</c:when>
 			<c:otherwise>
-				<h1 class="page-title" id="product_title">修改背景图片</h1>
+				<h1 class="page-title" id="product_title"><s:message code="background.item.update"/></h1>
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -129,19 +129,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 			<div class="btn-toolbar">
 				<button class="btn btn-primary" onclick="save();">
-					<i class="icon-save"></i> 保存
+					<i class="icon-save"></i> <s:message code="background.item.save"/>
 				</button>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well ">
-				 <select id="category" name="category" title="选择类别" >
-				 	<option value="">选择类别</option>
+				 <select id="category" name="category"  >
+				 	<option value=""><s:message code="background.item.select.category"/></option>
 				 	<option value="首页" 
                         		<c:if test="${'首页' == picture.name}">selected="selected"</c:if>
-                        	>首页</option>
+                        	><s:message code="header.home"/></option>
                     <option value="商店" 
                         		<c:if test="${'商店' == picture.name}">selected="selected"</c:if>
-                        	>商店</option>
+                        	><s:message code="header.shop"/></option>
                     <c:forEach var="p" items="${parents }">
                     <option value="${p.name}" 
                         		<c:if test="${p.name == picture.name}">selected="selected"</c:if>
@@ -184,7 +184,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <!-- The fileinput-button span is used to style the file input field as button -->
 				                <span class="btn btn-success fileinput-button">
 				                    <i class="glyphicon glyphicon-plus"></i>
-				                    <span>上传图片...</span>
+				                    <span><s:message code="background.item.upload"/>...</span>
 				                    <input type="file" name="files" multiple>
 				                </span>
 				            </div>
