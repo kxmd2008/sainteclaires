@@ -13,6 +13,7 @@
 
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
+	<bean id="springMvcAware" class="org.luis.basic.util.SpringMvcAware" />
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
