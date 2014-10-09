@@ -110,6 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <a href="<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i><s:message code="main.left.background.image.mgt"/></a>
     </div>
+    <input type="hidden" id="locale" value="${locale }">
 <script>
 	function changeLocale(){
 		var locale = $("#localeSel").val();

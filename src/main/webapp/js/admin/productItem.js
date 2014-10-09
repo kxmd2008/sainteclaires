@@ -1,9 +1,18 @@
 $(document).ready(function() {
-	$('#choose_category').multiselect({
-		maxHeight : 280,
-		buttonWidth : '220px',
-		nonSelectedText : '选择类别'
-	});
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		$('#choose_category').multiselect({
+			maxHeight : 280,
+			buttonWidth : '220px',
+			nonSelectedText : '选择类别'
+		});
+	}else{
+		$('#choose_category').multiselect({
+			maxHeight : 280,
+			buttonWidth : '220px',
+			nonSelectedText : 'Select Category'
+		});
+	}
 	validatorProduct();
 });
 var URL = "/";

@@ -8,6 +8,7 @@ var currPageItems = {};
 var parents = {};
 var fvTable ;
 function addTableInfo(){
+	var locale = $("#locale").val();
 	//为了避免多次初始化datatable()
 	if(typeof fvTable != 'undefined' && fvTable != null) { 
 //		var data = {
@@ -84,8 +85,14 @@ function addTableInfo(){
 					return data.name;
 				});
 				$('td:eq(3)', nRow).css("width" , "40px").html(function() {
-					var ls = '<a href="#" role="button" data-toggle="modal" onclick="showDlg('+ "'修改类别'"+', '+ data.id+')" class="icon-pencil"></i></a>'
-					+ '&nbsp;&nbsp;'
+					var ls = "";
+					if(locale == 'zh_CN'){
+						ls = ls + '<a href="#" role="button" data-toggle="modal" onclick="showDlg('+ "'修改类别'"+', '+ data.id+')" class="icon-pencil"></i></a>';
+					}else{
+						ls = ls + '<a href="#" role="button" data-toggle="modal" onclick="showDlg('+ "'Update Category'"+', '+ data.id+')" class="icon-pencil"></i></a>';
+					}
+//					var ls = '<a href="#" role="button" data-toggle="modal" onclick="showDlg('+ "'修改类别'"+', '+ data.id+')" class="icon-pencil"></i></a>'
+					ls = ls + '&nbsp;&nbsp;'
 					+ '<a href="#myModal" role="button" data-toggle="modal" onclick="beforDelete('+ data.id+');"> <i class="icon-remove"></i></a>';
 					$("#rowIndex").val(iDataIndex);
 					return ls;
@@ -95,12 +102,19 @@ function addTableInfo(){
     }
 }
 function buildCat(info, index){
-	var ls = '<tr id="row' + info.id + '"><td >' + (index + 1)
+	var locale = $("#locale").val();
+	var ls = "";
+	ls = '<tr id="row' + info.id + '"><td >' + (index + 1)
 	+ '</td><td id="parentName'+ info.id+'">' + info.parentName
 	+ '</td><td id="name'+ info.id+'">' +  info.name
-	+ '</td><td style="width:40px;">'
-	+ '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>'
-	+ '&nbsp;&nbsp;'
+	+ '</td><td style="width:40px;">' ;
+	if(locale == 'zh_CN'){
+		ls = ls + '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>';
+	}else{
+		ls = ls + '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'Update Category'"+', '+ info.id+')" class="icon-pencil"></i></a>';
+	}
+//	+ '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>'
+	ls = ls + '&nbsp;&nbsp;'
 	+ '<a href="#myModal" role="button" data-toggle="modal" onclick="beforDelete('+ info.id+');"> <i class="icon-remove"></i></a>'
 	+'</td>';
 	$("#rowIndex").val(index);
