@@ -160,11 +160,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="span12" style="margin-left:0px;">
 					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="<s:message code="product.item.select.category"/>" style="float:left;">
 						 <c:forEach var="pcat" items="${parents}">
-                            <optgroup label="${pcat.name }">
+						 	<c:choose>
+                            	<c:when test="${locale=='zh_CN' }"><optgroup label="${pcat.name }"></c:when>
+                            	<c:otherwise><optgroup label="${pcat.nameEn }"></c:otherwise>
+                            </c:choose>
                             	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
                                 	<option value="${subcat.id}" 
                                 		<c:if test="${subcat.selected}">selected="selected"</c:if>
-                                	>${subcat.name }</option>
+                                	>
+                                	<c:choose>
+                                		<c:when test="${locale=='zh_CN' }">${subcat.name }</c:when>
+                                		<c:otherwise>${subcat.nameEn }</c:otherwise>
+                                	</c:choose>
+                                	</option>
                                 </c:forEach>
                             </optgroup>
                           </c:forEach>
@@ -174,6 +182,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="span12" style="margin-left:0px;">
 					<label><s:message code="product.item.product.name"/></label> 
 					<input type="text" id="name" name="name" value="${vo.name }" placeholder="<s:message code="product.item.product.name"/>" style="float:left;">
+					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.name.info"/></font></label>
+					</div> 
+                    <div class="span12" style="margin-left:0px;">
+					<label><s:message code="product.item.product.nameEn"/></label> 
+					<input type="text" id="nameEn" name="nameEn" value="${vo.nameEn }" placeholder="<s:message code="product.item.product.nameEn"/>" style="float:left;">
 					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.name.info"/></font></label>
 					</div> 
 					<div class="span12" style="margin-left:0px;">

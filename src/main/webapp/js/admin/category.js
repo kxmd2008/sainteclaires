@@ -79,10 +79,18 @@ function addTableInfo(){
 					return (iDataIndex+1);
 				});
 				$('td:eq(1)', nRow).attr("id" , "parentName"+data.id).html(function() {
-					return data.parentName;
+					if(locale == 'zh_CN'){
+						return data.parentName;
+					} else {
+						return data.parentNameEn;
+					}
 				});
 				$('td:eq(2)', nRow).attr("id", "name" + data.id).html(function() {
-					return data.name;
+					if(locale == 'zh_CN'){
+						return data.name;
+					} else {
+						return data.nameEn;
+					}
 				});
 				$('td:eq(3)', nRow).css("width" , "40px").html(function() {
 					var ls = "";
@@ -103,10 +111,19 @@ function addTableInfo(){
 }
 function buildCat(info, index){
 	var locale = $("#locale").val();
+	var pname;
+	var name;
+	if(locale == "zh_CN") {
+		pname = info.parentName;
+		name = info.name;
+	} else {
+		pname = info.parentNameEn;
+		name = info.nameEn;
+	}
 	var ls = "";
 	ls = '<tr id="row' + info.id + '"><td >' + (index + 1)
-	+ '</td><td id="parentName'+ info.id+'">' + info.parentName
-	+ '</td><td id="name'+ info.id+'">' +  info.name
+	+ '</td><td id="parentName'+ info.id+'">' + pname
+	+ '</td><td id="name'+ info.id+'">' +  name
 	+ '</td><td style="width:40px;">' ;
 	if(locale == 'zh_CN'){
 		ls = ls + '<a href="#" role="button" data-toggle="modal" onclick="showDlg(' + "'修改类别'"+', '+ info.id+')" class="icon-pencil"></i></a>';
@@ -154,35 +171,48 @@ function findParentCats(){
 	});
 }
 
-function showDlg(title, id){
+function showDlg(title, id) {
 	$("#catLabel").html(title);
-	if(id){
+	var locale = $("#locale").val();
+	if (id) {
 		$("#id").val(currPageItems[id].id);
-		 $("#parentId").val(currPageItems[id].parentId);
-		 $("#cname").val(currPageItems[id].name);
-		 $("#orderNo").val(currPageItems[id].orderNo);
+		$("#parentId").val(currPageItems[id].parentId);
+		if (locale == "zh_CN") {
+			$("#cname").val(currPageItems[id].name);
+		} else {
+			$("#cname").val(currPageItems[id].nameEn);
+		}
+		$("#orderNo").val(currPageItems[id].orderNo);
 	} else {
 		$("#id").val("");
-		 $("#parentId").val("");
-		 $("#cname").val("");
-		 $("#orderNo").val("");
+		$("#parentId").val("");
+		$("#cname").val("");
+		$("#orderNo").val("");
 	}
 	$("#catModel").modal();
 }
 
 function buildCatSelects(cat){
-	var op = '<option id="option'+cat.id+'" value="'+cat.id+'">' + cat.name;
+	var locale = $("#locale").val();
+	var op ;
+	if (locale == "zh_CN") {
+		op = '<option id="option'+cat.id+'" value="'+cat.id+'">' + cat.name;
+	} else {
+		op = '<option id="option'+cat.id+'" value="'+cat.id+'">' + cat.nameEn;
+	}
 	return op;
 }
 
 function saveCategory(){
 	// $("#tab").submit();
 	var id = $("#id").val();
+	var locale = $("#locale").val();
 	var d = {
 			"id" : id,
 			"parentId" : $("#parentId").val(),
 			"parentName" : $("#parentName").val(),
 			"name" : $("#cname").val(),
+			"nameEn" : $("#cnameEn").val(),
 			"orderNo" : $("#orderNo").val()
 	};
 	$.post("category/save", d, function(data){
@@ -193,12 +223,17 @@ function saveCategory(){
 				var ls = buildCat(data.item, index);
 				$("#tbody").append(ls);
 			} else{//edit
-				currPageItems[id].name = d.name;
 				currPageItems[id].orderNo = d.orderNo;
 				currPageItems[id].parentId = d.parentId;
-				currPageItems[id].parentName = d.parentName;
-				$("#parentName" + id).html(currPageItems[id].parentName);
-				$("#name" + id).html(currPageItems[id].name);
+				currPageItems[id].parentNameEn = d.parentNameEn;
+				currPageItems[id].nameEn = d.nameEn;
+				if (locale == "zh_CN") {
+					$("#parentName" + id).html(currPageItems[id].parentName);
+					$("#name" + id).html(currPageItems[id].name);
+				} else {
+					$("#parentName" + id).html(currPageItems[id].parentNameEn);
+					$("#name" + id).html(currPageItems[id].nameEn);
+				}
 			}
 		} else {
 			alert(data.head.rep_message);

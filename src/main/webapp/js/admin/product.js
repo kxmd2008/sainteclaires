@@ -4,6 +4,7 @@ $(document).ready(function(){
 var URL = "/";
 var fvTable;
 function addTableInfo(){
+	var locale = $("#locale").val();
 	//为了避免多次初始化datatable()
 	if(typeof fvTable != 'undefined' && fvTable != null) { 
         fvTable.fnClearTable(false); //清空数据 ，false少调用一个后台
@@ -58,12 +59,20 @@ function addTableInfo(){
 					return (iDataIndex+1);
 				});
 				$('td:eq(1)', nRow).html(function() {
-					return data.name;
+					if(locale == 'zh_CN'){
+						return data.name;
+					} else {
+						return data.nameEn;
+					}
 				});
 				$('td:eq(2)', nRow).html(function() {
 					var name = "";
 					$(data.categorys).each(function(index){
-						name+=data.categorys[index].name + ",";
+						if(locale == 'zh_CN'){
+							name+=data.categorys[index].name + ",";
+						} else {
+							name+=data.categorys[index].nameEn + ",";
+						}
 					});
 					return name.substring(0, name.length-1);
 				});
@@ -84,7 +93,6 @@ function addTableInfo(){
     }
 }
 function showDialog(id){
-	alert(id);
 	$("#product_id").val(id);
 	$("#myModal").modal('show');
 }

@@ -87,6 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form id="tab" action="<%=basePath%>/auth/category/add" method="post">
 						<input type="hidden" name="id" id="id" value="">
 						<input type="hidden" name="parentName" id="parentName" value="">
+						<input type="hidden" name="parentNameEn" id="parentNameEn" value="">
 						<label><s:message code="category.mgt.belong"/></label> 
 						<select class="input-xlarge"  name="parentId" id="parentId" onchange="parentChange(this.value)">
 							<option>
@@ -96,6 +97,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</select>
 						<label><s:message code="category.mgt.name"/></label> 
 						<input type="text" value="" class="input-xlarge" name="name" id="cname"> 
+						<label><s:message code="category.mgt.nameEn"/></label> 
+						<input type="text" value="" class="input-xlarge" name="nameEn" id="cnameEn">
 						<label><s:message code="category.mgt.order"/></label> 
 						<input type="text" value="" class="input-xlarge" name="orderNo" id="orderNo"> 
 					</form>

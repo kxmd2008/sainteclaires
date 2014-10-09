@@ -60,13 +60,24 @@ function validatorProduct() {
 		showDescMsg();
 	});
 }
+
 function showCategoryMsg(){
 	var category = $("#choose_category").val();
-	if(category == "选择类别" || category == null){
-		$("#categoryMsg").css("display","block");
-		$("#categoryMsg font").html("必须选择一项类别！");
-	}else{
-		$("#categoryMsg").css("display","none");
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		if(category == "选择类别" || category == null){
+			$("#categoryMsg").css("display","block");
+			$("#categoryMsg font").html("必须选择一项类别！");
+		}else{
+			$("#categoryMsg").css("display","none");
+		}
+	} else {
+		if(category == "Select Category" || category == null){
+			$("#categoryMsg").css("display","block");
+			$("#categoryMsg font").html("Need to select a category！");
+		}else{
+			$("#categoryMsg").css("display","none");
+		}
 	}
 }
 function showNameMsg(){
@@ -274,6 +285,7 @@ function saveProduct() {
 	}
 	var cateId = $("#choose_category").val();// 123:1,245:2
 	var name = $("#name").val();
+	var nameEn = $("#nameEn").val();
 	var price = $("#price").val();
 	var num = $("#num").val();
 	var meses06 = $("#meses06").val();
@@ -292,6 +304,7 @@ function saveProduct() {
 		"categoryId" : tostring(cateId),
 		// "categoryName" : $("#cateName").val(),
 		"name" : name,
+		"nameEn" : nameEn,
 		"price" : price,
 		"num" : num,
 		"meses06" : meses06,
