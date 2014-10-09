@@ -186,7 +186,7 @@
 												class="attachment-shop_catalog wp-post-image" style="display:none;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
 										</div>
 										</a>
-										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal">+ Vista rápida</div>
+										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal" onclick="preOpenDlg(${product.id});">+ Vista rápida</div>
 									</div>
 									<div class="info text-center">
 										<p class="name">${product.name}</p>
@@ -212,84 +212,85 @@
 	      </div>
 	      <div class="modal-body" style="padding-top:0px;padding-bottom:0px;">
 	        <div class="content">
-				
-					<div class="row">
-						<div class="large-7 columns product-gallery">
-							<div class="product-image images">
-								<div class="iosSlider product-gallery-slider"
-									style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 0; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; min-height: 509px; width: 510px; height: auto;">
-									<div class="slider gallery-popup"
-										style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
-										<div class="slide"
-											style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-												<a title="" class="image-popup-vertical-fit" href="./${product.pics }">
-													<img width="75" height="75" src="./DSC6436-500x500.jpg">
-												</a>
-										</div>
+				<div class="row">
+					<div class="large-7 columns product-gallery">
+						<div class="product-image images">
+							<div class="iosSlider product-gallery-slider"
+								style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 0; -webkit-perspective: 1000px; -webkit-backface-visibility: hidden; min-height: 509px; width: 510px; height: auto;">
+								<div class="slider gallery-popup"
+									style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
+									<div class="slide"
+										style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
+											<a title="" class="image-popup-vertical-fit" href="./${product.pics }">
+												<img width="75" height="75" src="./DSC6436-500x500.jpg">
+											</a>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="product-info large-5 small-12 columns left">
-							<h1 itemprop="name" class="entry-title">${product.name }</h1>
-							<div class="tx-div small"></div>
-							<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-								<p itemprop="price" class="price large">
-									<span class="amount">${product.price }</span>
-								</p>
-								<meta itemprop="priceCurrency" content="EUR">
-								<link itemprop="availability" href="http://schema.org/InStock">
-							</div>
-							<div class="variations variations_form cart custom">
-								<h6><s:message code="shoppingbag.size"/></h6>
-								<div class="value pa_talla alt">
-									<div class="select-wrapper">
-										<select id="pa_talla" name="attribute_pa_talla" onchange="showAddCartBtn('pa_talla')">
-											<option value=""><s:message code="shoppingbag.select.size"/></option>
-											<option value="0-meses" class="active">0 meses</option>
-											<option value="3m" class="active">03 Meses</option>
-											<option value="6m" class="active">06 Meses</option>
-											<option value="9m" class="active">09 Meses</option>
-											<option value="12m" class="active">12 Meses</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="clear"></div>
-							<div class="single_variation_wrap" style="display: none;">
-								<div class="single_variation"></div>
-								<div class="variations_button">
-									<input type="hidden" name="variation_id" value="">
-									<button type="submit"
-										class="single_add_to_cart_button button1 secondary alt"
-										disabled="disabled" style="padding:7px;width:150px;"><s:message code="shoppingbag.addtocart"/></button>
-									<div class="quantity buttons_added">
-										<input
-											type="number" step="1" name="quantity" value="1" title="Qty"
-											class="input-text qty text" min="1">
-									</div>
-								</div>
-							</div>
-							<div>
-								<input type="hidden" name="product_id" value="12132">
-							</div>
-							<div class="product_meta">
-								<span itemprop="productID" class="sku_wrapper">SKU: <span
-									class="sku" data-o_sku="S805 R">S805 R</span>.
-								</span> <span class="posted_in">Categories: <a
-									href="http://www.sainteclaire.es/en/product-category/bebe/"
-									rel="tag">Baby</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
-									rel="tag">Newborn Essentials</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
-									rel="tag">Cardigans and sweaters</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/primera-puesta/punto-primera-puesta/"
-									rel="tag">Cardigans and sweaters</a>.
-								</span>
 							</div>
 						</div>
 					</div>
+					<div class="product-info large-5 small-12 columns left">
+						<h1 itemprop="name" class="entry-title">${product.name }</h1>
+						<div class="tx-div small"></div>
+						<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+							<p itemprop="price" class="price large">
+								<span class="amount">${product.price }</span>
+							</p>
+							<meta itemprop="priceCurrency" content="EUR">
+							<link itemprop="availability" href="http://schema.org/InStock">
+						</div>
+						<form action="./shot/add" method="post" id="shotAddForm">
+						<div class="variations variations_form cart custom">
+							<h6><s:message code="shoppingbag.size"/></h6>
+							<div class="value pa_talla alt">
+								<div class="select-wrapper">
+									<select id="size" name="size" onchange="showAddCartBtn('size')">
+										<option value=""><s:message code="shoppingbag.select.size"/></option>
+										<option value="0-meses" class="active">0 meses</option>
+										<option value="3m" class="active">03 Meses</option>
+										<option value="6m" class="active">06 Meses</option>
+										<option value="9m" class="active">09 Meses</option>
+										<option value="12m" class="active">12 Meses</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="single_variation_wrap" style="display: none;">
+							<div class="single_variation"></div>
+							<div class="variations_button">
+								<input type="hidden" name="variation_id" value="">
+								<button type="submit"
+									class="single_add_to_cart_button button1 secondary alt"
+									style="padding:7px;width:150px;"><s:message code="shoppingbag.addtocart"/></button>
+								<div class="quantity buttons_added">
+									<input
+										type="number" step="1" name="quantity" value="1" title="Qty"
+										class="input-text qty text" min="1">
+								</div>
+							</div>
+						</div>
+						<div>
+							<input type="hidden" id="productId" name="productId" value="12132">
+						</div>
+						</form>
+						<div class="product_meta">
+							<span itemprop="productID" class="sku_wrapper">SKU: <span
+								class="sku" data-o_sku="S805 R">S805 R</span>.
+							</span> <span class="posted_in"><s:message code="shoppingbag.category"/>: <a
+								href="http://www.sainteclaire.es/en/product-category/bebe/"
+								rel="tag">Baby</a>, <a
+								href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
+								rel="tag">Newborn Essentials</a>, <a
+								href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
+								rel="tag">Cardigans and sweaters</a>, <a
+								href="http://www.sainteclaire.es/en/product-category/primera-puesta/punto-primera-puesta/"
+								rel="tag">Cardigans and sweaters</a>.
+							</span>
+						</div>
+					</div>
 				</div>
+			</div>
 	      </div>
 	    </div>
 	  </div>
@@ -323,6 +324,10 @@
 				$("#picList0").css("display","block");
 			});
 		});
+		
+		function preOpenDlg(productId){
+			$("#productId").val(productId);
+		}
 	</script>
 <!-- 	<a href="#" class="back-to-top" style="display: none;"><i -->
 <!-- 		class="fa fa-angle-up"><span class="glyphicon glyphicon-chevron-up"></span></i></a> -->
