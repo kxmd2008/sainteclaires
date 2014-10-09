@@ -1,0 +1,13 @@
+{
+	"account_not_null" : "帐号不能为空",
+	"password_not_null" : "密码不能为空",
+	"password_confirm_not_null" : "确认密码不能为空",
+	"password_rule" : "密码为6~16位由数字+字母组成",
+	"password_confirm_not_null" : "确认密码不能为空",
+	"password_not_same" : "两次输入密码不一致",
+	"account_exist" : "帐号已存在",
+	"reciever_not_null" : "收货人不能为空",
+	"post_not_null" : "邮编不能为空",
+	"phone_not_null" : "电话不能为空",
+	"addr_not_null" : "收货人地址不能为空"
+}

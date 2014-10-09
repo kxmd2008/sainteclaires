@@ -1,0 +1,13 @@
+{
+	"account_not_null" : "Account cannot be empty",
+	"password_not_null" : "Password cannot be empty",
+	"password_confirm_not_null" : "Password confirm cannot be empty",
+	"password_rule" : "Password is 6~16 number + character",
+	"password_confirm_not_null" : "Password confirm cannot be empty",
+	"password_not_same" : "New password donot same",
+	"account_exist" : "Account exist",
+	"reciever_not_null" : "Reciever cannot be empty",
+	"post_not_null" : "Post cannot be empty",
+	"phone_not_null" : "Phone cannot be empty",
+	"addr_not_null" : "Reciever address cannot be empty"
+}
