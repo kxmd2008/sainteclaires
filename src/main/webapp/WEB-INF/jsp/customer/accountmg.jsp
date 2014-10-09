@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -45,21 +45,12 @@ td {
 				<jsp:include page="../profile.jsp" />
 				<div class="content" style="min-height:200px;">
 					<div class="row">
-<!-- 						<div class="col-md-12" style="padding-left:20px;"> -->
-<!-- <!-- 							<p style="line-height: 2; font-weight: bold;"> --> -->
-<%-- 								<c:if test="${succ == true }"> --%>
-<!-- 									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;">账号信息保存成功！</div> -->
-<%-- 								</c:if> --%>
-<%-- 								<c:if test="${succ == false }"> --%>
-<!-- 									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;">账号信息保存成功！账号信息保存成功！</div> -->
-<%-- 								</c:if> --%>
-<!-- 						</div> -->
 						<div class="col-md-12" style="padding-left:20px;">
-								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;">账号信息保存成功！</div>
-								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;">账号信息保存成功！</div>
+								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;"><s:message code="account.save.succ"/>！</div>
+								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;"><s:message code="account.save.fail"/>！</div>
 						</div>
 						<div class="block-flat" style="margin-top:40px;">
-							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;">账号管理</p>
+							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;"><s:message code="profile.accountMgt"/></p>
 							<div class="col-md-12" style="padding-left:0px;padding-top:0px;">
 							<hr class="col-md-5" style="margin-top:10px;padding-right:5px;padding-left:0px;">
 							</div>
@@ -68,18 +59,18 @@ td {
 									style="padding-left: 0px; padding-right: 0px;">
 									<form role="form" >
 									  <div class="form-group">
-									    <label for="username">姓名(必填)</label>
-									    <input type="text" class="form-control" name="custName" id="username" placeholder="请输入姓名" value="${custAccount.custName }">
+									    <label for="username"><s:message code="name.required"/></label>
+									    <input type="text" class="form-control" name="custName" id="username" placeholder="<s:message code="name.required.placeholder"/>" value="${custAccount.custName }">
 									  </div>
 									  <div class="form-group">
-									    <label for="email">电子邮件(必填)</label>
-									    <input type="email" class="form-control" name="email" id="email" placeholder="请输入电子邮件" value="${custAccount.email }">
+									    <label for="email"><s:message code="email.required"/></label>
+									    <input type="email" class="form-control" name="email" id="email" placeholder="<s:message code="email.required.placeholder"/>" value="${custAccount.email }">
 									  </div>
 									  <div class="form-group">
-									    <label for="telphone">电话号码(必填)</label>
-									    <input type="tel" class="form-control" id="telphone" name="phone" placeholder="请输入电话号码" value="${custAccount.phone }">
+									    <label for="telphone"><s:message code="phone.required"/></label>
+									    <input type="tel" class="form-control" id="telphone" name="phone" placeholder="<s:message code="phone.required.placeholder"/>" value="${custAccount.phone }">
 									  </div>
-									  <button type="button" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="updateAccount();">提交</button>
+									  <button type="button" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="updateAccount();"><s:message code="table.button.submit"/></button>
 									</form>
 								</div>
 								<div class="cl col-md-3"

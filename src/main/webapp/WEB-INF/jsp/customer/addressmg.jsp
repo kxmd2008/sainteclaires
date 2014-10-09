@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -76,11 +76,11 @@ td {
 									<div class="pull-left box " style="min-height:158px;">
 										<input type="hidden" value="${address.id }" />
 										<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;padding-bottom:0px;min-height:128px;">
-											<li style="text-align:left;font-size:10px;">${address.custName }(收)</li>
+											<li style="text-align:left;font-size:10px;">${address.custName }<s:message code="address.shou"/></li>
 											<li><hr style="margin-top:0px;margin-bottom:5px;"></li>
 											<li style="text-align:left;font-size:10px;word-break:break-all;">${address.address }</li>
-											<li style="text-align:left;font-size:10px;">电话：${address.telphone }</li>
-											<li style="text-align:left;font-size:10px;">邮编：${address.post }</li>
+											<li style="text-align:left;font-size:10px;"><s:message code="phone"/>：${address.telphone }</li>
+											<li style="text-align:left;font-size:10px;"><s:message code="post"/>：${address.post }</li>
 										</ul>
 										<c:if test="${custAccount.addressId == address.id}">
 										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block" class="pull-right">
@@ -88,7 +88,7 @@ td {
 										<c:if test="${custAccount.addressId != address.id}">
 										<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:none" class="pull-right">
 										</c:if>
-											<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'>默认地址</font></label>
+											<label class="fontSize  center" style="font-size:8px;font-weight: normal;"><font color='white'><s:message code="address.default"/></font></label>
 										</div>
 									</div>
 								</c:forEach>
@@ -96,15 +96,15 @@ td {
 						</div>
 						<div class="col-md-12" style="padding-left:2px;padding-right:0px;margin-top:10px;">
 								<c:if test="${succ == true }">
-									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;">新建收货地址成功！</div>
+									<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;"><s:message code="address.create.succ"/>！</div>
 								</c:if>
 								<c:if test="${succ == false }">
-									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;">新建收货地址失败！</div>
+									<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;"><s:message code="address.create.fail"/>！</div>
 								</c:if>
-								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;">新建收货地址成功！</div>
-								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;">新建收货地址失败！</div>
+								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;"><s:message code="address.create.succ"/>！</div>
+								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;"><s:message code="address.create.fail"/>！</div>
 						</div>
-							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;">新建收货地址</p>
+							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;"><s:message code="address.create.title"/></p>
 							<div class="col-md-12" style="padding-left:0px;padding-top:0px;">
 							<hr class="col-md-5" style="margin-top:10px;padding-right:5px;padding-left:0px;">
 							</div>
@@ -113,22 +113,22 @@ td {
 									style="padding-left: 0px; padding-right: 0px;">
 									<form role="form" action="address/save" method="post">
 									  <div class="form-group">
-									    <label for="username">收货人(必填)</label>
-									    <input type="text" class="form-control" id="custName" name="custName" placeholder="请输入收货人">
+									    <label for="username"><s:message code="address.consignee"/></label>
+									    <input type="text" class="form-control" id="custName" name="custName" placeholder="<s:message code="address.consignee.placeholder"/>">
 									  </div>
 									  <div class="form-group">
-									    <label for="post">邮编(必填)</label>
-									    <input type="text" class="form-control" id="post" name="post" placeholder="请输入邮编">
+									    <label for="post"><s:message code="post.required"/></label>
+									    <input type="text" class="form-control" id="post" name="post" placeholder="<s:message code="post.placeholder"/>">
 									  </div>
 									  <div class="form-group">
-									    <label for="telphone">电话(必填)</label>
-									    <input type="tel" class="form-control" id="telphone" name="telphone" placeholder="请输入电话号码">
+									    <label for="telphone"><s:message code="phone.required"/></label>
+									    <input type="tel" class="form-control" id="telphone" name="telphone" placeholder="<s:message code="phone.placeholder"/>">
 									  </div>
 									  <div class="form-group">
-									    <label for="address">收货地址(必填)</label>
-											<textarea rows="3" cols="" class="form-control" id="address" name="address" placeholder="请输入收货地址" style="resize: none;"></textarea>
+									    <label for="address"><s:message code="address.required"/></label>
+											<textarea rows="3" cols="" class="form-control" id="address" name="address" placeholder="<s:message code="address.placeholder"/>" style="resize: none;"></textarea>
 									  </div>
-									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="return checkForm();">提交</button>
+									  <button type="submit" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;" onclick="return checkForm();"><s:message code="table.button.submit"/></button>
 									</form>
 								</div>
 								<div class="cl col-md-3"

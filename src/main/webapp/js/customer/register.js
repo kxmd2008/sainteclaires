@@ -1,17 +1,28 @@
 $(document).ready(function(){
-	checkLoginName();
-	checkPassword();
-	checkPasswordAgin();
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		$.getJSON("zh_CN.json",function(data){ 
+			checkLoginName(data);
+			checkPassword(data);
+			checkPasswordAgin(data);
+		});
+	} else {
+		$.getJSON("js/customer/en_US.json",function(data){ 
+			checkLoginName(data);
+			checkPassword(data);
+			checkPasswordAgin(data);
+		});
+	}
 });
 /**
  * 验证注册名称是否存在
  */
-function checkLoginName(){
+function checkLoginName(mag){
 	$("#loginName").on("blur",function(){
 		var $loginName = $("#loginName").val();
 		if($loginName == null || $loginName == ""){
 			$("#loginMsg").css("display","block");
-			$("#loginMsg font").html("账号不能为空");
+			$("#loginMsg font").html(msg['account_not_null']);
 		}else{
 			$("#loginMsg").css("display","none");
 		}
@@ -19,7 +30,7 @@ function checkLoginName(){
 		$.post("account/check",data , function(msg){
 			if(msg.head.rep_code != 200){
 				$("#loginMsg").css("display","block");
-				$("#loginMsg").html("<font color='red'>用户名已存在</font>");
+				$("#loginMsg").html("<font color='red'>"+msg['account_exist']+"</font>");
 			}
 		});
 	});
@@ -27,32 +38,32 @@ function checkLoginName(){
 /**
  * 验证两次输入密码是否一致
  */
-function checkPasswordAgin(){
+function checkPasswordAgin(msg){
 	$("#passwordAgin").on("blur",function(){
 		var $passwordAgin = $("#passwordAgin").val();
 		var $password = $("#password").val();
 		if($passwordAgin == null || $passwordAgin == ""){
 			$("#passwordAginMsg").css("display","block");
-			$("#passwordAginMsg font").html("确认密码不能为空");
+			$("#passwordAginMsg font").html(msg['password_confirm_not_null']);
 			return;
 		}else{
 			$("#passwordAginMsg").css("display","none");
 		}
 		if($passwordAgin != $password){
 			$("#passwordAginMsg").css("display","block");
-			$("#passwordAginMsg font").html("两次输入密码不一致");
+			$("#passwordAginMsg font").html(msg['password_not_same']);
 		}else{
 			$("#passwordAginMsg").css("display","none");
 		}
 	});
 }
-function checkPassword(){
+function checkPassword(msg){
 	$("#password").on("blur",function(){
 		var $password = $("#password").val();
 		var reg=/^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/;
 		if($password == null || $password ==""){
 			$("#passwordMsg").css("display","block");
-			$("#passwordMsg font").html("密码不能为空");
+			$("#passwordMsg font").html(msg['password_not_null']);
 			return;
 		}else{
 			$("#passwordMsg").css("display","none");
@@ -60,7 +71,7 @@ function checkPassword(){
 //		alert(reg.test($password));
 		if(!reg.test($password)){
 			$("#passwordMsg").css("display","block");
-			$("#passwordMsg font").html("密码为6~16为由数字+字母组成");
+			$("#passwordMsg font").html(msg['password_rule']);
 		}else{
 			$("#passwordMsg").css("display","none");
 		}

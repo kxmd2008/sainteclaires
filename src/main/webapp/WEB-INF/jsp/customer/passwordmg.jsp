@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -46,11 +46,11 @@ td {
 				<div class="content" style="min-height:200px;">
 					<div class="row">
 						<div class="col-md-12" style="padding-left:20px;">
-								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;">修改密码成功！</div>
-								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;">修改密码失败！</div>
+								<div class="alert alert-success col-md-5" role="alert" style="background:#dff0d8;text-align:left;color:#3c763d;border-color:#d6e9c6;position: relative;display:none;"><s:message code="passwordmg.update.succ"/>！</div>
+								<div class="alert alert-danger col-md-5" role="alert" style="background:#f2dede;text-align:left;color:#a94442;border-color:#ebccd1;position: relative;display:none;"><s:message code="passwordmg.update.fail"/>！</div>
 						</div>
 						<div class="block-flat" style="margin-top:40px;">
-							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;">修改密码</p>
+							<p style="line-height: 2; font-weight: bold;margin-bottom:0px;"><s:message code="passwordmg.update.text"/></p>
 							<div class="col-md-12" style="padding-left:0px;padding-top:0px;">
 							<hr class="col-md-5" style="margin-top:10px;padding-right:5px;padding-left:0px;">
 							</div>
@@ -59,18 +59,18 @@ td {
 									style="padding-left: 0px; padding-right: 0px;">
 									<form role="form" >
 									  <div class="form-group">
-									    <label for="old_password">旧密码</label>
-									    <input type="password" class="form-control" id="old_password" name="oldPwd" placeholder="请输入旧密码">
+									    <label for="old_password"><s:message code="passwordmg.old"/></label>
+									    <input type="password" class="form-control" id="old_password" name="oldPwd" placeholder="<s:message code="passwordmg.old.placeholder"/>">
 									  </div>
 									  <div class="form-group">
-									    <label for="new_password">新密码</label>
-									    <input type="password" class="form-control" id="new_password" name="newPwd" placeholder="请输入新密码(6~16位数字+字母组合)">
+									    <label for="new_password"><s:message code="passwordmg.new"/></label>
+									    <input type="password" class="form-control" id="new_password" name="newPwd" placeholder="<s:message code="passwordmg.new.placeholder"/>">
 									  </div>
 									  <div class="form-group">
-									    <label for="confirm_password">确认密码</label>
-									    <input type="password" class="form-control" id="confirm_password" name="confirmPwd" placeholder="请输入确认密码">
+									    <label for="confirm_password"><s:message code="passwordmg.new.confirm"/></label>
+									    <input type="password" class="form-control" id="confirm_password" name="confirmPwd" placeholder="<s:message code="passwordmg.new.confirm.placeholder"/>">
 									  </div>
-									  <button type="button" onclick="updPassword();" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;">提交</button>
+									  <button type="button" onclick="updPassword();" class="btn btn-default col-md-3" style="margin-left:0px;margin-top:10px;"><s:message code="table.button.submit"/></button>
 									</form>
 								</div>
 								<div class="cl col-md-3"

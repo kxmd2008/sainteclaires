@@ -26,7 +26,7 @@
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
 							<li class="">
-								<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
+								<select onchange="changeLocale();" id="localeSel">	
 									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
 									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
 								</select>
@@ -45,9 +45,9 @@
     									<c:out value="${userName}"></c:out> </a>
    									 <span class="caret"></span>		
     								<ul class="dropdown-menu" role="menu" id="profile_center" aria-labelledby="profile_center" style="margin-top:3px;padding-top:0px;padding-bottom:0px;right:20px;min-width:105px;border-radius:0px;">
-									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/account"><s:message code="header.login"/></a></li>
-									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/cart"><s:message code="header.personcenter"/></a></li>
-									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/orders"><s:message code="header.shoppingbag"/></a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/account"><s:message code="header.personcenter"/></a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/cart"><s:message code="header.shoppingbag"/></a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/orders"><s:message code="header.orders"/></a></li>
 									    <li role="presentation" class="divider" style="margin-top:0px;margin-bottom:0px;"></li>
 									    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=basePath%>/logout"><s:message code="header.logout"/></a></li>
 									</ul>

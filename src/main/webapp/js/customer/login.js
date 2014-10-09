@@ -1,9 +1,23 @@
 $(document).ready(function(){
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		$.getJSON("zh_CN.json",function(data){ 
+			bindEvent(data);
+		});
+	} else {
+		$.getJSON("js/customer/en_US.json",function(data){ 
+			bindEvent(data);
+		});
+	}
+	
+});
+
+function bindEvent(msg){
 	$("#loginName").on("blur",function(){
 		var username = $("#loginName").val();
 		if(username == null || username == ""){
 			$("#loginMsg").css("display","block");
-			$("#loginMsg font").html("账号不能为空");
+			$("#loginMsg font").html(msg.account_not_null);
 		}else{
 			$("#loginMsg").css("display","none");
 		}
@@ -12,12 +26,12 @@ $(document).ready(function(){
 		var password = $("#password").val();
 		if(password == null || password == ""){
 			$("#passwordMsg").css("display","block");
-			$("#passwordMsg font").html("密码不能为空");
+			$("#passwordMsg font").html(msg.password_not_null);
 		}else{
 			$("#passwordMsg").css("display","none");
 		}
 	});
-});
+}
 function checkForm(){
 	var passwordMsg = $("#passwordMsg").css("display");
 	var loginMsg = $("#loginMsg").css("display");

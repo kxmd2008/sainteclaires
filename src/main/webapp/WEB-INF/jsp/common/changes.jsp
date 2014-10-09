@@ -85,6 +85,11 @@
 									<span>2.<s:message code="changes.apply.tip2"/>.</span>
 								</div>
 							</p>
+							<p>
+								<center><strong><font size="4">
+									<s:message code="changes.right.declare"/>.
+								</font></strong></center>
+							</p>
 <!-- 						</div> -->
 					</div>
 				</div>

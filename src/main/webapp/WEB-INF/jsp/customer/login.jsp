@@ -107,6 +107,7 @@
 			</form>
 		</div>
 	</div>
+	<input type="hidden" id="locale" value="${locale }"> 
 	<script src="<%=path%>/common/jquery.js" type="text/javascript"></script>
 	<script src="<%=path%>/common/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<%=path%>/js/customer/login.js"></script>

@@ -23,7 +23,7 @@
 						src="<%=basePath%>/common/image/logo_txt.png">
 				</div>
 				<ul class="nav nav-list treeview" style="line-height: 1">
-					<li class=""><label class="tree-toggler nav-header">个人中心</label>
+					<li class=""><label class="tree-toggler nav-header"><s:message code="profile.center"/></label>
 						<ul class="nav nav-list tree" style="display: block;">
 								<li><a href="./account"><s:message code="profile.accountMgt"/></a></li>
 								<li><a href="./address"><s:message code="profile.addressMgt"/></a></li>

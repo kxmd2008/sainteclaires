@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <%
@@ -124,7 +124,7 @@
 							class="pull-left" />
 					</div>
 					<div class="col-md-12" style="height: 20px;">
-						<div class="pull-left fontSize">查看订单信息 </div>
+						<div class="pull-left fontSize"><s:message code="orders.title"/> </div>
 					</div>
 					<div class="col-md-12" style="min-height: 160px; height: 100%;">
 						<hr
@@ -133,12 +133,12 @@
 						<table class="table no-border hover">
 							<thead class="no-border">
 								<tr>
-									<th>商品</th>
-									<th>属性</th>
-									<th>单价</th>
-									<th>数量</th>
-									<th>小计</th>
-									<th>状态</th>
+									<th><s:message code="shoppingbag.thead.product"/></th>
+									<th><s:message code="orders.thead.attr"/></th>
+									<th><s:message code="orders.thead.price"/></th>
+									<th><s:message code="shoppingbag.num"/></th>
+									<th><s:message code="shoppingbag.order.sum"/></th>
+									<th><s:message code="orders.thead.status"/></th>
 									<th></th>
 								</tr>
 							</thead>
@@ -159,7 +159,7 @@
 										<ul class="list-unstyled"
 											style="vertical-align: middle; margin-bottom: 0px;">
 <!-- 											<li>颜色分类：红色</li> -->
-											<li>尺码：${item.size }</li>
+											<li><s:message code="shoppingbag.size"/>：${item.size }</li>
 										</ul>
 									</td>
 									<td style="vertical-align: middle">${item.price }</td>
@@ -167,14 +167,14 @@
 									<td style="vertical-align: middle">${item.num*item.price }</td>
 									<td style="vertical-align: middle">
 									<c:choose>
-										<c:when test="${order.status==0 }">待付款</c:when>
-										<c:when test="${order.status==1 }">已付款</c:when>
-										<c:when test="${order.status==2 }">已发货</c:when>
-										<c:otherwise>已收货</c:otherwise>
+										<c:when test="${order.status==0 }"><s:message code="orders.status.nopay"/></c:when>
+										<c:when test="${order.status==1 }"><s:message code="orders.status.pay"/></c:when>
+										<c:when test="${order.status==2 }"><s:message code="orders.status.fahuo"/></c:when>
+										<c:otherwise><s:message code="orders.status.shouhuo"/></c:otherwise>
 									</c:choose>
 									</td>
 									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}"><button type="button"
-											class="btn btn-default">确认收货</button></td>
+											class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></td>
 								</tr>
 								</c:forEach>
 								</c:forEach>

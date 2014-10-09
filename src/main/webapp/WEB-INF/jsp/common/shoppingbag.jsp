@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -47,7 +47,7 @@ td {
 					<div class="row">
 						<div style="min-height: 0px;"></div>
 						<div class="block-flat">
-							<p style="line-height: 2; font-weight: bold;">购物车</p>
+							<p style="line-height: 2; font-weight: bold;"><s:message code="shoppingbag.name"/></p>
 							<div class="content">
 								<div class="cl col-md-8"
 									style="padding-left: 0px; padding-right: 0px;">
@@ -55,10 +55,10 @@ td {
 										<table class="table no-border hover">
 											<thead class="no-border">
 												<tr>
-													<th style="padding-left:0px;"><strong>商品</strong></th>
-													<th><strong>价格</strong></th>
-													<th><strong>数量</strong></th>
-													<th><strong>总计</strong></th>
+													<th style="padding-left:0px;"><strong><s:message code="shoppingbag.thead.product"/></strong></th>
+													<th><strong><s:message code="shoppingbag.thead.price"/></strong></th>
+													<th><strong><s:message code="shoppingbag.num"/></strong></th>
+													<th><strong><s:message code="shoppingbag.total"/></strong></th>
 												</tr>
 											</thead>
 											<tbody class="no-border-y">
@@ -84,7 +84,7 @@ td {
 																</div>
 															</li>
 															<li style="vertical-align: middle;display:table-cell;"><div><span class="detailFont">${shot.productName }</span> </div><div><span
-																class="detailFont">尺码：${shot.size }</span></div></li>
+																class="detailFont"><s:message code="shoppingbag.size"/>：${shot.size }</span></div></li>
 														</ul>
 													</td>
 													<td style="vertical-align: middle;">￥${shot.price }</td>
@@ -108,29 +108,29 @@ td {
 										<table class="table no-border">
 											<thead class="no-border">
 												<tr>
-													<th><strong>订单总计</strong></th>
+													<th><strong><s:message code="shoppingbag.order.total"/></strong></th>
 													<th></th>
 												</tr>
 											</thead>
 											<tbody class="no-border-y">
 												<tr>
-													<td>小计</td>
+													<td><s:message code="shoppingbag.order.sum"/></td>
 													<td ><span id="totalAmount1">${shopingbag.amount }</span>￥</td>
 												</tr>
 												<tr>
-													<td>运输</td>
+													<td><s:message code="shoppingbag.order.yunshu"/></td>
 													<td>6.00￥</td>
 												</tr>
 												<tr>
-													<td>订单总额</td>
+													<td><s:message code="shoppingbag.order.totalAmount"/></td>
 													<td><span id="totalAmount2">${shopingbag.amount }</span>￥</td>
 												</tr>
 											</tbody>
 										</table>
 										<a href="./shop" class="button secondary expand uppercase"
-											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; padding-top: 10px;">继续购物</a>
+											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; padding-top: 10px;"><s:message code="btn.continue"/></a>
 										<a href="./order/confirm" class="button secondary expand uppercase"
-											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; margin-top: 10px; padding-top: 10px;">订单确认</a>
+											style="text-align: center; background: #aaaaaa; font-weight: bold; height: 35px; vertical-align: middle; color: white; margin-bottom: 0px; margin-top: 10px; padding-top: 10px;"><s:message code="btn.orderConfirm"/></a>
 									</div>
 								</div>
 							</div>

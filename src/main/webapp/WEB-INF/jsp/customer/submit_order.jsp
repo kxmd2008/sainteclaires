@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -62,7 +62,7 @@
 							style="width: 100%;">
 					</div>
 					<div class="col-md-12" style="margin-top: 10px; height: 20px;">
-						<div class="pull-left fontSize">选择收货地址</div>
+						<div class="pull-left fontSize"><s:message code="submitOrder.select.address"/></div>
 						<hr style="width: 100%; border: 1px solid #F0F0F0;" />
 					</div>
 					<div class="col-md-12"
@@ -73,7 +73,7 @@
 									<ul class="list-unstyled"
 										style="padding: 8px; margin-bottom: 0px;">
 										<li style="text-align: left; font-size: 10px;">${address.custName}
-											收</li>
+											<s:message code="submitOrder.shou"/></li>
 										<li><hr style="margin-top: 0px; margin-bottom: 5px;"></li>
 										<li style="text-align: left; font-size: 10px;">${address.address }
 											${address.telphone} ${address.post }</li>
@@ -85,7 +85,7 @@
 												class="pull-right">
 												<label class="fontSize"
 													style="font-size: 8px; font-weight: normal;"><font
-													color='white'>默认地址</font></label>
+													color='white'><s:message code="address.default"/></font></label>
 											</div>
 										</c:when>
 										<c:otherwise>
@@ -94,7 +94,7 @@
 												class="pull-right">
 												<label class="fontSize"
 													style="font-size: 8px; font-weight: normal;"><font
-													color='white'>默认地址</font></label>
+													color='white'><s:message code="address.default"/></font></label>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -104,11 +104,11 @@
 					</div>
 					<div class="col-md-12" style="height: 40px;">
 						<div class="pull-right fontSize">
-							<a href="#">管理收货地址</a>
+							<a href="#"><s:message code="submitOrder.address.mgt"/></a>
 						</div>
 					</div>
 					<div class="col-md-12" style="height: 20px;">
-						<div class="pull-left fontSize">确认订单信息</div>
+						<div class="pull-left fontSize"><s:message code="submitOrder.confirm"/></div>
 					</div>
 					<div class="col-md-12" style="min-height: 160px; height: 100%;">
 						<hr
@@ -117,12 +117,12 @@
 						<table class="table no-border hover">
 							<thead class="no-border">
 								<tr>
-									<th>商品</th>
-									<th>属性</th>
-									<th>单价</th>
-									<th>数量</th>
-									<th>小计</th>
-									<th>配送方式</th>
+									<th><s:message code="shoppingbag.thead.product"/></th>
+									<th><s:message code="orders.thead.attr"/></th>
+									<th><s:message code="orders.thead.price"/></th>
+									<th><s:message code="shoppingbag.num"/></th>
+									<th><s:message code="shoppingbag.order.sum"/></th>
+<!-- 									<th>配送方式</th> -->
 								</tr>
 							</thead>
 							<tbody class="no-border-y">
@@ -140,7 +140,7 @@
 										<td style="vertical-align: middle">
 											<ul class="list-unstyled"
 												style="vertical-align: middle; margin-bottom: 0px;text-align: left;">
-												<li>尺码：${item.size }</li>
+												<li><s:message code="shoppingbag.size"/>：${item.size }</li>
 											</ul>
 										</td>
 										<td style="vertical-align: middle;text-align: left;">${item.price }</td>
@@ -159,12 +159,12 @@
 											</div>
 										</td>
 										<td style="vertical-align: middle;text-align: left;"><font color="red" id="sum${item.id }">${item.price*item.num }</font></td>
-										<td style="vertical-align: middle;text-align: left;">快递：包邮</td>
+<!-- 										<td style="vertical-align: middle;text-align: left;">快递：包邮</td> -->
 									</tr>
 								</c:forEach>
 							</tbody>
 							<tfoot>
-								<td colspan="6" class=""><label class="pull-right fontSize" id="amount">${order.amount }</label><label class="pull-right fontSize">合计（含运费）：￥</label></td>
+								<td colspan="6" class=""><label class="pull-right fontSize" id="amount">${order.amount }</label><label class="pull-right fontSize"><s:message code="submitOrder.total"/>：￥</label></td>
 							</tfoot>
 						</table>
 						</div>
@@ -173,7 +173,7 @@
 					</div>
 					<div class="col-md-12">
 						<div class="pull-right">
-							<label class="fontSize">实付款：￥</label><font
+							<label class="fontSize"><s:message code="submitOrder.real.amount"/>：￥</label><font
 								style="font-size: 20px; color: red; font-weight: bold;" id="realAmount">${order.amount }</font>
 						</div>
 					</div>
@@ -181,7 +181,7 @@
 						<div class="pull-right">
 							<button type="button" class="btn btn-default"
 								style="background: red; width: 150px;">
-								<font color="white">支付</font>
+								<font color="white"><s:message code="submitOrder.btn.pay"/></font>
 							</button>
 						</div>
 					</div>
