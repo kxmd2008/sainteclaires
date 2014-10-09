@@ -26,7 +26,7 @@
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right user-nav">
 							<li class="">
-								<select onchange="changeLocale();" id="localeSel">	
+								<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
 									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
 									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
 								</select>
