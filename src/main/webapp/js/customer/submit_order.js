@@ -99,7 +99,6 @@ function delNumber(itemId){
 }
 
 function changeNum(itemId){
-	alert(itemId)
 	var num = $("#cleaninit").val();
 	if(num < 1){
 		$("#cleaninit").val("1");
