@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -49,14 +49,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="main.jsp"></jsp:include>
 <div class="content">
 	<div class="header">
-		<h1 class="page-title">类别管理</h1>
+		<h1 class="page-title"><s:message code="category.mgt.title"/></h1>
 	</div>
 	<div class="container-fluid">
 		<div class="row-fluid">
 
 			<div class="btn-toolbar">
-				<a class="btn btn-primary"  href="#" role="button" data-toggle="modal" onclick="showDlg('新增类别')">
-					<i class="icon-plus"></i> 创建类别
+				<a class="btn btn-primary"  href="#" role="button" data-toggle="modal" onclick="showDlg('<s:message code="category.mgt.new"/>')">
+					<i class="icon-plus"></i> <s:message code="category.mgt.create"/>
 				</a>
 				<div class="btn-group"></div>
 			</div>
@@ -65,10 +65,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>所属种类</th>
-							<th>种类名称</th>
-<!-- 							<th>Username</th> -->
-							<th style="width: 26px;">操作</th>
+							<th><s:message code="category.mgt.belong"/></th>
+							<th><s:message code="category.mgt.name"/></th>
+							<th style="width: 26px;"><s:message code="category.mgt.opration"/></th>
 						</tr>
 					</thead>
 					<tbody id="tbody">
@@ -82,29 +81,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">×</button>
-					<h3 id="catLabel">新增类别</h3>
+					<h3 id="catLabel"><s:message code="category.mgt.new" /></h3>
 				</div>
 				<div class="modal-body">
 					<form id="tab" action="<%=basePath%>/auth/category/add" method="post">
 						<input type="hidden" name="id" id="id" value="">
 						<input type="hidden" name="parentName" id="parentName" value="">
-						<label>所属种类</label> 
+						<label><s:message code="category.mgt.belong"/></label> 
 						<select class="input-xlarge"  name="parentId" id="parentId" onchange="parentChange(this.value)">
 							<option>
 <%-- 							<c:forEach items="${parents }"  var="pcat"> --%>
 <%-- 							<option value="${pcat.id }" id="option${pcat.id}">${pcat.name }</option> --%>
 <%-- 							</c:forEach> --%>
 						</select>
-						<label>类别名称</label> 
+						<label><s:message code="category.mgt.name"/></label> 
 						<input type="text" value="" class="input-xlarge" name="name" id="cname"> 
-						<label>序列</label> 
+						<label><s:message code="category.mgt.order"/></label> 
 						<input type="text" value="" class="input-xlarge" name="orderNo" id="orderNo"> 
 					</form>
 					
 				</div>
 				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-					<button class="btn btn-danger" data-dismiss="modal" onclick="saveCategory();">保存</button>
+					<button class="btn" data-dismiss="modal" aria-hidden="true"><s:message code="category.mgt.cancle"/></button>
+					<button class="btn btn-danger" data-dismiss="modal" onclick="saveCategory();"><s:message code="category.mgt.save"/></button>
 				</div>
 			</div>
 
@@ -117,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="modal-body">
 					<p class="error-text">
-						<i class="icon-warning-sign modal-icon"></i>确定要删除此类别？
+						<i class="icon-warning-sign modal-icon"></i><s:message code="category.mgt.delete.info"/>
 					</p>
 				</div>
 				<div class="modal-footer">

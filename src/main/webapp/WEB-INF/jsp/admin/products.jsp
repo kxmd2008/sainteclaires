@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -72,14 +72,14 @@ select {
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">产品管理</h1>
+		<h1 class="page-title"><s:message code="products.title"/></h1>
 	</div>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
 				<a class="btn btn-primary" href="<%=basePath%>/auth/productAdd">
-					<i class="icon-plus"></i> 新增产品
+					<i class="icon-plus"></i> <s:message code="products.new"/>
 				</a>
 				<div class="btn-group"></div>
 			</div>
@@ -88,12 +88,11 @@ select {
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>产品名称</th>
-							<th>所属类别</th>
-							<th>产品价格</th>
-							<th>产品库存</th>
-<!-- 							<th>状态</th> -->
-							<th style="width: 40px;">操作</th>
+							<th><s:message code="products.product.name"/></th>
+							<th><s:message code="products.belong.category"/></th>
+							<th><s:message code="products.product.price"/></th>
+							<th><s:message code="products.product.inventory"/></th>
+							<th style="width: 40px;"><s:message code="products.opration"/></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -118,7 +117,7 @@ select {
 <!-- 					<li><a href="#">Prev</a></li> -->
 <!-- 					<li><a href="#">1</a></li> -->
 <!-- 					<li><a href="#">2</a></li> -->
-<!-- 					<li><a href="#">3</a></li> -->
+<!-- 					<库存li><a href="#">3</a></li> -->
 <!-- 					<li><a href="#">4</a></li> -->
 <!-- 					<li><a href="#">Next</a></li> -->
 <!-- 				</ul> -->
@@ -133,14 +132,14 @@ select {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
-        <h4 class="modal-title" id="myModalLabel">删除框</h4>
+        <h4 class="modal-title" id="myModalLabel"><s:message code="products.delete.dialog"/></h4>
       </div>
       <div class="modal-body">
-      	<h5>您确定要删除吗？</h5>
+      	<h5><s:message code="products.delete.info"/></h5>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" onclick="productDelete();">确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><s:message code="products.cancle"/></button>
+        <button type="button" class="btn btn-primary" onclick="productDelete();"><s:message code="products.sure"/></button>
       </div>
     </div>
   </div>

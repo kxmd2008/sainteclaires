@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -140,10 +140,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="header">
 		<c:choose>
 			<c:when test="${empty vo }">
-				<h1 class="page-title" id="product_title">新增产品</h1>
+				<h1 class="page-title" id="product_title"><s:message code="product.item.new"/></h1>
 			</c:when>
 			<c:otherwise>
-					<h1 class="page-title" id="product_title">修改产品</h1>
+					<h1 class="page-title" id="product_title"><s:message code="product.item.updatew"/></h1>
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -152,13 +152,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 			<div class="btn-toolbar">
 				<button class="btn btn-primary"  class="button" onclick="saveProduct();">
-					<i class="icon-save"></i> 保存
+					<i class="icon-save"></i> <s:message code="product.item.save"/>
 				</button>
 				<div class="btn-group"></div>
 			</div>
 			<div class="well " >
 					<div class="span12" style="margin-left:0px;">
-					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="选择类别" style="float:left;">
+					 <select id="choose_category" multiple="multiple" name="example19" value="选择类别" title="<s:message code="product.item.select.category"/>" style="float:left;">
 						 <c:forEach var="pcat" items="${parents}">
                             <optgroup label="${pcat.name }">
                             	<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
@@ -169,48 +169,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </optgroup>
                           </c:forEach>
                     </select>
-                    <label id="categoryMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">必须选择一项类别！</font></label>
+                    <label id="categoryMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.category.info"/></font></label>
                     </div>
                     <div class="span12" style="margin-left:0px;">
-					<label>产品名称</label> 
-					<input type="text" id="name" name="name" value="${vo.name }" placeholder="产品名称" style="float:left;">
-					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品名称不能为空！</font></label>
+					<label><s:message code="product.item.product.name"/></label> 
+					<input type="text" id="name" name="name" value="${vo.name }" placeholder="<s:message code="product.item.product.name"/>" style="float:left;">
+					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.name.info"/></font></label>
 					</div> 
 					<div class="span12" style="margin-left:0px;">
-					<label>产品价格</label> 
-					<input type="text" step="0.1" min="1" value="${vo.price }" id="price" name="price" placeholder="产品价格" style="float:left;">
-					<label id="priceMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品价格不能为空！</font></label>
+					<label><s:message code="product.item.product.price"/></label> 
+					<input type="text" step="0.1" min="1" value="${vo.price }" id="price" name="price" placeholder="<s:message code="product.item.product.price"/>" style="float:left;">
+					<label id="priceMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.price.info"/></font></label>
 					</div>  
 					<div class="span12" style="margin-left:0px;">
-					<label>产品库存</label> 
-					<input type="text" min="1" id="num" name="num" value="${vo.num }" placeholder="产品库存" style="float:left;">
-					<label id="numMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品库存不能为空！</font></label>
+					<label><s:message code="product.item.product.inventory"/></label> 
+					<input type="text" min="1" id="num" name="num" value="${vo.num }" placeholder="<s:message code="product.item.product.inventory"/>" style="float:left;">
+					<label id="numMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.inventory.info"/></font></label>
 					</div>
 					<div class="span12" style="margin-left:0px;">   
-					<label>产品尺码</label> 
-					<input value="${vo.meses06 }" type="text" min="0" id="meses06" name="meses06" placeholder="06尺码库存" style="float:left;">
-					<label id="meses06Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码06不能为空！</font></label>
+					<label><s:message code="product.item.product.size"/></label> 
+					<input value="${vo.meses06 }" type="text" min="0" id="meses06" name="meses06" placeholder="<s:message code="product.item.6size.inventory"/>" style="float:left;">
+					<label id="meses06Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.6size.info"/></font></label>
 					</div>
 					<div class="span12" style="margin-left:0px;">  
-					<input value="${vo.meses09 }" type="text" min="0" id="meses09" name="meses09" placeholder="09尺码库存" style="float:left;">
-					<label id="meses09Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码09不能为空！</font></label>
+					<input value="${vo.meses09 }" type="text" min="0" id="meses09" name="meses09" placeholder="<s:message code="product.item.9size.inventory"/>" style="float:left;">
+					<label id="meses09Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.9size.info"/></font></label>
 					</div>
 					<div class="span12" style="margin-left:0px;">  
-					<input value="${vo.meses12 }" type="text" min="0" id="meses12" name="meses12" placeholder="12尺码库存" style="float:left;">
-					<label id="meses12Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码12不能为空！</font></label>
+					<input value="${vo.meses12 }" type="text" min="0" id="meses12" name="meses12" placeholder="<s:message code="product.item.12size.inventory"/>" style="float:left;">
+					<label id="meses12Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.12size.info"/></font></label>
 					</div>
 					<div class="span12" style="margin-left:0px;">  
-					<input value="${vo.meses18 }" type="text" min="0" id="meses18" name="meses18" placeholder="18尺码库存" style="float:left;">
-					<label id="meses18Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码18不能为空！</font></label>
+					<input value="${vo.meses18 }" type="text" min="0" id="meses18" name="meses18" placeholder="<s:message code="product.item.18size.inventory"/>" style="float:left;">
+					<label id="meses18Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.18size.info"/></font></label>
 					</div>
 					<div class="span12" style="margin-left:0px;">  
-					<input value="${vo.meses24 }" type="text" min="0" id="meses24" name="meses24" placeholder="24尺码库存" style="float:left;">
-					<label id="meses24Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品尺码24不能为空！</font></label>
+					<input value="${vo.meses24 }" type="text" min="0" id="meses24" name="meses24" placeholder="<s:message code="product.item.24size.inventory"/>" style="float:left;">
+					<label id="meses24Msg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.24size.info"/></font></label>
 					</div> 
 					<label></label>
 					<div class="span12" style="margin-left:0px;">   
-						<textarea rows="3" cols="4" placeholder="产品描述" id="desc" name="desc" style="width:240px;float:left;" >${vo.description }</textarea>
-						<label id="descMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">产品描述不能为空！</font></label>
+						<textarea rows="3" cols="4" placeholder="<s:message code="product.item.product.description"/>" id="desc" name="desc" style="width:240px;float:left;" >${vo.description }</textarea>
+						<label id="descMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.description.info"/></font></label>
 					</div>
 					<!--产品图片展示 -->
 					<div class="span12">
@@ -245,10 +245,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <!-- The fileinput-button span is used to style the file input field as button -->
 				                <span class="btn btn-success fileinput-button" style="float:left;">
 				                    <i class="glyphicon glyphicon-plus"></i>
-				                    <span>上传图片...</span>
+				                    <span><s:message code="product.item.upload.image"/>...</span>
 				                    <input type="file" name="files"  multiple>
 				                </span>
-				                <label id="filesMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red">必须上传图片！</font></label>
+				                <label id="filesMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.upload.info"/></font></label>
 				            </div>
 				        </div>
 				        <!-- The table listing the files available for upload/download -->

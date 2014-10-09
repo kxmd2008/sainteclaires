@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();  
@@ -53,17 +53,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 
 	<div class="header">
-		<h1 class="page-title">订单查询</h1>
+		<h1 class="page-title"><s:message code="orders.title"/></h1>
 	</div>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="btn-toolbar">
 				<form class="form-inline" role="form" style="margin-bottom: 0px;">
-				   <input type="text" class="form-control" id="order_no" placeholder="订单号">
-				   <input type="text" class="form-control left-margin" id="account_no" placeholder="客户号">
+				   <input type="text" class="form-control" id="order_no" placeholder="<s:message code="orders.order.no"/>">
+				   <input type="text" class="form-control left-margin" id="account_no" placeholder="<s:message code="orders.customer.no"/>">
 				  <button class="btn btn-primary left-margin" type="button" onclick="javascript:search();"> <!-- onclick="javascript:search(); -->
-					<i class="icon-plus"></i> 查询
+					<i class="icon-plus"></i> <s:message code="orders.search"/>
 				  </button>
 				</form>
 				
@@ -75,12 +75,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<table class="table table-striped table-bordered table-hover datatable" id="orders" style="margin-bottom:20px;">
 					<thead>
 						<tr>
-							<th>订单号</th>
-							<th>客户帐号</th>
-							<th>下单时间</th>
-							<th>付款时间</th>
-							<th>订单金额</th>
-							<th>订单状态</th>
+							<th><s:message code="orders.order.no"/></th>
+							<th><s:message code="orders.customer.no"/></th>
+							<th><s:message code="orders.order.place.time"/></th>
+							<th><s:message code="orders.payment.time"/></th>
+							<th><s:message code="orders.order.amount"/></th>
+							<th><s:message code="orders.order.status"/></th>
 						</tr>
 					</thead>
 					<tbody>
