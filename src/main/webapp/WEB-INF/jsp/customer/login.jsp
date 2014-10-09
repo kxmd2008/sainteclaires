@@ -68,10 +68,10 @@
 		</div> --%>
 		<div class="content">
 			<div class="col-md-12" style="width:280px;">
-				<div class="fontSize">
-					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">&nbsp;
-					<label style="display: inline-block;vertical-align: middle;"><s:message code="login.form.title"/></label>&nbsp;
-					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
+				<div class="fontSize" style="width:246px;">
+					<hr style="width:30px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
+					<label style="display: inline-block;vertical-align: middle;width:175px;text-align: center;"><s:message code="login.form.title"/></label>
+					<hr style="width:30px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
 				</div>
 			</div>
 			<div class="col-md-12">
@@ -79,13 +79,13 @@
 <!-- 			<form role="form" action="login" method="post"> -->
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize"><s:message code="login.form.account"/></label> <input type="text"
-						class="form-control" id="loginName" name="j_username" placeholder="<s:message code="login.form.account.placeholder"/>" style="width:250px;font-size:10px;">
+						class="form-control" id="loginName" name="j_username" placeholder="<s:message code="login.form.account.placeholder"/>" style="width:246px;font-size:10px;">
 					<label id="loginMsg" class="fontSize" style="display:none"><font color="red"><s:message code="login.form.account.empty.error"/></font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize"><s:message code="login.form.password"/></label> <input type="password"
 						class="form-control" id="password" name="j_password"
-						placeholder="<s:message code="login.form.password"/>" style="width:250px;font-size:10px;">
+						placeholder="<s:message code="login.form.password"/>" style="width:246px;font-size:10px;">
 					<c:if test="${param.error}">
 					<label  class="fontSize"><font color="red"><s:message code="login.form.password.wrong.error"/></font></label>
 					<%-- <span style="color:red;"><spring:message code="${errorMsg}" /></span> --%>
@@ -95,7 +95,7 @@
 				<div class="checkbox" style="padding-left:0px;">
 					<!-- <label class="fontSize" style="font-weight: bold;"> <input type="checkbox"> 记住密码
 					</label> -->
-					<div style="width:250px"><!-- <label style="font-weight: bold;" class="fontSize"> -->
+					<div style="width:246px"><!-- <label style="font-weight: bold;" class="fontSize"> -->
 						<a href="#" class="pull-right fontSize" style="font-weight: bold;"><s:message code="login.form.password.forgot"/></a></label>
 					</div>
 				</div>

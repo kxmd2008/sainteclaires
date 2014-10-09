@@ -59,9 +59,9 @@
 		<div class="content" style="height:370px">
 			<div class="col-md-12" style="width:280px;">
 				<div class="fontSize">
-					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">&nbsp;
-					<label style="display: inline-block;vertical-align: middle;"><s:message code="register.title"/></label>&nbsp;
-					<hr style="width:40px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
+					<hr style="width:50px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
+					<label style="display: inline-block;vertical-align: middle;text-align: center;width:135px;"><s:message code="register.title"/></label>
+					<hr style="width:50px;border:1px solid #C1C1C1;display: inline-block;vertical-align: middle;">
 				</div>
 			</div>
 			<div class="col-md-12">
@@ -69,19 +69,19 @@
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="fontSize"><s:message code="register.account"/></label>
 					<input type="text"
-						class="form-control" id="loginName" name="loginName" placeholder="<s:message code="register.account.placeholder"/>" style="width:250px;font-size:10px;">
+						class="form-control" id="loginName" name="loginName" placeholder="<s:message code="register.account.placeholder"/>" style="width:246px;font-size:10px;">
 					<label id="loginMsg" class="fontSize" style="display:none"><font color="red"><s:message code="register.account.error.exist"/></font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize"><s:message code="register.password"/></label> <input type="password"
 						class="form-control" id="password" name="password" 
-						placeholder="<s:message code="register.password.placeholder"/>" style="width:250px;font-size:10px;">
+						placeholder="<s:message code="register.password.placeholder"/>" style="width:246px;font-size:10px;">
 					<label id="passwordMsg" class="fontSize" style="display:none"><font color="red"><s:message code="register.password.error"/></font></label>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1" class="fontSize"><s:message code="register.password.confirm"/></label> <input type="password"
 						class="form-control" id="passwordAgin" 
-						placeholder="<s:message code="register.password.confirm.placeholder"/>" style="width:250px;font-size:10px;">
+						placeholder="<s:message code="register.password.confirm.placeholder"/>" style="width:246px;font-size:10px;">
 					<c:if test="${!empty error }">
 						<label class="fontSize"><font color="red"><s:message code="register.error.fail"/></font></label>
 					</c:if>
