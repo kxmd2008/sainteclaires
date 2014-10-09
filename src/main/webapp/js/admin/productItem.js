@@ -227,7 +227,8 @@ function checkForm() {
 	showDescMsg();
 	//验证图片
 	var length = $(".files tr").length;
-	if(length == 0){
+	var l = $(".jcarousel ul li").length;
+	if(length == 0 && l == 0){
 		$("#filesMsg").css("display","block");
 		return false;
 	}else{
