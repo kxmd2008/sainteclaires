@@ -173,21 +173,19 @@ function findParentCats(){
 
 function showDlg(title, id) {
 	$("#catLabel").html(title);
-	var locale = $("#locale").val();
+//	var locale = $("#locale").val();
 	if (id) {
 		$("#id").val(currPageItems[id].id);
 		$("#parentId").val(currPageItems[id].parentId);
-		if (locale == "zh_CN") {
-			$("#cname").val(currPageItems[id].name);
-		} else {
-			$("#cname").val(currPageItems[id].nameEn);
-		}
+		$("#cname").val(currPageItems[id].name);
+		$("#cnameEn").val(currPageItems[id].nameEn);
 		$("#orderNo").val(currPageItems[id].orderNo);
 	} else {
 		$("#id").val("");
 		$("#parentId").val("");
 		$("#cname").val("");
 		$("#orderNo").val("");
+		$("#cnameEn").val("");
 	}
 	$("#catModel").modal();
 }

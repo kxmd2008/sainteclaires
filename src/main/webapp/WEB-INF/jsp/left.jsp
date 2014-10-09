@@ -23,22 +23,44 @@
 		<div class="nano nscroller has-scrollbar" style="min-height:200px;max-height:600px;">
 			<div class="content" tabindex="0" style="right: -17px;">
 				<ul class="nav nav-list treeview" style="line-height: 1">
-					<c:forEach var="pcat" items="${parents}">
-						<c:choose>
-							<c:when test="${pcat.id == parentCatId }">
-							<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.name }</label>
-								<ul class="nav nav-list tree" style="display: block;">
-							</c:when>
-							<c:otherwise>
-							<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.name }</label>
-								<ul class="nav nav-list tree" style="display: none;">
-							</c:otherwise>
-						</c:choose>
-							<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
-								<li><a href="./products?subCateId=${subcat.id }">${subcat.name }</a></li>
-							</c:forEach>
-						</ul></li>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${locale=='en_US' }">
+						<c:forEach var="pcat" items="${parents}">
+							<c:choose>
+								<c:when test="${pcat.id == parentCatId }">
+								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.nameEn }</label>
+									<ul class="nav nav-list tree" style="display: block;">
+								</c:when>
+								<c:otherwise>
+								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.nameEn }</label>
+									<ul class="nav nav-list tree" style="display: none;">
+								</c:otherwise>
+							</c:choose>
+								<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
+									<li><a href="./products?subCateId=${subcat.id }">${subcat.nameEn }</a></li>
+								</c:forEach>
+							</ul></li>
+						</c:forEach>
+						</c:when>
+						<c:otherwise>
+						<c:forEach var="pcat" items="${parents}">
+							<c:choose>
+								<c:when test="${pcat.id == parentCatId }">
+								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.name }</label>
+									<ul class="nav nav-list tree" style="display: block;">
+								</c:when>
+								<c:otherwise>
+								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.name }</label>
+									<ul class="nav nav-list tree" style="display: none;">
+								</c:otherwise>
+							</c:choose>
+								<c:forEach var="subcat" items="${subcatMap[pcat.id]}">
+									<li><a href="./products?subCateId=${subcat.id }">${subcat.name }</a></li>
+								</c:forEach>
+							</ul></li>
+						</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 			<div class="pane" style="display: none;">

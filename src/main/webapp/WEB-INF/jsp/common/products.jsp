@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -172,7 +173,6 @@
 						</div>
 						<div class="row products">
 							<c:forEach var="product" items="${products}">
-							
 								<div class="col-sm-6 col-md-6 col-lg-6">
 									<!-- 							<div class="block-flat"> -->
 									<div class="product-image">
@@ -186,10 +186,16 @@
 												class="attachment-shop_catalog wp-post-image" style="display:none;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
 										</div>
 										</a>
-										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal" onclick="preOpenDlg(${product.id});">+ Vista rápida</div>
+										<div class="quick-view" data-prod="12101" data-toggle="modal" data-target="#myModal" 
+											onclick="preOpenDlg(${product.id},'${product.name}','${product.nameEn}',${product.price}, '${product.pics }');">+ Vista rápida</div>
 									</div>
 									<div class="info text-center">
-										<p class="name">${product.name}</p>
+										<p class="name">
+										<c:choose>
+											<c:when test="${locale=='en_US' }">${product.nameEn}</c:when>
+											<c:otherwise>${product.name}</c:otherwise>
+										</c:choose>
+										</p>
 										<span class="price"><span class="amount">${product.price}</span></span>
 									</div>
 								</div>
@@ -221,20 +227,25 @@
 									style="position: relative; cursor: -webkit-grab; -webkit-perspective: 0; -webkit-backface-visibility: hidden; left: 0px; width: 500px;">
 									<div class="slide"
 										style="-webkit-backface-visibility: hidden; overflow: hidden; position: absolute; left: 0px; width: 500px;">
-											<a title="" class="image-popup-vertical-fit" href="./${product.pics }">
-												<img width="75" height="75" src="./DSC6436-500x500.jpg">
-											</a>
+<%-- 											<a title="" class="image-popup-vertical-fit" href="./${product.pics }" id="productPic"> --%>
+												<img width="75" height="75" src="./DSC6436-500x500.jpg" id="productImg">
+<!-- 											</a> -->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="product-info large-5 small-12 columns left">
-						<h1 itemprop="name" class="entry-title">${product.name }</h1>
+						<h1 itemprop="name" class="entry-title" id="productTitle">
+							<c:choose>
+								<c:when test="${locale=='en_US' }">${product.nameEn}</c:when>
+								<c:otherwise>${product.name}</c:otherwise>
+							</c:choose>
+						</h1>
 						<div class="tx-div small"></div>
 						<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 							<p itemprop="price" class="price large">
-								<span class="amount">${product.price }</span>
+								<span class="amount" id="productPrice">${product.price }</span>
 							</p>
 							<meta itemprop="priceCurrency" content="EUR">
 							<link itemprop="availability" href="http://schema.org/InStock">
@@ -275,18 +286,13 @@
 						</div>
 						</form>
 						<div class="product_meta">
-							<span itemprop="productID" class="sku_wrapper">SKU: <span
-								class="sku" data-o_sku="S805 R">S805 R</span>.
-							</span> <span class="posted_in"><s:message code="shoppingbag.category"/>: <a
-								href="http://www.sainteclaire.es/en/product-category/bebe/"
-								rel="tag">Baby</a>, <a
-								href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
-								rel="tag">Newborn Essentials</a>, <a
-								href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
-								rel="tag">Cardigans and sweaters</a>, <a
-								href="http://www.sainteclaire.es/en/product-category/primera-puesta/punto-primera-puesta/"
-								rel="tag">Cardigans and sweaters</a>.
-							</span>
+<%-- 							<span itemprop="productID" class="sku_wrapper">SKU: <span --%>
+<%-- 								class="sku" data-o_sku="S805 R">S805 R</span>. --%>
+<%-- 							</span>  --%>
+<%-- 							<span class="posted_in"><s:message code="shoppingbag.category"/>:  --%>
+<%-- 							<span id="cates"> --%>
+<%-- 							</span> --%>
+<%-- 							</span> --%>
 						</div>
 					</div>
 				</div>
@@ -324,9 +330,18 @@
 				$("#picList0").css("display","block");
 			});
 		});
-		
-		function preOpenDlg(productId){
+		function preOpenDlg(productId, name, nameEn, price, pic){
 			$("#productId").val(productId);
+			var locale = $("#localeSel").val();
+			$("#productPrice").html(price);
+			var img = pic.split(",");
+			$("#productImg").attr("src", "./"+img[0]);
+			if(locale == "en_US"){
+				$("#productTitle").html(nameEn);
+			}else {
+				$("#productTitle").html(name);
+			}
+			
 		}
 	</script>
 <!-- 	<a href="#" class="back-to-top" style="display: none;"><i -->

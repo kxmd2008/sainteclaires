@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -222,7 +223,12 @@
 							</c:forEach>
 						</div>
 						<div class="product-info large-4 small-12 columns left">
-							<h1 itemprop="name" class="entry-title" id="name">${product.name }</h1>
+							<h1 itemprop="name" class="entry-title" id="name">
+							<c:choose>
+								<c:when test="${locale=='en_US' }">${product.nameEn}</c:when>
+								<c:otherwise>${product.name}</c:otherwise>
+							</c:choose>
+							</h1>
 							<div class="tx-div small"></div>
 							<form action="./shot/add" method="post" id="shotAddForm">
 								<input type="hidden" id="productId" name="productId" value="${product.id }">
@@ -268,15 +274,19 @@
 							<div class="product_meta">
 								<span itemprop="productID" class="sku_wrapper">SKU: <span
 									class="sku" data-o_sku="S805 R">S805 R</span>.
-								</span> <span class="posted_in"><s:message code="shoppingbag.category"/>: <a
-									href="http://www.sainteclaire.es/en/product-category/bebe/"
-									rel="tag">Baby</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/primera-puesta/"
-									rel="tag">Newborn Essentials</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/bebe/punto-bebe/"
-									rel="tag">Cardigans and sweaters</a>, <a
-									href="http://www.sainteclaire.es/en/product-category/primera-puesta/punto-primera-puesta/"
-									rel="tag">Cardigans and sweaters</a>.
+								</span> <span class="posted_in"><s:message code="shoppingbag.category"/>:
+								<c:choose>
+									<c:when test="${locale=='en_US' }">
+										<c:forEach items="${product.categorys }" var="cate" varStatus="status">
+											<a href="./products?subCateId=${cate.id }" rel="tag">${cate.nameEn }</a><c:if test="${fn:length(product.categorys) != status.index+1 }">, </c:if>  
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${product.categorys }" var="cate" varStatus="status">
+											<a href="./products?subCateId=${cate.id }" rel="tag">${cate.name }</a><c:if test="${fn:length(product.categorys) != status.index+1 }">, </c:if>  
+										</c:forEach>
+									</c:otherwise>
+								</c:choose> 
 								</span>
 							</div>
 							<div class="social-icons share-row">
