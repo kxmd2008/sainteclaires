@@ -6,62 +6,68 @@ $(document).ready(function() {
 			buttonWidth : '220px',
 			nonSelectedText : '选择类别'
 		});
+		$.getJSON("zh_CN.json",function(data){ 
+			validatorProduct(data);
+		});
 	}else{
 		$('#choose_category').multiselect({
 			maxHeight : 280,
 			buttonWidth : '220px',
 			nonSelectedText : 'Select Category'
 		});
+		$.getJSON("js/customer/en_US.json",function(data){ 
+			validatorProduct(data);
+		});
 	}
-	validatorProduct();
+	
 });
 var URL = "/";
 var numReg = /^\d+$/;
-function validatorProduct() {
+function validatorProduct(msg) {
 	var numReg = /^\d+$/;
 	$("#choose_category").change(function(){
-		showCategoryMsg();
+		showCategoryMsg(msg);
 	});
 	$("#name").on("blur", function() {
-		showNameMsg();
+		showNameMsg(msg);
 	});
 	$("#price").on("blur", function() {
-		showPriceMsg();
+		showPriceMsg(msg);
 	});
 	$("#num").on("blur", function() {
-		showNumMsg();
+		showNumMsg(msg);
 	});
 	$("#meses06").on(
 			"blur",
 			function() {
-				showMeses06Msg();
+				showMeses06Msg(msg);
 			});
 	$("#meses09").on(
 			"blur",
 			function() {
-				showMeses09Msg();
+				showMeses09Msg(msg);
 			});
 	$("#meses12").on(
 			"blur",
 			function() {
-				showMeses12Msg();
+				showMeses12Msg(msg);
 			});
 	$("#meses18").on(
 			"blur",
 			function() {
-				showMeses18Msg();
+				showMeses18Msg(msg);
 			});
 	$("#meses24").on(
 			"blur",
 			function() {
-				showMeses24Msg();
+				showMeses24Msg(msg);
 			});
 	$("#desc").on("blur", function() {
-		showDescMsg();
+		showDescMsg(msg);
 	});
 }
 
-function showCategoryMsg(){
+function showCategoryMsg(msg){
 	var category = $("#choose_category").val();
 	var locale = $("#locale").val();
 	if(locale == 'zh_CN'){
@@ -80,93 +86,93 @@ function showCategoryMsg(){
 		}
 	}
 }
-function showNameMsg(){
+function showNameMsg(msg){
 	var name = $("#name").val();
 	if (name == null || name == "") {
 		$("#nameMsg").css("display", "block");
-		$("#nameMsg font").html("产品名称不能为空！");
+		$("#nameMsg font").html(msg['product_not_null']);
 	} else {
 		$("#nameMsg").css("display", "none");
 	}
 }
-function showPriceMsg(){
+function showPriceMsg(msg){
     var reg = /^[1-9]+(\.\d{1,1})?$/;
 	var price = $("#price").val();
 	if (price == null || price == "") {
 		$("#priceMsg").css("display", "block");
-		$("#priceMsg font").html("产品价格不能为空！");
+		$("#priceMsg font").html(msg['price_not_null']);
 	}else {
 		if (!reg.test(price)) {
 			$("#priceMsg").css("display", "block");
-			$("#priceMsg font").html("产品价格只能为1以上正整数或者1位浮点型数！");
+			$("#priceMsg font").html(msg['price_rule']);
 		}else {
 			$("#priceMsg").css("display", "none");
 		}
 	}
 }
-function showNumMsg(){
+function showNumMsg(msg){
 	var $num = $("#num").val();
 	if ($num == null || $num == "") {
 		$("#numMsg").css("display", "block");
-		$("#numMsg font").html("产品数量不能为空！");
+		$("#numMsg font").html(msg['num_not_null']);
 	} else {
 		$("#numMsg").css("display", "none");
 	}
 	if ($num != null && $num != "") {
 		if (!numReg.test($num)) {
 			$("#numMsg").css("display", "block");
-			$("#numMsg font").html("库存数量只能输入数字！");
+			$("#numMsg font").html(msg['num_must_num']);
 		} else {
 			$("#numMsg").css("display", "none");
 		}
 	}
 }
-function showMeses06Msg(){
+function showMeses06Msg(msg){
 	var meses06 = $("#meses06").val();
 	if (meses06 == null || meses06 == "") {
 		$("#meses06Msg").css("display", "block");
-		$("#meses06Msg font").html("06尺码库存数量不能为空！");
+		$("#meses06Msg font").html(msg['size_06_not_null']);
 	} else {
 		$("#meses06Msg").css("display", "none");
 	}
 	if (meses06 != null && meses06 != "") {
 		if (!numReg.test(meses06)) {
 			$("#meses06Msg").css("display", "block");
-			$("#meses06Msg font").html("06尺码库存数量只能输入数字！");
+			$("#meses06Msg font").html(msg['size_06_num']);
 		} else {
 			$("#meses06Msg").css("display", "none");
 		}
 	}
 }
-function showMeses09Msg(){
+function showMeses09Msg(msg){
 	var meses09 = $("#meses09").val();
 	if (meses09 == null || meses09 == "") {
 		$("#meses09Msg").css("display", "block");
-		$("#meses09Msg font").html("09尺码库存数量不能为空！");
+		$("#meses09Msg font").html(msg['size_09_not_null']);
 	} else {
 		$("#meses09Msg").css("display", "none");
 	}
 	if (meses09 != null && meses09 != "") {
 		if (!numReg.test(meses09)) {
 			$("#meses09Msg").css("display", "block");
-			$("#meses09Msg font").html("09尺码库存数量只能输入数字！");
+			$("#meses09Msg font").html(msg['size_09_num']);
 		} else {
 			$("#meses09Msg").css("display", "none");
 		}
 	}
 }
-function showMeses12Msg(){
+function showMeses12Msg(msg){
 	var meses12 = $("#meses12").val();
 	if (meses12 == null || meses12 == "") {
 		$("#meses12Msg").css("display", "block");
-		$("#meses12Msg font").html("12尺码库存数量不能为空！");
+		$("#meses12Msg font").html(msg['size_12_not_null']);
 	} else {
 		$("#meses12Msg").css("display", "none");
 	}
 	if (meses12 != null && meses12 != "") {
 		if (!numReg.test(meses12)) {
 			$("#meses12Msg").css("display", "block");
-			$("#meses12Msg font").html("09尺码库存数量只能输入数字！");
+			$("#meses12Msg font").html(msg['size_12_num']);
 		} else {
 			$("#meses12Msg").css("display", "none");
 		}
@@ -176,14 +182,14 @@ function showMeses18Msg(){
 	var meses18 = $("#meses18").val();
 	if (meses18 == null || meses18 == "") {
 		$("#meses18Msg").css("display", "block");
-		$("#meses18Msg font").html("18尺码库存数量不能为空！");
+		$("#meses18Msg font").html(msg['size_18_not_null']);
 	} else {
 		$("#meses18Msg").css("display", "none");
 	}
 	if (meses18 != null && meses18 != "") {
 		if (!numReg.test(meses18)) {
 			$("#meses18Msg").css("display", "block");
-			$("#meses18Msg font").html("09尺码库存数量只能输入数字！");
+			$("#meses18Msg font").html(msg['size_18_num']);
 		} else {
 			$("#meses18Msg").css("display", "none");
 		}
@@ -193,20 +199,20 @@ function showMeses24Msg(){
 	var meses24 = $("#meses24").val();
 	if (meses24 == null || meses24 == "") {
 		$("#meses24Msg").css("display", "block");
-		$("#meses24Msg font").html("24尺码库存数量不能为空！");
+		$("#meses24Msg font").html(msg['size_24_not_null']);
 	} else {
 		$("#meses24Msg").css("display", "none");
 	}
 	if (meses24 != null && meses24 != "") {
 		if (!numReg.test(meses24)) {
 			$("#meses24Msg").css("display", "block");
-			$("#meses24Msg font").html("09尺码库存数量只能输入数字！");
+			$("#meses24Msg font").html(msg['size_24_num']);
 		} else {
 			$("#meses24Msg").css("display", "none");
 		}
 	}
 }
-function showDescMsg(){
+function showDescMsg(msg){
 	var desc = $("#desc").val();
 	if (desc == null || desc == "") {
 		$("#descMsg").css("display", "block");
@@ -214,17 +220,17 @@ function showDescMsg(){
 		$("#descMsg").css("display", "none");
 	}
 }
-function checkForm() {
-	showCategoryMsg();
-	showNameMsg();
-	showNumMsg();
-	showPriceMsg();
-	showMeses06Msg();
-	showMeses09Msg();
-	showMeses12Msg();
-	showMeses18Msg();
-	showMeses24Msg();
-	showDescMsg();
+function checkForm(msg) {
+	showCategoryMsg(msg);
+	showNameMsg(msg);
+	showNumMsg(msg);
+	showPriceMsg(msg);
+	showMeses06Msg(msg);
+	showMeses09Msg(msg);
+	showMeses12Msg(msg);
+	showMeses18Msg(msg);
+	showMeses24Msg(msg);
+	showDescMsg(msg);
 	//验证图片
 	var length = $(".files tr").length;
 	var l = $(".jcarousel ul li").length;
@@ -252,7 +258,7 @@ function checkForm() {
 			+ "+" + meses24);
 	if (total != num) {
 		$("#meses24Msg").css("display", "block");
-		$("#meses24Msg font").html("产品尺码数量总和与产品库存数量不符！");
+		$("#meses24Msg font").html(msg['size_num_not_same_num']);
 		return false;
 	} else {
 		$("#meses24Msg").css("display", "none");
@@ -270,7 +276,7 @@ function checkForm() {
 				&& meseso6Msg == "none" && meses12Msg == "none"
 				&& meses18Msg == "none" && meses24Msg == "none"
 				&& descMsg == "none") {
-			if (category != null && category != "选择类别" && name != "" && price != "" && num != "" && meses24 != ""
+			if (category != null && category != "选择类别" && category != "Select Category" && name != "" && price != "" && num != "" && meses24 != ""
 					&& meses18 != "" && meses12 != "" && meses09 != ""
 					&& meses06 != "" && desc != "")
 				return true;

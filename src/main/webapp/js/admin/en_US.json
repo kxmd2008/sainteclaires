@@ -1,0 +1,19 @@
+{
+	"product_not_null" : "Product name cannot be empty",
+	"price_not_null" : "Price cannot be empty",
+	"price_rule" : "产品价格只能为1以上正整数或者1位浮点型数",
+	"num_not_null" : "Number cannot be empty",
+	"num_must_num" : "Must be number",
+	"size_06_not_null" : "Size 06 cannot be empty",
+	"size_06_num" : "Must be number",
+	"size_09_not_null" : "Size 09 cannot be empty",
+	"size_09_num" : "Must be number",
+	"size_12_not_null" : "Size 12 cannot be empty",
+	"size_12_num" : "Must be number",
+	"size_18_not_null" : "Size 18 cannot be empty",
+	"size_18_num" : "Must be number",
+	"size_24_not_null" : "Size 24 cannot be empty",
+	"size_24_num" : "Must be number",
+	"size_num_not_same_num" : "产品尺码数量总和与产品库存数量不符",
+	"select_cate" : "Select Category"
+}
