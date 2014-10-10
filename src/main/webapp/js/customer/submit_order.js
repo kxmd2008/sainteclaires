@@ -64,14 +64,29 @@ function addAddress(){
  * @returns {String}
  */
 function buildBox(data){
+	if(locale == 'en_US'){
+		$.getJSON("js/customer/en_US.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+		});
+	} else {
+		$.getJSON("js/customer/zh_CN.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+		});
+	}
+	var shou = msg['shou'];
+	var addrDefault = msg['default_address'];
 	var ls = '<div class="pull-left box">'+
 				'<ul class="list-unstyled" style="padding:8px;margin-bottom:0px;">'+
-					'<li style="text-align:left;font-size:10px;">'+data.custName+' 收</li>'+
+					'<li style="text-align:left;font-size:10px;">'+data.custName+' '+shou+'</li>'+
 					'<li><hr style="margin-top:0px;margin-bottom:5px;"></li>'+
 					'<li style="text-align:left;font-size:10px;">'+data.address+' '+data.telphone+' '+data.post+'</li>'+
 				'</ul>'+
 				'<div style="width:60px;height:26px;background:#D3D3D3;padding-right: -5px;display:block;" class="pull-right">'+
-					'<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color="white">默认地址</font></label>'+
+					'<label class="fontSize" style="font-size:8px;font-weight: normal;"><font color="white">'+addrDefault+'</font></label>'+
 				'</div>'+
 			'</div>';
 	return ls;
