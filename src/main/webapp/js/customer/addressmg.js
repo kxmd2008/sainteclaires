@@ -2,15 +2,15 @@ var msg = {};
 $(document).ready(function(){
 //	var locale = $("#locale").val();
 	var locale = $("#localeSel").val();
-	if(locale == 'zh_CN'){
-		$.getJSON("zh_CN.json",function(data){ 
+	if(locale == 'en_US'){
+		$.getJSON("js/customer/en_US.json",function(data){ 
 			for (var key in data) {
 				msg[key] = data[key];
 			}
 			bindEvent(data);
 		});
 	} else {
-		$.getJSON("js/customer/en_US.json",function(data){ 
+		$.getJSON("js/customer/zh_CN.json",function(data){ 
 			for (var key in data) {
 				msg[key] = data[key];
 			}

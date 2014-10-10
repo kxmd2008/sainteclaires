@@ -1,5 +1,20 @@
+var msg = {};
 $(document).ready(function(){
 	chooseAddress();
+	var locale = $("#locale").val();
+	if(locale == 'en_US'){
+		$.getJSON("js/customer/en_US.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+		});
+	} else {
+		$.getJSON("js/customer/zh_CN.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+		});
+	}
 });
 /**
  * 选择收货地址

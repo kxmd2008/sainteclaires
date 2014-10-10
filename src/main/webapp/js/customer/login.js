@@ -1,15 +1,14 @@
 $(document).ready(function(){
 	var locale = $("#locale").val();
-	if(locale == 'zh_CN'){
-		$.getJSON("zh_CN.json",function(data){ 
-			bindEvent(data);
-		});
-	} else {
+	if(locale == 'en_US'){
 		$.getJSON("js/customer/en_US.json",function(data){ 
 			bindEvent(data);
 		});
+	} else {
+		$.getJSON("js/customer/zh_CN.json",function(data){ 
+			bindEvent(data);
+		});
 	}
-	
 });
 
 function bindEvent(msg){

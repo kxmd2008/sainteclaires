@@ -9,5 +9,7 @@
 	"reciever_not_null" : "Reciever cannot be empty",
 	"post_not_null" : "Post cannot be empty",
 	"phone_not_null" : "Phone cannot be empty",
-	"addr_not_null" : "Reciever address cannot be empty"
+	"addr_not_null" : "Reciever address cannot be empty",
+	"shou" : "收",
+	"default_address" : "默认地址"
 }

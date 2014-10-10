@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	var locale = $("#locale").val();
-	if(locale == 'zh_CN'){
-		$.getJSON("zh_CN.json",function(data){ 
+	if(locale == 'en_US'){
+		$.getJSON("js/customer/en_US.json",function(data){ 
 			checkLoginName(data);
 			checkPassword(data);
 			checkPasswordAgin(data);
 		});
 	} else {
-		$.getJSON("js/customer/en_US.json",function(data){ 
+		$.getJSON("js/customer/zh_CN.json",function(data){ 
 			checkLoginName(data);
 			checkPassword(data);
 			checkPasswordAgin(data);

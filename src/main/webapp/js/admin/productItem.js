@@ -6,7 +6,7 @@ $(document).ready(function() {
 			buttonWidth : '220px',
 			nonSelectedText : '选择类别'
 		});
-		$.getJSON("zh_CN.json",function(data){ 
+		$.getJSON("js/admin/zh_CN.json",function(data){ 
 			validatorProduct(data);
 		});
 	}else{
@@ -15,7 +15,7 @@ $(document).ready(function() {
 			buttonWidth : '220px',
 			nonSelectedText : 'Select Category'
 		});
-		$.getJSON("js/customer/en_US.json",function(data){ 
+		$.getJSON("js/admin/en_US.json",function(data){ 
 			validatorProduct(data);
 		});
 	}
