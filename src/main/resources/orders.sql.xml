@@ -4,7 +4,7 @@
 <sqlMap namespace="order">
 	<typeAlias alias="Order" type="org.luis.sainteclaires.base.bean.Order" />
 	<typeAlias alias="OrderItem" type="org.luis.sainteclaires.base.bean.OrderItem" />
-	<resultMap class="Order" id="OrderMap">
+	<resultMap class="Order" id="OrderMap" groupBy="id">
 		<result property="id" column="id" />
 		<result property="orderNo" column="order_no" />
 		<result property="orderDate" column="order_date" />
@@ -17,7 +17,7 @@
 		<result property="note" column="note" />
 		<result property="items" resultMap="order.OrderItemMap" />
 	</resultMap>
-	<resultMap class="OrderItem" id="OrderItemMap">
+	<resultMap class="OrderItem" id="OrderItemMap" >
 		<result property="id" column="oiid" />
 		<result property="orderId" column="order_id" />
 		<result property="num" column="num" />
@@ -45,7 +45,7 @@
 		from cust_order as o 
 		left join order_item as oi on o.id = oi.order_id
 		left join product as p on oi.product_id = p.id
-		where o.account = #userName#
+		where o.account = #userName# 
 		order by o.status asc, o.order_date desc
 	</select>
 	

@@ -4,7 +4,7 @@
 <sqlMap namespace="product">
 	<typeAlias alias="ProductVo" type="org.luis.sainteclaires.base.bean.ProductVo" />
 	<typeAlias alias="Category" type="org.luis.sainteclaires.base.bean.Category" />
-	<resultMap class="ProductVo" id="ProductVoMap">
+	<resultMap class="ProductVo" id="ProductVoMap" groupBy="id">
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="nameEn" column="name_en" />

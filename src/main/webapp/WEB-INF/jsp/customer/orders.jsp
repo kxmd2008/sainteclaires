@@ -130,41 +130,46 @@
 						<hr
 							style="width: 100%; border: 1px solid #F0F0F0; margin-bottom: 0px; margin-top: 5px;" />
 						<div class="table-responsive">
-						<table class="table no-border hover">
-							<thead class="no-border">
+						<table class="table no-border hover table-bordered">
+							<thead class="">
 								<tr>
+									<th><s:message code="unsettled.order.no"/></th>
 									<th><s:message code="shoppingbag.thead.product"/></th>
 									<th><s:message code="orders.thead.attr"/></th>
 									<th><s:message code="orders.thead.price"/></th>
 									<th><s:message code="shoppingbag.num"/></th>
-									<th><s:message code="shoppingbag.order.sum"/></th>
 									<th><s:message code="orders.thead.status"/></th>
+									<th><s:message code="shoppingbag.order.sum"/></th>
 									<th></th>
 								</tr>
 							</thead>
-							<tbody class="no-border-y">
+							<tbody class="">
 								<c:forEach items="${orders }" var="order">
-								<c:forEach items="${order.items }" var="item">
-								<tr >
+<%-- 								<c:set var="index" value=""></c:set> --%>
+								<c:forEach items="${order.items }" var="item" varStatus="status">
+								<tr style="background: white;">
+									<c:if test="${status.index == 0 }">
+									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}">
+										${order.orderNo }
+									</td>
+									</c:if>
 									<td>
 										<ul class="list-unstyled list-inline"
-											style="vertical-align: middle; margin-bottom: 0px;text-align: left;">
-											<li><a class="cart_list_product_img" href="<%=basePath%>/detail?id=${item.productId }">
-												<img src="<%=basePath%>/${item.pic}"  width="75" height="75"/></a></li>
-											<li><label class="fontSize"
-												style="vertical-align: middle; font-weight: normal;">${item.productName}</label></li>
+											style="vertical-align: middle; margin-bottom: 0px;display: table">
+											<li><a class="cart_list_product_img" style="margin-bottom:0px;" href="<%=basePath%>/detail?id=${item.productId }">
+												<img src="<%=basePath%>/${item.pic}"  width="75" height="75" /></a></li>
+											<li style="vertical-align: middle;display: table-cell;"><label class="fontSize"
+												style="vertical-align: middle; font-weight: normal;margin-bottom:0px;">${item.productName}</label></li>
 										</ul>
 									</td>
 									<td style="vertical-align: middle">
 										<ul class="list-unstyled"
 											style="vertical-align: middle; margin-bottom: 0px;">
-<!-- 											<li>颜色分类：红色</li> -->
 											<li><s:message code="shoppingbag.size"/>：${item.size }</li>
 										</ul>
 									</td>
 									<td style="vertical-align: middle">${item.price }</td>
 									<td style="vertical-align: middle" class="">${item.num }</td>
-									<td style="vertical-align: middle">${item.num*item.price }</td>
 									<td style="vertical-align: middle">
 									<c:choose>
 										<c:when test="${order.status==0 }"><s:message code="orders.status.nopay"/></c:when>
@@ -173,8 +178,19 @@
 										<c:otherwise><s:message code="orders.status.shouhuo"/></c:otherwise>
 									</c:choose>
 									</td>
-									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}"><button type="button"
-											class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></td>
+									<td style="vertical-align: middle" >${item.num*item.price }</td>
+									<c:if test="${status.index == 0 }">
+									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}">
+										<c:choose>
+											<c:when test="${order.status==0 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.pay"/></button></c:when>
+											<c:when test="${order.status==1 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
+											<c:when test="${order.status==2 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
+											<c:otherwise>
+												<button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.exchange"/></button>
+											</c:otherwise>
+										</c:choose>
+									</td>
+									</c:if>
 								</tr>
 								</c:forEach>
 								</c:forEach>
