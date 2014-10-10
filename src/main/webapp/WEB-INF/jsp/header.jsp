@@ -57,14 +57,19 @@
 						</ul>
 						<ul class="nav navbar-nav not-nav">
 							<div style="margin-left: 20px;"></div>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
-							<li class="button dropdown"><a href="javascript:;"> <img
-									src="<%=basePath%>/common/image/icon_weibo_24.png"></a></li>
+							<!-- JiaThis Button BEGIN -->
+							<div class="jiathis_style_32x32">
+								<a class="jiathis_button_fb"></a>
+								<a class="jiathis_button_weixin"></a>
+								<a class="jiathis_button_renren"></a>
+								<a class="jiathis_button_tsina"></a>
+								<a class="jiathis_button_qzone"></a>
+								<a class="jiathis_button_tqq"></a>
+								<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							</div>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1407141790811606" charset="utf-8"></script>
+							<!-- JiaThis Button END -->
+							
 						</ul>
 
 					</div>
