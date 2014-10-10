@@ -1,5 +1,5 @@
-function edit(productId){
-	var url = "shot/edit/" + productId + "/" + $("#cleaninit1").val();
+function edit(productId , number){
+	var url = "shot/edit/" + productId + "/" + number;
 	$.get(url, function(data){
 		if(data.head.rep_code == '200'){
 			$("#totalAmount1").html(data.item.amount);
@@ -21,7 +21,7 @@ function addNumber(id, productId){
 	var value = $cleaninit.val();
 	value = eval(value+"+"+1);
 	$cleaninit.val(value);
-	edit(productId);
+	edit(productId , value);
 }
 
 /**
@@ -33,15 +33,16 @@ function delNumber(id, productId){
 	if(value > 1){
 		value = eval(value+"-"+1);
 		$cleaninit.val(value);
-		edit(productId);
+		edit(productId , value);
 	}
 }
 
-function changeNum(productId){
-	var num = $("#cleaninit1").val();
+function changeNum( id ,productId){
+	var num = $("#" + id).val();
 	if(num < 1){
-		$("#cleaninit1").val("1");
+		$("#" + id).val("1");
+		edit(productId ,1);
 	} else {
-		edit(productId);
+		edit(productId , num);
 	}
 }
