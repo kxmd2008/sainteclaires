@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="<%=basePath%>/common/image/icon.png">
+<link rel="shortcut icon" href="<%=basePath%>/common/image/favicon.png">
 <title>Sainte Claire</title>
 <link href="<%=basePath%>/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery.gritter.css">
