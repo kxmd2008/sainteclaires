@@ -89,11 +89,11 @@ td {
 													</td>
 													<td style="vertical-align: middle;">￥${shot.price }</td>
 													<td style="vertical-align: middle;"><div class="quantity buttons_added">
-															<input type="button" value="-" class="minus" onclick="delNumber('cleaninit1', ${shot.productId});">
-															<input id="cleaninit1" style="margin-bottom:0px;margin-left:-4px;margin-right:-4px;"
-																type="number" step="1" name="quantity" value="${shot.num }" onblur="changeNum(${shot.productId});"
+															<input type="button" value="-" class="minus" onclick="delNumber('cleaninit1${shot.id }', ${shot.productId});">
+															<input id="cleaninit1${shot.id }" style="margin-bottom:0px;margin-left:-4px;margin-right:-4px;"
+																type="number" step="1" name="quantity" value="${shot.num }" onblur="changeNum('cleaninit1${shot.id }',${shot.productId});"
 																title="Qty" class="input-text qty text" min="1">
-															<input type="button" value="+" class="plus" onclick="addNumber('cleaninit1', ${shot.productId});" >
+															<input type="button" value="+" class="plus" onclick="addNumber('cleaninit1${shot.id }', ${shot.productId});" >
 														</div></td>
 													<td style="vertical-align: middle;">￥<span id="sum${shot.productId}">${shot.num * shot.price }</span></td>
 												</tr>
