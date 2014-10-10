@@ -1,3 +1,4 @@
+var msg = {};
 $(document).ready(function() {
 	var locale = $("#locale").val();
 	if(locale == 'zh_CN'){
@@ -6,7 +7,10 @@ $(document).ready(function() {
 			buttonWidth : '220px',
 			nonSelectedText : '选择类别'
 		});
-		$.getJSON("js/admin/zh_CN.json",function(data){ 
+		$.getJSON("../js/admin/zh_CN.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
 			validatorProduct(data);
 		});
 	}else{
@@ -15,7 +19,10 @@ $(document).ready(function() {
 			buttonWidth : '220px',
 			nonSelectedText : 'Select Category'
 		});
-		$.getJSON("js/admin/en_US.json",function(data){ 
+		$.getJSON("../js/admin/en_US.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
 			validatorProduct(data);
 		});
 	}
@@ -30,6 +37,9 @@ function validatorProduct(msg) {
 	});
 	$("#name").on("blur", function() {
 		showNameMsg(msg);
+	});
+	$("#nameEn").on("blur",function(){
+		showNameEnMsg(msg);
 	});
 	$("#price").on("blur", function() {
 		showPriceMsg(msg);
@@ -95,8 +105,17 @@ function showNameMsg(msg){
 		$("#nameMsg").css("display", "none");
 	}
 }
+function showNameEnMsg(msg){
+	var name = $("#nameEn").val();
+	if (name == null || name == "") {
+		$("#nameEnMsg").css("display", "block");
+		$("#nameEnMsg font").html(msg['product_not_null']);
+	} else {
+		$("#nameEnMsg").css("display", "none");
+	}
+}
 function showPriceMsg(msg){
-    var reg = /^[1-9]+(\.\d{1,1})?$/;
+    var reg = /^[1-9]+(\.\d{1,2})?$/;
 	var price = $("#price").val();
 	if (price == null || price == "") {
 		$("#priceMsg").css("display", "block");
@@ -223,8 +242,9 @@ function showDescMsg(msg){
 function checkForm(msg) {
 	showCategoryMsg(msg);
 	showNameMsg(msg);
-	showNumMsg(msg);
+	showNameEnMsg(msg);
 	showPriceMsg(msg);
+	showNumMsg(msg);
 	showMeses06Msg(msg);
 	showMeses09Msg(msg);
 	showMeses12Msg(msg);
@@ -249,6 +269,7 @@ function checkForm(msg) {
 	var meses24 = $("#meses24").val();
 	var desc = $("#desc").val();
 	var name = $("#name").val();
+	var nameEn = $("#nameEn").val();
 	var price = $("#price").val();
 	var category = $("#choose_category").val();
 	if(meses06 == "" && meses09 == "" && meses12 == "" && meses18 == "" && meses24 == "" ){
@@ -264,6 +285,7 @@ function checkForm(msg) {
 		$("#meses24Msg").css("display", "none");
 
 		var nameMsg = $("#nameMsg").css("display");
+		var nameEnMsg = $("#nameEnMsg").css("display");
 		var priceMsg = $("#priceMsg").css("display");
 		var numMsg = $("#numMsg").css("display");
 		var meseso6Msg = $("#meses06Msg").css("display");
@@ -272,7 +294,7 @@ function checkForm(msg) {
 		var meses24Msg = $("#meses24Msg").css("display");
 		var descMsg = $("#descMsg").css("display");
 		var categoryMsg = $("#categoryMsg").css("display");
-		if ( categoryMsg == "none" && nameMsg == "none" && priceMsg == "none" && numMsg == "none"
+		if ( categoryMsg == "none" && nameMsg == "none" && nameEnMsg == "none" && priceMsg == "none" && numMsg == "none"
 				&& meseso6Msg == "none" && meses12Msg == "none"
 				&& meses18Msg == "none" && meses24Msg == "none"
 				&& descMsg == "none") {
@@ -286,7 +308,7 @@ function checkForm(msg) {
 }
 function saveProduct() {
 	// alert($("#product_add").submit());
-	var flag = checkForm();
+	var flag = checkForm(msg);
 	if(flag == false){
 		return;
 	}

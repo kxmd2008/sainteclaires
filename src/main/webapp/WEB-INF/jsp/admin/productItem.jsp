@@ -187,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="span12" style="margin-left:0px;">
 					<label><s:message code="product.item.product.nameEn"/></label> 
 					<input type="text" id="nameEn" name="nameEn" value="${vo.nameEn }" placeholder="<s:message code="product.item.product.nameEn"/>" style="float:left;">
-					<label id="nameMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.name.info"/></font></label>
+					<label id="nameEnMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.name.info"/></font></label>
 					</div> 
 					<div class="span12" style="margin-left:0px;">
 					<label><s:message code="product.item.product.price"/></label> 
