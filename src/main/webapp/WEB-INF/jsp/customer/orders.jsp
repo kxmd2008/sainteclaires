@@ -186,7 +186,7 @@
 											<c:when test="${order.status==1 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
 											<c:when test="${order.status==2 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
 											<c:otherwise>
-												<button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.exchange"/></button>
+												<a type="button" class="btn btn-default" href="exchange/${order.orderNo}/${item.id}"><s:message code="orders.btn.confirm.exchange"/></a>
 											</c:otherwise>
 										</c:choose>
 									</td>

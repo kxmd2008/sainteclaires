@@ -48,27 +48,30 @@
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse">
 											<div class="panel-body">
-												<div class="form-group">
-													<label><s:message code="changes.name"/></label> <input type="text"
-														class="form-control">
-												</div>
-												<div class="form-group">
-													<label><s:message code="changes.email"/></label> <input type="email"
-														class="form-control">
-												</div>
-												<div class="form-group">
-													<label><s:message code="changes.phone"/></label> <input type="text" class="form-control">
-												</div>
+<!-- 												<div class="form-group"> -->
+<%-- 													<label><s:message code="changes.name"/></label> <input type="text" --%>
+<!-- 														class="form-control"> -->
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<label><s:message code="changes.email"/></label> <input type="email" --%>
+<!-- 														class="form-control"> -->
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<label><s:message code="changes.phone"/></label> <input type="text" class="form-control"> --%>
+<!-- 												</div> -->
+											<form action="<%=basePath %>/exchange/submit" method="post">
+												<input type="hidden" value="${itemId }" name="id">
 												<div class="form-group">
 													<labelcontrol-label"><s:message code="changes.apply.no"/></label>
-													<input type="text" class="form-control">
+													<input type="text" class="form-control" disabled="disabled" value="${orderNo }">
 									             </div>
 									             <div class="form-group">
 													<labelcontrol-label"><s:message code="changes.apply.reason"/></label>
-									                <textarea class="form-control"></textarea>
+									                <textarea class="form-control" name="note"></textarea>
 									             </div>
-												<button type="button" class="btn btn-default"
+												<button type="submit" class="btn btn-default"
 													style="margin-left: 0px;"><s:message code="changes.table.submit"/></button>
+											</form>
 											</div>
 										</div>
 									</div>
