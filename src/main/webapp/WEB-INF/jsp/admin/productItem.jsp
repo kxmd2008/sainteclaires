@@ -215,7 +215,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</select>
 						</c:otherwise>
 					</c:choose>
-					<input type="text" value="${vo.quarter }" id="quarter" name="quarter" placeholder="<s:message code="product.item.product.quarter"/>" style="float:left;">
 					<label id="quarterMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.quarter.info"/></font></label>
 					</div>  
 					
