@@ -10,6 +10,7 @@
 		<result property="nameEn" column="name_en" />
 		<result property="price" column="price" />
 		<result property="num" column="num" />
+		<result property="quarter" column="quarter" />
 		<result property="pics" column="pics" />
 		<result property="isNew" column="isNew" />
 		<result property="description" column="description" />
@@ -21,7 +22,8 @@
 		<result property="nameEn" column="cname_en" />
 	</resultMap>
 	<select id="findProductByCateId" parameterClass="java.lang.Long" resultMap="ProductVoMap">
-		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en 
+		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en,
+		p.quarter 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
 		left join category as c on cp.category_id = c.id
@@ -29,7 +31,8 @@
 	</select>
 	
 	<select id="findProductByPage" parameterClass="java.util.Map" resultMap="ProductVoMap">
-		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en 
+		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en, 
+		p.quarter 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
 		left join category as c on cp.category_id = c.id
@@ -37,7 +40,8 @@
 	</select>
 	
 	<select id="findById" parameterClass="java.lang.Long" resultMap="ProductVoMap">
-		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en  
+		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en,  
+		p.quarter 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
 		left join category as c on cp.category_id = c.id

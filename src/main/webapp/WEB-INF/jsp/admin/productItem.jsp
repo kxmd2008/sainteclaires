@@ -194,6 +194,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="text" step="0.1" min="1" value="${vo.price }" id="price" name="price" placeholder="<s:message code="product.item.product.price"/>" style="float:left;">
 					<label id="priceMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.price.info"/></font></label>
 					</div>  
+					
+					<div class="span12" style="margin-left:0px;">
+					<label><s:message code="product.item.product.quarter"/></label> 
+					<input type="text" value="${vo.quarter }" id="quarter" name="quarter" placeholder="<s:message code="product.item.product.quarter"/>" style="float:left;">
+					<label id="quarterMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.quarter.info"/></font></label>
+					</div>  
+					
 					<div class="span12" style="margin-left:0px;">
 					<label><s:message code="product.item.product.inventory"/></label> 
 					<input type="text" min="1" id="num" name="num" value="${vo.num }" placeholder="<s:message code="product.item.product.inventory"/>" style="float:left;">
