@@ -20,6 +20,6 @@
 <link rel="stylesheet" href="<%=basePath%>/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/nanoscroller.css">
 <link href="<%=basePath%>/css/style.css" rel="stylesheet">
-<link href="./css/my.css" rel="stylesheet">
-<link href="./css/product.css" rel="stylesheet">
-<link href="./css/fonts.css" rel="stylesheet">
+<link href="<%=basePath%>/css/my.css" rel="stylesheet">
+<link href="<%=basePath%>/css/product.css" rel="stylesheet">
+<link href="<%=basePath%>/css/fonts.css" rel="stylesheet">

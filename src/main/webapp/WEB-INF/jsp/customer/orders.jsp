@@ -13,6 +13,8 @@
 <html lang="en">
 <head>
 <jsp:include page="../head.jsp"/>
+<link href="<%=basePath%>/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<link href="<%=basePath%>/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <style type="text/css">
 .jqstooltip {
 	position: absolute;
@@ -126,6 +128,26 @@
 					<div class="col-md-12" style="height: 20px;">
 						<div class="pull-left fontSize"><s:message code="orders.title"/> </div>
 					</div>
+					<form action="<%=basePath%>/orders/find" method="post" class="form-inline" role="form" style="text-align: left;margin-left:15px;">
+					 <div class="form-group">
+					  <div class="input-group date form_start_datetime" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_start">
+					    <input type="text" class="form-control" id="start" name="start" placeholder="<s:message code="orders.start.info"/>" value="${start }">
+					    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					  </div>
+					  <input type="hidden" id="dtp_start" value="" /><br/>
+					  </div>
+					  <div class="form-group">
+					  <div class="input-group date form_end_datetime" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_end">
+					    <input type="text" class="form-control" id="end" name="end" placeholder="<s:message code="orders.end.info"/>" value="${end }">
+					    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					  </div>
+					  <input type="hidden" id="dtp_end" value="" /><br/>
+					  </div>
+					  <div class="form-group" style="margin-top:0px;">
+					    <button type="submit" class="btn btn-default"><s:message code="orders.btn.search"/></button>
+					  </div>
+					</form>
+					
 					<div class="col-md-12" style="min-height: 160px; height: 100%;">
 						<hr
 							style="width: 100%; border: 1px solid #F0F0F0; margin-bottom: 0px; margin-top: 5px;" />
@@ -219,12 +241,35 @@
 	<script type="text/javascript" src="<%=basePath%>/js/common.js"></script>
 	<script src="<%=basePath%>/css/bootstrap/js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>/js/jquery.magnific-popup.min.js"></script>
+	<script src="<%=basePath%>/js/bootstrap-datetimepicker.js"></script>
 	<script src="<%=basePath%>/js/common/detail.js"></script>
 	<script type="text/javascript">
 		var link = $('link[href="css/style.css"]');
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
+		$('.form_start_datetime').datetimepicker({
+	        //language:  'fr',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			minView:2,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 1
+	    });
+		$('.form_end_datetime').datetimepicker({
+	        //language:  'fr',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			minView:2,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 1
+	    });
 // 		$(document).ready(treeToggler);
 	</script>
 </body>

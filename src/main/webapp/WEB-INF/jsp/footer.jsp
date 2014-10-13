@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path;
+%>
 	<footer class="" role="contentinfo"
 		style="margin-top: 40px;">
 		<div class="absolute-footer light"
@@ -17,16 +23,16 @@
 							<ul id="menu-footer" class="footer-nav">
 								<li id="menu-item-8405"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a
-									href="./howtobuy"><s:message code="footer.howtobuy"/></a></li>
+									href="<%=basePath%>/howtobuy"><s:message code="footer.howtobuy"/></a></li>
 								<li id="menu-item-11890"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11890"><a
-									href="./changes"><s:message code="header.changes"/></a></li>
+									href="<%=basePath%>/changes"><s:message code="header.changes"/></a></li>
 								<li id="menu-item-8407"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8407"><a
-									href="./about"><s:message code="footer.about"/></a></li>
+									href="<%=basePath%>/about"><s:message code="footer.about"/></a></li>
 								<li id="menu-item-8406"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8406"><a
-									href="./legal"><s:message code="footer.legal"/></a></li>
+									href="<%=basePath%>/legal"><s:message code="footer.legal"/></a></li>
 							</ul>
 						</div>
 <!-- 						<div class="right" style="margin-right:200px;"> -->
