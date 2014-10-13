@@ -1,7 +1,7 @@
 {
 	"product_not_null" : "Product name cannot be empty",
 	"price_not_null" : "Price cannot be empty",
-	"price_rule" : "产品价格只能为1以上正整数或者1位浮点型数",
+	"price_rule" : "Prices can only is greater than or equal to 1 and decimal places can only be less than or equal to 2",
 	"num_not_null" : "Number cannot be empty",
 	"num_must_num" : "Must be number",
 	"size_06_not_null" : "Size 06 cannot be empty",
@@ -14,6 +14,6 @@
 	"size_18_num" : "Must be number",
 	"size_24_not_null" : "Size 24 cannot be empty",
 	"size_24_num" : "Must be number",
-	"size_num_not_same_num" : "产品尺码数量总和与产品库存数量不符",
+	"size_num_not_same_num" : "Product size total number is not equal to the product inventory quantity",
 	"select_cate" : "Select Category"
 }
