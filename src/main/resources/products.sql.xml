@@ -21,13 +21,13 @@
 		<result property="name" column="cname" />
 		<result property="nameEn" column="cname_en" />
 	</resultMap>
-	<select id="findProductByCateId" parameterClass="java.lang.Long" resultMap="ProductVoMap">
+	<select id="findProductByCateId" parameterClass="java.util.Map" resultMap="ProductVoMap">
 		select p.id, p.name, p.name_en, p.price, p.num, p.pics, p.isNew, p.description, c.id as cid, c.name as cname, c.name_en as cname_en,
 		p.quarter 
 		from product as p 
 		left join category_product as cp on p.id = cp.product_id
 		left join category as c on cp.category_id = c.id
-		where cp.category_id = #cateId# 
+		where cp.category_id = #cateId# and p.quarter = #quarter#
 	</select>
 	
 	<select id="findProductByPage" parameterClass="java.util.Map" resultMap="ProductVoMap">
