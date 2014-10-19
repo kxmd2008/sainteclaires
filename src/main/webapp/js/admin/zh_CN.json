@@ -15,6 +15,7 @@
 	"size_24_not_null" : "06尺码库存数量不能为空",
 	"size_24_num" : "06尺码库存数量只能输入数字",
 	"size_num_not_same_num" : "产品尺码数量总和不等于产品库存数量",
-	"select_cate" : "选择类别"
+	"select_cate" : "选择类别",
+	"quarter_not_null" : "必须选择季度"
 	
 }

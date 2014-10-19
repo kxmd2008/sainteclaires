@@ -15,5 +15,6 @@
 	"size_24_not_null" : "Size 24 cannot be empty",
 	"size_24_num" : "Must be number",
 	"size_num_not_same_num" : "Product size total number is not equal to the product inventory quantity",
-	"select_cate" : "Select Category"
+	"select_cate" : "Select Category",
+	"quarter_not_null" : "Quarter cannot be empty"
 }

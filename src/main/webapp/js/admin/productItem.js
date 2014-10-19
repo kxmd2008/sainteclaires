@@ -44,6 +44,9 @@ function validatorProduct(msg) {
 	$("#price").on("blur", function() {
 		showPriceMsg(msg);
 	});
+	$("#quarter").change(function() {
+		showQuarterMsg(msg);
+	});
 	$("#num").on("blur", function() {
 		showNumMsg(msg);
 	});
@@ -129,6 +132,18 @@ function showPriceMsg(msg){
 		}
 	}
 }
+
+function showQuarterMsg(msg){
+	var quarter = $("#quarter").val();
+	if (quarter == null || quarter == "") {
+		$("#quarterMsg").css("display", "block");
+		$("#quarterMsg font").html(msg['quarter_not_null']);
+	} else {
+		$("#quarterMsg").css("display", "none");
+	}
+	
+}
+
 function showNumMsg(msg){
 	var $num = $("#num").val();
 	if ($num == null || $num == "") {

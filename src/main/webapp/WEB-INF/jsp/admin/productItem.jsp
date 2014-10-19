@@ -200,6 +200,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:choose>
 	                    <c:when test="${locale=='zh_CN' }">
 						<select id="quarter" name="quarter" style="float:left;">
+							<option>
 							<option value="1" <c:if test="${vo.quarter == 1}">selected="selected"</c:if> >春季</option>
 							<option value="2" <c:if test="${vo.quarter == 2}">selected="selected"</c:if> >夏季</option>
 							<option value="3" <c:if test="${vo.quarter == 3}">selected="selected"</c:if> >秋季</option>
@@ -208,6 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</c:when>
 						<c:otherwise>
 						<select id="quarter" name="quarter" style="float:left;">
+							<option>
 							<option value="1" <c:if test="${vo.quarter == 1}">selected="selected"</c:if> >Spring</option>
 							<option value="2" <c:if test="${vo.quarter == 2}">selected="selected"</c:if> >Summer</option>
 							<option value="3" <c:if test="${vo.quarter == 3}">selected="selected"</c:if> >Autumn</option>
