@@ -259,6 +259,7 @@ function checkForm(msg) {
 	showNameMsg(msg);
 	showNameEnMsg(msg);
 	showPriceMsg(msg);
+	showQuarterMsg(msg);
 	showNumMsg(msg);
 	showMeses06Msg(msg);
 	showMeses09Msg(msg);
@@ -286,6 +287,7 @@ function checkForm(msg) {
 	var name = $("#name").val();
 	var nameEn = $("#nameEn").val();
 	var price = $("#price").val();
+	var quarter = $("#quarter").val();
 	var category = $("#choose_category").val();
 	if(meses06 == "" && meses09 == "" && meses12 == "" && meses18 == "" && meses24 == "" ){
 		return false;
@@ -302,6 +304,7 @@ function checkForm(msg) {
 		var nameMsg = $("#nameMsg").css("display");
 		var nameEnMsg = $("#nameEnMsg").css("display");
 		var priceMsg = $("#priceMsg").css("display");
+		var quarterMsg = $("#quarterMsg").css("display");
 		var numMsg = $("#numMsg").css("display");
 		var meseso6Msg = $("#meses06Msg").css("display");
 		var meses12Msg = $("#meses12Msg").css("display");
@@ -312,8 +315,8 @@ function checkForm(msg) {
 		if ( categoryMsg == "none" && nameMsg == "none" && nameEnMsg == "none" && priceMsg == "none" && numMsg == "none"
 				&& meseso6Msg == "none" && meses12Msg == "none"
 				&& meses18Msg == "none" && meses24Msg == "none"
-				&& descMsg == "none") {
-			if (category != null && category != "选择类别" && category != "Select Category" && name != "" && price != "" && num != "" && meses24 != ""
+				&& descMsg == "none" && quarterMsg == "none") {
+			if (category != null && category != "选择类别" && category != "Select Category" && name != "" && nameEn !="" && price != "" && quarter != "" && num != "" && meses24 != ""
 					&& meses18 != "" && meses12 != "" && meses09 != ""
 					&& meses06 != "" && desc != "")
 				return true;
@@ -331,6 +334,7 @@ function saveProduct() {
 	var name = $("#name").val();
 	var nameEn = $("#nameEn").val();
 	var price = $("#price").val();
+	var quarter = $("#quarter").val();
 	var num = $("#num").val();
 	var meses06 = $("#meses06").val();
 	var meses09 = $("#meses09").val();
@@ -350,6 +354,7 @@ function saveProduct() {
 		"name" : name,
 		"nameEn" : nameEn,
 		"price" : price,
+		"quarter" : quarter,
 		"num" : num,
 		"meses06" : meses06,
 		"meses09" : meses09,
