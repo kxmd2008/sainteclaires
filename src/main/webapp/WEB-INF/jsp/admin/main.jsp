@@ -38,10 +38,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <i class="icon-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">My Account</a></li>
+                            <li>
+								<a href="#myModal1" role="button" data-toggle="modal"><s:message code="admin.settings.quarter"/></a>
+							</li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                            <li class="divider visible-phone"></li>
                             <li><a tabindex="-1" href="#" onclick="logout();"><s:message code="main.head.loginout"/></a></li>
                         </ul>
                     </li>
@@ -110,6 +110,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <a href="<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i><s:message code="main.left.background.image.mgt"/></a>
     </div>
+    
+    <div class="modal small hide fade" id="myModal1" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel1"><s:message code="admin.settings.quarter"/></h3>
+		</div>
+		<div class="modal-body">
+			<form id="tab" method="post">
+				<label><s:message code="admin.settings.quarter.select"/></label> 
+				<select  name="quarterSet" id="quarterSet" onchange="seasonChange()">
+					<option>
+					<option value="1" <c:if test="${quarter == '1'}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.spring"/></option>
+					<option value="2" <c:if test="${quarter == '2'}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.summer"/></option>
+					<option value="3" <c:if test="${quarter == '3'}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.autumn"/></option>
+					<option value="4" <c:if test="${quarter == '4'}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.winter"/></option>
+				</select>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			<button class="btn btn-danger" data-dismiss="modal" onclick="seasonChange();">Save</button>
+		</div>
+	</div>
     <input type="hidden" id="locale" value="${locale }">
 <script>
 	function changeLocale(){
@@ -121,6 +146,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 	}
-
+	function seasonChange(){
+		var quarter = $("#quarterSet").val();
+		$.get("quarter/change/"+quarter, function(data){
+			if(data.head.resp_code = '200'){
+				$("#myModal1").model("hide");
+			}
+		});
+	}
 </script>
 

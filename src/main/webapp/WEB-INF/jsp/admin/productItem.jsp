@@ -197,26 +197,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					<div class="span12" style="margin-left:0px;">
 					<label><s:message code="product.item.product.quarter"/></label> 
-					<c:choose>
-	                    <c:when test="${locale=='zh_CN' }">
-						<select id="quarter" name="quarter" style="float:left;">
-							<option>
-							<option value="1" <c:if test="${vo.quarter == 1}">selected="selected"</c:if> >春季</option>
-							<option value="2" <c:if test="${vo.quarter == 2}">selected="selected"</c:if> >夏季</option>
-							<option value="3" <c:if test="${vo.quarter == 3}">selected="selected"</c:if> >秋季</option>
-							<option value="4" <c:if test="${vo.quarter == 4}">selected="selected"</c:if> >冬季</option>
-						</select>
-						</c:when>
-						<c:otherwise>
-						<select id="quarter" name="quarter" style="float:left;">
-							<option>
-							<option value="1" <c:if test="${vo.quarter == 1}">selected="selected"</c:if> >Spring</option>
-							<option value="2" <c:if test="${vo.quarter == 2}">selected="selected"</c:if> >Summer</option>
-							<option value="3" <c:if test="${vo.quarter == 3}">selected="selected"</c:if> >Autumn</option>
-							<option value="4" <c:if test="${vo.quarter == 4}">selected="selected"</c:if> >Winter</option>
-						</select>
-						</c:otherwise>
-					</c:choose>
+					<select id="quarter" name="quarter" style="float:left;">
+						<option value=""></option>
+						<option value="1" <c:if test="${vo.quarter == 1}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.spring"/></option>
+						<option value="2" <c:if test="${vo.quarter == 2}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.summer"/></option>
+						<option value="3" <c:if test="${vo.quarter == 3}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.autumn"/></option>
+						<option value="4" <c:if test="${vo.quarter == 4}">selected="selected"</c:if> ><s:message code="admin.settings.quarter.winter"/></option>
+					</select>
 					<label id="quarterMsg" style="display:none;float:left;margin-bottom:0px;margin-left:15px;padding-top:4px;"><font color="red"><s:message code="product.item.quarter.info"/></font></label>
 					</div>  
 					
