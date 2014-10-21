@@ -83,7 +83,7 @@ function addTableInfo(){
 					return data.num;
 				});
 				$('td:eq(5)', nRow).css("width" , "40px").html(function() {
-					var ls = '<a href="productEdit?id='+data.id+'"><i class="icon-pencil"></i></a> <a'
+					var ls = '<a href="productEdit?id='+data.id+'" style="margin-right:8px;"><i class="icon-pencil"></i></a> <a'
 						+' href="javascript:showDialog(\''+data.id+'\')" role="button" ><i '
 						+ 'class="icon-remove"></i></a>';
 					return ls;
