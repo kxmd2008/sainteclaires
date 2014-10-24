@@ -118,17 +118,22 @@ function showNameEnMsg(msg){
 	}
 }
 function showPriceMsg(msg){
-    var reg = /^[1-9]+(\.\d{1,2})?$/;
+    var reg = /^[0-9]+(\.\d{1,2})?$/;
 	var price = $("#price").val();
 	if (price == null || price == "") {
 		$("#priceMsg").css("display", "block");
 		$("#priceMsg font").html(msg['price_not_null']);
 	}else {
-		if (!reg.test(price)) {
+		if(price <= 0){
 			$("#priceMsg").css("display", "block");
 			$("#priceMsg font").html(msg['price_rule']);
-		}else {
-			$("#priceMsg").css("display", "none");
+		}else{
+			if (!reg.test(price)) {
+				$("#priceMsg").css("display", "block");
+				$("#priceMsg font").html(msg['price_rule']);
+			}else {
+				$("#priceMsg").css("display", "none");
+			}
 		}
 	}
 }
