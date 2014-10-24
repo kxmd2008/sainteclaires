@@ -322,17 +322,19 @@
 		$(document).ready(function(){
 			treeToggler();
 			var divs = $(".front-image");
+			alert("==="+divs.length);
 			divs.each(function(index){
-				var imgs = divs[index].children();
-				var src = imgs[1].attr("src");
+				alert("==="+index);    
+				var imgs = $(divs[index]).children();
+				var src = $(imgs[1]).attr("src");
 				if(src != './'){
-					imgs[0].mouseover(function(){
-						imgs[0].css("display","none");
-						imgs[1].css("display","block");
+					$(imgs[0]).mouseover(function(){
+						$(imgs[0]).css("display","none");
+						$(imgs[1]).css("display","block");
 					});
-					imgs[1].mouseout(function(){
-						imgs[1].css("display","none");
-						imgs[0].css("display","block");
+					$(imgs[1]).mouseout(function(){
+						$(imgs[1]).css("display","none");
+						$(imgs[0]).css("display","block");
 					});
 				}
 				
