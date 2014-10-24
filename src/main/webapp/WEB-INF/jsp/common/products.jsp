@@ -175,14 +175,14 @@
 							<c:forEach var="product" items="${products}">
 								<div class="col-sm-6 col-md-6 col-lg-6">
 									<!-- 							<div class="block-flat"> -->
-									<div class="product-image">
+									<div class="product-image" >
 										<a href="<%=basePath%>/detail?id=${product.id}" >
 										<div class="front-image">
-											<img width="500px" height="500px" id="picList0"
+											<img width="500px" height="500px" 
 												src="./${product.picList[0]}"
 												class="attachment-shop_catalog wp-post-image" style="display:block;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
 											<img width="500px" height="500px"
-												src="./${product.picList[1]}" id="picList1"
+												src="./${product.picList[1]}" 
 												class="attachment-shop_catalog wp-post-image" style="display:none;min-width:500px;min-height:500px;max-width:500px;max-height:500px;" alt="_DSC6436">
 										</div>
 										</a>
@@ -319,16 +319,35 @@
 		if ($.cookie("css")) {
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
-		$(document).ready(treeToggler);
 		$(document).ready(function(){
-			$("#picList0").mouseover(function(){
-				$("#picList0").css("display","none");
-				$("#picList1").css("display","block");
+			treeToggler();
+			var divs = $(".front-image");
+			divs.each(function(index){
+				var imgs = divs[index].children();
+				var src = imgs[1].attr("src");
+				if(src != './'){
+					imgs[0].mouseover(function(){
+						imgs[0].css("display","none");
+						imgs[1].css("display","block");
+					});
+					imgs[1].mouseout(function(){
+						imgs[1].css("display","none");
+						imgs[0].css("display","block");
+					});
+				}
+				
 			});
-			$("#picList1").mouseout(function(){
-				$("#picList1").css("display","none");
-				$("#picList0").css("display","block");
-			});
+// 			var src = $("#picList1").attr("src");
+// 			if(src != './'){
+// 				$("#picList0").mouseover(function(){
+// 					$("#picList0").css("display","none");
+// 					$("#picList1").css("display","block");
+// 				});
+// 				$("#picList1").mouseout(function(){
+// 					$("#picList1").css("display","none");
+// 					$("#picList0").css("display","block");
+// 				});
+// 			}
 		});
 		function preOpenDlg(productId, name, nameEn, price, pic){
 			$("#productId").val(productId);
