@@ -414,7 +414,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(pics).each(function(index){
 			if(index == i){
 				alt = $(pics[index]).children("img").attr("alt");
-				pics[i].remove();
+				$(pics[i]).remove();
 				var hiddenPics = $("#pics").val();
 				var hiddenPic = hiddenPics.split(",");
 				$(hiddenPic).each(function(i){
