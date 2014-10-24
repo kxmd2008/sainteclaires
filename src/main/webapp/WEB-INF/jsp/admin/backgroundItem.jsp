@@ -297,7 +297,14 @@ function deletePic(){
 			$("#picStr").val(value);
 		}
 	});
+	$(".jcarousel-pagination a").last().remove();
+	$(".jcarousel-control-prev").addClass("inactive");
+	$(".jcarousel-control-next").removeClass("inactive");
+	$("#jcarousel_ul").css("left","0px");
 	var child = $(".jcarousel ul").children();
+	if(child.length != 0){
+		$(".jcarousel-pagination a").first().addClass("active");
+	}
 	if(child.length == 0){
 		$(".wrapper").css("display","none");
 	}
