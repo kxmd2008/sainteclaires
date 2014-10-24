@@ -247,7 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					>
 			            <div class="jcarousel-wrapper" style="width:300px;">
 			                <div class="jcarousel" >
-			                    <ul>
+			                    <ul id="jcarousel_ul">
 			                    	<c:forEach var="pic" items="${vo.picList }">
 			                        <li class="bhoriz"></span><img src="<%=basePath%>/${pic}" alt="${pic}" title="${pic}" ></li>
 			                    	</c:forEach>
@@ -426,7 +426,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$("#pics").val(value);
 			}
 		});
+		$(".jcarousel-pagination a").last().remove();
+		$(".jcarousel-control-prev").addClass("inactive");
+		$(".jcarousel-control-next").removeClass("inactive");
+		$("#jcarousel_ul").css("left","0px");
 		var child = $(".jcarousel ul").children();
+		if(child.length != 0){
+			$(".jcarousel-pagination a").first().addClass("active");
+		}
 		if(child.length == 0){
 			$(".wrapper").css("display","none");
 		}
