@@ -28,11 +28,11 @@
 						<c:forEach var="pcat" items="${parents}">
 							<c:choose>
 								<c:when test="${pcat.id == parentCatId }">
-								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.nameEn }</label>
+								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header" key="${pcat.name }">${pcat.nameEn }</label>
 									<ul class="nav nav-list tree" style="display: block;">
 								</c:when>
 								<c:otherwise>
-								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.nameEn }</label>
+								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" key="${pcat.name }">${pcat.nameEn }</label>
 									<ul class="nav nav-list tree" style="display: none;">
 								</c:otherwise>
 							</c:choose>
@@ -46,11 +46,11 @@
 						<c:forEach var="pcat" items="${parents}">
 							<c:choose>
 								<c:when test="${pcat.id == parentCatId }">
-								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header">${pcat.name }</label>
+								<li class="open" onclick="closeTree(this);"><label class="tree-toggler nav-header" key="${pcat.name }">${pcat.name }</label>
 									<ul class="nav nav-list tree" style="display: block;">
 								</c:when>
 								<c:otherwise>
-								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" >${pcat.name }</label>
+								<li class="" onclick="closeTree(this);"><label class="tree-toggler nav-header" key="${pcat.name }">${pcat.name }</label>
 									<ul class="nav nav-list tree" style="display: none;">
 								</c:otherwise>
 							</c:choose>
@@ -79,7 +79,8 @@
 			$(obj).children("ul").css("display","block");
 			var div = $("#cl-wrapper");
 			if(div.hasClass("expend")) {
-				var categoryName = $(obj).children("label").html();
+// 				var categoryName = $(obj).children("label").html();
+				var categoryName = $(obj).children("label").attr("key");
 				var d = {"categoryName" : categoryName};
 				$.post("catebg", d, function(data){
 					if(data.head.rep_code == '200' && data.item.pics.length > 0){

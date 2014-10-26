@@ -179,10 +179,12 @@
 					</div>
 					<div class="col-md-12" style="margin-top: 40px;">
 						<div class="pull-right">
-							<button type="button" class="btn btn-default"
+							<form action="../pay" method="get">
+							<button type="submit" class="btn btn-default"
 								style="background: red; width: 150px;">
 								<font color="white"><s:message code="submitOrder.btn.pay"/></font>
 							</button>
+							</form>
 						</div>
 					</div>
 				</div>

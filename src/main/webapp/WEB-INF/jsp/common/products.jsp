@@ -276,7 +276,7 @@
 									style="padding:7px;width:150px;"><s:message code="shoppingbag.addtocart"/></button>
 								<div class="quantity buttons_added">
 									<input
-										type="number" step="1" name="quantity" value="1" title="Qty"
+										type="number" step="1" name="num" value="1" title="Qty"
 										class="input-text qty text" min="1">
 								</div>
 							</div>

@@ -204,9 +204,18 @@
 									<c:if test="${status.index == 0 }">
 									<td style="vertical-align: middle" rowspan="${fn:length(order.items)}">
 										<c:choose>
-											<c:when test="${order.status==0 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.pay"/></button></c:when>
-											<c:when test="${order.status==1 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
-											<c:when test="${order.status==2 }"><button type="button" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button></c:when>
+											<c:when test="${order.status==0 }">
+											<form action="pay" method="get">
+											<button type="submit" class="btn btn-default"><s:message code="orders.btn.confirm.pay"/></button>
+											</form>
+											</c:when>
+											<c:when test="${order.status==1 || order.status==2}">
+											<form action="shouhuo" method="get">
+												<input type="hidden" value="${order.id}" name="orderId"/>
+												<input type="hidden" value="3" name="status"/>
+												<button type="submit" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button>
+											</form>
+											</c:when>
 											<c:otherwise>
 												<a type="button" class="btn btn-default" href="exchange/${order.orderNo}/${item.id}"><s:message code="orders.btn.confirm.exchange"/></a>
 											</c:otherwise>
