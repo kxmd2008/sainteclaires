@@ -16,6 +16,8 @@ function save(){
 	$.post("bg/save", d, function(data){
 		if(data.head.rep_code == '200'){
 			location.href = "bgMgt";
+		} else {
+			alert(data.head.rep_message);
 		}
 	});
 }
