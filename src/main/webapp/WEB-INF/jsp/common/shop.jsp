@@ -56,8 +56,8 @@
 			link.attr("href", 'css/skin-' + $.cookie("css") + '.css');
 		}
 		$(document).ready(treeToggler);
-		var imgs = $("#bgPic").val().split(",");
-		$("#cl-wrapper").css("background-image", "url('"+imgs[imgs.length-1]+"')");
+		var imgs = $("#bgPic").val();
+		$("#cl-wrapper").css("background-image", "url('"+imgs+"')");
 	</script>
 </body>
 </html>
