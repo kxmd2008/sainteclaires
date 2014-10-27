@@ -17,7 +17,7 @@ $(document).ready(function(){
 /**
  * 验证注册名称是否存在
  */
-function checkLoginName(mag){
+function checkLoginName(msg){
 	$("#loginName").on("blur",function(){
 		var $loginName = $("#loginName").val();
 		if($loginName == null || $loginName == ""){
@@ -26,9 +26,9 @@ function checkLoginName(mag){
 		}else{
 			$("#loginMsg").css("display","none");
 		}
-		var data = {"loginName":$loginName};
-		$.post("account/check",data , function(msg){
-			if(msg.head.rep_code != 200){
+		var d = {"loginName":$loginName};
+		$.post("account/check",d , function(data){
+			if(data.head.rep_code != 200){
 				$("#loginMsg").css("display","block");
 				$("#loginMsg").html("<font color='red'>"+msg['account_exist']+"</font>");
 			}
