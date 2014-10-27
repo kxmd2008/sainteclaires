@@ -197,7 +197,14 @@
 										<c:when test="${order.status==0 }"><s:message code="orders.status.nopay"/></c:when>
 										<c:when test="${order.status==1 }"><s:message code="orders.status.pay"/></c:when>
 										<c:when test="${order.status==2 }"><s:message code="orders.status.fahuo"/></c:when>
-										<c:otherwise><s:message code="orders.status.shouhuo"/></c:otherwise>
+										<c:when test="${order.status==3 }"><s:message code="orders.status.shouhuo"/></c:when>
+										<c:when test="${order.status==4}">
+											<s:message code="orders.exchange.info"/>
+										</c:when>
+										<c:when test="${order.status==5}">
+											<s:message code="orders.exchange.reject"/>
+										</c:when>
+										<c:otherwise><s:message code="orders.complete"/></c:otherwise>
 									</c:choose>
 									</td>
 									<td style="vertical-align: middle" >${item.num*item.price }</td>
@@ -216,8 +223,17 @@
 												<button type="submit" class="btn btn-default"><s:message code="orders.btn.confirm.shouhuo"/></button>
 											</form>
 											</c:when>
-											<c:otherwise>
+											<c:when test="${order.status==3}">
 												<a type="button" class="btn btn-default" href="exchange/${order.orderNo}/${item.id}"><s:message code="orders.btn.confirm.exchange"/></a>
+											</c:when>
+											<c:when test="${order.status==4}">
+												<s:message code="orders.exchange.info"/>
+											</c:when>
+											<c:when test="${order.status==5}">
+												<s:message code="orders.exchange.reject"/>
+											</c:when>
+											<c:otherwise>
+												<s:message code="orders.complete"/>
 											</c:otherwise>
 										</c:choose>
 									</td>

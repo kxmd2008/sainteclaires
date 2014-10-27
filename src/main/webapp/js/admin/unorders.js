@@ -63,10 +63,10 @@ function addTableInfo(){
 		{
 			"data" : "amount"
 		}
-//		, 
-//		{
-//			"data" : "status"
-//		}
+		, 
+		{
+			"data" : "status"
+		}
 		],
 		"columnDefs":[
 		 { 
@@ -75,6 +75,8 @@ function addTableInfo(){
 			"render":function (data,type,row) {
 				if(data == 1){
 					return "已付款未发送";
+				} else if(data == 4){
+					return "申请换货";
 				}
                 return row; 
 			}
@@ -83,7 +85,7 @@ function addTableInfo(){
 			 "targets": [6],
 			 "data":"id",
 			"render":function (data,type,row) {
-                return "<a href='javascript:deal("+data+")' >发货</a>"; 
+                return "<a href='javascript:deal("+data+")' >发货</a>" + "   <a href='javascript:reject("+data+")' >拒绝</a>"; 
 			}
 		 }]
 	});
@@ -96,6 +98,19 @@ function addTableInfo(){
  */
 function deal(id){
 	$.get("unsettledOrders/send/"+id,function(data){
+		if(data.head.rep_code == 200){
+			addTableInfo();
+		}
+	});
+}
+
+/**
+ * 申请换货的订单改为【拒绝换货】
+ * @param data
+ * @returns
+ */
+function reject(id){
+	$.get("unsettledOrders/reject/"+id,function(data){
 		if(data.head.rep_code == 200){
 			addTableInfo();
 		}

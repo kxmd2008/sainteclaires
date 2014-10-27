@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h1 class="page-title" id="product_title"><s:message code="product.item.new"/></h1>
 			</c:when>
 			<c:otherwise>
-					<h1 class="page-title" id="product_title"><s:message code="product.item.updatew"/></h1>
+					<h1 class="page-title" id="product_title"><s:message code="product.item.update"/></h1>
 			</c:otherwise>
 		</c:choose>
 	</div>

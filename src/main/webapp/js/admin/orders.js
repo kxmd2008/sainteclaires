@@ -64,10 +64,10 @@ function addTableInfo(){
 		}, {
 			"data" : "account"
 		}, {
-			"data" : "orderTime"
+			"data" : "orderDate"
 		},
 		{
-			"data" : "tradeTime"
+			"data" : "tradeDate"
 		}, 
 		{
 			"data" : "amount"
@@ -86,6 +86,8 @@ function addTableInfo(){
 					return "<font color='blue'>已发送</font>";
 				}else if(data ==3){
 					return "<font color='green'>已收货</font>";
+				}else if(data ==4){
+					return "<font color='green'>申请换货</font>";
 				}
 			}
 		 }]
