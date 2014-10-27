@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="product">
+	<typeAlias alias="ProductSize" type="org.luis.sainteclaires.base.bean.ProductSize" />
+	<resultMap class="ProductSize" id="ProductSizeMap">
+		<result property="id" column="id" />
+		<result property="size" column="size" />
+		<result property="productId" column="product_id" />
+		<result property="num" column="num" />
+	</resultMap>
+	<update id="updateNum" parameterClass="java.util.Map">
+		update product_size set num = num - #num# where product_id = #productId# and size = #size#
+	</update>
+</sqlMap>

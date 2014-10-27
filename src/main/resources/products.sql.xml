@@ -50,4 +50,8 @@
 		left join category as c on cp.category_id = c.id
 		where p.id = #id#
 	</select>
+	
+	<update id="updateNum" parameterClass="java.util.Map">
+		update product set num = num - #num# where id = #id#
+	</update>
 </sqlMap>
