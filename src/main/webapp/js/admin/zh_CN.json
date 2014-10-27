@@ -16,6 +16,14 @@
 	"size_24_num" : "06尺码库存数量只能输入数字",
 	"size_num_not_same_num" : "产品尺码数量总和不等于产品库存数量",
 	"select_cate" : "选择类别",
-	"quarter_not_null" : "必须选择季度"
-	
+	"quarter_not_null" : "必须选择季度",
+	"order_status_send" : "已发货",
+	"order_status_unpay" : "待付款",
+	"order_status_undeal" : "已付款未发货",
+	"order_status_deliveried" : "已收货",
+	"order_status_return" : "申请换货",
+	"order_status_return_reject" : "换货被拒绝",
+	"order_status_complete" : "交易完成",
+	"order_btn_send" : "发货",
+	"order_btn_reject" : "拒绝换货"
 }

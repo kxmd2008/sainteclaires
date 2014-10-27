@@ -1,8 +1,24 @@
+var msg = {};
 $(document).ready(function() {
-	addTableInfo();
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		$.getJSON("../js/admin/zh_CN.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+			addTableInfo(msg);
+		});
+	}else{
+		$.getJSON("../js/admin/en_US.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+			addTableInfo(msg);
+		});
+	}
 } );
 var fvTable ;
-function addTableInfo(){
+function addTableInfo(msg){
 	//为了避免多次初始化datatable()
 	if (typeof fvTable != 'undefined' && fvTable != null) { 
         fvTable.fnClearTable(0); //清空数据
@@ -74,9 +90,9 @@ function addTableInfo(){
 			 "data":"status",
 			"render":function (data,type,row) {
 				if(data == 1){
-					return "已付款未发送";
+					return msg['order_status_undeal'];
 				} else if(data == 4){
-					return "申请换货";
+					return msg['order_status_return'];
 				}
                 return row; 
 			}
@@ -85,7 +101,10 @@ function addTableInfo(){
 			 "targets": [6],
 			 "data":"id",
 			"render":function (data,type,row) {
-                return "<a href='javascript:deal("+data+")' >发货</a>" + "   <a href='javascript:reject("+data+")' >拒绝</a>"; 
+				if(row.status == '1'){
+					return "<a href='javascript:deal("+data+")' >"+msg['order_btn_send']+"</a>";
+				}
+                return "<a href='javascript:deal("+data+")' >"+msg['order_btn_send']+"</a>" + "   <a href='javascript:reject("+data+")' >"+msg['order_btn_reject']+"</a>"; 
 			}
 		 }]
 	});
@@ -99,7 +118,7 @@ function addTableInfo(){
 function deal(id){
 	$.get("unsettledOrders/send/"+id,function(data){
 		if(data.head.rep_code == 200){
-			addTableInfo();
+			addTableInfo(msg);
 		}
 	});
 }
@@ -112,7 +131,7 @@ function deal(id){
 function reject(id){
 	$.get("unsettledOrders/reject/"+id,function(data){
 		if(data.head.rep_code == 200){
-			addTableInfo();
+			addTableInfo(msg);
 		}
 	});
 }

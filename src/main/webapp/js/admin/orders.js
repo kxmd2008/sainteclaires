@@ -1,12 +1,28 @@
 var fvTable ;
 var orderNo="" ;
 var customerNo="" ;
+var msg = {};
 $(document).ready(function() {
 	orderNo = $("#order_no").val();
 	customerNo = $("#account_no").val();
-	addTableInfo();
+	var locale = $("#locale").val();
+	if(locale == 'zh_CN'){
+		$.getJSON("../js/admin/zh_CN.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+			addTableInfo(msg);
+		});
+	}else{
+		$.getJSON("../js/admin/en_US.json",function(data){ 
+			for (var key in data) {
+				msg[key] = data[key];
+			}
+			addTableInfo(msg);
+		});
+	}
 } );
-function addTableInfo(){
+function addTableInfo(msg){
 	//为了避免多次初始化datatable()
 	if(typeof fvTable != 'undefined' && fvTable != null) { 
 		var data = {
@@ -79,15 +95,19 @@ function addTableInfo(){
 			 "data":"status",
 			"render":function (data,type,row) {
 				if(data == 0){
-					return "<font color='#7761A7'>待付款</font>";
+					return "<font color='#7761A7'>"+msg['order_status_unpay']+"</font>";
 				}else if(data == 1){
-					return "<font color='red'>已付款未处理</font>";
+					return "<font color='red'>"+msg['order_status_undeal']+"</font>";
 				}else if(data == 2){
-					return "<font color='blue'>已发送</font>";
+					return "<font color='blue'>"+msg['order_status_send']+"</font>";
 				}else if(data ==3){
-					return "<font color='green'>已收货</font>";
+					return "<font color='green'>"+msg['order_status_deliveried']+"</font>";
 				}else if(data ==4){
-					return "<font color='green'>申请换货</font>";
+					return "<font color='green'>"+msg['order_status_return']+"</font>";
+				}else if(data ==5){
+					return "<font color='red'>"+msg['order_status_return_reject']+"</font>";
+				} else {
+					return "<font color='green'>"+msg['order_status_complete']+"</font>";
 				}
 			}
 		 }]
@@ -101,5 +121,5 @@ function search(){
 	orderNo = $("#order_no").val();
 	customerNo = $("#account_no").val();
 	//先清空数据，然后重新加载
-	addTableInfo();
+	addTableInfo(msg);
 }
