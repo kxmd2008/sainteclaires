@@ -13,6 +13,7 @@
 
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
+	<mvc:view-controller path="/" view-name="redirect:/show" />
 	<bean id="springMvcAware" class="org.luis.basic.util.SpringMvcAware" />
 
 	<bean id="multipartResolver"
