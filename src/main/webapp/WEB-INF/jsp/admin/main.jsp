@@ -107,8 +107,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li ><a href="<%=basePath%>/auth/productAdd"><s:message code="main.left.product.add"/></a></li>
             </c:if>
         </ul>
-
+<!-- 		背景图片管理 -->
         <a href="<%=basePath%>/auth/bgMgt" class="nav-header" ><i class="icon-question-sign"></i><s:message code="main.left.background.image.mgt"/></a>
+<!--    展示图片上传 -->
+        <a href="<%=basePath%>/auth/showPic" class="nav-header" ><i class="icon-question-sign"></i><s:message code="pic.show.upload.title"/></a>
     </div>
     
     <div class="modal small hide fade" id="myModal1" tabindex="-1"
