@@ -128,7 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="well ">
 				<form id="fileupload" action="<%=basePath%>/auth/upload" method="post" enctype="multipart/form-data">
-				<input type="text" id="year" name="year" placeholder="<s:message code="pic.show.upload.year"/>" >
+				<select id="year" name="year"></select>
 				<div class="span12" style="margin-left:0px;margin-bottom: 10px;">
 					<select name="quarter" id="quarter" >
 						<option value="1"><s:message code="admin.settings.quarter.spring"/></option>
@@ -260,6 +260,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 {% } %}
 </script>
 <script type="text/javascript">
+var startYear = new Date().getUTCFullYear();//起始年份
+var endYear = new Date().getUTCFullYear() + 3;//结束年份，默认为当前年份
+var obj = document.getElementById('year');
+onload=function(){
+	for (var i=startYear;i<=endYear;i++) {
+		obj.options.add(new Option(i,i));
+	}
+	obj.options[0].selected=1;
+};
+
+
 function deletePic(){
 	var picNum = $(".jcarousel-pagination .active").html();
 	var pics = $(".jcarousel ul li");
