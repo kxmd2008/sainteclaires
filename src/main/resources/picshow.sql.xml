@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="picShow">
+	<typeAlias alias="picShow" type="org.luis.sainteclaires.base.bean.PicShow" />
+	<update id="picLove" parameterClass="java.lang.Long">
+	update pic_show set loves = loves + 1 where id = #id#
+	</update>
+	<update id="picView" parameterClass="java.lang.Long">
+	update pic_show set views = views + 1 where id = #id#
+	</update>
+</sqlMap>

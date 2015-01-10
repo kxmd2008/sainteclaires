@@ -7,4 +7,5 @@
 	<sqlMap resource="products.sql.xml" />
 	<sqlMap resource="orders.sql.xml" />
 	<sqlMap resource="productsize.sql.xml" />
+	<sqlMap resource="picshow.sql.xml" />
 </sqlMapConfig>

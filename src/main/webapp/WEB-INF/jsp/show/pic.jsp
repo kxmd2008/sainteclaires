@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -15,7 +17,7 @@
 <link rel="apple-touch-icon" href="img/apple_icons_57x57.png">
 <link rel="apple-touch-icon" sizes="72x72" href="img/apple_icons_72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="img/apple_icons_114x114.png">
-<title>Oyster | Html Photo Template</title>
+<title>Sainte Claire</title>
 <link href="http://fonts.useso.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
 <link href="http://fonts.useso.com/css?family=Roboto:400,300,500,900" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="<%=basePath%>/theme/show/css/theme.css" type="text/css" media="all" />
@@ -25,17 +27,12 @@
 </head>
 <body>
 
-
- 
-
 	<header class="main_header">
         <div class="header_wrapper">
         	<div class="logo_sect" style="padding-top:18px;padding-bottom:18px;">
                 <a href="#" class="logo">
-				<img src="img/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
-				
+				<img src="../../common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
             </div>                       
-            
             <div class="clear"></div>
         </div>
     </header>
@@ -54,8 +51,7 @@
                                                 <div class="pf_output_container">                                                	
                                                     <div class="slider-wrapper theme-default ">
                                                         <div class="nivoSlider">                                                
-                                                            <img src="img/portfolio/1170_563/1.jpg" alt="" />
-                                                           
+                                                            <img src="../../${pic.path }" alt="" />
                                                         </div>
                                                     </div>
                                                 </div>                                                
@@ -72,10 +68,10 @@
                                                 </div>
                                                 
                                                 <div class="block_likes">
-                                                    <div class="post-views"><i class="stand_icon icon-eye"></i> <span>5458</span></div>
-                                                    <div class="gallery_likes gallery_likes_add ">
+                                                    <div class="post-views"><i class="stand_icon icon-eye"></i> <span>${pic.views }</span></div>
+                                                    <div class="gallery_likes gallery_likes_add " onclick="ilovepic(${pic.id})">
                                                         <i class="stand_icon icon-heart-o"></i>
-                                                        <span>45</span>
+                                                        <span id="love${pic.id}">${pic.loves }</span>
                                                     </div>						
                                                 </div>
                                                 <div class="clear"></div>
@@ -88,12 +84,12 @@
                                 	<div class="row">
                                         <div class="span12">
                                             <div id="comments">
-                                                <h4 class="headInModule postcomment">Comments: </h4>
+                                                <h4 class="headInModule postcomment"><s:message code="pic.shows.detail.comments"/>: </h4>
                                                 <ol class="commentlist">
                                                     <li class="comment odd alt thread-odd thread-alt depth-1">
                                                         <div class="stand_comment">
                                                             <div class="commentava wrapped_img">
-                                                                <img alt="" src="img/avatar/3.jpg" class="avatar" height="96" width="96" />
+                                                                <img alt="" src="../../shows/default_head.gif" class="avatar" height="96" width="96" />
                                                                 <div class="img_inset"></div>
                                                             </div>
                                                             <div class="thiscommentbody">
@@ -148,13 +144,12 @@
                                                 <hr class="comment_hr">                                                    
                                                 
                                                 <div id="respond" class="comment-respond">
-                                                    <h3 id="reply-title" class="comment-reply-title">Leave a Comment!</h3>
+                                                    <h3 id="reply-title" class="comment-reply-title"><s:message code="pic.shows.detail.comment.title"/>!</h3>
                                                     <form action="javascript:void(0)" method="post" id="commentform" class="comment-form">
-                                                        <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
-                                                        <label class="label-name"></label><input type="text" placeholder="Name *" title="Name *" id="author" name="author" class="form_field">
-                                                        <label class="label-email"></label><input type="text" placeholder="Email *" title="Email *" id="email" name="email" class="form_field">
-                                                        <label class="label-message"></label><textarea name="comment" cols="45" rows="5" placeholder="Message..." id="comment-message" class="form_field"></textarea>
-                                                        <p class="form-submit"><input name="submit" type="submit" id="submit" value="Post Comment" /></p>
+                                                        <label class="label-name"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.name"/> *" title="<s:message code="pic.shows.detail.comment.name"/> *" id="author" name="author" class="form_field">
+                                                        <label class="label-email"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.email"/> *" title="<s:message code="pic.shows.detail.comment.email"/> *" id="email" name="email" class="form_field">
+                                                        <label class="label-message"></label><textarea name="comment" cols="45" rows="5" placeholder="<s:message code="pic.shows.detail.comment.msg"/>..." id="comment-message" class="form_field"></textarea>
+                                                        <p class="form-submit"><input name="submit" type="submit" id="submit" value="pic.shows.detail.comment.submit" /></p>
                                                     </form>                 
                                                 </div><!-- #respond -->
                                             </div>                                    
@@ -174,7 +169,7 @@
         
     <footer>
         <div class="footer_wrapper container">
-            <div class="copyright">Copyright &copy; 2014 Oyster HTML Template. All Rights Reserved.</div>
+            <div class="copyright">Copyright &copy; 2014-2015 Sainte Claire.</div>
             <div class="socials_wrapper">
                 <ul class="socials_list">
                 	<li><a class="ico_social_dribbble" target="_blank" href="http://dribbble.com/" title="Dribbble"></a></li>
@@ -194,6 +189,7 @@
 	<script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery-ui.min.js"></script>    
     <script type="text/javascript" src="<%=basePath%>/theme/show/js/modules.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/theme/show/js/theme.js"></script> 
+	<script type="text/javascript" src="<%=basePath%>/js/shows/picShow.js"></script>  
     <script>
 		jQuery(document).ready(function(){
 			"use strict";			
