@@ -37,17 +37,24 @@
     </header>
     <div class="fullscreen_block hided">
 		<ul class="optionset" data-option-key="filter">
-        	<li class="selected"><a href="show" data-option-value="*">All Works</a></li>
-            <li><a data-option-value=".advertisement" href="#filter" title="View all post filed under advertisement">Advertisement</a></li>
-            <li><a data-option-value=".cities" href="#filter" title="View all post filed under cities">Cities</a></li>
-            <li><a data-option-value=".fashion" href="#filter" title="View all post filed under fashion">Fashion</a></li>
-            <li><a data-option-value=".nature" href="#filter" title="View all post filed under nature">Nature</a></li>
-            <li><a data-option-value=".portrait" href="#filter" title="View all post filed under portrait">Portrait</a></li>
-            <li><a data-option-value=".ttttt" href="#filter" title="View all post filed under stuff">Stuff</a></li>
+            <c:choose>
+            	<c:when test="${locale == 'en_US' }">
+            		<li class="selected"><a href="show" data-option-value="*">All</a></li>
+            		<c:forEach items="${parents }" var="cate">
+            		<li><a data-option-value=".cate${cate.id }" href="#filter" >${cate.nameEn }</a></li>
+            		</c:forEach>
+            	</c:when>
+            	<c:otherwise>
+            		<li class="selected"><a href="show" data-option-value="*">全部</a></li>
+            		<c:forEach items="${parents }" var="cate">
+            		<li><a data-option-value=".cate${cate.id }" href="#filter" >${cate.name }</a></li>
+            		</c:forEach>
+            	</c:otherwise>
+            </c:choose>
         </ul>
         <div class="fs_blog_module image-grid">
         	<c:forEach items="${showpics}" var="pic">
-        	<div class="blogpost_preview_fw element ttttt">
+        	<div class="blogpost_preview_fw element cate${pic.cateId }">
             	<div class="fw_preview_wrapper">
                     <div class="gallery_item_wrapper">
                         <a href="<%=basePath%>/show/pic/${pic.id}" >
@@ -103,6 +110,15 @@
 			},2300);
 			setTimeout("jQuery('.preloader').remove()", 2600);			
 		});	
+        function changeLocale(){
+    		var locale = $("#localeSel").val();
+    		var d = {"localeStr" : locale};
+    		$.post("changeLocale", d, function(data){
+    			if(data.head.resp_code = '200'){
+    				location.reload();
+    			}
+    		});
+    	}
     </script>     
 </body>
 </html>

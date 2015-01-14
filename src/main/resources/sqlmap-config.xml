@@ -8,4 +8,5 @@
 	<sqlMap resource="orders.sql.xml" />
 	<sqlMap resource="productsize.sql.xml" />
 	<sqlMap resource="picshow.sql.xml" />
+	<sqlMap resource="comment.sql.xml" />
 </sqlMapConfig>

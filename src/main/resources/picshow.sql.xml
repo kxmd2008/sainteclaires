@@ -2,11 +2,29 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="picShow">
-	<typeAlias alias="picShow" type="org.luis.sainteclaires.base.bean.PicShow" />
+	<typeAlias alias="PicShow" type="org.luis.sainteclaires.base.bean.PicShow" />
+	<resultMap class="PicShow" id="PicShowMap">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="path" column="path" />
+		<result property="cateId" column="cateId" />
+		<result property="views" column="views" />
+		<result property="loves" column="loves" />
+		<result property="year" column="year" />
+		<result property="quarter" column="quarter" />
+		<result property="cateName" column="name" />
+		<result property="cateNameEn" column="name_en" />
+	</resultMap>
 	<update id="picLove" parameterClass="java.lang.Long">
 	update pic_show set loves = loves + 1 where id = #id#
 	</update>
 	<update id="picView" parameterClass="java.lang.Long">
 	update pic_show set views = views + 1 where id = #id#
 	</update>
+	
+	<select id="findByYearQ" parameterClass="java.util.Map" resultMap="PicShowMap">
+		select ps.*, c.name, c.name_en from pic_show as ps 
+		left join category as c on c.id = ps.cateId
+		where ps.year = #year# and ps.quarter = #quarter#
+	</select>
 </sqlMap>

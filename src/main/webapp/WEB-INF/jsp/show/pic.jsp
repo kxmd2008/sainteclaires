@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -24,6 +25,11 @@
 <link rel="stylesheet" href="<%=basePath%>/theme/show/css/responsive.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<%=basePath%>/theme/show/css/custom.css" type="text/css" media="all" />
 <script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery.min.js"></script>
+<style type="text/css">
+.sss{
+	display: none;
+}
+</style>
 </head>
 <body>
 
@@ -86,76 +92,64 @@
                                             <div id="comments">
                                                 <h4 class="headInModule postcomment"><s:message code="pic.shows.detail.comments"/>: </h4>
                                                 <ol class="commentlist">
-                                                    <li class="comment odd alt thread-odd thread-alt depth-1">
-                                                        <div class="stand_comment">
-                                                            <div class="commentava wrapped_img">
-                                                                <img alt="" src="../../shows/default_head.gif" class="avatar" height="96" width="96" />
-                                                                <div class="img_inset"></div>
-                                                            </div>
-                                                            <div class="thiscommentbody">
-                                                                <div class="comment_info">
-                                                                    <h6 class="author_name">John Doe </h6>
-                                                                    <h6 class="date">July 11, 2014</h6>
-                                                                    <span class="comments"><a class="comment-reply-link" href="javascript:void(0)">Reply</a></span>
-                                                                </div>
-                                                                <p>Awesome!</p>
-                                                            </div>
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <ul class="children">
+                                                	<c:forEach var="comment" items="${comments}">
+                                                		<li class="comment odd alt thread-odd thread-alt depth-1">
+                                                			<div class="stand_comment">
+	                                                            <div class="commentava wrapped_img">
+	                                                                <img alt="" src="../../shows/default_head.gif" class="avatar" height="96" width="96" />
+	                                                                <div class="img_inset"></div>
+	                                                            </div>
+	                                                            <div class="thiscommentbody">
+	                                                                <div class="comment_info">
+	                                                                    <h6 class="author_name">${comment.name } </h6>
+	                                                                    <h6 class="date"> <fmt:formatDate value="${comment.date }" pattern="yyyy-MM-dd HH:mm:ss" /></h6>
+	                                                                     <span class="comments"><a class="comment-reply-link" href="javascript:reply('${comment.name }',${comment.id })"><s:message code="pic.shows.detail.comment.reply"/></a></span>
+	                                                                </div>
+	                                                                <p>${comment.comment }</p>
+	                                                            </div>
+	                                                            <div class="clear"></div>
+	                                                        </div>
+                                                		</li><!-- #comment-## -->
+                                                		<c:forEach var="child" items="${comment.comments}">
+                                                		<ul class="children">
                                                             <li class="comment byuser comment-author-gt3dev bypostauthor even depth-2">
                                                                 <div class="stand_comment">
                                                                     <div class="commentava wrapped_img">
-                                                                        <img alt="" src="img/avatar/2.jpg" class="avatar" height="96" width="96" />
+                                                                        <img alt="" src="../../shows/default_head.gif" class="avatar" height="96" width="96" />
                                                                         <div class="img_inset"></div>
                                                                     </div>
                                                                     <div class="thiscommentbody">
                                                                         <div class="comment_info">
-                                                                            <h6 class="author_name">gt3dev </h6>
-                                                                            <h6 class="date">July 11, 2014</h6>
-                                                                             <span class="comments"><a class="comment-reply-link" href="javascript:void(0)">Reply</a></span>
+                                                                            <h6 class="author_name">${child.name } </h6>
+                                                                            <h6 class="date"><fmt:formatDate value="${child.date }" pattern="yyyy-MM-dd HH:mm:ss" /></h6>
                                                                         </div>
-                                                                        <p>Thanks!</p>
+                                                                        <p>${child.comment }</p>
                                                                     </div>
                                                                     <div class="clear"></div>
                                                                 </div>
                                                             </li><!-- #comment-## -->
                                                         </ul><!-- .children -->
-                                                    </li><!-- #comment-## -->
-                                                    <li class="comment odd alt thread-even depth-1">
-                                                        <div class="stand_comment">
-                                                            <div class="commentava wrapped_img">
-                                                                <img alt="" src="img/avatar/4.jpg" class="avatar" height="96" width="96" />
-                                                                <div class="img_inset"></div>
-                                                            </div>
-                                                            <div class="thiscommentbody">
-                                                                <div class="comment_info">
-                                                                    <h6 class="author_name">Tom White </h6>
-                                                                    <h6 class="date">July 11, 2014</h6>
-                                                                     <span class="comments"><a class="comment-reply-link" href="javascript:void(0)">Reply</a></span>
-                                                                </div>
-                                                                <p>Amazing theme!</p>
-                                                            </div>
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                    </li><!-- #comment-## -->  
+                                                        </c:forEach>
+                                                	</c:forEach>
                                                 </ol>
-                                                
                                                 <hr class="comment_hr">                                                    
-                                                
                                                 <div id="respond" class="comment-respond">
                                                     <h3 id="reply-title" class="comment-reply-title"><s:message code="pic.shows.detail.comment.title"/>!</h3>
+                                                    <div id="replyDiv" style="display: none;"><s:message code="pic.shows.detail.comment.reply"/>:<span id="replyOne"></span>
+                                                    	<div><a class="pp_close" href="#">Delete</a></div>
+                                                    </div>
                                                     <form action="javascript:void(0)" method="post" id="commentform" class="comment-form">
+                                                        <input type="hidden" id="picShowId" value="${picShowId }">
+                                                        <input type="hidden" id="parentId">
                                                         <label class="label-name"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.name"/> *" title="<s:message code="pic.shows.detail.comment.name"/> *" id="author" name="author" class="form_field">
                                                         <label class="label-email"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.email"/> *" title="<s:message code="pic.shows.detail.comment.email"/> *" id="email" name="email" class="form_field">
-                                                        <label class="label-message"></label><textarea name="comment" cols="45" rows="5" placeholder="<s:message code="pic.shows.detail.comment.msg"/>..." id="comment-message" class="form_field"></textarea>
-                                                        <p class="form-submit"><input name="submit" type="submit" id="submit" value="pic.shows.detail.comment.submit" /></p>
+                                                        <label class="label-message"></label><textarea name="comment" cols="45" rows="5" placeholder="<s:message code="pic.shows.detail.comment.msg"/>..." id="comment" class="form_field"></textarea>
+                                                        <p class="form-submit"><input name="button" type="button" id="submit" value="<s:message code="pic.shows.detail.comment.submit"/>" onclick="submitComment();"/></p>
                                                     </form>                 
                                                 </div><!-- #respond -->
                                             </div>                                    
                                         </div>
                                     </div>								
-									                                
                             	</div><!-- .contentarea -->
                         	</div>
                     	</div>
@@ -213,6 +207,7 @@
 			"use strict";
 			jQuery('.form-allowed-tags').width(jQuery('#commentform').width() - jQuery('.form-submit').width() - 13);
 		});
+		checkCookie();
 	</script>
 </body>
 </html>

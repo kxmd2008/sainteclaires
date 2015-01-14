@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="comment">
+	<typeAlias alias="Comment" type="org.luis.sainteclaires.base.bean.Comment" />
+	<resultMap class="Comment" id="CommentMap">
+		<result property="id" column="id" />
+		<result property="picId" column="picId" />
+		<result property="commentatorId" column="commentatorId" />
+		<result property="comment" column="comment" />
+		<result property="parentId" column="parentId" />
+		<result property="date" column="date" />
+		<result property="name" column="name" />
+	</resultMap>
+	
+	<select id="findByPicId" parameterClass="java.lang.Long" resultMap="CommentMap">
+		select distinct c.*, cr.name from comment c
+		left join comment c1 on c1.parentid = c.id
+		left join commentator cr on c.commentatorid = cr.id
+		where c.picId=#picId# order by c.parentId, c.id
+	</select>
+</sqlMap>
