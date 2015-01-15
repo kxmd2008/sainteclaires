@@ -32,6 +32,20 @@
                 <a href="#" class="logo">
 				<img src="<%=basePath%>/common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
             </div>
+            <div class="header_rp">
+             	 <nav>
+                    <div class="menu-main-menu-container">
+                    	<ul id="menu-main-menu" class="menu">
+                        	<li class="menu-item-has-children">
+                        		<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
+									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
+									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
+								</select>
+                        	</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
             <div class="clear"></div>
         </div>
     </header>

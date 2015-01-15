@@ -38,7 +38,21 @@
         	<div class="logo_sect" style="padding-top:18px;padding-bottom:18px;">
                 <a href="#" class="logo">
 				<img src="../../common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
-            </div>                       
+            </div>    
+            <div class="header_rp">
+             	 <nav>
+                    <div class="menu-main-menu-container">
+                    	<ul id="menu-main-menu" class="menu">
+                        	<li class="menu-item-has-children">
+                        		<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
+									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
+									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
+								</select>
+                        	</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>                   
             <div class="clear"></div>
         </div>
     </header>
@@ -103,7 +117,7 @@
 	                                                                <div class="comment_info">
 	                                                                    <h6 class="author_name">${comment.name } </h6>
 	                                                                    <h6 class="date"> <fmt:formatDate value="${comment.date }" pattern="yyyy-MM-dd HH:mm:ss" /></h6>
-	                                                                     <span class="comments"><a class="comment-reply-link" href="javascript:reply('${comment.name }',${comment.id })"><s:message code="pic.shows.detail.comment.reply"/></a></span>
+	                                                                     <span class="comments"><a class="comment-reply-link" href="#replyMd" onclick="reply('${comment.name }',${comment.id })"><s:message code="pic.shows.detail.comment.reply"/></a></span>
 	                                                                </div>
 	                                                                <p>${comment.comment }</p>
 	                                                            </div>
@@ -132,17 +146,21 @@
                                                         </c:forEach>
                                                 	</c:forEach>
                                                 </ol>
-                                                <hr class="comment_hr">                                                    
+                                                <hr class="comment_hr">  
+                                                <div class="clear"></div>                                                  
                                                 <div id="respond" class="comment-respond">
                                                     <h3 id="reply-title" class="comment-reply-title"><s:message code="pic.shows.detail.comment.title"/>!</h3>
-                                                    <div id="replyDiv" style="display: none;"><s:message code="pic.shows.detail.comment.reply"/>:<span id="replyOne"></span>
-                                                    	<div><a class="pp_close" href="#">Delete</a></div>
+                                                    <div id="replyDiv" style="display: none;margin-bottom: 5px;" class="post_meta_data">
+                                                    	<div class="post_controls" >
+                                                    		<s:message code="pic.shows.detail.comment.reply"/>:<span id="replyOne"></span>
+                                                    		<a name="replyMd" href="javascript:clearAuthor();" class="fw_post_close" style="margin-top:1px;margin-left: 0px;"></a>
+                                                    	</div>
                                                     </div>
                                                     <form action="javascript:void(0)" method="post" id="commentform" class="comment-form">
                                                         <input type="hidden" id="picShowId" value="${picShowId }">
                                                         <input type="hidden" id="parentId">
                                                         <label class="label-name"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.name"/> *" title="<s:message code="pic.shows.detail.comment.name"/> *" id="author" name="author" class="form_field">
-                                                        <label class="label-email"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.email"/> *" title="<s:message code="pic.shows.detail.comment.email"/> *" id="email" name="email" class="form_field">
+                                                        <label class="label-email"></label><input type="text" placeholder="<s:message code="pic.shows.detail.comment.email"/>" title="<s:message code="pic.shows.detail.comment.email"/>" id="email" name="email" class="form_field">
                                                         <label class="label-message"></label><textarea name="comment" cols="45" rows="5" placeholder="<s:message code="pic.shows.detail.comment.msg"/>..." id="comment" class="form_field"></textarea>
                                                         <p class="form-submit"><input name="button" type="button" id="submit" value="<s:message code="pic.shows.detail.comment.submit"/>" onclick="submitComment();"/></p>
                                                     </form>                 
@@ -208,6 +226,15 @@
 			jQuery('.form-allowed-tags').width(jQuery('#commentform').width() - jQuery('.form-submit').width() - 13);
 		});
 		checkCookie();
+		function changeLocale(){
+    		var locale = $("#localeSel").val();
+    		var d = {"localeStr" : locale};
+    		$.post("../../changeLocale", d, function(data){
+    			if(data.head.resp_code = '200'){
+    				location.reload();
+    			}
+    		});
+    	}
 	</script>
 </body>
 </html>

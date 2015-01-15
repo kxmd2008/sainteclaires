@@ -46,14 +46,18 @@ function submitComment() {
 	};
 	$.post("../comment", d, function(msg) {
 		if (msg.head.rep_code == 200) {
-			$("#replyDiv").css("display", "none");
+			clearAuthor();
 			addCookie(key_name, author);
 			addCookie(key_email, email);
 			$("#comment").val("");
-			$("#parentId").val("");
 			toReadOnly();
 		}
 	});
+}
+
+function clearAuthor(){
+	$("#replyDiv").css("display", "none");
+	$("#parentId").val("");
 }
 
 function addCookie(objName, objValue) {// 添加cookie
