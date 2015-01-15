@@ -80,7 +80,7 @@
                                             
                                             <div class="blog_post-footer sp-blog_post-footer ">
                                                 <div class="blogpost_share">
-                                                    <span>Share this:</span>
+                                                    <span><s:message code="common.share"/>:</span>
                                                     <a href="javascript:void(0)" class="share_facebook"><i class="stand_icon icon-facebook-square"></i></a>
                                                     <a href="javascript:void(0)" class="share_pinterest"><i class="stand_icon icon-pinterest"></i></a>                                                    <a href="javascript:void(0)" class="share_tweet"><i class="stand_icon icon-twitter"></i></a>                                                       
                                                     <a href="javascript:void(0)" class="share_gplus"><i class="icon-google-plus-square"></i></a>
