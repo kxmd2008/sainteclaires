@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<link rel="shortcut icon" href="<%=basePath%>/common/image/favicon.png">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/common/bootstrap.min_v2.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/theme_v2.css">
 <link rel="stylesheet"  href="<%=basePath%>/css/font-awesome/css/font-awesome.css">
