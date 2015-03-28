@@ -4,33 +4,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path;
+// 	String basePath = request.getScheme() + "://"
+// 			+ request.getServerName() + ":" + request.getServerPort()
+// 			+ path;
+	String basePath = request.getRequestURL().toString();
 %>
 <!DOCTYPE html>
 <html class="fullscreen_page sticky_menu">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="shortcut icon" href="<%=basePath%>/common/image/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="/common/image/favicon.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="shows/apple_icons_57x57.png">
 <link rel="apple-touch-icon" sizes="72x72" href="shows/apple_icons_72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="shows/apple_icons_114x114.png">
 <title>Sainte Claire</title>
 <link href="http://fonts.useso.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
 <link href="http://fonts.useso.com/css?family=Roboto:400,300,500,900" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/theme.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/responsive.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/custom.css" type="text/css" media="all" />
-<script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery.min.js"></script>
+<link rel="stylesheet" href="/theme/show/css/theme.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/theme/show/css/responsive.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/theme/show/css/custom.css" type="text/css" media="all" />
+<script type="text/javascript" src="/theme/show/js/jquery.min.js"></script>
 </head>
 <body>
 	<header class="main_header">
         <div class="header_wrapper">
         	<div class="logo_sect" style="padding-top:18px;padding-bottom:18px;">
                 <a href="#" class="logo">
-				<img src="<%=basePath%>/common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
+				<img src="/common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
             </div>
             <div class="header_rp">
              	 <nav>
@@ -71,8 +72,8 @@
         	<div class="blogpost_preview_fw element cate${pic.cateId }">
             	<div class="fw_preview_wrapper">
                     <div class="gallery_item_wrapper">
-                        <a href="<%=basePath%>/show/pic/${pic.id}" >
-                            <img src="<%=basePath%>/${pic.path}" alt="" class="fw_featured_image" width="540">
+                        <a href="show/pic/${pic.id}" >
+                            <img src="/${pic.path}" alt="" class="fw_featured_image" width="540">
                             <div class="gallery_fadder"></div>
                             <span class="gallery_ico"><i class="stand_icon icon-eye"></i></span>
                         </a>
@@ -110,12 +111,12 @@
         </div>
     </footer>
 	<div class="content_bg"></div>
-	<script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery-ui.min.js"></script>    
-    <script type="text/javascript" src="<%=basePath%>/theme/show/js/modules.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/theme/show/js/theme.js"></script>
-    <script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>/theme/show/js/sorting.js"></script>  
-    <script type="text/javascript" src="<%=basePath%>/js/shows/picShow.js"></script>  
+	<script type="text/javascript" src="/theme/show/js/jquery-ui.min.js"></script>    
+    <script type="text/javascript" src="/theme/show/js/modules.js"></script>
+	<script type="text/javascript" src="/theme/show/js/theme.js"></script>
+    <script type="text/javascript" src="/theme/show/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/theme/show/js/sorting.js"></script>  
+    <script type="text/javascript" src="/js/shows/picShow.js"></script>  
     <script type="text/javascript">
         jQuery(document).ready(function($){
 			"use strict";

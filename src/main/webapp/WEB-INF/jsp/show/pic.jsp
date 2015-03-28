@@ -5,26 +5,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path;
+// 	String basePath = request.getScheme() + "://"
+// 			+ request.getServerName() + ":" + request.getServerPort()
+// 			+ path;
+	String basePath = request.getRequestURL().toString();
 %>
 <!DOCTYPE html>
 <html class="fullscreen_page sticky_menu">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="shortcut icon" href="<%=basePath%>/common/image/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="/common/image/favicon.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="img/apple_icons_57x57.png">
 <link rel="apple-touch-icon" sizes="72x72" href="img/apple_icons_72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="img/apple_icons_114x114.png">
 <title>Sainte Claire</title>
 <link href="http://fonts.useso.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
 <link href="http://fonts.useso.com/css?family=Roboto:400,300,500,900" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/theme.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/responsive.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<%=basePath%>/theme/show/css/custom.css" type="text/css" media="all" />
-<script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery.min.js"></script>
+<link rel="stylesheet" href="/theme/show/css/theme.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/theme/show/css/responsive.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/theme/show/css/custom.css" type="text/css" media="all" />
+<script type="text/javascript" src="/theme/show/js/jquery.min.js"></script>
 <style type="text/css">
 .sss{
 	display: none;
@@ -198,10 +199,10 @@
     </footer> 
     	    
 	<div class="content_bg"></div>
-	<script type="text/javascript" src="<%=basePath%>/theme/show/js/jquery-ui.min.js"></script>    
-    <script type="text/javascript" src="<%=basePath%>/theme/show/js/modules.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/theme/show/js/theme.js"></script> 
-	<script type="text/javascript" src="<%=basePath%>/js/shows/picShow.js"></script>  
+	<script type="text/javascript" src="/theme/show/js/jquery-ui.min.js"></script>    
+    <script type="text/javascript" src="/theme/show/js/modules.js"></script>
+	<script type="text/javascript" src="/theme/show/js/theme.js"></script> 
+	<script type="text/javascript" src="/js/shows/picShow.js"></script>  
     <script>
 		jQuery(document).ready(function(){
 			"use strict";			
