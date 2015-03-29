@@ -66,6 +66,9 @@
                 <nav>
                     <div class="menu-main-menu-container">
                     	<ul id="menu-main-menu" class="menu">
+                    		<li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
+                            	<a href="http://www.sainteclaire.com.cn/"><span>Home</span></a>                            
+                            </li>
                         	<li class="menu-item-has-children">
                             	<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
 									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
