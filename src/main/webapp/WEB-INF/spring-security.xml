@@ -46,6 +46,7 @@
 	<security:http pattern="/account/create" security="none" />
 	<security:http pattern="/auth/admin" security="none" />
 	<security:http pattern="/changeLocale" security="none" />
+	<security:http pattern="/introduction" security="none" />
 	<security:http use-expressions="true" entry-point-ref="loginUrlEntryPoint">
 		<!-- 登录过滤器 -->
 		<security:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />

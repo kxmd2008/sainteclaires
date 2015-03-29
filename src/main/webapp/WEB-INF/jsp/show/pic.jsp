@@ -36,24 +36,27 @@
 
 	<header class="main_header">
         <div class="header_wrapper">
-        	<div class="logo_sect" style="padding-top:18px;padding-bottom:18px;">
+        	<div class="logo_sect">
                 <a href="#" class="logo">
-				<img src="../../common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;">
-            </div>    
+                	<img src="/common/image/logo_txt.png" alt="" class="logo_def" style="width:150px;height:50px;">
+                </a>
+            </div>                       
             <div class="header_rp">
-             	 <nav>
+                <nav>
                     <div class="menu-main-menu-container">
                     	<ul id="menu-main-menu" class="menu">
                         	<li class="menu-item-has-children">
-                        		<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
+                            	<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
 									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文
 									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
-								</select>
-                        	</li>
-                        </ul>
+								</select>                           
+                            </li>
+                            <li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
+                            	<a href="introduction"><span>公司简介</span></a>                            
+                            </li>
                     </div>
-                </nav>
-            </div>                   
+                </nav>            
+			</div>
             <div class="clear"></div>
         </div>
     </header>
