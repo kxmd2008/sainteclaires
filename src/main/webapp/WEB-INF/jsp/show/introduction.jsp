@@ -114,7 +114,7 @@
                                     
                                     <div class="row">                                    
                                     	<div class="span4 module_number_3 module_cont no_bg pb30 module_contact_info">
-                                        	<div class="bg_title"><h4 class="headInModule">联系方式</h4></div>
+                                        	<div class="bg_title"><h4 class="headInModule"><s:message code="introduction.contact"/></h4></div>
                                             <ul class="contact_info_list contact_icons">
                                                 <li class="contact_info_item">
                                                     <div class="contact_info_wrapper">

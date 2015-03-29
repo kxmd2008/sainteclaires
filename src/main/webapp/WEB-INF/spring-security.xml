@@ -22,7 +22,7 @@
 	<security:http pattern="/" security="none" />
 	<security:http pattern="/theme/**" security="none" />
 	<security:http pattern="/show" security="none" />
-	<security:http pattern="/show/*" security="none" />
+	<security:http pattern="/show/**" security="none" />
 	<security:http pattern="/js/**" security="none" />
 	<security:http pattern="/common/**" security="none" />
 	<security:http pattern="/css/**" security="none" />
