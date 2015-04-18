@@ -46,7 +46,7 @@
                     <div class="menu-main-menu-container">
                     	<ul id="menu-main-menu" class="menu">
                     		<li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="http://www.sainteclaire.com.cn/"><span>Home</span></a>                            
+                            	<a href="http://www.sainteclaire.com.cn/"><span><s:message code="header.home"/></span></a>                            
                             </li>
                         	<li class="menu-item-has-children">
                             	<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
@@ -55,7 +55,7 @@
 								</select>                           
                             </li>
                             <li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="introduction"><span>公司简介</span></a>                            
+                            	<a href="introduction"><span><s:message code="common.profile"/></span></a>                            
                             </li>
                     </div>
                 </nav>            

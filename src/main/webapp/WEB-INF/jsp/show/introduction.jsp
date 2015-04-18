@@ -46,7 +46,7 @@
                     <div class="menu-main-menu-container">
                     	<ul id="menu-main-menu" class="menu">
                     		<li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="http://www.sainteclaire.com.cn/"><span>Home</span></a>                            
+                            	<a href="http://www.sainteclaire.com.cn/"><span><s:message code="header.home"/></span></a>                            
                             </li>
                         	<li class="menu-item-has-children">
                             	<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
@@ -54,8 +54,9 @@
 									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English
 								</select>                           
                             </li>
+                            
                             <li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="#"><span>公司简介</span></a>                            
+                            	<a href="#"><span><s:message code="common.profile"/></span></a>                            
                             </li>
                     </div>
                 </nav>            
@@ -216,6 +217,15 @@
 			  }
 			];
         }
+        function changeLocale(){
+    		var locale = $("#localeSel").val();
+    		var d = {"localeStr" : locale};
+    		$.post("../../changeLocale", d, function(data){
+    			if(data.head.resp_code = '200'){
+    				location.reload();
+    			}
+    		});
+    	}
     </script>
 </body>
 </html>

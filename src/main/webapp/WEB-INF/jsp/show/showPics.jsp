@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -27,34 +27,6 @@
 <script type="text/javascript" src="/theme/show/js/jquery.min.js"></script>
 </head>
 <body>
-<!-- 	<header class="main_header"> -->
-<!--         <div class="header_wrapper"> -->
-<!--         	<div class="logo_sect" style="padding-top:18px;padding-bottom:18px;"> -->
-<!--                 <a href="#" class="logo"> -->
-<!-- 				<img src="/common/image/logo_txt.png" alt=""  class="logo_def" style="width:150px;height:50px;"> -->
-<!--             </div> -->
-<!--             <div class="header_rp" > -->
-<!--              	 <nav> -->
-<!--                     <div class="menu-main-menu-container"> -->
-<!--                     	<ul id="menu-main-menu" class="menu"> -->
-<!--                         	<li class="menu-item-has-children"> -->
-<!--                         		<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	 -->
-<%-- 									<option value="zh_CN" <c:if test="${locale == 'zh_CN' }">selected="selected"</c:if> >中文 --%>
-<%-- 									<option value="en_US" <c:if test="${locale == 'en_US' }">selected="selected"</c:if> >English --%>
-<!-- 								</select> -->
-								
-<!--                         	</li> -->
-<!--                         	<li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;"> -->
-<!--                             	<a href="#"><span>公司简介</span></a> -->
-<!--                             </li> -->
-<!--                         </ul> -->
-<!--                     </div> -->
-                   
-<!--                 </nav> -->
-<!--             </div> -->
-<!--             <div class="clear"></div> -->
-<!--         </div> -->
-<!--     </header> -->
 	<header class="main_header">
         <div class="header_wrapper">
         	<div class="logo_sect">
@@ -67,7 +39,7 @@
                     <div class="menu-main-menu-container">
                     	<ul id="menu-main-menu" class="menu">
                     		<li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="http://www.sainteclaire.com.cn/"><span>Home</span></a>                            
+                            	<a href="http://www.sainteclaire.com.cn/"><span><s:message code="header.home"/></span></a>                            
                             </li>
                         	<li class="menu-item-has-children">
                             	<select onchange="changeLocale();" id="localeSel" style="margin-top:22px;margin-bottom:22px;">	
@@ -76,7 +48,7 @@
 								</select>                           
                             </li>
                             <li class="menu-item-has-children" style="margin-top:10px;margin-bottom:22px;">
-                            	<a href="introduction"><span>公司简介</span></a>                            
+                            	<a href="introduction"><span><s:message code="common.profile"/></span></a>                            
                             </li>
                     </div>
                 </nav>            
